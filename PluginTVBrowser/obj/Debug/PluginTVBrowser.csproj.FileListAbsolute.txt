@@ -1,0 +1,11 @@
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\TVBrowser.dll
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\TVBrowser.pdb
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\de\TVBrowser.resources.dll
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVBrowser\obj\Debug\ResolveAssemblyReference.cache
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVBrowser\obj\Debug\PluginTVBrowser.csproj.GenerateResource.Cache
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVBrowser\obj\Debug\de\TVBrowser.resources.dll
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVBrowser\obj\Debug\TVBrowser.dll
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVBrowser\obj\Debug\TVBrowser.pdb
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVBrowser\obj\Debug\Crazysoft.OTRRemote.FrmWizard.resources
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVBrowser\obj\Debug\Crazysoft.OTRRemote.Lang.TVBrowser.resources
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVBrowser\obj\Debug\Crazysoft.OTRRemote.Lang.TVBrowser.de.resources

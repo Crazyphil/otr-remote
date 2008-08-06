@@ -1,0 +1,10 @@
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\TVgenial.dll
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\TVgenial.pdb
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\de\TVgenial.resources.dll
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Debug\ResolveAssemblyReference.cache
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Debug\PluginTVgenial.csproj.GenerateResource.Cache
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Debug\de\TVgenial.resources.dll
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Debug\TVgenial.dll
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Debug\TVgenial.pdb
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Debug\Crazysoft.OTRRemote.Lang.TVgenial.resources
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Debug\Crazysoft.OTRRemote.Lang.TVgenial.de.resources

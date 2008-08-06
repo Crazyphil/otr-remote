@@ -1,0 +1,24 @@
+..\PiKaSoft OTR Remote\bin\Debug\Clickfinder.dll
+..\PiKaSoft OTR Remote\bin\Debug\Clickfinder.pdb
+..\PiKaSoft OTR Remote\bin\Debug\de\Clickfinder.resources.dll
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\Crazysoft.OTR_Remote.FrmHowTo.resources
+obj\Debug\Crazysoft.OTR_Remote.Lang.Clickfinder.resources
+obj\Debug\Crazysoft.OTR_Remote.Properties.Resources.resources
+obj\Debug\PluginClickfinder.csproj.GenerateResource.Cache
+obj\Debug\Crazysoft.OTR_Remote.Lang.Clickfinder.de.resources
+obj\Debug\de\Clickfinder.resources.dll
+obj\Debug\Clickfinder.dll
+obj\Debug\Clickfinder.pdb
+..\PiKaSoft OTR Remote\bin\Release\Clickfinder.dll
+..\PiKaSoft OTR Remote\bin\Release\Clickfinder.pdb
+..\PiKaSoft OTR Remote\bin\Release\de\Clickfinder.resources.dll
+obj\Release\ResolveAssemblyReference.cache
+obj\Release\Crazysoft.OTR_Remote.FrmHowTo.resources
+obj\Release\Crazysoft.OTR_Remote.Lang.Clickfinder.resources
+obj\Release\Crazysoft.OTR_Remote.Properties.Resources.resources
+obj\Release\PluginClickfinder.csproj.GenerateResource.Cache
+obj\Release\Crazysoft.OTR_Remote.Lang.Clickfinder.de.resources
+obj\Release\de\Clickfinder.resources.dll
+obj\Release\Clickfinder.dll
+obj\Release\Clickfinder.pdb

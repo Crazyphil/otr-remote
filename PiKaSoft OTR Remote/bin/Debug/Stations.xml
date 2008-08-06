@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<stations>
+  <station name="3SAT">
+    <alt>3sat</alt>
+  </station>
+  <station name="9LIVE">
+    <alt>9live</alt>
+    <alt>9Live</alt>
+  </station>
+  <station name="ARD">
+    <alt>Das Erste (ARD)</alt>
+  </station>
+  <station name="ARD EINS">
+    <alt>1extra</alt>
+    <alt>EinsExtra</alt>
+  </station>
+  <station name="ARD EINSFESTIVAL">
+    <alt>1festival</alt>
+    <alt>EinsFestival</alt>
+  </station>
+  <station name="ARD EINSPLUS">
+    <alt>1plus</alt>
+    <alt>EinsPlus</alt>
+  </station>
+  <station name="ARTE">
+    <alt>arte</alt>
+  </station>
+  <station name="BAY3">
+    <alt>BR</alt>
+  </station>
+  <station name="BR ALPHA">
+    <alt>alpha</alt>
+    <alt>BR-alpha</alt>
+  </station>
+  <station name="COMEDYCENTRAL">
+    <alt>Comedy</alt>
+    <alt>Comedy Central</alt>
+  </station>
+  <station name="DAS4">
+    <alt>Vierte</alt>
+    <alt>DAS VIERTE</alt>
+  </station>
+  <station name="EURONEWS">
+    <alt>Euronews</alt>
+  </station>
+  <station name="EUROSPORT">
+    <alt>Eurosport</alt>
+  </station>
+  <station name="GIGA">
+    <alt>Giga</alt>
+  </station>
+  <station name="KABEL 1">
+    <alt>Kabel1</alt>
+    <alt>kabel eins</alt>
+  </station>
+  <station name="KIKA">
+    <alt>KiKa</alt>
+    <alt>KI.KA</alt>
+  </station>
+  <station name="MDR">
+    <alt>mdr</alt>
+  </station>
+  <station name="NICKELODEON">
+    <alt>nick</alt>
+    <alt>Nick</alt>
+  </station>
+  <station name="NTV">
+    <alt>n-tv</alt>
+  </station>
+  <station name="PHOENIX">
+    <alt>Phoenix</alt>
+  </station>
+  <station name="PRO7">
+    <alt>Pro7</alt>
+    <alt>ProSieben</alt>
+  </station>
+  <station name="RTL2">
+    <alt>RTL II</alt>
+  </station>
+  <station name="SAT1">
+    <alt>Sat.1</alt>
+    <alt>Sat1</alt>
+  </station>
+  <station name="SW3">
+    <alt>SWR</alt>
+    <alt>SWR BW</alt>
+  </station>
+  <station name="TELE5">
+    <alt>Tele5</alt>
+    <alt>Tele 5</alt>
+  </station>
+  <station name="TERRA NOVA">
+    <alt>terranova</alt>
+    <alt>Terra Nova</alt>
+  </station>
+  <station name="ZDF DOKU">
+    <alt>doku</alt>
+    <alt>ZDF dokukanal</alt>
+    <alt>ZDFdokukanal</alt>
+  </station>
+  <station name="ZDF THEATERKANAL">
+    <alt>theater</alt>
+    <alt>ZDFtheaterkanal</alt>
+  </station>
+</stations>

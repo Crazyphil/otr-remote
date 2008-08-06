@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crazysoft OTR Remote", "PiKaSoft OTR Remote\Crazysoft OTR Remote.csproj", "{A6D9CAFB-103A-4619-8D6F-F71DC55561FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OTRAPI", "OTRAPI\OTRAPI.csproj", "{1A72FFF1-1615-46CE-9944-40300E3F6D0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginTVgenial", "PluginTVgenial\PluginTVgenial.csproj", "{38292885-3262-4A1B-BF42-106454D28AF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginSample", "PluginSample\PluginSample.csproj", "{328A3A87-ECA0-4EE4-B53B-7F4B737A76D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginClickfinder", "PluginClickfinder\PluginClickfinder.csproj", "{41671846-CC9C-492A-A6F7-4583911A8B00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginClickfinderHelper", "PluginClickfinderHelper\PluginClickfinderHelper.csproj", "{644A318B-F62B-41B1-8AEF-69D0069B887F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginTVBrowser", "PluginTVBrowser\PluginTVBrowser.csproj", "{770CB3C7-1698-403C-86BE-F4DC55CB2BC3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6D9CAFB-103A-4619-8D6F-F71DC55561FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6D9CAFB-103A-4619-8D6F-F71DC55561FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6D9CAFB-103A-4619-8D6F-F71DC55561FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6D9CAFB-103A-4619-8D6F-F71DC55561FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A72FFF1-1615-46CE-9944-40300E3F6D0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A72FFF1-1615-46CE-9944-40300E3F6D0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A72FFF1-1615-46CE-9944-40300E3F6D0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A72FFF1-1615-46CE-9944-40300E3F6D0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38292885-3262-4A1B-BF42-106454D28AF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38292885-3262-4A1B-BF42-106454D28AF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38292885-3262-4A1B-BF42-106454D28AF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38292885-3262-4A1B-BF42-106454D28AF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{328A3A87-ECA0-4EE4-B53B-7F4B737A76D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{328A3A87-ECA0-4EE4-B53B-7F4B737A76D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{328A3A87-ECA0-4EE4-B53B-7F4B737A76D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{328A3A87-ECA0-4EE4-B53B-7F4B737A76D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41671846-CC9C-492A-A6F7-4583911A8B00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41671846-CC9C-492A-A6F7-4583911A8B00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41671846-CC9C-492A-A6F7-4583911A8B00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41671846-CC9C-492A-A6F7-4583911A8B00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{644A318B-F62B-41B1-8AEF-69D0069B887F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{644A318B-F62B-41B1-8AEF-69D0069B887F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{644A318B-F62B-41B1-8AEF-69D0069B887F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{644A318B-F62B-41B1-8AEF-69D0069B887F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{770CB3C7-1698-403C-86BE-F4DC55CB2BC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{770CB3C7-1698-403C-86BE-F4DC55CB2BC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{770CB3C7-1698-403C-86BE-F4DC55CB2BC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{770CB3C7-1698-403C-86BE-F4DC55CB2BC3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,58 @@
+﻿[OPTIONS]
+Compiled File=Help.chm
+Title=Crazysoft OTR Remote
+Contents File=Help.hhc
+Index File=Help.hhk
+Default topic=
+Default Window=Fenster
+Error log file=
+Display compile progress=No
+Display compile notes=No
+Full-text search=Yes
+Binary Index=Yes
+Auto Index=No
+Enhanced decompilation=No
+Binary TOC=No
+Flat=No
+Custom tab="&Glossar", HHActiveX.GlossaryPane
+
+[WINDOWS]
+Fenster="Crazysoft OTR Remote","Help.hhc","Help.hhk","","",,,,,0x40080520,0,0x3046,[15,15,765,565],0x0,0x0,,0,0,0,[Glossary,HHActiveX.GlossaryPane]
+
+[FILES]
+How_To_Use\StationCorrections.htm
+How_To_Use\Progress.htm
+About.htm
+How_To_Use\Login.htm
+How_To_Use\RecordingHelp.htm
+How_To_Use\Preferences.htm
+How_To_Use\ControlPanel.htm
+General\Help.htm
+General\About.htm
+CmdReference.htm
+Problembehandlung.htm
+Kommandozeilen-Referenz.htm
+How_To_Use\Logindaten-Dialog.htm
+How_To_Use\Aufnahmehilfe.htm
+How_To_Use\Senderkorrekturen.htm
+How_To_Use\Kontrollzentrum.htm
+How_To_Use\Aktionsfortschritt.htm
+General\Hilfe_im_Programm.htm
+General\Über_dieses_Programm.htm
+Willkommen.htm
+Troubleshooting.htm
+How_To_Use\Programmoptionen.htm
+RoboHHRE.lng
+
+Help.glo
+Help.brs
+[ALIAS]
+#include Help.ali
+
+[MAP]
+#include BSSCDefault.h
+
+[TEXT POPUPS]
+BSSCDefault.h
+
+

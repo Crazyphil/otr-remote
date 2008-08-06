@@ -1,0 +1,181 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html><head>
+<meta name="template" content="Crazysoft.htt">
+<meta http-equiv=content-type content="text/html; charset=utf-8">
+<meta name=topic-check-list content="Smart Index wurde ausgeführt">
+<meta name=generator content="Adobe RoboHelp - www.adobe.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=RoboHelp>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=934>
+<meta name=layout-width content=1017>
+<title>Command-Line Reference</title>
+
+<link rel="StyleSheet" href="chelp.css">
+
+</head>
+<body>
+<placeholder id="header">
+<div style="margin: 6px; margin-top: 0px;">
+<h2>Under the shiny surface</h2>
+<p>OTR Remote is controlled via the command-line interface. The Control 
+ Panel, etc. only let you comfortable set the surroundings, the main activity 
+ - adding and removing recordings from OTR - is controlled by command-line 
+ arguments.</p>
+<p>Normally, you will never notice this fact, because the OTR Remote plugins 
+ do all the dirty work for you and configure the program correctly. But 
+ if there is no plugin which fits your needs, you will either have to start 
+ the program directly by using the command-line interface or develop your 
+ own plugin, which too needs knowledge about OTR Remote's internals.</p>
+<p>In the following, we will show you which arguments are available and 
+ how to use them, as well as some examples.</p>
+<p><span style="font-weight: bold;">Needed arguments:</span> These arguments 
+ are always needed, when you want to add or remove a recording</p>
+<table x-use-null-cells style="x-cell-content-align: top; width: 100%; border-spacing: 0px; border-spacing: 0px;" 
+ cellspacing=0 width=100%>
+<col style="width: 170px;">
+<col>
+
+<tr style="x-cell-content-align: top;" valign=top>
+<td style="width: 20.833%; border-left-width: 1px; border-left-color: Black; border-left-style: Solid;
+	border-top-style: Solid; border-top-color: Black; border-top-width: 1px;
+	border-right-width: 1px; border-right-color: Black; border-right-style: Solid;
+	border-bottom-style: Solid; border-bottom-color: Black; border-bottom-width: 1px;
+	padding-right: 10px; padding-left: 10px;" width=20.833%>
+<p style="font-family: 'Courier New', monospace;">-a</td>
+<td style="width: 79.167%; border-top-style: Solid; border-top-color: Black; border-top-width: 1px;
+	border-right-width: 1px; border-right-color: Black; border-right-style: Solid;
+	border-bottom-style: Solid; border-bottom-color: Black; border-bottom-width: 1px;
+	padding-right: 10px; padding-left: 10px;" width=79.167%>
+<p>Indicates, that you want to add a recording job (either -a or -r)</td></tr>
+<tr style="x-cell-content-align: top;" valign=top>
+<td style="width: 20.833%; border-left-width: 1px; border-left-color: Black; border-left-style: Solid;
+	border-right-width: 1px; border-right-color: Black; border-right-style: Solid;
+	border-bottom-style: Solid; border-bottom-color: Black; border-bottom-width: 1px;
+	padding-right: 10px; padding-left: 10px;" width=20.833%>
+<p style="font-family: 'Courier New', monospace;">-r</td>
+<td style="width: 79.167%; border-right-width: 1px; border-right-color: Black; border-right-style: Solid;
+	border-bottom-style: Solid; border-bottom-color: Black; border-bottom-width: 1px;
+	padding-right: 10px; padding-left: 10px;" width=79.167%>
+<p>Indicates, that you want to remove a recording job (either -a or -r)</td></tr>
+<tr style="x-cell-content-align: top;" valign=top>
+<td style="width: 20.833%; border-left-width: 1px; border-left-color: Black; border-left-style: Solid;
+	border-right-width: 1px; border-right-color: Black; border-right-style: Solid;
+	border-bottom-style: Solid; border-bottom-color: Black; border-bottom-width: 1px;
+	padding-right: 10px; padding-left: 10px;" width=20.833%>
+<p style="font-family: 'Courier New', monospace;">-h</td>
+<td style="width: 79.167%; border-right-width: 1px; border-right-color: Black; border-right-style: Solid;
+	border-bottom-style: Solid; border-bottom-color: Black; border-bottom-width: 1px;
+	padding-right: 10px; padding-left: 10px;" width=79.167%>
+<p>Shows the <a href="How_To_Use/RecordingHelp.htm">Recording Help</a>, 
+ which lets you read a short overview over this reference</td></tr>
+<tr style="x-cell-content-align: top;" valign=top>
+<td style="width: 20.833%; border-left-width: 1px; border-left-color: Black; border-left-style: Solid;
+	border-right-width: 1px; border-right-color: Black; border-right-style: Solid;
+	border-bottom-style: Solid; border-bottom-color: Black; border-bottom-width: 1px;
+	padding-right: 10px; padding-left: 10px;" width=20.833%>
+<p style="font-family: 'Courier New', monospace;">-s=&quot;Station&quot;</td>
+<td style="width: 79.167%; border-right-width: 1px; border-right-color: Black; border-right-style: Solid;
+	border-bottom-style: Solid; border-bottom-color: Black; border-bottom-width: 1px;
+	padding-right: 10px; padding-left: 10px;" width=79.167%>
+<p>The short name of the station, from which you want to record your TV 
+ show</td></tr>
+<tr style="x-cell-content-align: top;" valign=top>
+<td style="width: 20.833%; border-left-width: 1px; border-left-color: Black; border-left-style: Solid;
+	border-right-width: 1px; border-right-color: Black; border-right-style: Solid;
+	border-bottom-style: Solid; border-bottom-color: Black; border-bottom-width: 1px;
+	padding-right: 10px; padding-left: 10px;" width=20.833%>
+<p style="font-family: 'Courier New', monospace;">-sd=yyyy-mm-dd</td>
+<td style="width: 79.167%; border-right-width: 1px; border-right-color: Black; border-right-style: Solid;
+	border-bottom-style: Solid; border-bottom-color: Black; border-bottom-width: 1px;
+	padding-right: 10px; padding-left: 10px;" width=79.167%>
+<p>The date corresponding to the TV show's start time in format &lt;Year&gt;-&lt;Month&gt;-&lt;Day&gt;</td></tr>
+<tr style="x-cell-content-align: top;" valign=top>
+<td style="width: 20.833%; border-left-width: 1px; border-left-color: Black; border-left-style: Solid;
+	border-right-width: 1px; border-right-color: Black; border-right-style: Solid;
+	border-bottom-style: Solid; border-bottom-color: Black; border-bottom-width: 1px;
+	padding-right: 10px; padding-left: 10px;" width=20.833%>
+<p style="font-family: 'Courier New', monospace;">-st=hh:mm</td>
+<td style="width: 79.167%; border-right-width: 1px; border-right-color: Black; border-right-style: Solid;
+	border-bottom-style: Solid; border-bottom-color: Black; border-bottom-width: 1px;
+	padding-right: 10px; padding-left: 10px;" width=79.167%>
+<p>The TV show's start time in format &lt;Hour&gt;:&lt;Minute&gt;</td></tr>
+<tr style="x-cell-content-align: top;" valign=top>
+<td style="width: 20.833%; border-left-width: 1px; border-left-color: Black; border-left-style: Solid;
+	border-right-width: 1px; border-right-color: Black; border-right-style: Solid;
+	border-bottom-style: Solid; border-bottom-color: Black; border-bottom-width: 1px;
+	padding-right: 10px; padding-left: 10px;" width=20.833%>
+<p style="font-family: 'Courier New', monospace;">-et=hh:mm</td>
+<td style="width: 79.167%; border-right-width: 1px; border-right-color: Black; border-right-style: Solid;
+	border-bottom-style: Solid; border-bottom-color: Black; border-bottom-width: 1px;
+	padding-right: 10px; padding-left: 10px;" width=79.167%>
+<p>The TV show's end time in format &lt;Hour&gt;:&lt;Minute&gt;, it may 
+ also be on the next day</td></tr>
+</table>
+<p><span style="font-weight: bold;">Optional arguments:</span> These arguments 
+ are optional, because they can be read from the settings or can be detected 
+ by OTR</p>
+<table x-use-null-cells style="x-cell-content-align: top; width: 100%; border-spacing: 0px; border-spacing: 0px;" 
+ cellspacing=0 width=100%>
+<col style="width: 170px;">
+<col>
+
+<tr style="x-cell-content-align: top;" valign=top>
+<td style="width: 20.581%; border-left-width: 1px; border-left-color: Black; border-left-style: Solid;
+	border-top-style: Solid; border-top-color: Black; border-top-width: 1px;
+	border-right-width: 1px; border-right-color: Black; border-right-style: Solid;
+	border-bottom-style: Solid; border-bottom-color: Black; border-bottom-width: 1px;
+	padding-right: 10px; padding-left: 10px;" width=20.581%>
+<p style="font-family: 'Courier New', monospace;">-t=&quot;Title&quot;</td>
+<td style="width: 79.419%; border-top-style: Solid; border-top-color: Black; border-top-width: 1px;
+	border-right-width: 1px; border-right-color: Black; border-right-style: Solid;
+	border-bottom-style: Solid; border-bottom-color: Black; border-bottom-width: 1px;
+	padding-right: 10px; padding-left: 10px;" width=79.419%>
+<p>The title of the TV show you want to record</td></tr>
+<tr style="x-cell-content-align: top;" valign=top>
+<td style="width: 20.581%; border-left-width: 1px; border-left-color: Black; border-left-style: Solid;
+	border-right-width: 1px; border-right-color: Black; border-right-style: Solid;
+	border-bottom-style: Solid; border-bottom-color: Black; border-bottom-width: 1px;
+	padding-right: 10px; padding-left: 10px;" width=20.581%>
+<p style="font-family: 'Courier New', monospace;">-u=&quot;User&quot;</td>
+<td style="width: 79.419%; border-right-width: 1px; border-right-color: Black; border-right-style: Solid;
+	border-bottom-style: Solid; border-bottom-color: Black; border-bottom-width: 1px;
+	padding-right: 10px; padding-left: 10px;" width=79.419%>
+<p>Your OTR username or E-Mail address</td></tr>
+<tr style="x-cell-content-align: top;" valign=top>
+<td style="width: 20.581%; border-left-width: 1px; border-left-color: Black; border-left-style: Solid;
+	border-right-width: 1px; border-right-color: Black; border-right-style: Solid;
+	border-bottom-style: Solid; border-bottom-color: Black; border-bottom-width: 1px;
+	padding-right: 10px; padding-left: 10px;" width=20.581%>
+<p style="font-family: 'Courier New', monospace;">-p=&quot;Password&quot;</td>
+<td style="width: 79.419%; border-right-width: 1px; border-right-color: Black; border-right-style: Solid;
+	border-bottom-style: Solid; border-bottom-color: Black; border-bottom-width: 1px;
+	padding-right: 10px; padding-left: 10px;" width=79.419%>
+<p>Your OTR password in clear-text </td></tr>
+<tr style="x-cell-content-align: top;" valign=top>
+<td style="width: 20.581%; border-left-width: 1px; border-left-color: Black; border-left-style: Solid;
+	border-right-width: 1px; border-right-color: Black; border-right-style: Solid;
+	border-bottom-style: Solid; border-bottom-color: Black; border-bottom-width: 1px;
+	padding-right: 10px; padding-left: 10px;" width=20.581%>
+<p style="font-family: 'Courier New', monospace;">-tz=Timezone</td>
+<td style="width: 79.419%; border-right-width: 1px; border-right-color: Black; border-right-style: Solid;
+	border-bottom-style: Solid; border-bottom-color: Black; border-bottom-width: 1px;
+	padding-right: 10px; padding-left: 10px;" width=79.419%>
+<p>The timezone your times are input in (hours difference from UTC)</td></tr>
+</table>
+<h3>Examples:</h3>
+<p>Add the TV show &quot;Mad TV&quot; on station &quot;Sunshine TV&quot;, 
+ which plays from November 19, 2006 from 20:00 to 23:30. We are located 
+ in Moscow (GMT+3)</p>
+<p style="font-family: 'Courier New', monospace;">OTRRemote.exe -a -s=&quot;Sunshine 
+ TV&quot; -sd=2006-11-19 -st=20:00 -et=23:30 -t=&quot;Mad TV&quot; -tz=3</p>
+<p>Remove the news on station &quot;CNN&quot; on October 25, 2006 from 
+ 13:12 to 13:17. We want to use a different password as the saved one.</p>
+<p style="font-family: 'Courier New', monospace;">OTRemote.exe -r -s=&quot;CNN&quot; 
+ -sd=2006-10-25 -st=13:12 -et=13:17 -p=&quot;secret&quot;</p>
+</div>
+<placeholder id="footer">
+</body>
+</html>

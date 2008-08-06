@@ -1,0 +1,63 @@
+﻿<html>
+<!-- Sitemap 1.0 -->
+<object type="text/site properties">
+  <param name="SiteType" value="index">
+</object>
+<ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Firewall">
+    <param name="Name" value="Aktionsfortschritt">
+    <param name="Local" value="How_To_Use\Aktionsfortschritt.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Aktionsfortschritt-Dialog">
+    <param name="Name" value="Aktionsfortschritt">
+    <param name="Local" value="How_To_Use\Aktionsfortschritt.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="System-Tray">
+    <param name="Name" value="Programmoptionen">
+    <param name="Local" value="How_To_Use\Programmoptionen.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Programmoptionen">
+    <param name="Name" value="Programmoptionen">
+    <param name="Local" value="How_To_Use\Programmoptionen.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Aufnahmehilfe-Dialog">
+    <param name="Name" value="Aufnahmehilfe">
+    <param name="Local" value="How_To_Use\Aufnahmehilfe.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Kontrollzentrum">
+    <param name="Name" value="Kontrollzentrum">
+    <param name="Local" value="How_To_Use\Kontrollzentrum.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Plugins">
+    <param name="Name" value="Kontrollzentrum">
+    <param name="Local" value="How_To_Use\Kontrollzentrum.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Zeitzone">
+    <param name="Name" value="Kontrollzentrum">
+    <param name="Local" value="How_To_Use\Kontrollzentrum.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Plugineinstellungen">
+    <param name="Name" value="Kontrollzentrum">
+    <param name="Local" value="How_To_Use\Kontrollzentrum.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="OnlineTVRecorder">
+    <param name="Name" value="Über dieses Programm">
+    <param name="Local" value="General\Über_dieses_Programm.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Senderkorrektur-Dialog">
+    <param name="Name" value="Senderkorrekturen">
+    <param name="Local" value="How_To_Use\Senderkorrekturen.htm">
+  </object>
+</ul>
+</html>

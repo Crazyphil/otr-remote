@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Methods: GetSettings</title>
+<style type="text/css">
+  body {
+    margin: 0px;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12pt;
+  }
+  h1 {
+    font-size: 14pt;
+    font-weight: bold;
+  }
+  a:link, a:visited {
+    color: #0000FF;
+  }
+  .code {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 10pt;
+  }
+  .code .keyword {
+    color: #0000FF;
+  }
+  .code .string {
+  	color: #CC0033;
+  }
+  #footer {
+    border-top: 1px solid #CCCCCC;
+    color: #CCCCCC;
+    font-size: 10pt;
+    text-align: center;
+  }
+  #footer a:link, a:visited {
+    color: #CCCCCC;
+  }
+</style>
+</head>
+
+<body>
+  <div style="background:url(headerbg.png) repeat-x">
+    <div style="background:url(headerimg.png) no-repeat;text-align:center;height:61px;padding-top:17px;font-size:18pt;color:#FFFFFF;white-space:nowrap">Methods: GetSettings</div>
+  </div>
+<div style="margin:6px;margin-top:0px">
+    <h1>What do you want to know? </h1>
+  <p>The GetSettings() method is called, after the user selects your plugin from the drop down list. The Control Panel will process your returned PluginSettingsCollection and add the settings to the settings area.</p>
+    <p><em>Note: Only the settings you return here are available to you later when doing the save work. The Control Panel's settings (username, password, timezone) and the settings in the Preferences dialog are not visible to your plugin because of security reasons!</em></p>
+    <p><strong>Definition</strong></p>
+  <p class="code"><span class="keyword">PluginSettingsCollection</span> GetSettings();</p>
+    <p><strong>Sample</strong></p>
+  <pre class="code"><span class="keyword">
+private</span> <span class="keyword">PluginSettingsCollection</span> settings;
+
+<span class="keyword">public</span> <span class="keyword">PluginSettingsCollection</span> GetSettings()
+{<br />    <span class="keyword">return</span> settings;
+}</pre>
+  </div>
+  <div id="footer">Copyright &copy; <a href="http://www.crazysoft.net.ms/" target="_blank">Crazysoft</a> 2006. All rights reserved.</div>
+</body>
+</html>

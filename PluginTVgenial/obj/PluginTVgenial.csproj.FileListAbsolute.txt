@@ -1,0 +1,20 @@
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\TVgenial.dll
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\TVgenial.pdb
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\de\TVgenial.resources.dll
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Debug\ResolveAssemblyReference.cache
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Debug\Crazysoft.OTR_Remote.Lang.TVgenial.resources
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Debug\PluginTVgenial.csproj.GenerateResource.Cache
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Debug\Crazysoft.OTR_Remote.Lang.TVgenial.de.resources
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Debug\de\TVgenial.resources.dll
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Debug\TVgenial.dll
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Debug\TVgenial.pdb
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\TVgenial.dll
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\TVgenial.pdb
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\de\TVgenial.resources.dll
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Release\ResolveAssemblyReference.cache
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Release\Crazysoft.OTR_Remote.Lang.TVgenial.resources
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Release\PluginTVgenial.csproj.GenerateResource.Cache
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Release\Crazysoft.OTR_Remote.Lang.TVgenial.de.resources
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Release\de\TVgenial.resources.dll
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Release\TVgenial.dll
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Release\TVgenial.pdb

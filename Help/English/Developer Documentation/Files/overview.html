@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Interface overview</title>
+<style type="text/css">
+  body {
+    margin: 0px;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12pt;
+  }
+  h1 {
+    font-size: 14pt;
+    font-weight: bold;
+  }
+  a:link, a:visited {
+    color: #0000FF;
+  }
+  .code {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 10pt;
+  }
+  .code .keyword {
+    color: #0000FF;
+  }
+  #footer {
+    border-top: 1px solid #CCCCCC;
+    color: #CCCCCC;
+    font-size: 10pt;
+    text-align: center;
+  }
+  #footer a:link, a:visited {
+    color: #CCCCCC;
+  }
+</style>
+</head>
+
+<body>
+  <div style="background:url(headerbg.png) repeat-x">
+    <div style="background:url(headerimg.png) no-repeat;text-align:center;height:61px;padding-top:17px;font-size:18pt;color:#FFFFFF;white-space:nowrap">Interface overview</div>
+  </div>
+  <div style="margin:6px;margin-top:0px">
+    <h1>The One-Page-Summary</h1>
+    <p>On this page, you can take a short overview over the properties and methods a plugin must have and what they are supposed to do.</p>
+    <p><strong>Interface Version:</strong> 1.0.0.0</p>
+    <p><strong>Properties:</strong></p>
+    <p><span class="code"><span class="keyword">string</span> Name;</span><br />
+    Read-only; Contains the name of the plugin, which is shown in the Control Panel.</p>
+    <p><span class="code"><span class="keyword">bool</span> Enabled;</span><br />
+    Read-only; Indicates, if a plugin is available after calling the Enable() method.</p>
+    <p><strong>Methods:</strong></p>
+    <p><span class="code"><span class="keyword">void</span> Initialize();</span><br />
+    Called, when searching for and loading plugins. Any initialization work should be done here.</p>
+    <p><span class="code"><span class="keyword">bool</span> Enable();</span><br />
+      Called, when all plugins are loaded. Returns a boolean value indicating if the plugin is available.</p>
+    <p><span class="code"><span class="keyword">PluginSettingsCollection</span> GetSettings();</span><br />
+      Called, when the plugin is selected in the Control panel. Returns a PluginSettingsCollection with the plugin's settings.</p>
+    <p><span class="code"><span class="keyword">void</span> SetSettings(<span class="keyword">PluginSettingsCollection</span> settings);</span><br />
+      Called, when the plugin's settings are clear-cut and the Control Panel is ready to save the work.</p>
+    <p><span class="code"><span class="keyword">object</span> SaveRecordingScript();</span><br />
+    Called, when the user clicks the &quot;OK&quot; button. The plugin should process its settings and do any save work, mostly writing a recording script.</p>
+    <p><span class="code"><span class="keyword">void</span> Dispose();</span><br />
+    Called, when the Control Panel is being closed. Any cleaning up work should be done here.</p>
+    <p><strong>Events:</strong></p>
+    <p>Currently none implemented.</p>
+  </div>
+<div id="footer">Copyright &copy; <a href="http://www.crazysoft.net.ms/" target="_blank">Crazysoft</a> 2006. All rights reserved.</div>
+</body>
+</html>
