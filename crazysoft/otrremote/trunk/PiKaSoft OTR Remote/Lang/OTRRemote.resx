@@ -1,0 +1,645 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CmdLine_DeleteMsg_Text" xml:space="preserve">
+    <value>Do you really want to delete "{0}" from {1} at {2}? If you delete the recording, it will not be recorded, or you will not be able to decode it.</value>
+  </data>
+  <data name="CmdLine_DeleteMsg_Title" xml:space="preserve">
+    <value>Confirm deletion</value>
+  </data>
+  <data name="CmdLine_Error_Action" xml:space="preserve">
+    <value>No action set (-a for Add, -r for Remove)</value>
+  </data>
+  <data name="CmdLine_Error_EndTime" xml:space="preserve">
+    <value>No end time set or wrong format (-et=hh:mm; e.g.: -et=22:05)</value>
+  </data>
+  <data name="CmdLine_Error_StartDate" xml:space="preserve">
+    <value>No start date set or wrong format (-sd=yyyy-mm-dd; e.g.: -sd=2006-04-13)</value>
+  </data>
+  <data name="CmdLine_Error_StartTime" xml:space="preserve">
+    <value>No start time set or wrong format (-st=hh:mm; e.g.: -st=20:15)</value>
+  </data>
+  <data name="CmdLine_Error_Station" xml:space="preserve">
+    <value>No station set (-s="Station Name")</value>
+  </data>
+  <data name="CmdLine_ErrorMsg_Text" xml:space="preserve">
+    <value>Errors while trying to add a recording:
+
+{0}
+Would you like to read the Recording Help?</value>
+  </data>
+  <data name="CmdLine_ErrorMsg_Title" xml:space="preserve">
+    <value>Recording Error</value>
+  </data>
+  <data name="FrmHelp_btnClose" xml:space="preserve">
+    <value>&amp;Close</value>
+  </data>
+  <data name="FrmHelp_lblCmdArgsHeader" xml:space="preserve">
+    <value>Commandline Arguments:</value>
+  </data>
+  <data name="FrmHelp_lblCmdArgsText" xml:space="preserve">
+    <value>-a Add a recording.
+-r Remove a recording.
+-h Show this help.
+-s Short name of the TV station to record.
+-sd Start date of the recording. (Format: yyyy-mm-dd)
+-st Start time of the recording. (Format: hh:mm)
+-et End time of the recording. (Format: hh:mm)</value>
+  </data>
+  <data name="FrmHelp_lblHeader" xml:space="preserve">
+    <value>Recording Help</value>
+  </data>
+  <data name="FrmHelp_lblNotesHeader" xml:space="preserve">
+    <value>Notes:</value>
+  </data>
+  <data name="FrmHelp_lblNotesText" xml:space="preserve">
+    <value>If an argument is shown within quotation marks, you have to write them too!
+Username, password and timezone don't have to be set if you configured them in the Control Panel.</value>
+  </data>
+  <data name="FrmHelp_lblOptionalArgsHeader" xml:space="preserve">
+    <value>Optional Arguments:</value>
+  </data>
+  <data name="FrmHelp_lblOptionalArgsText" xml:space="preserve">
+    <value>-t Title of the TV show to record.
+-g Genre of the TV show.
+-u Your OTR username or e-mail address.
+-p Your OTR password.
+-tz Timezone: The difference to GMT in hours. (e.g. Middle Europe: 1)</value>
+  </data>
+  <data name="FrmHelp_lblUsageHeader" xml:space="preserve">
+    <value>Usage:</value>
+  </data>
+  <data name="FrmHelp_lblUsageText" xml:space="preserve">
+    <value>OTRRemote.exe -a|-r -s="Station" -sd=yyyy-mm-dd -st=hh:mm -et=hh:mm [-t="Title"] [-u="User"] [-p="Password"] [-tz=Timezone]</value>
+  </data>
+  <data name="FrmLogin_btnCancel" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="FrmLogin_btnOK" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="FrmLogin_Error_Password_Text" xml:space="preserve">
+    <value>Please enter your password.</value>
+  </data>
+  <data name="FrmLogin_Error_Passwort_Title" xml:space="preserve">
+    <value>No password entered</value>
+  </data>
+  <data name="FrmLogin_Error_Username_Text" xml:space="preserve">
+    <value>Please enter your username.</value>
+  </data>
+  <data name="FrmLogin_Error_Username_Title" xml:space="preserve">
+    <value>No username entered</value>
+  </data>
+  <data name="FrmLogin_lblHeader" xml:space="preserve">
+    <value>Login Data</value>
+  </data>
+  <data name="FrmLogin_lblLoginIntroduction" xml:space="preserve">
+    <value>Please enter your login data for OTR to continue your action.</value>
+  </data>
+  <data name="FrmLogin_lblPassword" xml:space="preserve">
+    <value>&amp;Password:</value>
+  </data>
+  <data name="FrmLogin_lblTimezone" xml:space="preserve">
+    <value>&amp;Timezone:</value>
+  </data>
+  <data name="FrmLogin_lblUsername" xml:space="preserve">
+    <value>&amp;Username:</value>
+  </data>
+  <data name="FrmLogin_Title" xml:space="preserve">
+    <value>Login to OTR</value>
+  </data>
+  <data name="FrmMain_btnCancel" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="FrmMain_btnHelp" xml:space="preserve">
+    <value>&amp;Help</value>
+  </data>
+  <data name="FrmMain_btnOK" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="FrmMain_btnPreferences" xml:space="preserve">
+    <value>P&amp;references</value>
+  </data>
+  <data name="FrmMain_Error_NoPlugin" xml:space="preserve">
+    <value>None active...</value>
+  </data>
+  <data name="FrmMain_Error_Password_Text" xml:space="preserve">
+    <value>You did not enter an OTR password. If the username and/or password fields are empty,
+you have to enter the data each time you want to record a TV show.
+
+Do you really want this?</value>
+  </data>
+  <data name="FrmMain_Error_Password_Title" xml:space="preserve">
+    <value>No password entered</value>
+  </data>
+  <data name="FrmMain_Error_Plugin_Text" xml:space="preserve">
+    <value>An error occured while the plugin applied the changes: {0}</value>
+  </data>
+  <data name="FrmMain_Error_Plugin_Title" xml:space="preserve">
+    <value>Error while saving changes</value>
+  </data>
+  <data name="FrmMain_Error_PluginResult_Text" xml:space="preserve">
+    <value>The plugin returned an unexpected result while applying the changes. Please contact the plugin's manufacturer for further help.
+
+The result was: {0}</value>
+  </data>
+  <data name="FrmMain_Error_PluginResult_Title" xml:space="preserve">
+    <value>Plugin returned unexpected result</value>
+  </data>
+  <data name="FrmMain_Error_Username_Text" xml:space="preserve">
+    <value>You did not enter an OTR username. If the username and/or password fields are empty,
+you have to enter the data each time you want to record a TV show.
+
+Do you really want this?</value>
+  </data>
+  <data name="FrmMain_Error_Username_Title" xml:space="preserve">
+    <value>No username entered</value>
+  </data>
+  <data name="FrmMain_gbRecording" xml:space="preserve">
+    <value>Recording Settings</value>
+  </data>
+  <data name="FrmMain_gbTVGuide" xml:space="preserve">
+    <value>Plugin Settings</value>
+  </data>
+  <data name="FrmMain_gbUserdata" xml:space="preserve">
+    <value>Your user data at OnlineTVRecorder.com</value>
+  </data>
+  <data name="FrmMain_HelpFilename" xml:space="preserve">
+    <value>Help_en.chm</value>
+  </data>
+  <data name="FrmMain_lblHeader" xml:space="preserve">
+    <value>Control Panel</value>
+  </data>
+  <data name="FrmMain_lblIntroduction" xml:space="preserve">
+    <value>Welcome to OTR Remote! Please configure the basic data for running the software.
+Note: Adding and removing of TV shows is done via the commandline interface.</value>
+  </data>
+  <data name="FrmMain_lblPassword" xml:space="preserve">
+    <value>&amp;Password:</value>
+  </data>
+  <data name="FrmMain_lblTimezone" xml:space="preserve">
+    <value>&amp;Timezone:</value>
+  </data>
+  <data name="FrmMain_lblTVGuide" xml:space="preserve">
+    <value>TV &amp;Guide Plugin:</value>
+  </data>
+  <data name="FrmMain_lblUsername" xml:space="preserve">
+    <value>&amp;Username:</value>
+  </data>
+  <data name="FrmMain_lvSettings_Setting" xml:space="preserve">
+    <value>Setting</value>
+  </data>
+  <data name="FrmMain_lvSettings_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="FrmMain_Tooltip_Cancel" xml:space="preserve">
+    <value>Quits the application without saving any changes.</value>
+  </data>
+  <data name="FrmMain_Tooltip_Help" xml:space="preserve">
+    <value>Opens OTR Remote's help files.</value>
+  </data>
+  <data name="FrmMain_Tooltip_OK" xml:space="preserve">
+    <value>Saves the changes you made and quits the application.</value>
+  </data>
+  <data name="FrmMain_Tooltip_Password" xml:space="preserve">
+    <value>This is your OTR password.</value>
+  </data>
+  <data name="FrmMain_Tooltip_Preferences" xml:space="preserve">
+    <value>Customize the behavior of OTR Remote,
+edit network and proxy settings,
+look for new program versions and
+show informations about this application.</value>
+  </data>
+  <data name="FrmMain_Tooltip_Timezone" xml:space="preserve">
+    <value>Defines the global timezone you are located in.
+This setting helps OTR to indicate the correct recording times.</value>
+  </data>
+  <data name="FrmMain_Tooltip_Title" xml:space="preserve">
+    <value>Context Sensitive Help</value>
+  </data>
+  <data name="FrmMain_Tooltip_TVGuide" xml:space="preserve">
+    <value>Select the TV Guide Plugin you want to use with OTR Remote.
+Please note that although a program may not be listed here, you can still setup it manually.
+In such case, please read the application's manual.</value>
+  </data>
+  <data name="FrmMain_Tooltip_Username" xml:space="preserve">
+    <value>This is your OTR username or e-mail address.</value>
+  </data>
+  <data name="FrmMain_Value_BoolNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="FrmMain_Value_BoolYes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="FrmPreferences_btnCancel" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="FrmPreferences_btnEditStations" xml:space="preserve">
+    <value>E&amp;dit Station Corrections...</value>
+  </data>
+  <data name="FrmPreferences_btnOK" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="FrmPreferences_cbAdjustStartTime" xml:space="preserve">
+    <value>Record shows, which already begun</value>
+  </data>
+  <data name="FrmPreferences_cbAutoClose" xml:space="preserve">
+    <value>Hi&amp;de indicator after:</value>
+  </data>
+  <data name="FrmPreferences_cbAutoUpdate" xml:space="preserve">
+    <value>Automatically check for updates &amp;weekly</value>
+  </data>
+  <data name="FrmPreferences_cbProxy" xml:space="preserve">
+    <value>&amp;Use proxy server</value>
+  </data>
+  <data name="FrmPreferences_cbProxyAuthentication" xml:space="preserve">
+    <value>Aut&amp;hentication is required:</value>
+  </data>
+  <data name="FrmPreferences_cbProxyAuthenticationIE" xml:space="preserve">
+    <value>&amp;Non-default authentication is required:</value>
+  </data>
+  <data name="FrmPreferences_cbRecordFollowing" xml:space="preserve">
+    <value>Also record following show</value>
+  </data>
+  <data name="FrmPreferences_lblProgressIndicator" xml:space="preserve">
+    <value>Progre&amp;ss Indicator:</value>
+  </data>
+  <data name="FrmPreferences_Error_AppUpdate_Text" xml:space="preserve">
+    <value>Crazysoft AppUpdate was not found. Please install the program before trying to update.</value>
+  </data>
+  <data name="FrmPreferences_Error_AppUpdate_Title" xml:space="preserve">
+    <value>Program not found</value>
+  </data>
+  <data name="FrmPreferences_Error_PortWrong_Text" xml:space="preserve">
+    <value>The proxy port must be a number between 0 and 65535.</value>
+  </data>
+  <data name="FrmPreferences_Error_PortWrong_Title" xml:space="preserve">
+    <value>Wrong proxy port entered</value>
+  </data>
+  <data name="FrmPreferences_Error_ProxyAddress_Text" xml:space="preserve">
+    <value>Please enter a proxy address.</value>
+  </data>
+  <data name="FrmPreferences_Error_ProxyAddress_Title" xml:space="preserve">
+    <value>No proxy address entered</value>
+  </data>
+  <data name="FrmPreferences_Error_ProxyPort_Text" xml:space="preserve">
+    <value>Please enter a proxy port.</value>
+  </data>
+  <data name="FrmPreferences_Error_ProxyPort_Title" xml:space="preserve">
+    <value>No proxy port entered</value>
+  </data>
+  <data name="FrmPreferences_Error_ProxyUser_Text" xml:space="preserve">
+    <value>Please enter a proxy username.</value>
+  </data>
+  <data name="FrmPreferences_Error_ProxyUser_Title" xml:space="preserve">
+    <value>No proxy username entered</value>
+  </data>
+  <data name="FrmPreferences_Error_Update_Text" xml:space="preserve">
+    <value>Crazysoft AppUpdate could not be started. Please check the program location or reinstall the application.
+
+{0}</value>
+  </data>
+  <data name="FrmPreferences_Error_Update_Title" xml:space="preserve">
+    <value>Could not start program</value>
+  </data>
+  <data name="FrmPreferences_lblCopyright" xml:space="preserve">
+    <value>Copyright {0}. All rights reserved.</value>
+  </data>
+  <data name="FrmPreferences_lblLastUpdate" xml:space="preserve">
+    <value>Last update check: {0}</value>
+  </data>
+  <data name="FrmPreferences_lblProxyAddress" xml:space="preserve">
+    <value>&amp;Address:</value>
+  </data>
+  <data name="FrmPreferences_lblProxyPassword" xml:space="preserve">
+    <value>Passwor&amp;d:</value>
+  </data>
+  <data name="FrmPreferences_lblProxyPort" xml:space="preserve">
+    <value>Po&amp;rt:</value>
+  </data>
+  <data name="FrmPreferences_lblProxyUser" xml:space="preserve">
+    <value>Us&amp;ername:</value>
+  </data>
+  <data name="FrmPreferences_lblThanks" xml:space="preserve">
+    <value>Thanks to the folks at OnlineTVRecorder.com for their great service.
+Thanks to the community at CodeProject.com for their coding help.</value>
+  </data>
+  <data name="FrmPreferences_lblVersion" xml:space="preserve">
+    <value>Version {0}</value>
+  </data>
+  <data name="FrmPreferences_llblUpdate" xml:space="preserve">
+    <value>Check for updates...</value>
+  </data>
+  <data name="FrmPreferences_Msg_AppUpdate_Text" xml:space="preserve">
+    <value>OTR Remote has to be closed before updating it. Any unsaved work will be lost. Do you want to exit the application now?</value>
+  </data>
+  <data name="FrmPreferences_Msg_AppUpdate_Title" xml:space="preserve">
+    <value>Quitting required</value>
+  </data>
+  <data name="FrmPreferences_rbCustomProxy" xml:space="preserve">
+    <value>Use custom pro&amp;xy:</value>
+  </data>
+  <data name="FrmPreferences_rbDefaultProxy" xml:space="preserve">
+    <value>Use IE &amp;default proxy settings</value>
+  </data>
+  <data name="FrmPreferences_Tab_About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="FrmPreferences_Tab_Network" xml:space="preserve">
+    <value>Network</value>
+  </data>
+  <data name="FrmPreferences_Tab_Program" xml:space="preserve">
+    <value>Program</value>
+  </data>
+  <data name="FrmPreferences_Title" xml:space="preserve">
+    <value>Program Preferences</value>
+  </data>
+  <data name="FrmProgress_btnClose" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="FrmProgress_btnClose_Countdown" xml:space="preserve">
+    <value>&amp;Close ({0})</value>
+  </data>
+  <data name="FrmProgress_Error_Date" xml:space="preserve">
+    <value>The start date respectively the start time have to be in future. Please check them.</value>
+  </data>
+  <data name="FrmProgress_Error_ParseError" xml:space="preserve">
+    <value>OTR Remote has stumbled over an unknown status message. The file {0} has been saved. Please check the recording status manually and send the file to the Crazysoft support to allow an error fix.</value>
+  </data>
+  <data name="FrmProgress_Error_WrongLogin" xml:space="preserve">
+    <value>The login data you provided is not correct. Please check it.</value>
+  </data>
+  <data name="FrmProgress_ErrorMsg_ConnErr_Text" xml:space="preserve">
+    <value>A connection error occured while trying to modify your recording:
+
+{0}
+
+Please check your network and proxy settings.</value>
+  </data>
+  <data name="FrmProgress_ErrorMsg_ConnErr_Title" xml:space="preserve">
+    <value>Connection Error</value>
+  </data>
+  <data name="FrmProgress_ErrorMsg_DeleteError_Text" xml:space="preserve">
+    <value>The recording could not be deleted. Please check if you really have it in your recording list and username and password are correct.</value>
+  </data>
+  <data name="FrmProgress_ErrorMsg_DeleteError_Title" xml:space="preserve">
+    <value>Deletion Error</value>
+  </data>
+  <data name="FrmProgress_ErrorMsg_EPGNotFound_Text" xml:space="preserve">
+    <value>The EPG ID for the recording could not be found. Probably, the OTR EPG has a different title for the recording than your EPG or it is too far in future.
+Please delete the recording on the OTR website.</value>
+  </data>
+  <data name="FrmProgress_ErrorMsg_EPGNotFound_Title" xml:space="preserve">
+    <value>EPG ID not found</value>
+  </data>
+  <data name="FrmProgress_ErrorMsg_Title" xml:space="preserve">
+    <value>Recording Error</value>
+  </data>
+  <data name="FrmProgress_lblDescription" xml:space="preserve">
+    <value>Please wait, while OTR Remote modifies the recording.</value>
+  </data>
+  <data name="FrmProgress_lblHeader" xml:space="preserve">
+    <value>Action Progress</value>
+  </data>
+  <data name="FrmProgress_Result_Success" xml:space="preserve">
+    <value>&lt;b&gt;Recording job has been created&lt;/b&gt;</value>
+  </data>
+  <data name="FrmProgress_Result_TooLate" xml:space="preserve">
+    <value>&lt;b&gt;Error:&lt;/b&gt; This show has already begun!</value>
+  </data>
+  <data name="FrmProgress_Result_WrongLogin" xml:space="preserve">
+    <value>You must be logged in to use this feature!</value>
+  </data>
+  <data name="FrmProgress_Status_Aborting" xml:space="preserve">
+    <value>Please wait, aborting...</value>
+  </data>
+  <data name="FrmProgress_Status_Error" xml:space="preserve">
+    <value>Action aborted: An error has occured.</value>
+  </data>
+  <data name="FrmProgress_Status_Finished" xml:space="preserve">
+    <value>The action was successfully finished.</value>
+  </data>
+  <data name="FrmProgress_Status_Proxy" xml:space="preserve">
+    <value>Checking IE default proxy settings...</value>
+  </data>
+  <data name="FrmProgress_Status_SearchingEPG" xml:space="preserve">
+    <value>Searching EPG ID of recording...</value>
+  </data>
+  <data name="FrmProgress_Status_Sending" xml:space="preserve">
+    <value>Sending the recording job to OTR...</value>
+  </data>
+  <data name="FrmStations_AccessMsg_Text" xml:space="preserve">
+    <value>You don't have read and/or write access to the Station Correction file. Saving of changes is disabled.</value>
+  </data>
+  <data name="FrmStations_AccessMsg_Title" xml:space="preserve">
+    <value>Saving disabled</value>
+  </data>
+  <data name="FrmStations_btnCancel" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="FrmStations_btnEPGAdd" xml:space="preserve">
+    <value>A&amp;dd</value>
+  </data>
+  <data name="FrmStations_btnEPGChange" xml:space="preserve">
+    <value>Cha&amp;nge</value>
+  </data>
+  <data name="FrmStations_btnEPGRemove" xml:space="preserve">
+    <value>R&amp;emove</value>
+  </data>
+  <data name="FrmStations_btnOK" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="FrmStations_btnOTRAdd" xml:space="preserve">
+    <value>&amp;Add</value>
+  </data>
+  <data name="FrmStations_btnOTRChange" xml:space="preserve">
+    <value>C&amp;hange</value>
+  </data>
+  <data name="FrmStations_btnOTRRemove" xml:space="preserve">
+    <value>&amp;Remove</value>
+  </data>
+  <data name="FrmStations_cbCaseSensitive" xml:space="preserve">
+    <value>Case-&amp;sensitive station name replacements</value>
+  </data>
+  <data name="FrmStations_gbAdvanced" xml:space="preserve">
+    <value>Advanced Settings</value>
+  </data>
+  <data name="FrmStations_lblDescription" xml:space="preserve">
+    <value>Every EPG software has its own name for TV stations. To make sure OTR gets the correct station name, enter the replacements here.</value>
+  </data>
+  <data name="FrmStations_lblEPGStation" xml:space="preserve">
+    <value>EPG Station Replacements:</value>
+  </data>
+  <data name="FrmStations_lblOTRStation" xml:space="preserve">
+    <value>OTR Station Names:</value>
+  </data>
+  <data name="FrmStations_SaveMsg_Text" xml:space="preserve">
+    <value>An error occured while trying to save the changes. Please check the file permissions and try again.</value>
+  </data>
+  <data name="FrmStations_SaveMsg_Title" xml:space="preserve">
+    <value>Error while saving changes</value>
+  </data>
+  <data name="FrmStations_Title" xml:space="preserve">
+    <value>Station Corrections</value>
+  </data>
+  <data name="FrmPreferences_cbProgressMethod_Hide" xml:space="preserve">
+    <value>Hide</value>
+  </data>
+  <data name="FrmPreferences_cbProgressMethod_ShowSystrayIcon" xml:space="preserve">
+    <value>Show Systray Icon</value>
+  </data>
+  <data name="FrmPreferences_cbProgressMethod_ShowWindow" xml:space="preserve">
+    <value>Show Window</value>
+  </data>
+  <data name="FrmPreferences_lblSeconds" xml:space="preserve">
+    <value>seconds</value>
+  </data>
+  <data name="FrmPreferences_lblLastUpdate_Never" xml:space="preserve">
+    <value>never</value>
+  </data>
+  <data name="FrmPreferences_cbRetryDelete" xml:space="preserve">
+    <value>Auto&amp;matically retry recording deletion</value>
+  </data>
+  <data name="FrmProgress_ErrorMsg_NotRecorded" xml:space="preserve">
+    <value>OTR needs some time before recently added recordings are deletable. If you are sure that this recording is in your recording list, you should try deleting it again in a few minutes.
+
+Should OTR Remote retry to delete this recording automatically in 10 minutes?</value>
+  </data>
+  <data name="FrmProgress_Result_NotRecorded" xml:space="preserve">
+    <value>&lt;b&gt;You are not allowed to delete this recording!&lt;/b&gt;</value>
+  </data>
+  <data name="FrmProgress_Systray_Deletion_Error" xml:space="preserve">
+    <value>Unfortunately, OTR Remote could not delete your recording again.</value>
+  </data>
+  <data name="FrmProgress_Systray_Deletion_Intro" xml:space="preserve">
+    <value>OTR Remote will stay in your System Tray and try deleting your recording again in 10 minutes.</value>
+  </data>
+  <data name="FrmProgress_Systray_Deletion_Success" xml:space="preserve">
+    <value>OTR Remote has successfully deleted your recording.</value>
+  </data>
+  <data name="FrmProgress_Systray_Deletion_Title" xml:space="preserve">
+    <value>Deletion Deferred</value>
+  </data>
+  <data name="FrmProgress_Status_DeletionDeferred" xml:space="preserve">
+    <value>Waiting for retry of deletion in {0}...</value>
+  </data>
+  <data name="FrmProgress_Systray_Deletion_Timer" xml:space="preserve">
+    <value>OTR Remote (retry in {0})</value>
+  </data>
+</root>

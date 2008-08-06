@@ -1,0 +1,21 @@
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Release\OTRRemote.exe
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Release\OTRRemote.pdb
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Release\ResolveAssemblyReference.cache
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Release\Crazysoft OTR Remote.csproj.GenerateResource.Cache
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\OTRRemote.exe
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\OTRRemote.pdb
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\de\OTRRemote.resources.dll
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\Crazysoft.AppSettings.pdb
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\OTRAPI.pdb
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Release\de\OTRRemote.resources.dll
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\Crazysoft.AppSettings.dll
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Release\Crazysoft.OTRRemote.FrmHelp.resources
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Release\Crazysoft.OTRRemote.FrmLogin.resources
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Release\Crazysoft.OTRRemote.FrmMain.resources
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Release\Crazysoft.OTRRemote.FrmPreferences.resources
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Release\Crazysoft.OTRRemote.FrmProgress.resources
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Release\Crazysoft.OTRRemote.FrmStations.resources
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Release\Crazysoft.OTRRemote.Lang.OTRRemote.resources
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Release\Crazysoft.OTRRemote.ListViewEx.SubItemEventArgs.resources
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Release\Crazysoft.OTRRemote.Resources.resources
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Release\Crazysoft.OTRRemote.Lang.OTRRemote.de.resources

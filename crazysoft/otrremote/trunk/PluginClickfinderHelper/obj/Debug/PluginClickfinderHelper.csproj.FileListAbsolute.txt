@@ -1,0 +1,5 @@
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\ClickfinderHelper.exe
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\ClickfinderHelper.pdb
+F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinderHelper\obj\Debug\ResolveAssemblyReference.cache
+F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinderHelper\obj\Debug\ClickfinderHelper.exe
+F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinderHelper\obj\Debug\ClickfinderHelper.pdb

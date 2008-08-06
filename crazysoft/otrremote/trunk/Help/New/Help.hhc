@@ -1,0 +1,71 @@
+﻿<html>
+<!-- Sitemap 1.0 -->
+<object type="text/site properties">
+  <param name="SiteType" value="toc">
+  <param name="Image Width" value="16">
+  <param name="Window Styles" value="0x800002">
+  <param name="ExWindow Styles" value="0x100">
+</object>
+<ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Welcome">
+    <param name="Local" value="About.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="General">
+    <param name="Local" value="General\About.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="About This Program">
+      <param name="Local" value="General\About.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="In-Program-Help">
+      <param name="Local" value="General\Help.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="How To Use">
+    <param name="Local" value="How_To_Use\ControlPanel.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Control Panel">
+      <param name="Local" value="How_To_Use\ControlPanel.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Program Preferences">
+      <param name="Local" value="How_To_Use\Preferences.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Station Corrections">
+      <param name="Local" value="How_To_Use\StationCorrections.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Recording Help">
+      <param name="Local" value="How_To_Use\RecordingHelp.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Login Data dialog">
+      <param name="Local" value="How_To_Use\Login.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Action Progress">
+      <param name="Local" value="How_To_Use\Progress.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Command-Line Reference">
+    <param name="Local" value="CmdReference.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Troubleshooting">
+    <param name="Local" value="Troubleshooting.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Crazysoft Homepage">
+    <param name="Local" value="http://www.crazysoft.net.ms/">
+  </object>
+</ul>
+</html>

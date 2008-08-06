@@ -1,0 +1,13 @@
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\PiKaSoft OTR Remote.csproj.GenerateResource.Cache
+obj\Debug\PiKaSoft.OTR_Remote.FrmMain.resources
+obj\Debug\PiKaSoft.OTR_Remote.ListViewEx.SubItemEventArgs.resources
+bin\Debug\OTRRemote.exe.config
+bin\Debug\OTRRemote.exe
+bin\Debug\OTRRemote.pdb
+obj\Debug\OTRRemote.exe
+obj\Debug\OTRRemote.pdb
+obj\Debug\PiKaSoft.OTR_Remote.FrmHelp.resources
+obj\Debug\PiKaSoft.OTR_Remote.FrmLogin.resources
+obj\Debug\PiKaSoft.OTR_Remote.FrmPreferences.resources
+obj\Debug\PiKaSoft.OTR_Remote.FrmProgress.resources

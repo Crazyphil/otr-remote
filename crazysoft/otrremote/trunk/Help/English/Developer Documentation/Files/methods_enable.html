@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Methods: Enable</title>
+<style type="text/css">
+  body {
+    margin: 0px;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12pt;
+  }
+  h1 {
+    font-size: 14pt;
+    font-weight: bold;
+  }
+  a:link, a:visited {
+    color: #0000FF;
+  }
+  .code {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 10pt;
+  }
+  .code .keyword {
+    color: #0000FF;
+  }
+  .code .string {
+  	color: #CC0033;
+  }
+  #footer {
+    border-top: 1px solid #CCCCCC;
+    color: #CCCCCC;
+    font-size: 10pt;
+    text-align: center;
+  }
+  #footer a:link, a:visited {
+    color: #CCCCCC;
+  }
+</style>
+</head>
+
+<body>
+  <div style="background:url(headerbg.png) repeat-x">
+    <div style="background:url(headerimg.png) no-repeat;text-align:center;height:61px;padding-top:17px;font-size:18pt;color:#FFFFFF;white-space:nowrap">Methods: Enable</div>
+  </div>
+<div style="margin:6px;margin-top:0px">
+  <h1>Are you there?</h1>
+  <p>The Enable() method is called after all plugins are found and loaded. In this method, you can search for a specified program, check access rights, ... Depending on wether your requirements are met, return a boolean value and set the <a href="properties_enabled.html">Enabled</a> property to the same value.</p>
+    <p><strong>Definition</strong></p>
+  <p class="code"><span class="keyword">bool</span> Enable();</p>
+  <p><strong>Sample</strong></p>
+  <pre class="code"><span class="keyword">private</span></span> <span class="keyword">bool</span> _Enabled;
+<span class="keyword">public</span> <span class="keyword">bool</span> Enabled
+{
+    <span class="keyword">get</span> { <span class="keyword">return</span> _Enabled; }
+}
+
+<span class="keyword">public</span> <span class="keyword">bool</span> Enable()
+{
+    <span class="keyword">try</span>
+    {
+        <span class="keyword">FileInfo</span> fi = <span class="keyword">new</span> FileInfo(settings[<span class="string">&quot;Destination Folder&quot;</span>].Value + <span class="string">&quot;\\&quot;</span> + settings[<span class="string">&quot;Destination Filename&quot;</span>].Value);
+        <span class="keyword">FileStream</span> fs = fi.OpenWrite();
+        fs.Close();<br />
+        fi.Delete();
+        _Enabled = <span class="keyword">true</span>;
+    }
+    <span class="keyword">catch</span>
+    {
+        _Enabled = <span class="keyword">false</span>;
+    }
+
+    <span class="keyword">return</span> _Enabled;
+}</pre>
+</div>
+  <div id="footer">Copyright &copy; <a href="http://www.crazysoft.net.ms/" target="_blank">Crazysoft</a> 2006. All rights reserved.</div>
+</body>
+</html>

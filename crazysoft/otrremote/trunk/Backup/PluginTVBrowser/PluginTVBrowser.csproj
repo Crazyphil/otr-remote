@@ -1,0 +1,124 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{770CB3C7-1698-403C-86BE-F4DC55CB2BC3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Crazysoft.OTR_Remote</RootNamespace>
+    <AssemblyName>TVBrowser</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\PiKaSoft OTR Remote\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\PiKaSoft OTR Remote\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FrmWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmWizard.Designer.cs">
+      <DependentUpon>FrmWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lang\TVBrowser.de.Designer.cs">
+      <DependentUpon>TVBrowser.de.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Lang\TVBrowser.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TVBrowser.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TVBrowser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OTRAPI\OTRAPI.csproj">
+      <Project>{1A72FFF1-1615-46CE-9944-40300E3F6D0C}</Project>
+      <Name>OTRAPI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FrmWizard.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lang\TVBrowser.de.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TVBrowser.de.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lang\TVBrowser.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TVBrowser.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="header.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\en\ShortcutOnDesktop.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\en\CapturePlugin.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\en\NewDevice.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\en\ApplicationTab.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\en\ParameterTab.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\en\SettingsTab.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\de\CapturePlugin.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\de\NewDevice.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\de\ApplicationTab.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\de\ParameterTab.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\de\SettingsTab.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>"$(DevEnvDir)..\..\SDK\v2.0\bin\mt.exe" -manifest "$(ProjectDir)..\VistaCompatibility.manifest" -outputresource:"$(TargetDir)$(TargetFileName)";#2</PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,6 @@
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\SamplePlugin.cs
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\PluginSample.dll
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\PluginSample.pdb
+F:\Programmierung\PiKaSoft OTR Remote\PluginSample\obj\Debug\ResolveAssemblyReference.cache
+F:\Programmierung\PiKaSoft OTR Remote\PluginSample\obj\Debug\PluginSample.dll
+F:\Programmierung\PiKaSoft OTR Remote\PluginSample\obj\Debug\PluginSample.pdb

@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<!DOCTYPE polprojfile>
+<ppfml version="2.00" project="NewProject">
+ <windowlist>
+ </windowlist>
+ <contextmap>
+ </contextmap>
+ <topiclist>
+  <topic>First Topic.htm
+  </topic>
+ </topiclist>
+ <projectincludes>
+ </projectincludes>
+ <filenamemap>
+ </filenamemap>
+</ppfml>

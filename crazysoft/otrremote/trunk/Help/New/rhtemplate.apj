@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rhpml majorversion="2" minorversion="0">
+	<files>
+		<file>
+			<name>Crazysoft.htt</name>
+			<comments></comments>
+		</file>
+		<file>
+			<name>Crazysoft DE.htt</name>
+			<comments></comments>
+		</file>
+	</files>
+</rhpml>

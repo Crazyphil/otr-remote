@@ -1,0 +1,7 @@
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\OTRAPI.dll
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\OTRAPI.pdb
+F:\Programmierung\PiKaSoft OTR Remote\OTRAPI\obj\Release\ResolveAssemblyReference.cache
+F:\Programmierung\PiKaSoft OTR Remote\OTRAPI\obj\Release\OTRAPI.csproj.GenerateResource.Cache
+F:\Programmierung\PiKaSoft OTR Remote\OTRAPI\obj\Release\OTRAPI.dll
+F:\Programmierung\PiKaSoft OTR Remote\OTRAPI\obj\Release\OTRAPI.pdb
+F:\Programmierung\PiKaSoft OTR Remote\OTRAPI\obj\Release\Crazysoft.OTRRemote.FrmPluginError.resources

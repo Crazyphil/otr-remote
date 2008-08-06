@@ -1,0 +1,22 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <StartArguments>
+    </StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <StartArguments>Pos="2916" SendungID="7588014" Sender="Kabel1" Beginn="200702212015" Dauer="95" Sendung="Rush Hour 2" Genre="Actionfilm" Bild="C:\Programme\TV Movie\TV Movie Clickfinder\gifs\tvmovie4_defaultbild.jpg"</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PublishUrlHistory>publish\</PublishUrlHistory>
+    <InstallUrlHistory>
+    </InstallUrlHistory>
+    <SupportUrlHistory>
+    </SupportUrlHistory>
+    <UpdateUrlHistory>
+    </UpdateUrlHistory>
+    <BootstrapperUrlHistory>
+    </BootstrapperUrlHistory>
+    <FallbackCulture>de-DE</FallbackCulture>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
+  </PropertyGroup>
+</Project>

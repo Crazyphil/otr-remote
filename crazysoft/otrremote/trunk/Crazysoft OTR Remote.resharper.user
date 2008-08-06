@@ -1,0 +1,264 @@
+<Configuration>
+  <SharedSolutionDisabledTemplatesManager>
+    <DisabledTemplates />
+  </SharedSolutionDisabledTemplatesManager>
+  <UnitTestRunner>
+    <CustomStartDirectory>
+    </CustomStartDirectory>
+    <UseShadowCopy>True</UseShadowCopy>
+    <UseCustomFolder>False</UseCustomFolder>
+    <Providers />
+  </UnitTestRunner>
+  <UserSolutionDisabledTemplatesManager>
+    <DisabledTemplates />
+  </UserSolutionDisabledTemplatesManager>
+  <FileStructureView>
+    <AutoScrollToSource>False</AutoScrollToSource>
+    <TrackCaretLocation>False</TrackCaretLocation>
+  </FileStructureView>
+  <ReFormatCode>
+    <ReorderMembers>False</ReorderMembers>
+    <OptimizeUsings>False</OptimizeUsings>
+    <RemoveRedundantThis>False</RemoveRedundantThis>
+    <ShortenReferences>False</ShortenReferences>
+  </ReFormatCode>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <EditorManager>
+    <RecentFiles>
+      <File id="644A318B-F62B-41B1-8AEF-69D0069B887F/d:Properties/f:AssemblyInfo.cs" caret="1457" scrollPosition="0|0" />
+      <File id="328A3A87-ECA0-4EE4-B53B-7F4B737A76D9/f:SamplePlugin.cs" caret="4576" scrollPosition="0|111" />
+      <File id="A6D9CAFB-103A-4619-8D6F-F71DC55561FC/f:FrmHelp.cs" caret="758" scrollPosition="0|6" />
+      <File id="770CB3C7-1698-403C-86BE-F4DC55CB2BC3/d:Lang/f:TVBrowser.Designer.cs" caret="0" scrollPosition="0|0" />
+      <File id="770CB3C7-1698-403C-86BE-F4DC55CB2BC3/f:FrmWizard.Designer.cs" caret="0" scrollPosition="0|0" />
+      <File id="38292885-3262-4A1B-BF42-106454D28AF9/d:Lang/f:TVgenial.Designer.cs" caret="3286" scrollPosition="0|48" />
+      <File id="A6D9CAFB-103A-4619-8D6F-F71DC55561FC/f:FrmPreferences.Designer.cs" caret="0" scrollPosition="0|0" />
+      <File id="A6D9CAFB-103A-4619-8D6F-F71DC55561FC/f:FrmStations.cs" caret="0" scrollPosition="0|225" />
+      <File id="644A318B-F62B-41B1-8AEF-69D0069B887F/f:Program.cs" caret="213" scrollPosition="0|50" />
+      <File id="770CB3C7-1698-403C-86BE-F4DC55CB2BC3/d:Properties/f:AssemblyInfo.cs" caret="1554" scrollPosition="0|0" />
+      <File id="38292885-3262-4A1B-BF42-106454D28AF9/d:Properties/f:AssemblyInfo.cs" caret="0" scrollPosition="0|0" />
+      <File id="1A72FFF1-1615-46CE-9944-40300E3F6D0C/d:Properties/f:AssemblyInfo.cs" caret="0" scrollPosition="0|0" />
+      <File id="41671846-CC9C-492A-A6F7-4583911A8B00/d:Properties/f:AssemblyInfo.cs" caret="0" scrollPosition="0|0" />
+      <File id="770CB3C7-1698-403C-86BE-F4DC55CB2BC3/f:FrmWizard.cs" caret="1765" scrollPosition="0|15" />
+      <File id="1A72FFF1-1615-46CE-9944-40300E3F6D0C/f:PluginSettings.cs" caret="0" scrollPosition="0|0" />
+      <File id="1A72FFF1-1615-46CE-9944-40300E3F6D0C/f:FrmPluginError.cs" caret="0" scrollPosition="0|0" />
+      <File id="A6D9CAFB-103A-4619-8D6F-F71DC55561FC/f:FrmPreferences.cs" caret="16522" scrollPosition="0|333" />
+      <File id="A6D9CAFB-103A-4619-8D6F-F71DC55561FC/f:FrmLogin.cs" caret="0" scrollPosition="0|52" />
+      <File id="A6D9CAFB-103A-4619-8D6F-F71DC55561FC/f:Stations.cs" caret="4515" scrollPosition="0|0" />
+      <File id="1A72FFF1-1615-46CE-9944-40300E3F6D0C/f:IPlugin.cs" caret="0" scrollPosition="0|72" />
+      <File id="38292885-3262-4A1B-BF42-106454D28AF9/f:TVgenial.cs" caret="0" scrollPosition="0|307" />
+      <File id="A6D9CAFB-103A-4619-8D6F-F71DC55561FC/f:Graphics.cs" caret="6318" scrollPosition="0|152" />
+      <File id="A6D9CAFB-103A-4619-8D6F-F71DC55561FC/f:FrmMain.cs" caret="0" scrollPosition="0|3" />
+      <File id="A6D9CAFB-103A-4619-8D6F-F71DC55561FC/f:ListViewEx.cs" caret="11417" scrollPosition="0|387" />
+      <File id="A6D9CAFB-103A-4619-8D6F-F71DC55561FC/f:FrmProgress.cs" caret="13308" scrollPosition="0|303" />
+      <File id="A6D9CAFB-103A-4619-8D6F-F71DC55561FC/f:Program.cs" caret="3564" scrollPosition="0|77" />
+      <File id="A6D9CAFB-103A-4619-8D6F-F71DC55561FC/d:Properties/f:AssemblyInfo.cs" caret="926" scrollPosition="0|0" />
+      <File id="770CB3C7-1698-403C-86BE-F4DC55CB2BC3/f:TVBrowser.cs" caret="6305" scrollPosition="0|141" />
+      <File id="41671846-CC9C-492A-A6F7-4583911A8B00/f:Clickfinder.cs" caret="3611" scrollPosition="0|99" />
+    </RecentFiles>
+  </EditorManager>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Qualified:@System.Text.Encoding.Default">
+      <Item value="GetBytes" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows">
+      <Item value="Forms" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@">
+      <Item value="ToShortTimeString" priority="0" />
+      <Item value="Replace" priority="3" />
+      <Item value="ToShortDateString" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Crazysoft.OTR_Remote.Program.Settings">
+      <Item value="Save" priority="0" />
+      <Item value="Sections" priority="9" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.DateTime.Now">
+      <Item value="ToBinary" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.IO.Directory">
+      <Item value="Exists" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Globalization.CultureInfo">
+      <Item value="InvariantCulture" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System">
+      <Item value="Xml" priority="0" />
+      <Item value="IO" priority="2" />
+      <Item value="Collections" priority="0" />
+      <Item value="Drawing" priority="1" />
+      <Item value="Environment" priority="0" />
+      <Item value="Windows" priority="0" />
+      <Item value="Runtime" priority="0" />
+      <Item value="Resources" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Xml.XmlElement">
+      <Item value="GetElementsByTagName" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.ComponentModel.DoWorkEventArgs">
+      <Item value="Result" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.Label">
+      <Item value="Text" priority="6" />
+      <Item value="TabIndex" priority="3" />
+      <Item value="Enabled" priority="0" />
+      <Item value="Visible" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.CheckBox">
+      <Item value="Text" priority="0" />
+      <Item value="Enabled" priority="0" />
+      <Item value="Checked" priority="3" />
+      <Item value="Visible" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Environment+SpecialFolder">
+      <Item value="ApplicationData" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Globalization">
+      <Item value="CultureInfo" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Crazysoft.OTR_Remote.PluginSettingsCollection">
+      <Item value="Add" priority="0" />
+      <Item value="Contains" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Environment.OSVersion">
+      <Item value="Version" priority="0" />
+      <Item value="Platform" priority="9" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Crazysoft.OTR_Remote.Program">
+      <Item value="Settings" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Crazysoft.OTR_Remote.Lang.OTRRemote">
+      <Item value="FrmPreferences_cbAutoUpdate" priority="0" />
+      <Item value="FrmPreferences_lblLastUpdate" priority="0" />
+      <Item value="FrmProgress_ErrorMsg_DeleteError_Text" priority="0" />
+      <Item value="FrmMain_btnOK" priority="0" />
+      <Item value="FrmMain_btnCancel" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.IO">
+      <Item value="Path" priority="0" />
+      <Item value="Directory" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.DateTime">
+      <Item value="ToShortTimeString" priority="0" />
+      <Item value="ToBinary" priority="1" />
+      <Item value="ToString" priority="1" />
+      <Item value="Ticks" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Version">
+      <Item value="Major" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Environment">
+      <Item value="SpecialFolder" priority="1" />
+      <Item value="GetFolderPath" priority="1" />
+      <Item value="OSVersion" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:string">
+      <Item value="Substring" priority="5" />
+      <Item value="IndexOf" priority="1" />
+      <Item value="Contains" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Array">
+      <Item value="FindIndex" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.ArrayList">
+      <Item value="Add" priority="0" />
+      <Item value="BinarySearch" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.IO.Path">
+      <Item value="Combine" priority="2" />
+      <Item value="GetTempPath" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Crazysoft.OTR_Remote.FrmStations">
+      <Item value="ShowDialog" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Threading.Thread">
+      <Item value="Sleep" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.Win32.RegistryKey">
+      <Item value="GetValue" priority="0" />
+      <Item value="OpenSubKey" priority="0" />
+      <Item value="Close" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Crazysoft.OTR_Remote.Lang.TVBrowser">
+      <Item value="Plugin_Settings_Path" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Crazysoft.AppSettings.KeyCollection">
+      <Item value="Add" priority="2" />
+      <Item value="Contains" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Convert">
+      <Item value="ToBoolean" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.DateTime.Today">
+      <Item value="Add" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Threading">
+      <Item value="Thread" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:object">
+      <Item value="ToString" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Net.HttpWebRequest">
+      <Item value="ProtocolVersion" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.IO.StreamWriter">
+      <Item value="Write" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.TextBox">
+      <Item value="Text" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.LinkLabel">
+      <Item value="Visible" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.RadioButton">
+      <Item value="Text" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.PlatformID">
+      <Item value="Unix" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Drawing">
+      <Item value="Design" priority="0" />
+      <Item value="Drawing2D" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Forms">
+      <Item value="VisualStyles" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Forms.VisualStyles">
+      <Item value="VisualStyleInformation" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Crazysoft.OTR_Remote.FrmPropertyValue">
+      <Item value="ShowDialog" priority="0" />
+      <Item value="TabIndex" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.Control">
+      <Item value="Parent" priority="1" />
+      <Item value="Left" priority="0" />
+      <Item value="toar" priority="0" />
+      <Item value="Location" priority="0" />
+      <Item value="Size" priority="0" />
+      <Item value="Height" priority="0" />
+      <Item value="Name" priority="0" />
+      <Item value="Text" priority="0" />
+      <Item value="Focus" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.Control.ControlCollection">
+      <Item value="Add" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.Button">
+      <Item value="Height" priority="0" />
+      <Item value="Text" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.DialogResult">
+      <Item value="Cancel" priority="0" />
+      <Item value="OK" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.ListViewItem">
+      <Item value="Text" priority="0" />
+      <Item value="SubItems" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.ListViewItem.ListViewSubItem">
+      <Item value="Text" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>
