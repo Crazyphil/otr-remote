@@ -437,7 +437,7 @@ namespace Crazysoft.OTRRemote
                         requeststr = String.Concat(requeststr, String.Format("&startTime_hour={0:D2}&startTime_minute={1:D2}", recInfo.StartTime.Hour, recInfo.StartTime.Minute));
                         requeststr = String.Concat(requeststr, String.Format("&endTime_hour={0:D2}&endTime_minute={1:D2}", recInfo.EndTime.Hour, recInfo.EndTime.Minute));
 
-                        requeststr = String.Concat(requeststr, "&email=", recInfo.User, "&pass=", recInfo.Password);
+                        //requeststr = String.Concat(requeststr, "&email=", recInfo.User, "&pass=", recInfo.Password);
 
                         string urlTitle = recInfo.Title;
                         if (!String.IsNullOrEmpty(recInfo.Title))

@@ -524,7 +524,7 @@ Please delete the recording on the OTR website.</value>
     <value>&lt;b&gt;Error:&lt;/b&gt; This show has already begun!</value>
   </data>
   <data name="FrmProgress_Result_WrongLogin" xml:space="preserve">
-    <value>You must be logged in to use this feature!</value>
+    <value>Um diesen Service nutzen zu k�nnen, m�ssen Sie eingeloggt sein.</value>
   </data>
   <data name="FrmProgress_Status_Aborting" xml:space="preserve">
     <value>Please wait, aborting...</value>

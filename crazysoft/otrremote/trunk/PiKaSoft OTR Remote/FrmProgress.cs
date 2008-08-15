@@ -29,6 +29,9 @@ namespace Crazysoft.OTRRemote
         enum FormDisplayMode { ShowWindow, ShowSystray, Hide }
         FormDisplayMode _displayMode;
 
+        // Variables to hold OTR's authentication cookies
+        CookieContainer _cookies = new CookieContainer();
+
         // enum to indicate worker result
         enum WorkerResult { Success, Deferred, Cancelled, Error }
 
@@ -205,7 +208,7 @@ namespace Crazysoft.OTRRemote
             try
             {
                 // Authenticate with a POST request
-                HttpWebRequest request = CreateNewRequest(data.RequestString);
+                HttpWebRequest request = CreateNewRequest(data.RequestString, true);
 
                 if (bwWorker.CancellationPending)
                 {
@@ -226,7 +229,7 @@ namespace Crazysoft.OTRRemote
                     }
                     request =
                         CreateNewRequest(String.Concat("http://www.onlinetvrecorder.com/index.php?aktion=deleteJob&quickexit=true&epgid=",
-                                         Convert.ToBase64String(Encoding.Default.GetBytes(epgid))));
+                                         Convert.ToBase64String(Encoding.Default.GetBytes(epgid))), true);
                 }
 
                 if (bwWorker.CancellationPending)
@@ -235,18 +238,6 @@ namespace Crazysoft.OTRRemote
                     e.Cancel = true;
                     return;
                 }
-
-                string postString = String.Concat("email=", data.RecordingInfo.User.Replace("@", "%40"), "&pass=", data.RecordingInfo.Password, "&btn_login=Login");
-
-                // POST user login data
-                ASCIIEncoding encoding = new ASCIIEncoding();
-                byte[] postData = encoding.GetBytes(postString);
-                request.Method = "POST";
-                request.ContentType = "application/x-www-form-urlencoded";
-                request.ContentLength = postData.Length;
-                request.CookieContainer = new CookieContainer();
-                Stream requestWriter = request.GetRequestStream();
-                requestWriter.Write(postData, 0, postData.Length);
 
                 bwWorker.ReportProgress(2, Lang.OTRRemote.FrmProgress_Status_Sending);
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
@@ -526,7 +517,49 @@ namespace Crazysoft.OTRRemote
             request.Timeout = 30000;
             request.ProtocolVersion = HttpVersion.Version10;
 
+            // Add OTR language cookie
+            if (_cookies.Count == 0)
+            {
+                _cookies.Add(new Cookie("OTRLANG", System.Globalization.CultureInfo.CurrentUICulture.Parent.Name == "de" ? "de" : "en", "/", "www.onlinetvrecorder.com"));
+            }
+
             return request;
+        }
+
+        private HttpWebRequest CreateNewRequest(string url, bool needsAuthentication)
+        {
+            if (needsAuthentication)
+            {
+                HttpWebRequest request;
+                if (_cookies.Count == 0)
+                {
+                    request = CreateNewRequest("http://www.onlinetvrecorder.com/index.php?go=home");
+
+                    string postString = String.Concat("email=", _recInfo.User.Replace("@", "%40"), "&pass=", _recInfo.Password, "&btn_login=Login");
+
+                    // POST user login data
+                    ASCIIEncoding encoding = new ASCIIEncoding();
+                    byte[] postData = encoding.GetBytes(postString);
+                    request.Method = "POST";
+                    request.ContentType = "application/x-www-form-urlencoded";
+                    request.ContentLength = postData.Length;
+                    request.CookieContainer = _cookies;
+                    Stream requestWriter = request.GetRequestStream();
+                    requestWriter.Write(postData, 0, postData.Length);
+
+                    HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                    _cookies.Add(response.Cookies);
+                    response.Close();
+                }
+
+                request = CreateNewRequest(url);
+                request.CookieContainer = _cookies;
+                return request;
+            }
+            else
+            {
+                return CreateNewRequest(url);
+            }
         }
 
         private string FindEpgId(RecI.RecordingInfo recInfo)

@@ -1,12 +1,12 @@
 [Setup]
-VersionInfoVersion=2.0.0.0
+VersionInfoVersion=2.0.0.1
 VersionInfoCompany=Crazysoft
 VersionInfoDescription=Recording interface for OnlineTVRecorder.com
-VersionInfoTextVersion=2.0.0.0
+VersionInfoTextVersion=2.0.0.1
 VersionInfoCopyright=Copyright © Crazysoft 2006-2008
 AppCopyright=Copyright © Crazysoft 2006-2008
 AppName=Crazysoft OTR Remote
-AppVerName=OTR Remote 2.0
+AppVerName=OTR Remote 2.0.0.1
 LicenseFile=F:\Programmierung\PiKaSoft OTR Remote\Setup\License.rtf
 DefaultDirName={pf}\Crazysoft\OTR Remote\
 AllowNoIcons=true
@@ -15,7 +15,7 @@ AppPublisher=Crazysoft
 AppPublisherURL=http://www.crazysoft.net.ms/
 AppSupportURL=http://www.crazysoft.net.ms/support.php
 AppUpdatesURL=http://www.crazysoft.net.ms/products/otrremote.php
-AppVersion=2.0.0.0
+AppVersion=2.0.0.1
 UninstallDisplayName=Crazysoft OTR Remote
 WizardSmallImageFile=F:\Programmierung\PiKaSoft OTR Remote\Setup\logo.bmp
 UninstallDisplayIcon={app}\OTRRemote.exe
@@ -74,7 +74,7 @@ Root: HKLM; Subkey: SOFTWARE\Crazysoft\AppUpdate; Flags: uninsdeletekeyifempty; 
 Root: HKLM; Subkey: SOFTWARE\Crazysoft\AppUpdate; ValueType: string; ValueName: InstallationPath; ValueData: {cf}\Crazysoft\AppUpdate; Components: Updater; Flags: uninsdeletekeyifempty uninsdeletevalue
 Root: HKLM; Subkey: SOFTWARE\Crazysoft\AppUpdate\InstalledProducts; Flags: uninsdeletekeyifempty; Components: Main_Program
 Root: HKLM; Subkey: SOFTWARE\Crazysoft\AppUpdate\InstalledProducts\Crazysoft.OTR_Remote; ValueType: string; ValueName: ProductName; ValueData: Crazysoft OTR Remote; Flags: uninsdeletekey; Components: Main_Program
-Root: HKLM; Subkey: SOFTWARE\Crazysoft\AppUpdate\InstalledProducts\Crazysoft.OTR_Remote; ValueType: string; ValueName: Version; ValueData: 2.0.0.0; Flags: uninsdeletekey; Components: Main_Program
+Root: HKLM; Subkey: SOFTWARE\Crazysoft\AppUpdate\InstalledProducts\Crazysoft.OTR_Remote; ValueType: string; ValueName: Version; ValueData: 2.0.0.1; Flags: uninsdeletekey; Components: Main_Program
 Root: HKLM; Subkey: SOFTWARE\Crazysoft\AppUpdate\InstalledProducts\Crazysoft.OTR_Remote; ValueType: string; ValueName: InstallationPath; ValueData: {app}; Flags: uninsdeletekey; Components: Main_Program
 [UninstallDelete]
 Name: {cf}\Crazysoft\AppUpdate\update.log; Type: files; Components: Updater
@@ -150,6 +150,7 @@ VAR
 	NetFramework3Installed: Boolean;
 	NetFramework35Installed: Boolean;
 BEGIN
+    NetFramework35Installed := RegKeyExists(HKLM, 'SOFTWARE\Microsoft\NET Framework Setup\NDP\v3.5');
 	NetFramework3Installed := RegKeyExists(HKLM, 'SOFTWARE\Microsoft\NET Framework Setup\NDP\v3.0');
 	NetFramework2Installed := RegKeyExists(HKLM, 'SOFTWARE\Microsoft\.NETFramework\Policy\v2.0');
 	NetFramework1Installed := RegKeyExists(HKLM, 'SOFTWARE\Microsoft\.NETFramework\Policy\v1.1');
@@ -157,7 +158,8 @@ BEGIN
 	CASE MinVersion OF
 		1: result := NetFramework3Installed OR NetFramework2Installed OR NetFramework1Installed;
 		2: result := NetFramework3Installed OR NetFramework2Installed;
-		3: result := NetFramework3Installed;
+		3: result := NetFramework3Installed AND NetFramework2Installed;
+		35: result := NetFramework35Installed;
 	ELSE
 		result := false;
 	END;
@@ -180,3 +182,4 @@ BEGIN
 		result := true
 	END;
 END.
+
