@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CmdLine_DeleteMsg_Text" xml:space="preserve">
-    <value>Wollen Sie "{0}" am {1} um {2} wirklich löschen? Wenn Sie die Aufnahme löschen, wird sie nicht aufgenommen, oder Sie können sie nicht dekodieren.</value>
+    <value>Wollen Sie {0} am {1} um {2} wirklich löschen? Wenn Sie die Aufnahme löschen, wird sie nicht aufgenommen, oder Sie können sie nicht dekodieren.</value>
   </data>
   <data name="CmdLine_DeleteMsg_Title" xml:space="preserve">
     <value>Löschen bestätigen</value>
@@ -514,13 +514,13 @@ Bitte löschen Sie die Aufnahme auf der OTR-Website.</value>
     <value>Aktionsfortschritt</value>
   </data>
   <data name="FrmProgress_Result_Success" xml:space="preserve">
-    <value>&lt;b&gt;Aufnahmeauftrag wurde angelegt&lt;/b&gt;</value>
+    <value>TVM2OTR:OK</value>
   </data>
   <data name="FrmProgress_Result_TooLate" xml:space="preserve">
-    <value>&lt;b&gt;Error:&lt;/b&gt; Diese Sendung hat bereits begonnen!</value>
+    <value>TVM2OTR:ERROR</value>
   </data>
   <data name="FrmProgress_Result_WrongLogin" xml:space="preserve">
-    <value>You must be logged in to use this feature!</value>
+    <value>&lt;b&gt;Sie sind nicht eingeloggt.&lt;/b&gt;</value>
   </data>
   <data name="FrmProgress_Status_Aborting" xml:space="preserve">
     <value>Bitte warten, breche ab...</value>
@@ -616,7 +616,7 @@ Bitte löschen Sie die Aufnahme auf der OTR-Website.</value>
     <value>Aufnah&amp;me-Löschen automatisch neu versuchen</value>
   </data>
   <data name="FrmProgress_ErrorMsg_NotRecorded" xml:space="preserve">
-    <value>OTR benötigt einige Zeit, bevor kürzlich hinzugefügte Aufnahmen löschbar sind. Wenn Sie sich sicher sind, dass diese Aufnahme in Ihrer Aufnahmeliste ist, sollten Sie das Löschen in ein paar Minuten erneut versuchen.
+    <value>Die Aufnahme konnte nicht gelöscht werden. OTR benötigt einige Zeit, bevor kürzlich hinzugefügte Aufnahmen löschbar sind. Wenn Sie sich sicher sind, dass diese Aufnahme in Ihrer Aufnahmeliste ist, sollten Sie das Löschen in ein paar Minuten erneut versuchen.
 
 Soll OTR Remote das Löschen dieser Aufnahme automatisch in 10 Minuten wieder versuchen?</value>
   </data>
@@ -640,5 +640,8 @@ Soll OTR Remote das Löschen dieser Aufnahme automatisch in 10 Minuten wieder ve
   </data>
   <data name="FrmProgress_Systray_Deletion_Timer" xml:space="preserve">
     <value>OTR Remote (Wiederholung in {0})</value>
+  </data>
+  <data name="CmdLine_DeleteMsg_ThisShow" xml:space="preserve">
+    <value>diese Sendung</value>
   </data>
 </root>

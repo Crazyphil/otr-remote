@@ -282,6 +282,12 @@ namespace Crazysoft.OTRRemote
                                     catch
                                     {
                                     }
+
+                                    // To avoid recording all shows in 24 hours, add 1 minute to endtime, if it is unknown
+                                    // (endtime = starttime, as given by EPG program)
+                                    if (recInfo.EndTime.TimeOfDay == recInfo.StartTime.TimeOfDay) {
+                                        recInfo.EndTime = recInfo.EndTime.AddMinutes(1);
+                                    }
                                 }
                             }
                         }
@@ -404,7 +410,7 @@ namespace Crazysoft.OTRRemote
                         else
                         {
                             // Ask the user if he knows what he does, before we really delete the recording
-                            if (MessageBox.Show(String.Format(Lang.OTRRemote.CmdLine_DeleteMsg_Text, recInfo.Title, recInfo.StartDate.ToShortDateString(), recInfo.StartTime.ToShortTimeString()), String.Concat("Crazysoft OTR Remote: ", Lang.OTRRemote.CmdLine_DeleteMsg_Title), MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                            if (MessageBox.Show(String.Format(Lang.OTRRemote.CmdLine_DeleteMsg_Text, String.IsNullOrEmpty(recInfo.Title) ? Lang.OTRRemote.CmdLine_DeleteMsg_ThisShow : recInfo.Title, recInfo.StartDate.ToShortDateString(), recInfo.StartTime.ToShortTimeString()), String.Concat("Crazysoft OTR Remote: ", Lang.OTRRemote.CmdLine_DeleteMsg_Title), MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                             {
                                 requeststr = String.Concat(requeststr, "deleteJob");
                             }
@@ -468,6 +474,10 @@ namespace Crazysoft.OTRRemote
                         }
                         
                         requeststr = String.Concat(requeststr, "&timezone=", recInfo.Timezone);
+
+                        // With adding following parameter, OTR returns the result as "TVM2OTR:OK" or "TVM2OTR:ERROR",
+                        // except when not logged in (wrong username/password), where a complete webpage is returned
+                        requeststr = String.Concat(requeststr, "&tvm2otr=true");
 #if DEBUG
                         System.Threading.Thread.Sleep(7000);
 #endif
