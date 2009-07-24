@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CmdLine_DeleteMsg_Text" xml:space="preserve">
-    <value>Do you really want to delete "{0}" from {1} at {2}? If you delete the recording, it will not be recorded, or you will not be able to decode it.</value>
+    <value>Do you really want to delete {0} from {1} at {2}? If you delete the recording, it will not be recorded, or you will not be able to decode it.</value>
   </data>
   <data name="CmdLine_DeleteMsg_Title" xml:space="preserve">
     <value>Confirm deletion</value>
@@ -518,13 +518,13 @@ Please delete the recording on the OTR website.</value>
     <value>Action Progress</value>
   </data>
   <data name="FrmProgress_Result_Success" xml:space="preserve">
-    <value>&lt;b&gt;Recording job has been created&lt;/b&gt;</value>
+    <value>TVM2OTR:OK</value>
   </data>
   <data name="FrmProgress_Result_TooLate" xml:space="preserve">
-    <value>&lt;b&gt;Error:&lt;/b&gt; This show has already begun!</value>
+    <value>TVM2OTR:ERROR</value>
   </data>
   <data name="FrmProgress_Result_WrongLogin" xml:space="preserve">
-    <value>Um diesen Service nutzen zu k�nnen, m�ssen Sie eingeloggt sein.</value>
+    <value>&lt;b&gt;Sie sind nicht eingeloggt.&lt;/b&gt;</value>
   </data>
   <data name="FrmProgress_Status_Aborting" xml:space="preserve">
     <value>Please wait, aborting...</value>
@@ -617,7 +617,7 @@ Please delete the recording on the OTR website.</value>
     <value>Auto&amp;matically retry recording deletion</value>
   </data>
   <data name="FrmProgress_ErrorMsg_NotRecorded" xml:space="preserve">
-    <value>OTR needs some time before recently added recordings are deletable. If you are sure that this recording is in your recording list, you should try deleting it again in a few minutes.
+    <value>The recording could not be deleted. OTR needs some time before recently added recordings are deletable. If you are sure that this recording is in your recording list, you should try deleting it again in a few minutes.
 
 Should OTR Remote retry to delete this recording automatically in 10 minutes?</value>
   </data>
@@ -641,5 +641,8 @@ Should OTR Remote retry to delete this recording automatically in 10 minutes?</v
   </data>
   <data name="FrmProgress_Systray_Deletion_Timer" xml:space="preserve">
     <value>OTR Remote (retry in {0})</value>
+  </data>
+  <data name="CmdLine_DeleteMsg_ThisShow" xml:space="preserve">
+    <value>this show</value>
   </data>
 </root>

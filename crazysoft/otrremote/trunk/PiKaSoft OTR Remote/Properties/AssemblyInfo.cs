@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Crazysoft")]
 [assembly: AssemblyProduct("OTR Remote")]
-[assembly: AssemblyCopyright("Copyright © Crazysoft 2006-2008")]
+[assembly: AssemblyCopyright("Copyright © Crazysoft 2006-2009")]
 [assembly: AssemblyTrademark("OTR Remote is a trademark of Crazysoft.")]
 [assembly: AssemblyCulture("")]
 
@@ -29,5 +29,5 @@ using System.Runtime.InteropServices;
 //      Buildnummer
 //      Revision
 //
-[assembly: AssemblyVersion("2.0.0.1")]
-[assembly: AssemblyFileVersion("2.0.0.1")]
+[assembly: AssemblyVersion("2.0.0.2")]
+[assembly: AssemblyFileVersion("2.0.0.2")]
