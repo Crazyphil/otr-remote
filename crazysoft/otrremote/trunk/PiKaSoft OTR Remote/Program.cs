@@ -283,10 +283,10 @@ namespace Crazysoft.OTRRemote
                                     {
                                     }
 
-                                    // To avoid recording all shows in 24 hours, add 1 minute to endtime, if it is unknown
-                                    // (endtime = starttime, as given by EPG program)
-                                    if (recInfo.EndTime.TimeOfDay == recInfo.StartTime.TimeOfDay) {
-                                        recInfo.EndTime = recInfo.EndTime.AddMinutes(1);
+                                    // To avoid recording all shows in 24 hours, add 2 minutes to endtime, if it is unknown
+                                    // (endtime = starttime or endtime = starttime - 1, as given by EPG program)
+                                    if (recInfo.EndTime.TimeOfDay == recInfo.StartTime.TimeOfDay || recInfo.EndTime.TimeOfDay == recInfo.StartTime.AddMinutes(-1).TimeOfDay) {
+                                        recInfo.EndTime = recInfo.EndTime.AddMinutes(2);
                                     }
                                 }
                             }

@@ -9,8 +9,7 @@
     </StartProgram>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <StartArguments>
-    </StartArguments>
+    <StartArguments>-a -s="ARD" -t="Test" -sd="2009-07-24" -st="23:15" -et="23:15"</StartArguments>
     <RemoteDebugEnabled>false</RemoteDebugEnabled>
     <StartAction>Project</StartAction>
     <StartProgram>Z:\OTRRemote.exe</StartProgram>
