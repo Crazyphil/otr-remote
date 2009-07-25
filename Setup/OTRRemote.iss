@@ -1,12 +1,12 @@
 [Setup]
-VersionInfoVersion=2.0.0.2
+VersionInfoVersion=2.0.0.3
 VersionInfoCompany=Crazysoft
 VersionInfoDescription=Recording interface for OnlineTVRecorder.com
-VersionInfoTextVersion=2.0.0.1
+VersionInfoTextVersion=2.0.0.3
 VersionInfoCopyright=Copyright © Crazysoft 2006-2009
 AppCopyright=Copyright © Crazysoft 2006-2009
 AppName=Crazysoft OTR Remote
-AppVerName=OTR Remote 2.0.0.2
+AppVerName=OTR Remote 2.0.0.3
 LicenseFile=F:\Programmierung\PiKaSoft OTR Remote\Setup\License.rtf
 DefaultDirName={pf}\Crazysoft\OTR Remote\
 AllowNoIcons=true
@@ -15,7 +15,7 @@ AppPublisher=Crazysoft
 AppPublisherURL=http://www.crazysoft.net.ms/
 AppSupportURL=http://www.crazysoft.net.ms/support.php
 AppUpdatesURL=http://www.crazysoft.net.ms/products/otrremote.php
-AppVersion=2.0.0.2
+AppVersion=2.0.0.3
 UninstallDisplayName=Crazysoft OTR Remote
 WizardSmallImageFile=F:\Programmierung\PiKaSoft OTR Remote\Setup\logo.bmp
 UninstallDisplayIcon={app}\OTRRemote.exe
@@ -58,7 +58,8 @@ Source: F:\Programmierung\AppUpdate\Crazysoft AppUpdate\bin\Release\Crazysoft.Cr
 Source: F:\Programmierung\AppUpdate\Selfupdate\bin\Release\SelfUpdate.exe; DestDir: {cf}\Crazysoft\AppUpdate; Flags: promptifolder sharedfile uninsnosharedfileprompt; Components: Updater
 [Icons]
 Name: {group}\OTR Remote; Filename: {app}\OTRRemote.exe; WorkingDir: {app}; IconFilename: {app}\OTRRemote.exe; IconIndex: 0; Components: Main_Program
-Name: {group}\{cm:Help}; Filename: {app}\Help_en.chm; WorkingDir: {app}
+Name: {group}\{cm:Help}; Filename: {app}\Help_en.chm; WorkingDir: {app}; Languages: en
+Name: {group}\{cm:Help}; Filename: {app}\Help_de.chm; WorkingDir: {app}; Languages: de
 Name: {group}\{cm:DeveloperDocumentation}; Filename: {app}\PluginDev.chm; WorkingDir: {app}; Components: Developer_Package\Help
 Name: {group}\{cm:SamplePluginCS}; Filename: {app}\SamplePlugin.cs; WorkingDir: {app}; Components: Developer_Package\Sample_Plugin
 Name: {commonprograms}\Crazysoft\AppUpdate; Filename: {cf}\Crazysoft\AppUpdate\AppUpdate.exe; WorkingDir: {cf}\Crazysoft\AppUpdate; IconFilename: {cf}\Crazysoft\AppUpdate\AppUpdate.exe; Comment: {cm:AppUpdateComment}; IconIndex: 0; Components: Updater
@@ -76,7 +77,7 @@ Root: HKLM; Subkey: SOFTWARE\Crazysoft\AppUpdate; Flags: uninsdeletekeyifempty; 
 Root: HKLM; Subkey: SOFTWARE\Crazysoft\AppUpdate; ValueType: string; ValueName: InstallationPath; ValueData: {cf}\Crazysoft\AppUpdate; Components: Updater; Flags: uninsdeletekeyifempty uninsdeletevalue
 Root: HKLM; Subkey: SOFTWARE\Crazysoft\AppUpdate\InstalledProducts; Flags: uninsdeletekeyifempty; Components: Main_Program
 Root: HKLM; Subkey: SOFTWARE\Crazysoft\AppUpdate\InstalledProducts\Crazysoft.OTR_Remote; ValueType: string; ValueName: ProductName; ValueData: Crazysoft OTR Remote; Flags: uninsdeletekey; Components: Main_Program
-Root: HKLM; Subkey: SOFTWARE\Crazysoft\AppUpdate\InstalledProducts\Crazysoft.OTR_Remote; ValueType: string; ValueName: Version; ValueData: 2.0.0.2; Flags: uninsdeletekey; Components: Main_Program
+Root: HKLM; Subkey: SOFTWARE\Crazysoft\AppUpdate\InstalledProducts\Crazysoft.OTR_Remote; ValueType: string; ValueName: Version; ValueData: 2.0.0.3; Flags: uninsdeletekey; Components: Main_Program
 Root: HKLM; Subkey: SOFTWARE\Crazysoft\AppUpdate\InstalledProducts\Crazysoft.OTR_Remote; ValueType: string; ValueName: InstallationPath; ValueData: {app}; Flags: uninsdeletekey; Components: Main_Program
 [UninstallDelete]
 Name: {cf}\Crazysoft\AppUpdate\update.log; Type: files; Components: Updater
