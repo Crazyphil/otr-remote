@@ -15,9 +15,12 @@ namespace Crazysoft.OTRRemote
 {
     public partial class FrmProgress : Form
     {
+        // Best practice recommends defining a private object to lock on
+        private static Object _syncLock = new Object();
+
         // Variables needed for processing the recording
         Uri _requestUri;
-        RecI.RecordingInfo _recInfo;
+        RecordingInfo _recInfo;
 
         // Countdown variable for timed closing of form
         int _countdown = -1;
@@ -26,8 +29,15 @@ namespace Crazysoft.OTRRemote
         DateTime _retryTime;
         
         // Variables for indication the form's display status
-        enum FormDisplayMode { ShowWindow, ShowSystray, Hide }
+        public enum FormDisplayMode { ShowWindow, ShowSystray, Hide }
         FormDisplayMode _displayMode;
+        public FormDisplayMode DisplayMode
+        {
+            get
+            {
+                return _displayMode;
+            }
+        }
 
         // Variables to hold OTR's authentication cookies
         CookieContainer _cookies = new CookieContainer();
@@ -35,11 +45,13 @@ namespace Crazysoft.OTRRemote
         // enum to indicate worker result
         enum WorkerResult { Success, Deferred, Cancelled, Error }
 
+        bool _justLoaded;
+
         // Struct for worker params
         struct BackgroundWorkerParams
         {
             public string RequestString;
-            public RecI.RecordingInfo RecordingInfo;
+            public RecordingInfo RecordingInfo;
         }
 
         struct WebpageErrors
@@ -54,7 +66,18 @@ namespace Crazysoft.OTRRemote
             public string AddSuccess_en;
         }
 
-        public FrmProgress(Uri requestUri, RecI.RecordingInfo recInfo)
+        // An instance of the Windows 7 Taskbar ProgressBar class
+        Windows7.ProgressBar taskbarProgressBar;
+
+        public bool IsWorking
+        {
+            get
+            {
+                return bwWorker.IsBusy;
+            }
+        }
+
+        public FrmProgress(Uri requestUri, RecordingInfo recInfo)
         {
             _requestUri = requestUri;
             _recInfo = recInfo;
@@ -99,9 +122,12 @@ namespace Crazysoft.OTRRemote
         private void FrmProgress_Load(object sender, EventArgs e)
         {
             // Set form and systray icon visibility according to form's display status
-            niSystray.Visible = _displayMode == FormDisplayMode.ShowSystray;
+            if (!IsWindowsSeven())
+            {
+                niSystray.Visible = _displayMode == FormDisplayMode.ShowSystray;
+            }
 
-            StartRecordThread(_displayMode == FormDisplayMode.ShowWindow);
+            StartRecordThread(_displayMode);
         }
 
         private void FrmProgress_Paint(object sender, PaintEventArgs e)
@@ -114,6 +140,7 @@ namespace Crazysoft.OTRRemote
             if (this.Visible)
             {
                 this.ShowInTaskbar = false;
+                this.WindowState = FormWindowState.Minimized;
                 this.Hide();
             }
             else
@@ -155,7 +182,7 @@ namespace Crazysoft.OTRRemote
             niSystray.Text = "OTR Remote";
 
             // Restart Recording Thread after 10 minutes, if deletion failed
-            StartRecordThread(_displayMode == FormDisplayMode.ShowWindow);
+            StartRecordThread(_displayMode);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -177,28 +204,45 @@ namespace Crazysoft.OTRRemote
             }
         }
 
-        private void StartRecordThread(bool showForm)
+        public void StartRecordThread(FormDisplayMode displayMode)
         {
             BackgroundWorkerParams data = new BackgroundWorkerParams();
             data.RequestString = _requestUri.ToString();
             data.RecordingInfo = _recInfo;
 
-            if (showForm)
+            switch (displayMode)
             {
-                this.Show();
-                this.Focus();
-                this.ShowInTaskbar = true;
-            }
-            else
-            {
-                this.Hide();
-                this.SendToBack();
-                this.ShowInTaskbar = false;
+                case FormDisplayMode.ShowWindow:
+                    this.Show();
+                    this.Focus();
+                    this.ShowInTaskbar = true;
+                    break;
+                case FormDisplayMode.ShowSystray:
+                    this.Hide();
+                    this.SendToBack();
+                    this.WindowState = FormWindowState.Minimized;
+                    if (!IsWindowsSeven())
+                    {
+                        this.ShowInTaskbar = false;
+                    }
+                    else
+                    {
+                        this.ShowInTaskbar = true;
+                    }
+                    _justLoaded = true;
+                    break;
+                case FormDisplayMode.Hide:
+                    this.Hide();
+                    this.SendToBack();
+                    this.WindowState = FormWindowState.Minimized;
+                    this.ShowInTaskbar = false;
+                    break;
             }
 
             bwWorker.RunWorkerAsync(data);
         }
 
+        #region Background Worker
         private void bwWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             // Initialize the variables provided with the start of the thread
@@ -338,6 +382,7 @@ namespace Crazysoft.OTRRemote
                         sw.Write(webpage);
                         sw.Close();
 
+                        UpdateTaskbarProgressBar(Windows7.TaskbarButtonProgressState.Error);
                         MessageBox.Show(String.Format(Lang.OTRRemote.FrmProgress_Error_ParseError, debugfile),
                                         String.Concat("Crazysoft OTR Remote: ", Lang.OTRRemote.FrmProgress_ErrorMsg_Title),
                                         MessageBoxButtons.OK,
@@ -352,6 +397,7 @@ namespace Crazysoft.OTRRemote
                 {
                     message = String.Format("{0} ({1})", message, exc.InnerException.Message);
                 }
+                UpdateTaskbarProgressBar(Windows7.TaskbarButtonProgressState.Error);
                 MessageBox.Show(String.Format(Lang.OTRRemote.FrmProgress_ErrorMsg_ConnErr_Text, message), Lang.OTRRemote.FrmProgress_ErrorMsg_ConnErr_Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -362,6 +408,7 @@ namespace Crazysoft.OTRRemote
             {
                 lblStatus.Text = e.UserState.ToString();
                 pbProgress.Value = e.ProgressPercentage;
+                UpdateTaskbarProgressBar(Windows7.TaskbarButtonProgressState.Normal);
             }
 
             // Write output to systray if icon is used
@@ -383,16 +430,20 @@ namespace Crazysoft.OTRRemote
                 switch ((WorkerResult)e.Result)
                 {
                     case WorkerResult.Deferred:
-                        niSystray.Visible = true;
                         this.Hide();
-                        this.ShowInTaskbar = false;
+                        if (!IsWindowsSeven())
+                        {
+                            niSystray.Visible = true;
+                            this.ShowInTaskbar = false;
+                            niSystray.ShowBalloonTip(5000, Lang.OTRRemote.FrmProgress_Systray_Deletion_Title, Lang.OTRRemote.FrmProgress_Systray_Deletion_Intro, ToolTipIcon.Info);
+                        }
 
                         _retryTime = DateTime.Now.AddMinutes(10);
                         timRetry.Enabled = true;
                         timRetryTime.Enabled = true;
                         
                         pbProgress.Value = 0;
-                        niSystray.ShowBalloonTip(5000, Lang.OTRRemote.FrmProgress_Systray_Deletion_Title, Lang.OTRRemote.FrmProgress_Systray_Deletion_Intro, ToolTipIcon.Info);
+                        UpdateTaskbarProgressBar(Windows7.TaskbarButtonProgressState.Paused);
                         break;
                     case WorkerResult.Success:
                         this.DialogResult = DialogResult.OK;
@@ -400,6 +451,7 @@ namespace Crazysoft.OTRRemote
                         {
                             lblStatus.Text = Lang.OTRRemote.FrmProgress_Status_Finished;
                             pbProgress.Value = 3;
+                            UpdateTaskbarProgressBar(Windows7.TaskbarButtonProgressState.Normal);
                         }
                         else
                         {
@@ -414,7 +466,10 @@ namespace Crazysoft.OTRRemote
                             {
                                 closeTimeout = Convert.ToInt32(Program.Settings["Program"]["AutoCloseTimeout"].Value) * 1000;
                             }
-                            niSystray.ShowBalloonTip(closeTimeout, _recInfo.Title, Lang.OTRRemote.FrmProgress_Status_Finished, ToolTipIcon.Info);
+                            if (!IsWindowsSeven())
+                            {
+                                niSystray.ShowBalloonTip(closeTimeout, _recInfo.Title, Lang.OTRRemote.FrmProgress_Status_Finished, ToolTipIcon.Info);
+                            }
                         }
                         break;
                     case WorkerResult.Error:
@@ -426,6 +481,7 @@ namespace Crazysoft.OTRRemote
                             lblStatus.Text = Lang.OTRRemote.FrmProgress_Status_Error;
                             lblStatus.ForeColor = Color.Red;
                             pbProgress.Value = 0;
+                            UpdateTaskbarProgressBar(Windows7.TaskbarButtonProgressState.NoProgress);
                         }
                         else
                         {
@@ -438,7 +494,10 @@ namespace Crazysoft.OTRRemote
                             {
                                 closeTimeout = Convert.ToInt32(Program.Settings["Program"]["AutoCloseTimeout"].Value) * 1000;
                             }
-                            niSystray.ShowBalloonTip(closeTimeout, _recInfo.Title, Lang.OTRRemote.FrmProgress_Status_Error, ToolTipIcon.Error);
+                            if (!IsWindowsSeven())
+                            {
+                                niSystray.ShowBalloonTip(closeTimeout, _recInfo.Title, Lang.OTRRemote.FrmProgress_Status_Error, ToolTipIcon.Error);
+                            }
                         }
                         break;
                 }
@@ -465,7 +524,9 @@ namespace Crazysoft.OTRRemote
                 }
             }
         }
+        #endregion
 
+        #region CreateRequest methods
         private HttpWebRequest CreateNewRequest(string url)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
@@ -561,8 +622,9 @@ namespace Crazysoft.OTRRemote
                 return CreateNewRequest(url);
             }
         }
+        #endregion
 
-        private string FindEpgId(RecI.RecordingInfo recInfo)
+        private string FindEpgId(RecordingInfo recInfo)
         {
             // Get Unix timestamp of date
             TimeSpan ts = new DateTime(recInfo.StartDate.Year, recInfo.StartDate.Month, recInfo.StartDate.Day, 0, 0, 0).ToUniversalTime() - new DateTime(1970, 1, 1, 0, 0, 0).ToUniversalTime();
@@ -613,6 +675,7 @@ namespace Crazysoft.OTRRemote
 
                 if (answer.Contains("No broadcasts found!"))
                 {
+                    UpdateTaskbarProgressBar(Windows7.TaskbarButtonProgressState.Error);
                     MessageBox.Show(Lang.OTRRemote.FrmProgress_ErrorMsg_EPGNotFound_Text,
                                     String.Concat("Crazysoft OTR Remote: ", Lang.OTRRemote.FrmProgress_ErrorMsg_EPGNotFound_Title),
                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -655,6 +718,7 @@ namespace Crazysoft.OTRRemote
 
                 if (String.IsNullOrEmpty(epgid))
                 {
+                    UpdateTaskbarProgressBar(Windows7.TaskbarButtonProgressState.Error);
                     MessageBox.Show(Lang.OTRRemote.FrmProgress_ErrorMsg_EPGNotFound_Text,
                                     String.Concat("Crazysoft OTR Remote: ", Lang.OTRRemote.FrmProgress_ErrorMsg_EPGNotFound_Title),
                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -677,11 +741,66 @@ namespace Crazysoft.OTRRemote
 
         void FrmProgress_VisibleChanged(object sender, System.EventArgs e)
         {
-            // This method is called to prevent the form of being shown when using the Hidden display mode
-            if (this.Visible)
+            // This method handles the different display styles when minimizing/showing the form
+            if (_displayMode == FormDisplayMode.ShowSystray)
             {
-                this.Hide();
+                if (this.WindowState == FormWindowState.Minimized)
+                {
+                    if (!IsWindowsSeven())
+                    {
+                        this.ShowInTaskbar = false;
+                    }
+                }
+                else if (_justLoaded)
+                {
+                    this.WindowState = FormWindowState.Minimized;
+                    _justLoaded = false;
+                }
             }
+            else if (_displayMode == FormDisplayMode.Hide)
+            {
+                if (this.Visible)
+                {
+                    this.Hide();
+                }
+            }
+            
+        }
+
+        private void UpdateTaskbarProgressBar(Windows7.TaskbarButtonProgressState state)
+        {
+            // This method mirrors the state of the in-form progress bar on Windows 7
+            if (IsWindowsSeven())
+            {
+                if (taskbarProgressBar == null)
+                {
+                    lock (_syncLock)
+                    {
+                        taskbarProgressBar = new Windows7.ProgressBar();
+                    }
+                }
+
+                taskbarProgressBar.State = state;
+                taskbarProgressBar.MaxValue = pbProgress.Maximum;
+                if (state != Windows7.TaskbarButtonProgressState.NoProgress && pbProgress.Value == 0)
+                {
+                    taskbarProgressBar.CurrentValue = taskbarProgressBar.MaxValue;
+                }
+                else
+                {
+                    taskbarProgressBar.CurrentValue = pbProgress.Value;
+                }
+            }
+        }
+
+        private bool IsWindowsSeven()
+        {
+            OperatingSystem os = System.Environment.OSVersion;
+            if (os.Platform == PlatformID.Win32NT && ((os.Version.Major == 6 && os.Version.Minor >= 1 || os.Version.Major > 6)))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

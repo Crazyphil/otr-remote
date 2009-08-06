@@ -41,12 +41,19 @@ namespace Crazysoft.OTRRemote
                 RegistryKey rk = Registry.LocalMachine;
                 rk = rk.OpenSubKey("SOFTWARE");
                 bool foundTvBrowser = false;
+
+                // On 64-bit systems, the "Wow6432Node" subnode has to be opened to acces registry keys of 32-bit apps
+                if (IntPtr.Size * 8 == 64)
+                {
+                    rk = rk.OpenSubKey("Wow6432Node");
+                }
+
                 foreach (string subkey in rk.GetSubKeyNames())
                 {
                     if (subkey.StartsWith("TV-Browser", StringComparison.CurrentCultureIgnoreCase) && subkey.Length > 10)
                     {
                         RegistryKey sk = rk.OpenSubKey(subkey);
-                        settings.Add(Lang.TVBrowser.Plugin_Settings_Path, sk.GetValue("Install directory", String.Empty).ToString(), ValueType.String);
+                        string path = sk.GetValue("Install directory", String.Empty).ToString();
                         sk.Close();
 
                         if (subkey.Substring(10).Contains("-"))
@@ -82,11 +89,7 @@ namespace Crazysoft.OTRRemote
                         }
                         PluginInterop.WriteDebugLog("Enable()", String.Concat("Found registry path \"HKEY_LOCAL_MACHINE\\SOFTWARE\\", subkey, "\""));
 
-                        if (!File.Exists("OTRRemote.jar"))
-                        {
-                            PluginInterop.WriteDebugLog("Enable()", "Could not find TV-Browser plugin file \"OTRRemote.jar\", switching to manual mode.");
-                            tvbrowserVersion = new Version(1, 0);
-                        }
+                        SetPathSetting(path);
 
                         foundTvBrowser = true;
                     }
@@ -94,32 +97,38 @@ namespace Crazysoft.OTRRemote
 
                 if (!foundTvBrowser)
                 {
-                    PluginInterop.WriteDebugLog("Enable()", String.Concat("Did not find any registry path starting with \"TV-Browser\" in \"", rk.Name, "\""));
+                    PluginInterop.WriteDebugLog("Enable()", String.Concat("Did not find any registry path starting with \"TV-Browser\" in \"", rk.Name, "\". Switching to Portable Mode."));
+                    SetPathSetting(string.Empty);
                 }
 
                 rk.Close();
-                return foundTvBrowser;
+                return true;
             }
             else
             {
                 tvbrowserVersion = new Version(2, 6, 2);
-                if (!File.Exists("OTRRemote.jar"))
-                {
-                    PluginInterop.WriteDebugLog("Enable()", "Could not find TV-Browser plugin file \"OTRRemote.jar\", switching to manual mode.");
-                    tvbrowserVersion = new Version(1, 0);
-                }
-
-                // The user has to enter the path manually when running on Linux
-                if (!settings.Contains(Lang.TVBrowser.Plugin_Settings_Path))
-                {
-                    settings.Add(Lang.TVBrowser.Plugin_Settings_Path, String.Empty, ValueType.String);
-                }
-                else
-                {
-                    settings[Lang.TVBrowser.Plugin_Settings_Path].Value = String.Empty;
-                }
+                SetPathSetting(string.Empty);
 
                 return true;
+            }
+        }
+
+        private void SetPathSetting(string defaultPath)
+        {
+            if (!File.Exists("OTRRemote.jar"))
+            {
+                PluginInterop.WriteDebugLog("Enable()", "Could not find TV-Browser plugin file \"OTRRemote.jar\", switching to manual mode.");
+                tvbrowserVersion = new Version(1, 0);
+            }
+
+            // The user has to enter the path manually when running on Linux or TV-Browser is not found in registry (Portable)
+            if (!settings.Contains(Lang.TVBrowser.Plugin_Settings_Path))
+            {
+                settings.Add(Lang.TVBrowser.Plugin_Settings_Path, defaultPath, ValueType.String);
+            }
+            else
+            {
+                settings[Lang.TVBrowser.Plugin_Settings_Path].Value = defaultPath;
             }
         }
 

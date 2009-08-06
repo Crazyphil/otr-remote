@@ -148,6 +148,7 @@
             this.Text = "Crazysoft OTR Remote";
             this.Load += new System.EventHandler(this.FrmProgress_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FrmProgress_Paint);
+            this.VisibleChanged += new System.EventHandler(this.FrmProgress_VisibleChanged);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmProgress_FormClosing);
             this.pnlHeader.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -166,7 +167,6 @@
         private System.Windows.Forms.Timer timTimer;
         private System.Windows.Forms.Timer timRetry;
         private System.Windows.Forms.Timer timRetryTime;
-        private System.ComponentModel.BackgroundWorker bwWorker;
         private System.Windows.Forms.NotifyIcon niSystray;
 
         // Minimal form initializer with only Timer, BackgroundWorker and NotifyIcon for Hidden mode
@@ -221,5 +221,7 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.ComponentModel.BackgroundWorker bwWorker;
     }
 }

@@ -161,10 +161,10 @@ namespace Crazysoft.OTRRemote
             {
                 try
                 {
-                    FileStream fs = new FileStream(Path.Combine(rk.GetValue("InstallDir").ToString(), "access.tmp"), FileMode.Create, FileAccess.Write);
+                    FileStream fs = new FileStream(Path.Combine(installDir, "access.tmp"), FileMode.Create, FileAccess.Write);
                     fs.Close();
                     fs.Dispose();
-                    File.Delete(Path.Combine(rk.GetValue("InstallDir").ToString(), "access.tmp"));
+                    File.Delete(Path.Combine(installDir, "access.tmp"));
                 }
                 catch (UnauthorizedAccessException)
                 {
@@ -181,10 +181,10 @@ namespace Crazysoft.OTRRemote
                 StreamWriter recorder = new StreamWriter(String.Concat(installDir, "\\Interfaces\\OTR\\recorder.ini"));
                 recorder.WriteLine("RecorderType = rct_Script");
                 recorder.WriteLine("Name         = OnlineTvRecorder");
-                recorder.WriteLine("Version      = 1.0.2.3");
+                recorder.WriteLine("Version      = 1.0.2.4");
                 recorder.WriteLine("Description  = Free online TV recording");
                 recorder.WriteLine("VendorURL    = www.crazysoft.net.ms");
-                recorder.WriteLine("debuginfo    = 0");
+                recorder.WriteLine("debuginfo    = false");
                 recorder.Close();
             }
             rk.Close();
@@ -207,11 +207,27 @@ namespace Crazysoft.OTRRemote
                 return Lang.TVgenial.Plugin_Error_Name;
             }
 
+            // Get the directory where OTR Remote resides in for later use
+            string otrRemoteDir = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+
             if (appVer.Major == 4)
             {
-                // Starting from Version 4.05, data is saved in the user's AppData directory
+                // Write setup.ini
+                // This file contains information about the RecorderScript file
+                string pluginDir = String.Concat(installDir, "\\Interfaces\\OTR");
+                Directory.CreateDirectory(pluginDir);
+
+                StreamWriter setup = new StreamWriter(String.Concat(pluginDir, "\\setup.ini"));
+                setup.WriteLine("[setup]");
+                setup.WriteLine(String.Concat("Scriptfile = ", Path.Combine(_settings[Lang.TVgenial.Plugin_Settings_Path].Value, _settings[Lang.TVgenial.Plugin_Settings_Name].Value)));
+                setup.Close();
+
+                // Change recorders.ini
+                // This file contains information about the existing interfaces and which should be used
+                // Starting from Version 4.05, this file is saved in the user's AppData directory
                 // So we have to change the installDir, if this is the case
-                if (!File.Exists(Path.Combine(installDir, "recorders.ini"))) {
+                if (!File.Exists(Path.Combine(installDir, "recorders.ini")))
+                {
                     // Use AppData directory
                     installDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TVgenial");
 
@@ -223,15 +239,6 @@ namespace Crazysoft.OTRRemote
                     }
                 }
 
-                // Write setup.ini
-                // This file contains information about the RecorderScript file
-                StreamWriter setup = new StreamWriter(String.Concat(installDir, "\\Interfaces\\OTR\\setup.ini"));
-                setup.WriteLine("[setup]");
-                setup.WriteLine(String.Concat("Scriptfile = ", Path.Combine(_settings[Lang.TVgenial.Plugin_Settings_Path].Value, _settings[Lang.TVgenial.Plugin_Settings_Name].Value)));
-                setup.Close();
-
-                // Change recorders.ini
-                // This file contains information about the existing interfaces and which should be used
                 StreamReader sr = new StreamReader(Path.Combine(installDir, "recorders.ini"));
                 string file = String.Empty;
                 string line = sr.ReadLine();
@@ -254,12 +261,12 @@ namespace Crazysoft.OTRRemote
                         {
                             if (line.Trim().EndsWith("2"))
                             {
-                                String.Concat(file, "active=1\r\n");
+                                file = String.Concat(file, "active=1\r\n");
                                 line = sr.ReadLine();
                                 continue;
                             }
                         }
-                        String.Concat(file, line, "\r\n");
+                        file = String.Concat(file, line, "\r\n");
                     }
                     else if (!isOTRSection && line.Trim().StartsWith("ID"))
                     {
@@ -268,11 +275,11 @@ namespace Crazysoft.OTRRemote
                         {
                             maxID = id;
                         }
-                        String.Concat(file, line, "\r\n");
+                        file = String.Concat(file, line, "\r\n");
                     }
                     else if (!isOTRSection)
                     {
-                        String.Concat(file, line, "\r\n");
+                        file = String.Concat(file, line, "\r\n");
                     }
 
                     line = sr.ReadLine();
@@ -280,18 +287,18 @@ namespace Crazysoft.OTRRemote
                 sr.Close();
 
                 // Add OTR section to file
-                String.Concat(file, "[OTR]\r\n");
+                file = String.Concat(file, "[OTR]\r\n");
                 if (_settings[Lang.TVgenial.Plugin_Settings_Default].Value == "Yes")
                 {
-                    String.Concat(file, "active=2\r\n");
+                    file = String.Concat(file, "active=2\r\n");
                 }
                 else
                 {
-                    String.Concat(file, "active=0\r\n");
+                    file = String.Concat(file, "active=0\r\n");
                 }
-                String.Concat(file, "ID=", (maxID + 1), "\r\n");
-                String.Concat(file, "selectable=1\r\n");
-                String.Concat(file, "sync_to_other=0\r\n");
+                file = String.Concat(file, "ID=", (maxID + 1), "\r\n");
+                file = String.Concat(file, "selectable=1\r\n");
+                file = String.Concat(file, "sync_to_other=0\r\n");
 
                 // Write new file
                 StreamWriter recorders = new StreamWriter(Path.Combine(installDir, "recorders.ini"));
@@ -313,7 +320,7 @@ namespace Crazysoft.OTRRemote
                     rk = Registry.CurrentUser;
                     rk = rk.OpenSubKey("Software\\ARAKON-Systems\\TVgenial", true);
                     rk.SetValue(String.Concat("RecorderScriptFile", Path.Combine(di.FullName, _settings[Lang.TVgenial.Plugin_Settings_Name].Value)), RegistryValueKind.String);
-                    rk.SetValue("RecorderSetupFileName", Path.Combine(System.Reflection.Assembly.GetExecutingAssembly().Location.Substring(0, System.Reflection.Assembly.GetExecutingAssembly().Location.LastIndexOf('\\')), "OTRRemote.exe"));
+                    rk.SetValue("RecorderSetupFileName", Path.Combine(otrRemoteDir, "OTRRemote.exe"));
                     rk.SetValue("RecorderSupportChange", 0, RegistryValueKind.DWord);
                     if (_settings[Lang.TVgenial.Plugin_Settings_Delete].Value == "Yes")
                     {
@@ -331,11 +338,11 @@ namespace Crazysoft.OTRRemote
             StreamWriter sw = new StreamWriter(Path.Combine(di.FullName, _settings[Lang.TVgenial.Plugin_Settings_Name].Value));
 
             // Add Job-Addition-Line
-            sw.WriteLine(String.Concat("DoRecordWaitFor \"", Path.Combine(System.Reflection.Assembly.GetExecutingAssembly().Location.Substring(0, System.Reflection.Assembly.GetExecutingAssembly().Location.LastIndexOf('\\')), "OTRRemote.exe"), "\" '-a -s=''\"'s'\"'' -sd='yyyy-mm-dd' -st='hh:nn' -et='rr:ff' -t=''\"'#'\"''"));
+            sw.WriteLine(String.Concat("DoRecordWaitFor \"", Path.Combine(otrRemoteDir, "OTRRemote.exe"), "\" '-a -s=''\"'s'\"'' -sd='yyyy-mm-dd' -st='hh:nn' -et='rr:ff' -t=''\"'#'\"''"));
             // Add Job-Deletion-Line
             if (_settings[Lang.TVgenial.Plugin_Settings_Delete].Value == "Yes")
             {
-                sw.WriteLine(String.Concat("DoDeleteWaitFor \"", Path.Combine(System.Reflection.Assembly.GetExecutingAssembly().Location.Substring(0, System.Reflection.Assembly.GetExecutingAssembly().Location.LastIndexOf('\\')), "OTRRemote.exe"), "\" '-r -s=''\"'s'\"'' -sd='yyyy-mm-dd' -st='hh:nn' -et='rr:ff' -t=''\"'#'\"''"));
+                sw.WriteLine(String.Concat("DoDeleteWaitFor \"", Path.Combine(otrRemoteDir, "OTRRemote.exe"), "\" '-r -s=''\"'s'\"'' -sd='yyyy-mm-dd' -st='hh:nn' -et='rr:ff' -t=''\"'#'\"''"));
             }
             sw.Close();
 
