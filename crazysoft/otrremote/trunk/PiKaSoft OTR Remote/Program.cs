@@ -52,7 +52,7 @@ namespace Crazysoft.OTRRemote
                         bool addShow = false;
 
                         // Struct for keeping information
-                        RecI.RecordingInfo recInfo = new RecI.RecordingInfo();
+                        RecordingInfo recInfo = new RecordingInfo();
 
                         // Variable for error messages
                         string message = String.Empty;
@@ -483,7 +483,25 @@ namespace Crazysoft.OTRRemote
 #endif
                         Uri requestUri = new Uri(Uri.EscapeUriString(requeststr));
                         FrmProgress FrmProgress = new FrmProgress(requestUri, recInfo);
-                        Application.Run(FrmProgress);
+
+                        // Check if the form should be loaded or if the BackgroundWorker should be started directly
+                        switch (FrmProgress.DisplayMode)
+                        {
+                            case FrmProgress.FormDisplayMode.ShowWindow:
+                                Application.Run(FrmProgress);
+                                break;
+                            case FrmProgress.FormDisplayMode.ShowSystray:
+                                FrmProgress.Show();
+                                break;
+                            case FrmProgress.FormDisplayMode.Hide:
+                                FrmProgress.StartRecordThread(FrmProgress.DisplayMode);
+                                while (FrmProgress.IsWorking)
+                                {
+                                    System.Threading.Thread.Sleep(100);
+                                }
+                                break;
+                        }
+                        
 
                         if (FrmProgress.DialogResult == DialogResult.OK)
                         {
@@ -499,7 +517,7 @@ namespace Crazysoft.OTRRemote
             }
             catch (Exception uncaughtExcp)
             {
-                if (!Application.MessageLoop)
+                if (Application.OpenForms.Count == 0)
                 {
                     Application.Run(new CrashHandler.FrmCrash(Application.ProductName, Application.ProductVersion, uncaughtExcp));
                 }
@@ -668,21 +686,18 @@ namespace Crazysoft.OTRRemote
         }
     }
 
-    public static class RecI
+    public struct RecordingInfo
     {
-        public struct RecordingInfo
-        {
-            public string Station;
-            public DateTime StartDate;
-            public DateTime StartTime;
-            public DateTime EndTime;
+        public string Station;
+        public DateTime StartDate;
+        public DateTime StartTime;
+        public DateTime EndTime;
 
-            // Optional arguments
-            public string Title;
-            public string Genre;
-            public string User;
-            public string Password;
-            public int Timezone;
-        }
+        // Optional arguments
+        public string Title;
+        public string Genre;
+        public string User;
+        public string Password;
+        public int Timezone;
     }
 }

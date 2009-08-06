@@ -39,7 +39,16 @@ namespace Crazysoft.OTRRemote
                 {
                     // Look for Clickfinder registry key
                     RegistryKey rk = Registry.LocalMachine;
-                    rk = rk.OpenSubKey("SOFTWARE\\Ewe\\TVGhost\\Gemeinsames");
+                    rk = rk.OpenSubKey("SOFTWARE");
+
+                    // On 64-bit systems, the "Wow6432Node" subnode has to be opened to acces registry keys of 32-bit apps
+                    if (IntPtr.Size * 8 == 64)
+                    {
+                        rk = rk.OpenSubKey("Wow6432Node");
+                    }
+
+                    rk = rk.OpenSubKey("Ewe\\TVGhost\\Gemeinsames");
+                    
                     if (rk != null)
                     {
                         if (File.Exists("ClickfinderHelper.exe"))

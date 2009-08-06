@@ -1,6 +1,7 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <StartArguments>-a -s="ARD" -sd=2009-07-23 -st=17:15 -et=17:55 -u="philipp.kapfer@gmx.at"</StartArguments>
+    <StartArguments>
+    </StartArguments>
     <RemoteDebugEnabled>false</RemoteDebugEnabled>
     <StartAction>Project</StartAction>
     <RemoteDebugMachine>

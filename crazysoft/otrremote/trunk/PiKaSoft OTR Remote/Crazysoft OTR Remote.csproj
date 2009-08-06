@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{A6D9CAFB-103A-4619-8D6F-F71DC55561FC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -72,6 +72,7 @@
       <HintPath>..\..\Komponenten\Crazysoft.Encryption\Crazysoft.Encryption\bin\Release\Crazysoft.Encryption.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.XML" />
@@ -178,6 +179,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Stations.cs" />
+    <Compile Include="Windows7\ProgressBar.cs" />
+    <Compile Include="Windows7\ProgressBarStateSettings.cs" />
+    <Compile Include="Windows7\TaskbarCOMInterfaces.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="OTRRemote.pfx" />
