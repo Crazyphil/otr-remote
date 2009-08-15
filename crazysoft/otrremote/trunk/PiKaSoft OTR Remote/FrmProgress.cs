@@ -69,13 +69,7 @@ namespace Crazysoft.OTRRemote
         // An instance of the Windows 7 Taskbar ProgressBar class
         Windows7.ProgressBar taskbarProgressBar;
 
-        public bool IsWorking
-        {
-            get
-            {
-                return bwWorker.IsBusy;
-            }
-        }
+        public bool IsWorking { get; private set; }
 
         public FrmProgress(Uri requestUri, RecordingInfo recInfo)
         {
@@ -206,6 +200,8 @@ namespace Crazysoft.OTRRemote
 
         public void StartRecordThread(FormDisplayMode displayMode)
         {
+            this.IsWorking = true;
+
             BackgroundWorkerParams data = new BackgroundWorkerParams();
             data.RequestString = _requestUri.ToString();
             data.RecordingInfo = _recInfo;
@@ -400,6 +396,10 @@ namespace Crazysoft.OTRRemote
                 UpdateTaskbarProgressBar(Windows7.TaskbarButtonProgressState.Error);
                 MessageBox.Show(String.Format(Lang.OTRRemote.FrmProgress_ErrorMsg_ConnErr_Text, message), Lang.OTRRemote.FrmProgress_ErrorMsg_ConnErr_Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            // If the form is hidden [= no message queue is built up via Application.Run()], call the Completed-event manually
+            if (Application.mess)
+            this.IsWorking = false;
         }
 
         private void bwWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
