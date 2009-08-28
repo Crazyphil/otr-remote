@@ -69,7 +69,11 @@ namespace Crazysoft.OTRRemote
         // An instance of the Windows 7 Taskbar ProgressBar class
         Windows7.ProgressBar taskbarProgressBar;
 
+        // Indicates, if the BackgroundWorker is currently busy
         public bool IsWorking { get; private set; }
+
+        // Indicates, if StartRecordingThread() is called manually or via the Form_Load event
+        public bool ManualCall { get; set; }
 
         public FrmProgress(Uri requestUri, RecordingInfo recInfo)
         {
@@ -99,6 +103,10 @@ namespace Crazysoft.OTRRemote
             else
             {
                 InitializeComponent();
+                if (_displayMode == FormDisplayMode.ShowSystray)
+                {
+                    this.Opacity = 0;
+                }
             }
 
             // Only translate controls if the form is not hidden
@@ -111,6 +119,8 @@ namespace Crazysoft.OTRRemote
                     ctl.Text = Lang.OTRRemote.ResourceManager.GetString(String.Concat("FrmProgress_", ctl.Name));
                 }
             }
+
+            this.ManualCall = true;
         }
 
         private void FrmProgress_Load(object sender, EventArgs e)
@@ -121,6 +131,7 @@ namespace Crazysoft.OTRRemote
                 niSystray.Visible = _displayMode == FormDisplayMode.ShowSystray;
             }
 
+            this.ManualCall = false;
             StartRecordThread(_displayMode);
         }
 
@@ -144,6 +155,7 @@ namespace Crazysoft.OTRRemote
                     this.WindowState = FormWindowState.Normal;
                 }
 
+                this.Opacity = 1;
                 this.ShowInTaskbar = true;
                 this.Show();
             }
@@ -244,6 +256,7 @@ namespace Crazysoft.OTRRemote
             // Initialize the variables provided with the start of the thread
             BackgroundWorkerParams data = (BackgroundWorkerParams)e.Argument;
             e.Result = WorkerResult.Error;
+            Exception execException = null;
 
             try
             {
@@ -316,7 +329,12 @@ namespace Crazysoft.OTRRemote
                     if (webpage.Contains(errMsgs.DeleteNotRecorded_de) || webpage.Contains(errMsgs.DeleteNotRecorded_en))
                     { // Check if the user tries to delete the recording too early
                         // Ask the user to automatically retry deletion
-                        if (!Program.Settings["Program"]["RetryDelete"].IsNull && Convert.ToBoolean(Program.Settings["Program"]["RetryDelete"].Value))
+                        if (this.ManualCall)
+                        {
+                            // When calling the recording procedure manually (= no form really exists), Deletion Retry is forbidden
+                            retryAnswer = DialogResult.No;
+                        }
+                        else if (!Program.Settings["Program"]["RetryDelete"].IsNull && Convert.ToBoolean(Program.Settings["Program"]["RetryDelete"].Value))
                         {
                             retryAnswer = DialogResult.Yes;
                         }
@@ -395,11 +413,17 @@ namespace Crazysoft.OTRRemote
                 }
                 UpdateTaskbarProgressBar(Windows7.TaskbarButtonProgressState.Error);
                 MessageBox.Show(String.Format(Lang.OTRRemote.FrmProgress_ErrorMsg_ConnErr_Text, message), Lang.OTRRemote.FrmProgress_ErrorMsg_ConnErr_Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                execException = exc;
             }
-
-            // If the form is hidden [= no message queue is built up via Application.Run()], call the Completed-event manually
-            if (Application.mess)
-            this.IsWorking = false;
+            catch (Exception exc)
+            {
+                execException = exc;
+            }
+            finally
+            {
+                RaiseCompletedEvent(sender, new RunWorkerCompletedEventArgs(e.Result, execException, e.Cancel));
+                this.IsWorking = false;
+            }
         }
 
         private void bwWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -801,6 +825,15 @@ namespace Crazysoft.OTRRemote
                 return true;
             }
             return false;
+        }
+
+        private void RaiseCompletedEvent(object sender, RunWorkerCompletedEventArgs args)
+        {
+            if (this.ManualCall)
+            {
+                // When calling the recording procedure manually (= no form really exists), call the RunWorkerCompleted event manually
+                bwWorker_RunWorkerCompleted(sender, args);
+            }
         }
     }
 }

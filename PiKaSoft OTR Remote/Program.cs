@@ -491,7 +491,7 @@ namespace Crazysoft.OTRRemote
                                 Application.Run(FrmProgress);
                                 break;
                             case FrmProgress.FormDisplayMode.ShowSystray:
-                                FrmProgress.Show();
+                                FrmProgress.ShowDialog();
                                 break;
                             case FrmProgress.FormDisplayMode.Hide:
                                 FrmProgress.StartRecordThread(FrmProgress.DisplayMode);

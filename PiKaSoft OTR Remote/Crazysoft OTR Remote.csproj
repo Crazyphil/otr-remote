@@ -9,8 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Crazysoft.OTRRemote</RootNamespace>
     <AssemblyName>OTRRemote</AssemblyName>
-    <StartupObject>
-    </StartupObject>
+    <StartupObject>Crazysoft.OTRRemote.Program</StartupObject>
     <ApplicationIcon>VideoCamera.ico</ApplicationIcon>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
