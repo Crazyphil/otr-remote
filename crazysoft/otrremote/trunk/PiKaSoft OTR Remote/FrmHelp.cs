@@ -14,10 +14,7 @@ namespace Crazysoft.OTRRemote
         {
             InitializeComponent();
 
-            foreach (Control ctl in this.Controls)
-            {
-                TranslateControl(ctl);
-            }
+            Program.TranslateControls(this);
         }
 
         private void FrmHelp_Paint(object sender, PaintEventArgs e)
@@ -28,15 +25,6 @@ namespace Crazysoft.OTRRemote
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void TranslateControl(Control ctl)
-        {
-            ctl.Text = Lang.OTRRemote.ResourceManager.GetString(String.Concat("FrmHelp_", ctl.Name));
-            foreach (Control subCtl in ctl.Controls)
-            {
-                TranslateControl(subCtl);
-            }
         }
     }
 }

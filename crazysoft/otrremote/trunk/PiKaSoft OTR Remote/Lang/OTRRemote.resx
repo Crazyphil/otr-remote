@@ -645,4 +645,73 @@ Should OTR Remote retry to delete this recording automatically in 10 minutes?</v
   <data name="CmdLine_DeleteMsg_ThisShow" xml:space="preserve">
     <value>this show</value>
   </data>
+  <data name="FrmPreferences_cbRecordingPreview" xml:space="preserve">
+    <value>Show recording &amp;preview before sending job</value>
+  </data>
+  <data name="FrmRecordingPreview_AddText" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="FrmRecordingPreview_btnCancel" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="FrmRecordingPreview_btnOK" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="FrmRecordingPreview_cbSeriesRule_Time" xml:space="preserve">
+    <value>daily</value>
+  </data>
+  <data name="FrmRecordingPreview_cbSeriesRule_TimeAndWeekDay" xml:space="preserve">
+    <value>on {0}</value>
+  </data>
+  <data name="FrmRecordingPreview_cbSeriesRule_TimeAndWeekend" xml:space="preserve">
+    <value>on weekends</value>
+  </data>
+  <data name="FrmRecordingPreview_cbSeriesRule_TimeAndWorkDay" xml:space="preserve">
+    <value>on workdays</value>
+  </data>
+  <data name="FrmRecordingPreview_FromText" xml:space="preserve">
+    <value>from</value>
+  </data>
+  <data name="FrmRecordingPreview_gbSeries" xml:space="preserve">
+    <value>Series Recording</value>
+  </data>
+  <data name="FrmRecordingPreview_lblEndTime" xml:space="preserve">
+    <value>End Time:</value>
+  </data>
+  <data name="FrmRecordingPreview_lblGenre" xml:space="preserve">
+    <value>Genre:</value>
+  </data>
+  <data name="FrmRecordingPreview_lblHeader" xml:space="preserve">
+    <value>Recording Preview</value>
+  </data>
+  <data name="FrmRecordingPreview_lblIntroduction" xml:space="preserve">
+    <value>{0} recording {1} OTR using following data:</value>
+  </data>
+  <data name="FrmRecordingPreview_lblSeriesDays" xml:space="preserve">
+    <value>days</value>
+  </data>
+  <data name="FrmRecordingPreview_lblSeriesRecording" xml:space="preserve">
+    <value>{0} recordings for the following</value>
+  </data>
+  <data name="FrmRecordingPreview_lblStartDate" xml:space="preserve">
+    <value>Start Date:</value>
+  </data>
+  <data name="FrmRecordingPreview_lblStartTime" xml:space="preserve">
+    <value>Start Time:</value>
+  </data>
+  <data name="FrmRecordingPreview_lblStation" xml:space="preserve">
+    <value>Station:</value>
+  </data>
+  <data name="FrmRecordingPreview_lblTitle" xml:space="preserve">
+    <value>Title:</value>
+  </data>
+  <data name="FrmRecordingPreview_RemoveText" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="FrmRecordingPreview_ToText" xml:space="preserve">
+    <value>to</value>
+  </data>
+  <data name="FrmRecordingPreview_lblSeriesTime" xml:space="preserve">
+    <value>to the same time</value>
+  </data>
 </root>

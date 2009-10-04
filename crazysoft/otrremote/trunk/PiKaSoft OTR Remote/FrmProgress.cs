@@ -27,6 +27,10 @@ namespace Crazysoft.OTRRemote
 
         // Variable for holding the deletion retry time
         DateTime _retryTime;
+
+        // Variables for current recording and total recordings if multiple recordings exist
+        int _currentRecording;
+        int _totalRecordings;
         
         // Variables for indication the form's display status
         public enum FormDisplayMode { ShowWindow, ShowSystray, Hide }
@@ -75,10 +79,12 @@ namespace Crazysoft.OTRRemote
         // Indicates, if StartRecordingThread() is called manually or via the Form_Load event
         public bool ManualCall { get; set; }
 
-        public FrmProgress(Uri requestUri, RecordingInfo recInfo)
+        public FrmProgress(RecordingInfo recInfo, int currentRecording, int totalRecordings)
         {
-            _requestUri = requestUri;
+            _requestUri = new Uri(Uri.EscapeUriString(recInfo.RequestString));
             _recInfo = recInfo;
+            _currentRecording = currentRecording;
+            _totalRecordings = totalRecordings;
 
             // Write form's display mode to variable
             // First, look for legacy setting (OTR Remote < 2.0)
@@ -428,9 +434,12 @@ namespace Crazysoft.OTRRemote
 
         private void bwWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
+            string statusText = _totalRecordings > 1 ? String.Concat(_currentRecording, "/", _totalRecordings, ": ", e.UserState.ToString()) : e.UserState.ToString();
+
             if (_displayMode != FormDisplayMode.Hide)
             {
-                lblStatus.Text = e.UserState.ToString();
+                lblStatus.Text = statusText;
+                
                 pbProgress.Value = e.ProgressPercentage;
                 UpdateTaskbarProgressBar(Windows7.TaskbarButtonProgressState.Normal);
             }
@@ -438,7 +447,7 @@ namespace Crazysoft.OTRRemote
             // Write output to systray if icon is used
             if (_displayMode == FormDisplayMode.ShowSystray && !this.ShowInTaskbar)
             {
-                niSystray.ShowBalloonTip(2000, _recInfo.Title, e.UserState.ToString(), ToolTipIcon.Info);
+                niSystray.ShowBalloonTip(2000, _recInfo.Title, statusText, ToolTipIcon.Info);
             }
         }
 
@@ -528,7 +537,7 @@ namespace Crazysoft.OTRRemote
 
                 if ((WorkerResult)e.Result != WorkerResult.Deferred)
                 {
-                    if (!Program.Settings["Program"]["AutoClose"].IsNull)
+                    if (!Program.Settings["Program"]["AutoClose"].IsNull && _currentRecording == _totalRecordings)
                     {
                         if (Convert.ToInt32(Program.Settings["Program"]["AutoCloseTimeout"].Value) > 0)
                         {
