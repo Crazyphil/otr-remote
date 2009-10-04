@@ -24,11 +24,6 @@ namespace Crazysoft.OTRRemote
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            // COMPAT: Removed with new AppSettings v2.0
-            /*_Settings = new AppSettings(String.Format("{1}{0}{2}{0}{3}{0}{4}", System.IO.Path.DirectorySeparatorChar,
-                                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Crazysoft", "OTR Remote",
-                                "settings.xml"));*/
-            //_Settings.Load();
             _Settings = new AppSettings(true);
 
 #if !DEBUG
@@ -52,7 +47,7 @@ namespace Crazysoft.OTRRemote
                         bool addShow = false;
 
                         // Struct for keeping information
-                        RecordingInfo recInfo = new RecordingInfo();
+                        RecordingInfo[] recInfo = new RecordingInfo[1];
 
                         // Variable for error messages
                         string message = String.Empty;
@@ -67,7 +62,10 @@ namespace Crazysoft.OTRRemote
                             addShow = false;
                         }
 
-                        // Parse Station argument
+                        recInfo[0].RemoveMode = !addShow;
+
+                        #region Required arguments
+                        #region Parse Station argument
                         int stationPos = Array.FindIndex(args, FindStationArg);
                         if (stationPos != -1)
                         {
@@ -76,16 +74,17 @@ namespace Crazysoft.OTRRemote
                                 // Replace EPG station names with OTR's
                                 Stations stations = new Stations();
                                 stations.Load();
-                                recInfo.Station = args[stationPos].Substring(3).Replace("\"", String.Empty);
-                                Station replacement = stations.Find(recInfo.Station);
+                                recInfo[0].Station = args[stationPos].Substring(3).Replace("\"", String.Empty);
+                                Station replacement = stations.Find(recInfo[0].Station);
                                 if (replacement != null)
                                 {
-                                    recInfo.Station = replacement.Name;
+                                    recInfo[0].Station = replacement.Name;
                                 }
                             }
                         }
+                        #endregion
 
-                        // Parse StartDate argument
+                        #region Parse StartDate argument
                         int sdPos = Array.FindIndex(args, FindStartDateArg);
                         if (sdPos != -1)
                         {
@@ -96,7 +95,7 @@ namespace Crazysoft.OTRRemote
                                 {
                                     try
                                     {
-                                        recInfo.StartDate = DateTime.Parse(String.Format("{0:D2}-{1:D2}-{2:D2}", Convert.ToInt32(date[0]), Convert.ToInt32(date[1]), Convert.ToInt32(date[2])));
+                                        recInfo[0].StartDate = DateTime.Parse(String.Format("{0:D2}-{1:D2}-{2:D2}", Convert.ToInt32(date[0]), Convert.ToInt32(date[1]), Convert.ToInt32(date[2])));
                                     }
                                     catch
                                     {
@@ -104,8 +103,9 @@ namespace Crazysoft.OTRRemote
                                 }
                             }
                         }
+                        #endregion
 
-                        // Parse StartTime argument
+                        #region Parse StartTime argument
                         int stPos = Array.FindIndex(args, FindStartTimeArg);
                         if (stPos != -1)
                         {
@@ -233,7 +233,7 @@ namespace Crazysoft.OTRRemote
                                             }
                                         }
 
-                                        recInfo.StartTime = DateTime.Parse(String.Format("{0:D2}:{1:D2}", hour, minute));
+                                        recInfo[0].StartTime = DateTime.Parse(String.Format("{0:D2}:{1:D2}", hour, minute));
                                     }
                                     catch
                                     {
@@ -241,8 +241,9 @@ namespace Crazysoft.OTRRemote
                                 }
                             }
                         }
+                        #endregion
 
-                        // Parse EndTime argument
+                        #region Parse EndTime argument
                         int etPos = Array.FindIndex(args, FindEndTimeArg);
                         if (etPos != -1)
                         {
@@ -277,7 +278,7 @@ namespace Crazysoft.OTRRemote
                                             }
                                         }
 
-                                        recInfo.EndTime = DateTime.Parse(String.Format("{0:D2}:{1:D2}", hour, minute));
+                                        recInfo[0].EndTime = DateTime.Parse(String.Format("{0:D2}:{1:D2}", hour, minute));
                                     }
                                     catch
                                     {
@@ -285,63 +286,70 @@ namespace Crazysoft.OTRRemote
 
                                     // To avoid recording all shows in 24 hours, add 2 minutes to endtime, if it is unknown
                                     // (endtime = starttime or endtime = starttime - 1, as given by EPG program)
-                                    if (recInfo.EndTime.TimeOfDay == recInfo.StartTime.TimeOfDay || recInfo.EndTime.TimeOfDay == recInfo.StartTime.AddMinutes(-1).TimeOfDay) {
-                                        recInfo.EndTime = recInfo.EndTime.AddMinutes(2);
+                                    if (recInfo[0].EndTime.TimeOfDay == recInfo[0].StartTime.TimeOfDay || recInfo[0].EndTime.TimeOfDay == recInfo[0].StartTime.AddMinutes(-1).TimeOfDay)
+                                    {
+                                        recInfo[0].EndTime = recInfo[0].EndTime.AddMinutes(2);
                                     }
                                 }
                             }
                         }
+                        #endregion
+                        #endregion
 
-                        // Optional arguments
-                        // Parse Title argument
+                        #region Optional arguments
+                        #region Parse Title argument
                         int titlePos = Array.FindIndex(args, FindTitleArg);
                         if (titlePos != -1)
                         {
                             if (args[titlePos].Length > 3)
                             {
-                                recInfo.Title = args[titlePos].Substring(3);
+                                recInfo[0].Title = args[titlePos].Substring(3);
                             }
                         }
+                        #endregion
 
-                        // Parse Genre argument
+                        #region Parse Genre argument
                         int genrePos = Array.FindIndex(args, FindGenreArg);
                         if (genrePos != -1)
                         {
                             if (args[genrePos].Length > 3)
                             {
-                                recInfo.Genre = args[genrePos].Substring(3);
+                                recInfo[0].Genre = args[genrePos].Substring(3);
                             }
                         }
+                        #endregion
 
-                        // Parse User argument
+                        #region Parse User argument
                         int userPos = Array.FindIndex(args, FindUserArg);
                         if (userPos != -1)
                         {
                             if (args[userPos].Length > 3)
                             {
-                                recInfo.User = args[userPos].Substring(3);
+                                recInfo[0].User = args[userPos].Substring(3);
                             }
                         }
                         else if (!Settings["Program"]["Username"].IsNull && !String.IsNullOrEmpty(Settings["Program"]["Username"].Value.ToString()))
                         {
-                            recInfo.User = Settings["Program"]["Username"].Value.ToString();
+                            recInfo[0].User = Settings["Program"]["Username"].Value.ToString();
                         }
+                        #endregion
 
-                        // Parse Password argument
+                        #region Parse Password argument
                         int passPos = Array.FindIndex(args, FindPasswordArg);
                         if (passPos != -1)
                         {
                             if (args[passPos].Length > 3)
                             {
-                                recInfo.Password = args[passPos].Substring(3);
+                                recInfo[0].Password = args[passPos].Substring(3);
                             }
                         }
                         else if (!Settings["Program"]["Password"].IsNull && !String.IsNullOrEmpty(Settings["Program"]["Password"].Value.ToString()))
                         {
-                            recInfo.Password = Encryption.Encryption.Decrypt(Settings["Program"]["Password"].Value.ToString(), Settings["Program"]["Username"].Value.ToString());
+                            recInfo[0].Password = Encryption.Encryption.Decrypt(Settings["Program"]["Password"].Value.ToString(), Settings["Program"]["Username"].Value.ToString());
                         }
+                        #endregion
 
-                        // Parse Timezone argument
+                        #region Parse Timezone argument
                         int tzPos = Array.FindIndex(args, FindTimezoneArg);
                         if (tzPos != -1)
                         {
@@ -351,41 +359,43 @@ namespace Crazysoft.OTRRemote
                                 {
                                     int tz = Convert.ToInt32(args[tzPos].Substring(4));
 
-                                    recInfo.Timezone = tz;
+                                    recInfo[0].Timezone = tz;
                                 }
                                 catch
                                 {
-                                    recInfo.Timezone = GetTimezone();
+                                    recInfo[0].Timezone = GetTimezone();
                                 }
                             }
                             else
                             {
-                                recInfo.Timezone = GetTimezone();
+                                recInfo[0].Timezone = GetTimezone();
                             }
                         }
                         else
                         {
-                            recInfo.Timezone = GetTimezone();
+                            recInfo[0].Timezone = GetTimezone();
                         }
+                        #endregion
+                        #endregion
 
                         // Find unset variables (= unspecified args) and throw an error
                         if (Array.IndexOf(args, "-a") == -1 && Array.IndexOf(args, "-r") == -1)
                         {
                             message = String.Concat(message, "\u2022 ", Lang.OTRRemote.CmdLine_Error_Action, "\n");
                         }
-                        if (String.IsNullOrEmpty(recInfo.Station))
+                        if (String.IsNullOrEmpty(recInfo[0].Station))
                         {
                             message = String.Concat(message, "\u2022 ", Lang.OTRRemote.CmdLine_Error_Station, "\n");
                         }
-                        if (recInfo.StartDate == null)
+                        if (recInfo[0].StartDate == null)
                         {
                             message = String.Concat(message, "\u2022 ", Lang.OTRRemote.CmdLine_Error_StartDate, "\n");
                         }
-                        if (recInfo.StartTime == null)
+                        if (recInfo[0].StartTime == null)
                         {
                             message = String.Concat(message, "\u2022 ", Lang.OTRRemote.CmdLine_Error_StartTime, "\n");
                         }
-                        if (recInfo.EndTime == null)
+                        if (recInfo[0].EndTime == null)
                         {
                             message = String.Concat(message, "\u2022 ", Lang.OTRRemote.CmdLine_Error_EndTime, "\n");
                         }
@@ -400,19 +410,23 @@ namespace Crazysoft.OTRRemote
                             return 1;
                         }
 
+                        // Indicate, if the Recording Preview dialog should be shown according to the preferences
+                        bool recordingPreview = Settings["Program"]["RecordingPreview"].IsNull || (!Settings["Program"]["RecordingPreview"].IsNull && Convert.ToBoolean(Settings["Program"]["RecordingPreview"].Value));
+
                         // Initialize request URL and object
-                        // Warn the user, if he tries to remove a job
-                        string requeststr = "http://www.onlinetvrecorder.com/?aktion=";
+                        // Warn the user if he tries to remove a job
+                        recInfo[0].RequestString = "http://www.onlinetvrecorder.com/?aktion=";
                         if (addShow)
                         {
-                            requeststr = String.Concat(requeststr, "createJob");
+                            recInfo[0].RequestString = String.Concat(recInfo[0].RequestString, "createJob");
                         }
                         else
                         {
                             // Ask the user if he knows what he does, before we really delete the recording
-                            if (MessageBox.Show(String.Format(Lang.OTRRemote.CmdLine_DeleteMsg_Text, String.IsNullOrEmpty(recInfo.Title) ? Lang.OTRRemote.CmdLine_DeleteMsg_ThisShow : recInfo.Title, recInfo.StartDate.ToShortDateString(), recInfo.StartTime.ToShortTimeString()), String.Concat("Crazysoft OTR Remote: ", Lang.OTRRemote.CmdLine_DeleteMsg_Title), MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+
+                            if (recordingPreview || MessageBox.Show(String.Format(Lang.OTRRemote.CmdLine_DeleteMsg_Text, String.IsNullOrEmpty(recInfo[0].Title) ? Lang.OTRRemote.CmdLine_DeleteMsg_ThisShow : String.Concat("\"", recInfo[0].Title, "\""), recInfo[0].StartDate.ToShortDateString(), recInfo[0].StartTime.ToShortTimeString()), String.Concat("Crazysoft OTR Remote: ", Lang.OTRRemote.CmdLine_DeleteMsg_Title), MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                             {
-                                requeststr = String.Concat(requeststr, "deleteJob");
+                                recInfo[0].RequestString = String.Concat(recInfo[0].RequestString, "deleteJob");
                             }
                             else
                             {
@@ -421,9 +435,9 @@ namespace Crazysoft.OTRRemote
                         }
 
                         // If username and/or password are not set, call the login form
-                        if (String.IsNullOrEmpty(recInfo.User) || String.IsNullOrEmpty(recInfo.Password))
+                        if (String.IsNullOrEmpty(recInfo[0].User) || String.IsNullOrEmpty(recInfo[0].Password))
                         {
-                            FrmLogin FrmLogin = new FrmLogin(recInfo.User, recInfo.Password, recInfo.Timezone);
+                            FrmLogin FrmLogin = new FrmLogin(recInfo[0].User, recInfo[0].Password, recInfo[0].Timezone);
                             Application.Run(FrmLogin);
 
                             if (FrmLogin.DialogResult == DialogResult.Cancel)
@@ -432,85 +446,110 @@ namespace Crazysoft.OTRRemote
                             }
                             else
                             {
-                                recInfo.User = FrmLogin.Username;
-                                recInfo.Password = FrmLogin.Password;
-                                recInfo.Timezone = FrmLogin.Timezone;
+                                recInfo[0].User = FrmLogin.Username;
+                                recInfo[0].Password = FrmLogin.Password;
+                                recInfo[0].Timezone = FrmLogin.Timezone;
                             }
                         }
 
-                        requeststr = String.Concat(requeststr, "&tvStation=", recInfo.Station);
-                        requeststr = String.Concat(requeststr, String.Format("&startDate_year={0:D2}&startDate_month={1:D2}&startDate_day={2:D2}", recInfo.StartDate.Year, recInfo.StartDate.Month, recInfo.StartDate.Day));
-                        requeststr = String.Concat(requeststr, String.Format("&startTime_hour={0:D2}&startTime_minute={1:D2}", recInfo.StartTime.Hour, recInfo.StartTime.Minute));
-                        requeststr = String.Concat(requeststr, String.Format("&endTime_hour={0:D2}&endTime_minute={1:D2}", recInfo.EndTime.Hour, recInfo.EndTime.Minute));
-
-                        //requeststr = String.Concat(requeststr, "&email=", recInfo.User, "&pass=", recInfo.Password);
-
-                        string urlTitle = recInfo.Title;
-                        if (!String.IsNullOrEmpty(recInfo.Title))
+                        // Show recording preview dialog with series programming
+                        if (recordingPreview)
                         {
-                            // Convert special characters to readable chars
-                            urlTitle = urlTitle.Replace("ä", "ae");
-                            urlTitle = urlTitle.Replace("ö", "oe");
-                            urlTitle = urlTitle.Replace("ü", "ue");
-                            urlTitle = urlTitle.Replace("ß", "ss");
-                            urlTitle = urlTitle.Replace("&", "und");
+                            FrmRecordingPreview FrmRecordingPreview = new FrmRecordingPreview(recInfo[0]);
+                            Application.Run(FrmRecordingPreview);
 
-                            if (!addShow)
+                            if (FrmRecordingPreview.DialogResult == DialogResult.Cancel)
                             {
-                                // Also convert URL-necessary chars
-                                urlTitle = urlTitle.Replace(" ", "+");
-                                urlTitle = urlTitle.Replace("-", "+");
-                                Regex regex = new Regex("[^0-9A-Za-z+.]");
-                                urlTitle = regex.Replace(urlTitle, "");
-                                urlTitle = urlTitle.Replace("+++", "+");
-                                urlTitle = urlTitle.Replace("++", "+");
+                                return 1;
+                            }
+                            else
+                            {
+                                recInfo = FrmRecordingPreview.RecordingInfo;
+                            }
+                        }
+
+                        // Do further processing and recording for each recording info
+                        int i = 0;
+                        int programResult = 1;
+                        foreach (RecordingInfo ri in recInfo)
+                        {
+                            // Finish request string
+                            recInfo[i].RequestString = String.Concat(recInfo[i].RequestString, "&tvStation=", ri.Station);
+                            recInfo[i].RequestString = String.Concat(recInfo[i].RequestString, String.Format("&startDate_year={0:D2}&startDate_month={1:D2}&startDate_day={2:D2}", ri.StartDate.Year, ri.StartDate.Month, ri.StartDate.Day));
+                            recInfo[i].RequestString = String.Concat(recInfo[i].RequestString, String.Format("&startTime_hour={0:D2}&startTime_minute={1:D2}", ri.StartTime.Hour, ri.StartTime.Minute));
+                            recInfo[i].RequestString = String.Concat(recInfo[i].RequestString, String.Format("&endTime_hour={0:D2}&endTime_minute={1:D2}", ri.EndTime.Hour, ri.EndTime.Minute));
+
+                            // Check for illegal characters in every recording info
+                            string urlTitle = ri.Title;
+                            if (!String.IsNullOrEmpty(ri.Title))
+                            {
+                                // Convert special characters to readable chars
+                                urlTitle = urlTitle.Replace("ä", "ae");
+                                urlTitle = urlTitle.Replace("ö", "oe");
+                                urlTitle = urlTitle.Replace("ü", "ue");
+                                urlTitle = urlTitle.Replace("ß", "ss");
+                                urlTitle = urlTitle.Replace("&", "und");
+
+                                if (!addShow)
+                                {
+                                    // Also convert URL-necessary chars
+                                    urlTitle = urlTitle.Replace(" ", "+");
+                                    urlTitle = urlTitle.Replace("-", "+");
+                                    Regex regex = new Regex("[^0-9A-Za-z+.]");
+                                    urlTitle = regex.Replace(urlTitle, "");
+                                    urlTitle = urlTitle.Replace("+++", "+");
+                                    urlTitle = urlTitle.Replace("++", "+");
+                                }
+
+                                recInfo[i].RequestString = String.Concat(recInfo[i].RequestString, "&titleName=", urlTitle.Replace("\"", ""));
+                            }
+                            if (!String.IsNullOrEmpty(ri.Genre))
+                            {
+                                recInfo[i].RequestString = String.Concat(recInfo[i].RequestString, "&genre=", ri.Genre.Replace("\"", ""));
                             }
 
-                            requeststr = String.Concat(requeststr, "&titleName=", urlTitle.Replace("\"", ""));
-                        }
-                        if (!String.IsNullOrEmpty(recInfo.Genre))
-                        {
-                            requeststr = String.Concat(requeststr, "&genre=", recInfo.Genre.Replace("\"", ""));
-                        }
-                        
-                        requeststr = String.Concat(requeststr, "&timezone=", recInfo.Timezone);
+                            recInfo[i].RequestString = String.Concat(recInfo[i].RequestString, "&timezone=", ri.Timezone);
 
-                        // With adding following parameter, OTR returns the result as "TVM2OTR:OK" or "TVM2OTR:ERROR",
-                        // except when not logged in (wrong username/password), where a complete webpage is returned
-                        requeststr = String.Concat(requeststr, "&tvm2otr=true");
+                            // With adding following parameter, OTR returns the result as "TVM2OTR:OK" or "TVM2OTR:ERROR",
+                            // except when not logged in (wrong username/password), where a complete webpage is returned
+                            recInfo[i].RequestString = String.Concat(recInfo[i].RequestString, "&tvm2otr=true");
+
 #if DEBUG
-                        System.Threading.Thread.Sleep(7000);
+                            System.Threading.Thread.Sleep(7000);
 #endif
-                        Uri requestUri = new Uri(Uri.EscapeUriString(requeststr));
-                        FrmProgress FrmProgress = new FrmProgress(requestUri, recInfo);
+                            FrmProgress FrmProgress = new FrmProgress(recInfo[i], i + 1, recInfo.Length);
 
-                        // Check if the form should be loaded or if the BackgroundWorker should be started directly
-                        switch (FrmProgress.DisplayMode)
-                        {
-                            case FrmProgress.FormDisplayMode.ShowWindow:
-                                Application.Run(FrmProgress);
-                                break;
-                            case FrmProgress.FormDisplayMode.ShowSystray:
-                                FrmProgress.ShowDialog();
-                                break;
-                            case FrmProgress.FormDisplayMode.Hide:
-                                FrmProgress.StartRecordThread(FrmProgress.DisplayMode);
-                                while (FrmProgress.IsWorking)
-                                {
-                                    System.Threading.Thread.Sleep(100);
-                                }
-                                break;
-                        }
-                        
+                            // Check if the form should be loaded or if the BackgroundWorker should be started directly
+                            switch (FrmProgress.DisplayMode)
+                            {
+                                case FrmProgress.FormDisplayMode.ShowWindow:
+                                    Application.Run(FrmProgress);
+                                    break;
+                                case FrmProgress.FormDisplayMode.ShowSystray:
+                                    FrmProgress.ShowDialog();
+                                    break;
+                                case FrmProgress.FormDisplayMode.Hide:
+                                    FrmProgress.StartRecordThread(FrmProgress.DisplayMode);
+                                    while (FrmProgress.IsWorking)
+                                    {
+                                        System.Threading.Thread.Sleep(100);
+                                    }
+                                    break;
+                            }
 
-                        if (FrmProgress.DialogResult == DialogResult.OK)
-                        {
-                            return 0;
+                            if (FrmProgress.DialogResult == DialogResult.OK && i == 0)
+                            {
+                                programResult = 0;
+                            }
+                            else if (FrmProgress.DialogResult == DialogResult.Cancel)
+                            {
+                                break;
+                            }
+
+                            i++;
                         }
-                        else
-                        {
-                            return 1;
-                        }
+
+                        return programResult;
                     }
                 }
 #if !DEBUG
@@ -684,14 +723,38 @@ namespace Crazysoft.OTRRemote
 
             return false;
         }
+
+        public static void TranslateControls(Form frm)
+        {
+            foreach (Control ctl in frm.Controls)
+            {
+                TranslateControl(frm, ctl);
+            }
+        }
+
+        private static void TranslateControl(Form frm, Control ctl)
+        {
+            string text = Lang.OTRRemote.ResourceManager.GetString(String.Concat(frm.Name, "_", ctl.Name));
+            if (text != null)
+            {
+                ctl.Text = text;
+            }
+
+            foreach (Control subCtl in ctl.Controls)
+            {
+                TranslateControl(frm, subCtl);
+            }
+        }
     }
 
     public struct RecordingInfo
     {
+        public bool RemoveMode;
         public string Station;
         public DateTime StartDate;
         public DateTime StartTime;
         public DateTime EndTime;
+        public string RequestString;
 
         // Optional arguments
         public string Title;
@@ -699,5 +762,21 @@ namespace Crazysoft.OTRRemote
         public string User;
         public string Password;
         public int Timezone;
+
+        public RecordingInfo(RecordingInfo ri)
+        {
+            this.RemoveMode = ri.RemoveMode;
+            this.Station = ri.Station;
+            this.StartDate = ri.StartDate;
+            this.StartTime = ri.StartTime;
+            this.EndTime = ri.EndTime;
+            this.RequestString = ri.RequestString;
+
+            this.Title = ri.Title;
+            this.Genre = ri.Genre;
+            this.User = ri.User;
+            this.Password = ri.Password;
+            this.Timezone = ri.Timezone;
+        }
     }
 }

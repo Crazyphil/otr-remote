@@ -68,6 +68,7 @@
             this.llblUpdate = new System.Windows.Forms.LinkLabel();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.cbRecordingPreview = new System.Windows.Forms.CheckBox();
             this.tcTabs.SuspendLayout();
             this.tcTabsProgram.SuspendLayout();
             this.pnlAutoClose.SuspendLayout();
@@ -95,6 +96,7 @@
             // 
             // tcTabsProgram
             // 
+            this.tcTabsProgram.Controls.Add(this.cbRecordingPreview);
             this.tcTabsProgram.Controls.Add(this.cbRetryDelete);
             this.tcTabsProgram.Controls.Add(this.cbProgressMethod);
             this.tcTabsProgram.Controls.Add(this.lblProgressIndicator);
@@ -115,7 +117,7 @@
             // cbRetryDelete
             // 
             this.cbRetryDelete.AutoSize = true;
-            this.cbRetryDelete.Location = new System.Drawing.Point(6, 105);
+            this.cbRetryDelete.Location = new System.Drawing.Point(6, 128);
             this.cbRetryDelete.Name = "cbRetryDelete";
             this.cbRetryDelete.Size = new System.Drawing.Size(198, 17);
             this.cbRetryDelete.TabIndex = 11;
@@ -169,7 +171,7 @@
             // cbRecordFollowing
             // 
             this.cbRecordFollowing.AutoSize = true;
-            this.cbRecordFollowing.Location = new System.Drawing.Point(6, 82);
+            this.cbRecordFollowing.Location = new System.Drawing.Point(6, 105);
             this.cbRecordFollowing.Name = "cbRecordFollowing";
             this.cbRecordFollowing.Size = new System.Drawing.Size(151, 17);
             this.cbRecordFollowing.TabIndex = 6;
@@ -181,7 +183,7 @@
             this.cbAdjustStartTime.AutoSize = true;
             this.cbAdjustStartTime.Checked = true;
             this.cbAdjustStartTime.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbAdjustStartTime.Location = new System.Drawing.Point(6, 59);
+            this.cbAdjustStartTime.Location = new System.Drawing.Point(6, 82);
             this.cbAdjustStartTime.Name = "cbAdjustStartTime";
             this.cbAdjustStartTime.Size = new System.Drawing.Size(198, 17);
             this.cbAdjustStartTime.TabIndex = 5;
@@ -440,6 +442,7 @@
             // 
             // lblThanks
             // 
+            this.lblThanks.AutoEllipsis = true;
             this.lblThanks.Location = new System.Drawing.Point(3, 128);
             this.lblThanks.Name = "lblThanks";
             this.lblThanks.Size = new System.Drawing.Size(293, 103);
@@ -508,6 +511,18 @@
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // cbRecordingPreview
+            // 
+            this.cbRecordingPreview.AutoSize = true;
+            this.cbRecordingPreview.Checked = true;
+            this.cbRecordingPreview.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbRecordingPreview.Location = new System.Drawing.Point(6, 59);
+            this.cbRecordingPreview.Name = "cbRecordingPreview";
+            this.cbRecordingPreview.Size = new System.Drawing.Size(230, 17);
+            this.cbRecordingPreview.TabIndex = 12;
+            this.cbRecordingPreview.Text = "Show recording preview before sending job";
+            this.cbRecordingPreview.UseVisualStyleBackColor = true;
             // 
             // FrmPreferences
             // 
@@ -591,5 +606,6 @@
         private System.Windows.Forms.Label lblProgressIndicator;
         private System.Windows.Forms.Label lblSeconds;
         private System.Windows.Forms.CheckBox cbRetryDelete;
+        private System.Windows.Forms.CheckBox cbRecordingPreview;
     }
 }

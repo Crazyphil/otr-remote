@@ -19,3 +19,4 @@ F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\de\OTRRemote
 F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft.OTRRemote.Lang.OTRRemote.de.resources
 F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\de\OTRRemote.resources.dll
 F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\OTRAPI.pdb
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft.OTRRemote.FrmRecordingPreview.resources

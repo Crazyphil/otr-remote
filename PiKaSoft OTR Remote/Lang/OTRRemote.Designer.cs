@@ -819,6 +819,15 @@ namespace Crazysoft.OTRRemote.Lang {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Show recording &amp;preview before sending job ähnelt.
+        /// </summary>
+        internal static string FrmPreferences_cbRecordingPreview {
+            get {
+                return ResourceManager.GetString("FrmPreferences_cbRecordingPreview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Auto&amp;matically retry recording deletion ähnelt.
         /// </summary>
         internal static string FrmPreferences_cbRetryDelete {
@@ -1401,6 +1410,204 @@ namespace Crazysoft.OTRRemote.Lang {
         internal static string FrmProgress_Systray_Deletion_Title {
             get {
                 return ResourceManager.GetString("FrmProgress_Systray_Deletion_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Add ähnelt.
+        /// </summary>
+        internal static string FrmRecordingPreview_AddText {
+            get {
+                return ResourceManager.GetString("FrmRecordingPreview_AddText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &amp;Cancel ähnelt.
+        /// </summary>
+        internal static string FrmRecordingPreview_btnCancel {
+            get {
+                return ResourceManager.GetString("FrmRecordingPreview_btnCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &amp;OK ähnelt.
+        /// </summary>
+        internal static string FrmRecordingPreview_btnOK {
+            get {
+                return ResourceManager.GetString("FrmRecordingPreview_btnOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die daily ähnelt.
+        /// </summary>
+        internal static string FrmRecordingPreview_cbSeriesRule_Time {
+            get {
+                return ResourceManager.GetString("FrmRecordingPreview_cbSeriesRule_Time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die on {0} ähnelt.
+        /// </summary>
+        internal static string FrmRecordingPreview_cbSeriesRule_TimeAndWeekDay {
+            get {
+                return ResourceManager.GetString("FrmRecordingPreview_cbSeriesRule_TimeAndWeekDay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die on weekends ähnelt.
+        /// </summary>
+        internal static string FrmRecordingPreview_cbSeriesRule_TimeAndWeekend {
+            get {
+                return ResourceManager.GetString("FrmRecordingPreview_cbSeriesRule_TimeAndWeekend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die on workdays ähnelt.
+        /// </summary>
+        internal static string FrmRecordingPreview_cbSeriesRule_TimeAndWorkDay {
+            get {
+                return ResourceManager.GetString("FrmRecordingPreview_cbSeriesRule_TimeAndWorkDay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die from ähnelt.
+        /// </summary>
+        internal static string FrmRecordingPreview_FromText {
+            get {
+                return ResourceManager.GetString("FrmRecordingPreview_FromText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Series Recording ähnelt.
+        /// </summary>
+        internal static string FrmRecordingPreview_gbSeries {
+            get {
+                return ResourceManager.GetString("FrmRecordingPreview_gbSeries", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die End Time: ähnelt.
+        /// </summary>
+        internal static string FrmRecordingPreview_lblEndTime {
+            get {
+                return ResourceManager.GetString("FrmRecordingPreview_lblEndTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Genre: ähnelt.
+        /// </summary>
+        internal static string FrmRecordingPreview_lblGenre {
+            get {
+                return ResourceManager.GetString("FrmRecordingPreview_lblGenre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Recording Preview ähnelt.
+        /// </summary>
+        internal static string FrmRecordingPreview_lblHeader {
+            get {
+                return ResourceManager.GetString("FrmRecordingPreview_lblHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die {0} recording {1} OTR using following data: ähnelt.
+        /// </summary>
+        internal static string FrmRecordingPreview_lblIntroduction {
+            get {
+                return ResourceManager.GetString("FrmRecordingPreview_lblIntroduction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die days ähnelt.
+        /// </summary>
+        internal static string FrmRecordingPreview_lblSeriesDays {
+            get {
+                return ResourceManager.GetString("FrmRecordingPreview_lblSeriesDays", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die {0} recordings for the following ähnelt.
+        /// </summary>
+        internal static string FrmRecordingPreview_lblSeriesRecording {
+            get {
+                return ResourceManager.GetString("FrmRecordingPreview_lblSeriesRecording", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die to the same time ähnelt.
+        /// </summary>
+        internal static string FrmRecordingPreview_lblSeriesTime {
+            get {
+                return ResourceManager.GetString("FrmRecordingPreview_lblSeriesTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Start Date: ähnelt.
+        /// </summary>
+        internal static string FrmRecordingPreview_lblStartDate {
+            get {
+                return ResourceManager.GetString("FrmRecordingPreview_lblStartDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Start Time: ähnelt.
+        /// </summary>
+        internal static string FrmRecordingPreview_lblStartTime {
+            get {
+                return ResourceManager.GetString("FrmRecordingPreview_lblStartTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Station: ähnelt.
+        /// </summary>
+        internal static string FrmRecordingPreview_lblStation {
+            get {
+                return ResourceManager.GetString("FrmRecordingPreview_lblStation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Title: ähnelt.
+        /// </summary>
+        internal static string FrmRecordingPreview_lblTitle {
+            get {
+                return ResourceManager.GetString("FrmRecordingPreview_lblTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Remove ähnelt.
+        /// </summary>
+        internal static string FrmRecordingPreview_RemoveText {
+            get {
+                return ResourceManager.GetString("FrmRecordingPreview_RemoveText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die to ähnelt.
+        /// </summary>
+        internal static string FrmRecordingPreview_ToText {
+            get {
+                return ResourceManager.GetString("FrmRecordingPreview_ToText", resourceCulture);
             }
         }
         

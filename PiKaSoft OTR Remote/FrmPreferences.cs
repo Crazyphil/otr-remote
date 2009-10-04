@@ -20,43 +20,20 @@ namespace Crazysoft.OTRRemote
 
             this.Text = Lang.OTRRemote.FrmPreferences_Title;
 
+            Program.TranslateControls(this);
+
             // Tabs
             tcTabs.TabPages[0].Text = Lang.OTRRemote.FrmPreferences_Tab_Program;
             tcTabs.TabPages[1].Text = Lang.OTRRemote.FrmPreferences_Tab_Network;
             tcTabs.TabPages[2].Text = Lang.OTRRemote.FrmPreferences_Tab_About;
 
-            // Program
-            lblProgressIndicator.Text = Lang.OTRRemote.FrmPreferences_lblProgressIndicator;
-            cbAutoClose.Text = Lang.OTRRemote.FrmPreferences_cbAutoClose;
-            lblSeconds.Text = Lang.OTRRemote.FrmPreferences_lblSeconds;
-            btnEditStations.Text = Lang.OTRRemote.FrmPreferences_btnEditStations;
-            cbAdjustStartTime.Text = Lang.OTRRemote.FrmPreferences_cbAdjustStartTime;
-            cbRecordFollowing.Text = Lang.OTRRemote.FrmPreferences_cbRecordFollowing;
-            cbRetryDelete.Text = Lang.OTRRemote.FrmPreferences_cbRetryDelete;
-            cbAutoUpdate.Text = Lang.OTRRemote.FrmPreferences_cbAutoUpdate;
-            lblLastUpdate.Text = Lang.OTRRemote.FrmPreferences_lblLastUpdate;
-
-            // Network
-            cbProxy.Text = Lang.OTRRemote.FrmPreferences_cbProxy;
-            rbDefaultProxy.Text = Lang.OTRRemote.FrmPreferences_rbDefaultProxy;
-            rbCustomProxy.Text = Lang.OTRRemote.FrmPreferences_rbCustomProxy;
-            lblProxyAddress.Text = Lang.OTRRemote.FrmPreferences_lblProxyAddress;
-            lblProxyPort.Text = Lang.OTRRemote.FrmPreferences_lblProxyPort;
-            cbProxyAuthentication.Text = Lang.OTRRemote.FrmPreferences_cbProxyAuthenticationIE;
-            lblProxyUser.Text = Lang.OTRRemote.FrmPreferences_lblProxyUser;
-            lblProxyPassword.Text = Lang.OTRRemote.FrmPreferences_lblProxyPassword;
-
             // About
             lblProductName.Text = Application.CompanyName + " " + Application.ProductName;
             lblVersion.Text = String.Format(Lang.OTRRemote.FrmPreferences_lblVersion, Application.ProductVersion);
             lblCopyright.Text = String.Format(Lang.OTRRemote.FrmPreferences_lblCopyright, "© Crazysoft 2006-2008");
-            lblThanks.Text = Lang.OTRRemote.FrmPreferences_lblThanks;
 
-            // Buttons
-            llblUpdate.Text = Lang.OTRRemote.FrmPreferences_llblUpdate;
+            // Update Link
             llblUpdate.LinkArea = new LinkArea(0, llblUpdate.Text.Length);
-            btnOK.Text = Lang.OTRRemote.FrmPreferences_btnOK;
-            btnCancel.Text = Lang.OTRRemote.FrmPreferences_btnCancel;
 
             // Progress Methods
             cbProgressMethod.Items.Clear();
@@ -81,12 +58,11 @@ namespace Crazysoft.OTRRemote
                 RegistryKey rk = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Crazysoft\\AppUpdate");
                 if (rk == null || (rk.GetValue("InstallationPath", null) == null))
                 {
-                    llblUpdate.Enabled = false;
+                    llblUpdate.Visible = false;
                     cbAutoUpdate.Checked = false;
-                    cbAutoUpdate.Enabled = false;
-                    lblLastUpdate.Text = String.Format(lblLastUpdate.Text, Lang.OTRRemote.FrmPreferences_lblLastUpdate_Never);
+                    cbAutoUpdate.Visible = false;
                     lblLastUpdate.Tag = 0;
-                    lblLastUpdate.Enabled = false;
+                    lblLastUpdate.Visible = false;
                 }
             }
             else
@@ -119,6 +95,7 @@ namespace Crazysoft.OTRRemote
                     cbProgressMethod.SelectedIndex = Convert.ToInt32(Program.Settings["Program"]["ProgressIndicator"].Value);
                 }
                 pnlAutoClose.Enabled = cbProgressMethod.SelectedIndex < 2;
+                cbRecordingPreview.Enabled = cbProgressMethod.SelectedIndex < 2;
                 if (!Program.Settings["Program"]["AutoClose"].IsNull)
                 {
                     cbAutoClose.Checked = Convert.ToBoolean(Program.Settings["Program"]["AutoClose"].Value);
@@ -131,7 +108,11 @@ namespace Crazysoft.OTRRemote
                 {
                     cbAdjustStartTime.Checked = Convert.ToBoolean(Program.Settings["Program"]["AdjustStartTime"].Value);
                 }
-                if (!Program.Settings["Program"]["RecordFollowing"].IsNull)
+                if (!Program.Settings["Program"]["RecordingPreview"].IsNull)
+                {
+                    cbRecordingPreview.Checked = Convert.ToBoolean(Program.Settings["Program"]["RecordingPreview"].Value);
+                }
+                if (!Program.Settings["Program"]["Recordi"].IsNull)
                 {
                     cbRecordFollowing.Checked = Convert.ToBoolean(Program.Settings["Program"]["RecordFollowing"].Value);
                 }
@@ -267,6 +248,7 @@ namespace Crazysoft.OTRRemote
             Program.Settings["Program"].Keys.Add("AutoClose", cbAutoClose.Checked);
             Program.Settings["Program"].Keys.Add("AutoCloseTimeout", Convert.ToInt32(tbCloseSeconds.Value));
             Program.Settings["Program"].Keys.Add("AdjustStartTime", cbAdjustStartTime.Checked);
+            Program.Settings["Program"].Keys.Add("RecordingPreview", cbRecordingPreview.Checked);
             Program.Settings["Program"].Keys.Add("RecordFollowing", cbRecordFollowing.Checked);
             Program.Settings["Program"].Keys.Add("RetryDelete", cbRetryDelete.Checked);
             Program.Settings["Program"].Keys.Add("EnableAutoUpdate", cbAutoUpdate.Checked);
@@ -337,6 +319,7 @@ namespace Crazysoft.OTRRemote
         private void cbProgressMethod_SelectedIndexChanged(object sender, EventArgs e)
         {
             pnlAutoClose.Enabled = cbProgressMethod.SelectedIndex < 2;
+            cbRecordingPreview.Enabled = cbProgressMethod.SelectedIndex < 2;
         }
 
         private void llblUpdate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

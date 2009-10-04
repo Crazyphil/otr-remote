@@ -14,25 +14,10 @@ namespace Crazysoft.OTRRemote
         {
             InitializeComponent();
 
-            lblHeader.Text = Lang.OTRRemote.FrmMain_lblHeader;
-            lblIntroduction.Text = Lang.OTRRemote.FrmMain_lblIntroduction;
+            Program.TranslateControls(this);
 
-            gbUserdata.Text = Lang.OTRRemote.FrmMain_gbUserdata;
-            lblUsername.Text = Lang.OTRRemote.FrmMain_lblUsername;
-            lblPassword.Text = Lang.OTRRemote.FrmMain_lblPassword;
-
-            gbRecording.Text = Lang.OTRRemote.FrmMain_gbRecording;
-            lblTimezone.Text = Lang.OTRRemote.FrmMain_lblTimezone;
-            lblTVGuide.Text = Lang.OTRRemote.FrmMain_lblTVGuide;
-
-            gbTVGuide.Text = Lang.OTRRemote.FrmMain_gbTVGuide;
             lvSettings.Columns[0].Text = Lang.OTRRemote.FrmMain_lvSettings_Setting;
             lvSettings.Columns[1].Text = Lang.OTRRemote.FrmMain_lvSettings_Value;
-
-            btnPreferences.Text = Lang.OTRRemote.FrmMain_btnPreferences;
-            btnHelp.Text = Lang.OTRRemote.FrmMain_btnHelp;
-            btnOK.Text = Lang.OTRRemote.FrmMain_btnOK;
-            btnCancel.Text = Lang.OTRRemote.FrmMain_btnCancel;
 
             ttTooltip.ToolTipTitle = Lang.OTRRemote.FrmMain_Tooltip_Title;
             ttTooltip.SetToolTip(tbUsername, Lang.OTRRemote.FrmMain_Tooltip_Username);

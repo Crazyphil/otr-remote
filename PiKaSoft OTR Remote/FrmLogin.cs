@@ -23,12 +23,7 @@ namespace Crazysoft.OTRRemote
             InitializeComponent();
 
             this.Text = Lang.OTRRemote.FrmLogin_Title;
-            lblHeader.Text = Lang.OTRRemote.FrmLogin_lblHeader;
-
-            foreach (Control ctl in this.Controls)
-            {
-                ctl.Text = Lang.OTRRemote.ResourceManager.GetString(String.Concat("FrmLogin_", ctl.Name));
-            }
+            Program.TranslateControls(this);
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)
