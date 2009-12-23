@@ -1,6 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <StartArguments>-a -t="Test" -s="ARD" -sd=2009-09-24 -st=20:00 -et=20:15</StartArguments>
+    <StartArguments>-a -t="Die Simpsons" -s="PRO7" -sd=2010-01-12 -st=18:10 -et=18:40 -g="Trickfilm-Serie"</StartArguments>
     <RemoteDebugEnabled>false</RemoteDebugEnabled>
     <StartAction>Project</StartAction>
     <RemoteDebugMachine>

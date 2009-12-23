@@ -41,6 +41,7 @@
             this.bwWorker = new System.ComponentModel.BackgroundWorker();
             this.niSystray = new System.Windows.Forms.NotifyIcon(this.components);
             this.timRetryTime = new System.Windows.Forms.Timer(this.components);
+            this.lblCurRec = new System.Windows.Forms.Label();
             this.pnlHeader.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,7 +86,7 @@
             // 
             // pbProgress
             // 
-            this.pbProgress.Location = new System.Drawing.Point(12, 165);
+            this.pbProgress.Location = new System.Drawing.Point(12, 184);
             this.pbProgress.Maximum = 3;
             this.pbProgress.Name = "pbProgress";
             this.pbProgress.Size = new System.Drawing.Size(268, 23);
@@ -93,7 +94,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(102, 194);
+            this.btnClose.Location = new System.Drawing.Point(102, 213);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(89, 23);
             this.btnClose.TabIndex = 7;
@@ -130,11 +131,21 @@
             this.timRetryTime.Interval = 1000;
             this.timRetryTime.Tick += new System.EventHandler(this.timRetryTime_Tick);
             // 
+            // lblCurRec
+            // 
+            this.lblCurRec.AutoEllipsis = true;
+            this.lblCurRec.Location = new System.Drawing.Point(14, 162);
+            this.lblCurRec.Name = "lblCurRec";
+            this.lblCurRec.Size = new System.Drawing.Size(266, 13);
+            this.lblCurRec.TabIndex = 8;
+            this.lblCurRec.Text = "Recording";
+            // 
             // FrmProgress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(292, 229);
+            this.ClientSize = new System.Drawing.Size(292, 246);
+            this.Controls.Add(this.lblCurRec);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.pbProgress);
             this.Controls.Add(this.lblStatus);
@@ -223,5 +234,6 @@
         }
 
         private System.ComponentModel.BackgroundWorker bwWorker;
+        private System.Windows.Forms.Label lblCurRec;
     }
 }

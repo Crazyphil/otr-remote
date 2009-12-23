@@ -297,7 +297,7 @@ Note: Adding and removing of TV shows is done via the commandline interface.</va
     <value>&amp;Timezone:</value>
   </data>
   <data name="FrmMain_lblTVGuide" xml:space="preserve">
-    <value>TV &amp;Guide Plugin:</value>
+    <value>TV &amp;Guide Application:</value>
   </data>
   <data name="FrmMain_lblUsername" xml:space="preserve">
     <value>&amp;Username:</value>
@@ -713,5 +713,23 @@ Should OTR Remote retry to delete this recording automatically in 10 minutes?</v
   </data>
   <data name="FrmRecordingPreview_lblSeriesTime" xml:space="preserve">
     <value>to the same time</value>
+  </data>
+  <data name="FrmProgress_lblCurRec_Full" xml:space="preserve">
+    <value>{0} {1}, {2}: {3}</value>
+  </data>
+  <data name="FrmProgress_lblCurRec_NoStation" xml:space="preserve">
+    <value>{0} {1}: {3}</value>
+  </data>
+  <data name="FrmProgress_lblCurRec_NoTitle" xml:space="preserve">
+    <value>{0 {1}, {2}</value>
+  </data>
+  <data name="FrmRecordingPreview_lblRecordingCount" xml:space="preserve">
+    <value>1 recording will be processed</value>
+  </data>
+  <data name="FrmRecordingPreview_lblRecordingCount_Multiple" xml:space="preserve">
+    <value>{0} recordings will be processed</value>
+  </data>
+  <data name="FrmProgress_Status_Multiple" xml:space="preserve">
+    <value>{0} of {1}: {2}</value>
   </data>
 </root>

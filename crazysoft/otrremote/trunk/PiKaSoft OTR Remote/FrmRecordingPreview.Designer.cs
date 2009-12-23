@@ -37,7 +37,7 @@
             this.tbStation = new System.Windows.Forms.TextBox();
             this.lblStation = new System.Windows.Forms.Label();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
-            this.lblDate = new System.Windows.Forms.Label();
+            this.lblStartDate = new System.Windows.Forms.Label();
             this.lblStartTime = new System.Windows.Forms.Label();
             this.dtpStartTime = new System.Windows.Forms.DateTimePicker();
             this.lblEndTime = new System.Windows.Forms.Label();
@@ -47,11 +47,12 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.gbSeries = new System.Windows.Forms.GroupBox();
+            this.lblSeriesTime = new System.Windows.Forms.Label();
             this.lblSeriesDays = new System.Windows.Forms.Label();
             this.nudSeriesDays = new System.Windows.Forms.NumericUpDown();
             this.cbSeriesRule = new System.Windows.Forms.ComboBox();
             this.lblSeriesRecording = new System.Windows.Forms.Label();
-            this.lblSeriesTime = new System.Windows.Forms.Label();
+            this.lblRecordingCount = new System.Windows.Forms.Label();
             this.pnlHeader.SuspendLayout();
             this.gbSeries.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSeriesDays)).BeginInit();
@@ -127,14 +128,14 @@
             this.dtpStartDate.TabIndex = 8;
             this.dtpStartDate.ValueChanged += new System.EventHandler(this.dtpStartDate_ValueChanged);
             // 
-            // lblDate
+            // lblStartDate
             // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(12, 187);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(33, 13);
-            this.lblDate.TabIndex = 9;
-            this.lblDate.Text = "Date:";
+            this.lblStartDate.AutoSize = true;
+            this.lblStartDate.Location = new System.Drawing.Point(12, 187);
+            this.lblStartDate.Name = "lblStartDate";
+            this.lblStartDate.Size = new System.Drawing.Size(58, 13);
+            this.lblStartDate.TabIndex = 9;
+            this.lblStartDate.Text = "Start Date:";
             // 
             // lblStartTime
             // 
@@ -225,6 +226,15 @@
             this.gbSeries.TabStop = false;
             this.gbSeries.Text = "Series Recording";
             // 
+            // lblSeriesTime
+            // 
+            this.lblSeriesTime.AutoSize = true;
+            this.lblSeriesTime.Location = new System.Drawing.Point(6, 48);
+            this.lblSeriesTime.Name = "lblSeriesTime";
+            this.lblSeriesTime.Size = new System.Drawing.Size(84, 13);
+            this.lblSeriesTime.TabIndex = 4;
+            this.lblSeriesTime.Text = "to the same time";
+            // 
             // lblSeriesDays
             // 
             this.lblSeriesDays.AutoSize = true;
@@ -245,6 +255,7 @@
             this.nudSeriesDays.Name = "nudSeriesDays";
             this.nudSeriesDays.Size = new System.Drawing.Size(45, 20);
             this.nudSeriesDays.TabIndex = 2;
+            this.nudSeriesDays.ValueChanged += new System.EventHandler(this.cbSeriesRule_SelectedIndexChanged);
             // 
             // cbSeriesRule
             // 
@@ -254,6 +265,7 @@
             this.cbSeriesRule.Name = "cbSeriesRule";
             this.cbSeriesRule.Size = new System.Drawing.Size(171, 21);
             this.cbSeriesRule.TabIndex = 1;
+            this.cbSeriesRule.SelectedIndexChanged += new System.EventHandler(this.cbSeriesRule_SelectedIndexChanged);
             // 
             // lblSeriesRecording
             // 
@@ -264,14 +276,14 @@
             this.lblSeriesRecording.TabIndex = 0;
             this.lblSeriesRecording.Text = "Remove recordings for the following";
             // 
-            // lblSeriesTime
+            // lblRecordingCount
             // 
-            this.lblSeriesTime.AutoSize = true;
-            this.lblSeriesTime.Location = new System.Drawing.Point(6, 48);
-            this.lblSeriesTime.Name = "lblSeriesTime";
-            this.lblSeriesTime.Size = new System.Drawing.Size(84, 13);
-            this.lblSeriesTime.TabIndex = 4;
-            this.lblSeriesTime.Text = "to the same time";
+            this.lblRecordingCount.AutoSize = true;
+            this.lblRecordingCount.Location = new System.Drawing.Point(12, 370);
+            this.lblRecordingCount.Name = "lblRecordingCount";
+            this.lblRecordingCount.Size = new System.Drawing.Size(149, 13);
+            this.lblRecordingCount.TabIndex = 19;
+            this.lblRecordingCount.Text = "2 recordings will be processed";
             // 
             // FrmRecordingPreview
             // 
@@ -280,6 +292,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(358, 402);
+            this.Controls.Add(this.lblRecordingCount);
             this.Controls.Add(this.gbSeries);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
@@ -289,7 +302,7 @@
             this.Controls.Add(this.dtpEndTime);
             this.Controls.Add(this.lblStartTime);
             this.Controls.Add(this.dtpStartTime);
-            this.Controls.Add(this.lblDate);
+            this.Controls.Add(this.lblStartDate);
             this.Controls.Add(this.dtpStartDate);
             this.Controls.Add(this.tbStation);
             this.Controls.Add(this.lblStation);
@@ -322,7 +335,7 @@
         private System.Windows.Forms.TextBox tbStation;
         private System.Windows.Forms.Label lblStation;
         private System.Windows.Forms.DateTimePicker dtpStartDate;
-        private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.Label lblStartDate;
         private System.Windows.Forms.Label lblStartTime;
         private System.Windows.Forms.DateTimePicker dtpStartTime;
         private System.Windows.Forms.Label lblEndTime;
@@ -337,5 +350,6 @@
         private System.Windows.Forms.NumericUpDown nudSeriesDays;
         private System.Windows.Forms.Label lblSeriesDays;
         private System.Windows.Forms.Label lblSeriesTime;
+        private System.Windows.Forms.Label lblRecordingCount;
     }
 }
