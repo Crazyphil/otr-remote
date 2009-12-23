@@ -15,12 +15,12 @@ namespace Crazysoft.OTRRemote
 {
     public partial class FrmProgress : Form
     {
-        // Best practice recommends defining a private object to lock on
+        // Best practice recommends defining a private object to lock on - used for Windows 7 Progress Bar
         private static Object _syncLock = new Object();
 
         // Variables needed for processing the recording
         Uri _requestUri;
-        RecordingInfo _recInfo;
+        RecordingInfo[] _recInfo;
 
         // Countdown variable for timed closing of form
         int _countdown = -1;
@@ -30,7 +30,6 @@ namespace Crazysoft.OTRRemote
 
         // Variables for current recording and total recordings if multiple recordings exist
         int _currentRecording;
-        int _totalRecordings;
         
         // Variables for indication the form's display status
         public enum FormDisplayMode { ShowWindow, ShowSystray, Hide }
@@ -79,12 +78,11 @@ namespace Crazysoft.OTRRemote
         // Indicates, if StartRecordingThread() is called manually or via the Form_Load event
         public bool ManualCall { get; set; }
 
-        public FrmProgress(RecordingInfo recInfo, int currentRecording, int totalRecordings)
+        public FrmProgress(RecordingInfo[] recInfo)
         {
-            _requestUri = new Uri(Uri.EscapeUriString(recInfo.RequestString));
+            _requestUri = new Uri(Uri.EscapeUriString(recInfo[0].RequestString));
             _recInfo = recInfo;
-            _currentRecording = currentRecording;
-            _totalRecordings = totalRecordings;
+            _currentRecording = 0;
 
             // Write form's display mode to variable
             // First, look for legacy setting (OTR Remote < 2.0)
@@ -222,7 +220,7 @@ namespace Crazysoft.OTRRemote
 
             BackgroundWorkerParams data = new BackgroundWorkerParams();
             data.RequestString = _requestUri.ToString();
-            data.RecordingInfo = _recInfo;
+            data.RecordingInfo = _recInfo[_currentRecording];
 
             switch (displayMode)
             {
@@ -434,11 +432,31 @@ namespace Crazysoft.OTRRemote
 
         private void bwWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            string statusText = _totalRecordings > 1 ? String.Concat(_currentRecording, "/", _totalRecordings, ": ", e.UserState.ToString()) : e.UserState.ToString();
+            RecordingInfo recI = _recInfo[_currentRecording];
+
+            string statusText = _recInfo.Length > 1 ? String.Format(Lang.OTRRemote.FrmProgress_Status_Multiple, _currentRecording + 1, _recInfo.Length, e.UserState.ToString()) : e.UserState.ToString();
+            
+            string formatStr = Lang.OTRRemote.FrmProgress_lblCurRec_Full;
+            // If no station or title is given, modify format string
+            if (String.IsNullOrEmpty(recI.Station) && String.IsNullOrEmpty(recI.Title))
+            {
+                formatStr = String.Empty;
+            }
+            else if (String.IsNullOrEmpty(recI.Station))
+            {
+                formatStr = Lang.OTRRemote.FrmProgress_lblCurRec_NoStation;
+            }
+            else if (String.IsNullOrEmpty(recI.Title))
+            {
+                formatStr = Lang.OTRRemote.FrmProgress_lblCurRec_NoTitle;
+            }
+
+            string curRecording = String.Format(formatStr, recI.StartDate.ToShortDateString(), recI.StartTime.ToShortTimeString(), recI.Station, recI.Title);
 
             if (_displayMode != FormDisplayMode.Hide)
             {
                 lblStatus.Text = statusText;
+                lblCurRec.Text = curRecording;
                 
                 pbProgress.Value = e.ProgressPercentage;
                 UpdateTaskbarProgressBar(Windows7.TaskbarButtonProgressState.Normal);
@@ -447,7 +465,7 @@ namespace Crazysoft.OTRRemote
             // Write output to systray if icon is used
             if (_displayMode == FormDisplayMode.ShowSystray && !this.ShowInTaskbar)
             {
-                niSystray.ShowBalloonTip(2000, _recInfo.Title, statusText, ToolTipIcon.Info);
+                niSystray.ShowBalloonTip(2000, _recInfo[_currentRecording].Title, statusText, ToolTipIcon.Info);
             }
         }
 
@@ -501,7 +519,7 @@ namespace Crazysoft.OTRRemote
                             }
                             if (!IsWindowsSeven())
                             {
-                                niSystray.ShowBalloonTip(closeTimeout, _recInfo.Title, Lang.OTRRemote.FrmProgress_Status_Finished, ToolTipIcon.Info);
+                                niSystray.ShowBalloonTip(closeTimeout, _recInfo[_currentRecording].Title, Lang.OTRRemote.FrmProgress_Status_Finished, ToolTipIcon.Info);
                             }
                         }
                         break;
@@ -529,7 +547,7 @@ namespace Crazysoft.OTRRemote
                             }
                             if (!IsWindowsSeven())
                             {
-                                niSystray.ShowBalloonTip(closeTimeout, _recInfo.Title, Lang.OTRRemote.FrmProgress_Status_Error, ToolTipIcon.Error);
+                                niSystray.ShowBalloonTip(closeTimeout, _recInfo[_currentRecording].Title, Lang.OTRRemote.FrmProgress_Status_Error, ToolTipIcon.Error);
                             }
                         }
                         break;
@@ -537,7 +555,7 @@ namespace Crazysoft.OTRRemote
 
                 if ((WorkerResult)e.Result != WorkerResult.Deferred)
                 {
-                    if (!Program.Settings["Program"]["AutoClose"].IsNull && _currentRecording == _totalRecordings)
+                    if (!Program.Settings["Program"]["AutoClose"].IsNull && _currentRecording == _recInfo.Length - 1)
                     {
                         if (Convert.ToInt32(Program.Settings["Program"]["AutoCloseTimeout"].Value) > 0)
                         {
@@ -554,6 +572,14 @@ namespace Crazysoft.OTRRemote
                     {
                         this.Close();
                     }
+                }
+
+                // If further recordings have to be processed and no error occured, restart with next recording
+                if ((WorkerResult)e.Result == WorkerResult.Success && _currentRecording < _recInfo.Length - 1)
+                {
+                    _currentRecording++;
+                    _requestUri = new Uri(Uri.EscapeUriString(_recInfo[_currentRecording].RequestString));
+                    StartRecordThread(_displayMode);
                 }
             }
         }
@@ -629,7 +655,7 @@ namespace Crazysoft.OTRRemote
                 {
                     request = CreateNewRequest("http://www.onlinetvrecorder.com/index.php?go=home");
 
-                    string postString = String.Concat("email=", _recInfo.User.Replace("@", "%40"), "&pass=", _recInfo.Password, "&btn_login=Login");
+                    string postString = String.Concat("email=", _recInfo[_currentRecording].User.Replace("@", "%40"), "&pass=", _recInfo[_currentRecording].Password, "&btn_login=Login");
 
                     // POST user login data
                     ASCIIEncoding encoding = new ASCIIEncoding();
@@ -814,14 +840,23 @@ namespace Crazysoft.OTRRemote
                 }
 
                 taskbarProgressBar.State = state;
-                taskbarProgressBar.MaxValue = pbProgress.Maximum;
-                if (state != Windows7.TaskbarButtonProgressState.NoProgress && pbProgress.Value == 0)
+                // Treat single recordings different than multi-recordings in terms of progress indication
+                if (_recInfo.Length > 1)
                 {
-                    taskbarProgressBar.CurrentValue = taskbarProgressBar.MaxValue;
+                    taskbarProgressBar.MaxValue = _recInfo.Length;
+                    taskbarProgressBar.CurrentValue = _currentRecording + 1;
                 }
                 else
                 {
-                    taskbarProgressBar.CurrentValue = pbProgress.Value;
+                    taskbarProgressBar.MaxValue = pbProgress.Maximum;
+                    if (state != Windows7.TaskbarButtonProgressState.NoProgress && pbProgress.Value == 0)
+                    {
+                        taskbarProgressBar.CurrentValue = taskbarProgressBar.MaxValue;
+                    }
+                    else
+                    {
+                        taskbarProgressBar.CurrentValue = pbProgress.Value;
+                    }
                 }
             }
         }

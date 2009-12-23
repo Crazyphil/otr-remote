@@ -423,7 +423,6 @@ namespace Crazysoft.OTRRemote
                         else
                         {
                             // Ask the user if he knows what he does, before we really delete the recording
-
                             if (recordingPreview || MessageBox.Show(String.Format(Lang.OTRRemote.CmdLine_DeleteMsg_Text, String.IsNullOrEmpty(recInfo[0].Title) ? Lang.OTRRemote.CmdLine_DeleteMsg_ThisShow : String.Concat("\"", recInfo[0].Title, "\""), recInfo[0].StartDate.ToShortDateString(), recInfo[0].StartTime.ToShortTimeString()), String.Concat("Crazysoft OTR Remote: ", Lang.OTRRemote.CmdLine_DeleteMsg_Title), MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                             {
                                 recInfo[0].RequestString = String.Concat(recInfo[0].RequestString, "deleteJob");
@@ -470,7 +469,6 @@ namespace Crazysoft.OTRRemote
 
                         // Do further processing and recording for each recording info
                         int i = 0;
-                        int programResult = 1;
                         foreach (RecordingInfo ri in recInfo)
                         {
                             // Finish request string
@@ -514,39 +512,36 @@ namespace Crazysoft.OTRRemote
                             // except when not logged in (wrong username/password), where a complete webpage is returned
                             recInfo[i].RequestString = String.Concat(recInfo[i].RequestString, "&tvm2otr=true");
 
-#if DEBUG
-                            System.Threading.Thread.Sleep(7000);
-#endif
-                            FrmProgress FrmProgress = new FrmProgress(recInfo[i], i + 1, recInfo.Length);
-
-                            // Check if the form should be loaded or if the BackgroundWorker should be started directly
-                            switch (FrmProgress.DisplayMode)
-                            {
-                                case FrmProgress.FormDisplayMode.ShowWindow:
-                                    Application.Run(FrmProgress);
-                                    break;
-                                case FrmProgress.FormDisplayMode.ShowSystray:
-                                    FrmProgress.ShowDialog();
-                                    break;
-                                case FrmProgress.FormDisplayMode.Hide:
-                                    FrmProgress.StartRecordThread(FrmProgress.DisplayMode);
-                                    while (FrmProgress.IsWorking)
-                                    {
-                                        System.Threading.Thread.Sleep(100);
-                                    }
-                                    break;
-                            }
-
-                            if (FrmProgress.DialogResult == DialogResult.OK && i == 0)
-                            {
-                                programResult = 0;
-                            }
-                            else if (FrmProgress.DialogResult == DialogResult.Cancel)
-                            {
-                                break;
-                            }
-
                             i++;
+                        }
+
+#if DEBUG
+                        System.Threading.Thread.Sleep(7000);
+#endif
+                        FrmProgress FrmProgress = new FrmProgress(recInfo);
+
+                        // Check if the form should be loaded or if the BackgroundWorker should be started directly
+                        switch (FrmProgress.DisplayMode)
+                        {
+                            case FrmProgress.FormDisplayMode.ShowWindow:
+                                Application.Run(FrmProgress);
+                                break;
+                            case FrmProgress.FormDisplayMode.ShowSystray:
+                                FrmProgress.ShowDialog();
+                                break;
+                            case FrmProgress.FormDisplayMode.Hide:
+                                FrmProgress.StartRecordThread(FrmProgress.DisplayMode);
+                                while (FrmProgress.IsWorking)
+                                {
+                                    System.Threading.Thread.Sleep(100);
+                                }
+                                break;
+                        }
+
+                        int programResult = 1;
+                        if (FrmProgress.DialogResult == DialogResult.OK)
+                        {
+                            programResult = 0;
                         }
 
                         return programResult;

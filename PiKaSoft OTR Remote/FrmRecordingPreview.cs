@@ -74,33 +74,8 @@ namespace Crazysoft.OTRRemote
             {
                 for (int i = 1; i <= nudSeriesDays.Value; i++)
                 {
-                    bool addDay = false;
                     DateTime curDate = dtpStartDate.Value.AddDays(i);
-                    switch (cbSeriesRule.SelectedIndex)
-                    {
-                        case 0: // Everyday
-                            addDay = true;
-                            break;
-                        case 1: // specific weekday
-                            if (curDate.DayOfWeek == dtpStartDate.Value.DayOfWeek)
-                            {
-                                addDay = true;
-                            }
-                            break;
-                        case 2: // on workdays
-
-                            if (curDate.DayOfWeek != DayOfWeek.Saturday && curDate.DayOfWeek != DayOfWeek.Sunday)
-                            {
-                                addDay = true;
-                            }
-                            break;
-                        case 3: // on weekends
-                            if (curDate.DayOfWeek == DayOfWeek.Saturday || curDate.DayOfWeek == DayOfWeek.Sunday)
-                            {
-                                addDay = true;
-                            }
-                            break;
-                    }
+                    bool addDay = IsDateInRule(curDate);
 
                     if (addDay)
                     {
@@ -126,6 +101,31 @@ namespace Crazysoft.OTRRemote
             this.Close();
         }
 
+
+        private void cbSeriesRule_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int dateCount = 1;
+            for (int i = 1; i <= nudSeriesDays.Value; i++)
+            {
+                DateTime curDate = dtpStartDate.Value.AddDays(i);
+                bool addDay = IsDateInRule(curDate);
+
+                if (addDay)
+                {
+                    dateCount++;
+                }
+            }
+
+            if (dateCount == 1)
+            {
+                lblRecordingCount.Text = Lang.OTRRemote.FrmRecordingPreview_lblRecordingCount;
+            }
+            else
+            {
+                lblRecordingCount.Text = String.Format(Lang.OTRRemote.FrmRecordingPreview_lblRecordingCount_Multiple, dateCount);
+            }
+        }
+
         private string CountInTitle(string title, int startPos, int numToAdd)
         {
             int first = title.IndexOf('{', startPos);
@@ -149,6 +149,38 @@ namespace Crazysoft.OTRRemote
             }
 
             return title;
+        }
+
+        private bool IsDateInRule(DateTime date)
+        {
+            bool addDay = false;
+            switch (cbSeriesRule.SelectedIndex)
+            {
+                case 0: // Everyday
+                    addDay = true;
+                    break;
+                case 1: // specific weekday
+                    if (date.DayOfWeek == dtpStartDate.Value.DayOfWeek)
+                    {
+                        addDay = true;
+                    }
+                    break;
+                case 2: // on workdays
+
+                    if (date.DayOfWeek != DayOfWeek.Saturday && date.DayOfWeek != DayOfWeek.Sunday)
+                    {
+                        addDay = true;
+                    }
+                    break;
+                case 3: // on weekends
+                    if (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday)
+                    {
+                        addDay = true;
+                    }
+                    break;
+            }
+
+            return addDay;
         }
     }
 }

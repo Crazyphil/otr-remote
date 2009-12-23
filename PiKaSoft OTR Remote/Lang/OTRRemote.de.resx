@@ -296,7 +296,7 @@ Möchten Sie das wirklich?</value>
     <value>&amp;Zeitzone:</value>
   </data>
   <data name="FrmMain_lblTVGuide" xml:space="preserve">
-    <value>TV-&amp;Guide-Plugin:</value>
+    <value>TV-&amp;Guide-Anwendung:</value>
   </data>
   <data name="FrmMain_lblUsername" xml:space="preserve">
     <value>&amp;Benutzer:</value>
@@ -712,5 +712,14 @@ Soll OTR Remote das Löschen dieser Aufnahme automatisch in 10 Minuten wieder ve
   </data>
   <data name="FrmRecordingPreview_lblSeriesTime" xml:space="preserve">
     <value>zur selben Zeit</value>
+  </data>
+  <data name="FrmRecordingPreview_lblRecordingCount" xml:space="preserve">
+    <value>1 Aufnahme wird bearbeitet</value>
+  </data>
+  <data name="FrmRecordingPreview_lblRecordingCount_Multiple" xml:space="preserve">
+    <value>{0} Aufnahmen werden bearbeitet</value>
+  </data>
+  <data name="FrmProgress_Status_Multiple" xml:space="preserve">
+    <value>{0} von {1}: {2}</value>
   </data>
 </root>
