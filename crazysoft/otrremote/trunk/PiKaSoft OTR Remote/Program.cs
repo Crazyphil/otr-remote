@@ -24,7 +24,7 @@ namespace Crazysoft.OTRRemote
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            _Settings = new AppSettings(true);
+            _Settings = new AppSettings(true, true);
 
 #if !DEBUG
             try

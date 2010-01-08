@@ -20,7 +20,12 @@ namespace Crazysoft.OTRRemote
 
         public List<Plugin> GetPlugins(string path)
         {
-            PluginInterop.WriteDebugLog("GetPlugins()", "Initializing OTRAPI Version 1.0.1.0", true);
+            Assembly a = Assembly.GetExecutingAssembly();
+            Attribute attr = Attribute.GetCustomAttribute(a, typeof(AssemblyFileVersionAttribute));
+            AssemblyFileVersionAttribute versAttr = attr as AssemblyFileVersionAttribute;
+
+            string version = versAttr.Version;
+            PluginInterop.WriteDebugLog("GetPlugins()", String.Concat("Initializing OTRAPI Version ", version), true);
             PluginInterop.WriteDebugLog("GetPlugins()", String.Format("Loading plugin files from {0}", path));
 
             Plugins = new List<Plugin>();

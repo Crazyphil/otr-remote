@@ -120,6 +120,9 @@
   <metadata name="ttTooltip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="ttTooltip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="cbTVGuide.ToolTip" xml:space="preserve">
     <value>Select the TV Guide Plugin you want to use with OTR recorder.
 Please note that although a program may not be listed here, you can still setup it manually.

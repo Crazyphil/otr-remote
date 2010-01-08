@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Crazysoft")]
 [assembly: AssemblyProduct("OTR Remote")]
-[assembly: AssemblyCopyright("Copyright © Crazysoft 2006-2009")]
+[assembly: AssemblyCopyright("Copyright © Crazysoft 2006-2010")]
 [assembly: AssemblyTrademark("OTR Remote is a trademark of Crazysoft.")]
 [assembly: AssemblyCulture("")]
 
