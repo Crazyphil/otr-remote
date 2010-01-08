@@ -178,13 +178,12 @@
             // lblTVGuide
             // 
             this.lblTVGuide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTVGuide.AutoSize = true;
-            this.lblTVGuide.Location = new System.Drawing.Point(289, 21);
+            this.lblTVGuide.Location = new System.Drawing.Point(253, 21);
             this.lblTVGuide.Name = "lblTVGuide";
-            this.lblTVGuide.Size = new System.Drawing.Size(87, 13);
+            this.lblTVGuide.Size = new System.Drawing.Size(123, 13);
             this.lblTVGuide.TabIndex = 1;
             this.lblTVGuide.Text = "TV &Guide Plugin:";
-            this.lblTVGuide.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblTVGuide.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cbTVGuide
             // 

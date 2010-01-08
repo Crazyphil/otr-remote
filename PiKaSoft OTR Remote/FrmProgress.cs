@@ -723,7 +723,7 @@ namespace Crazysoft.OTRRemote
             string searchUrl = String.Concat("http://epg.onlinetvrecorder.com/broadcasts/search?searchterm=", recInfo.Title, "&beginn=",
                                ts.TotalSeconds + "&sender=" + recInfo.Station.ToLower(),
                                "&typ=&wish=&search=suche&otr_stations=1");
-            string postString = String.Concat("user[email]=", recInfo.User.Replace("@", "%40"), "&user[password]=", recInfo.Password, "&commit=Login");
+            string postString = String.Concat("user[email]=", recInfo.User.Replace("@", "%40"), "&user[password]=", recInfo.Password, "&commit=einloggen");
             ASCIIEncoding encoding = new ASCIIEncoding();
             byte[] postData = encoding.GetBytes(postString);
 

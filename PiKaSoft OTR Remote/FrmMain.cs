@@ -28,6 +28,12 @@ namespace Crazysoft.OTRRemote
             ttTooltip.SetToolTip(btnHelp, Lang.OTRRemote.FrmMain_Tooltip_Help);
             ttTooltip.SetToolTip(btnOK, Lang.OTRRemote.FrmMain_Tooltip_OK);
             ttTooltip.SetToolTip(btnCancel, Lang.OTRRemote.FrmMain_Tooltip_Cancel);
+
+            // If program is running in portable mode (settings file in app directory) add text to title
+            if (System.IO.Path.GetDirectoryName(Program.Settings.SettingsFilePath) == System.IO.Path.GetDirectoryName(Application.ExecutablePath))
+            {
+                this.Text = String.Concat(this.Text, " Portable");
+            }
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
