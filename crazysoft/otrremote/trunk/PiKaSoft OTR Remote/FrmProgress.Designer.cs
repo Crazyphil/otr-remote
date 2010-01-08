@@ -38,7 +38,6 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.timTimer = new System.Windows.Forms.Timer(this.components);
             this.timRetry = new System.Windows.Forms.Timer(this.components);
-            this.bwWorker = new System.ComponentModel.BackgroundWorker();
             this.niSystray = new System.Windows.Forms.NotifyIcon(this.components);
             this.timRetryTime = new System.Windows.Forms.Timer(this.components);
             this.lblCurRec = new System.Windows.Forms.Label();
@@ -112,14 +111,6 @@
             this.timRetry.Interval = 600000;
             this.timRetry.Tick += new System.EventHandler(this.timRetry_Tick);
             // 
-            // bwWorker
-            // 
-            this.bwWorker.WorkerReportsProgress = true;
-            this.bwWorker.WorkerSupportsCancellation = true;
-            this.bwWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwWorker_DoWork);
-            this.bwWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwWorker_RunWorkerCompleted);
-            this.bwWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bwWorker_ProgressChanged);
-            // 
             // niSystray
             // 
             this.niSystray.Icon = ((System.Drawing.Icon)(resources.GetObject("niSystray.Icon")));
@@ -179,6 +170,7 @@
         private System.Windows.Forms.Timer timRetry;
         private System.Windows.Forms.Timer timRetryTime;
         private System.Windows.Forms.NotifyIcon niSystray;
+        private System.Windows.Forms.Label lblCurRec;
 
         // Minimal form initializer with only Timer, BackgroundWorker and NotifyIcon for Hidden mode
         private void InitializeHiddenComponent()
@@ -187,7 +179,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProgress));
             this.timTimer = new System.Windows.Forms.Timer(this.components);
             this.timRetry = new System.Windows.Forms.Timer(this.components);
-            this.bwWorker = new System.ComponentModel.BackgroundWorker();
             this.niSystray = new System.Windows.Forms.NotifyIcon(this.components);
             this.timRetryTime = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
@@ -204,11 +195,7 @@
             // 
             // bwWorker
             // 
-            this.bwWorker.WorkerReportsProgress = true;
-            this.bwWorker.WorkerSupportsCancellation = true;
-            this.bwWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwWorker_DoWork);
-            this.bwWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwWorker_RunWorkerCompleted);
-            this.bwWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bwWorker_ProgressChanged);
+            this.InitializeBackgroundWorker();
             // 
             // niSystray
             // 
@@ -232,8 +219,5 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
-
-        private System.ComponentModel.BackgroundWorker bwWorker;
-        private System.Windows.Forms.Label lblCurRec;
     }
 }

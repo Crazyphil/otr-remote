@@ -50,6 +50,9 @@ namespace Crazysoft.OTRRemote
 
         bool _justLoaded;
 
+        // Background Worker
+        private System.ComponentModel.BackgroundWorker bwWorker;
+
         // Struct for worker params
         struct BackgroundWorkerParams
         {
@@ -214,10 +217,13 @@ namespace Crazysoft.OTRRemote
             }
         }
 
+        public delegate void StartRecordThreadDelegate(FormDisplayMode displayMode);
         public void StartRecordThread(FormDisplayMode displayMode)
         {
             this.IsWorking = true;
 
+            // Create new Background Worker for each recording to avoid conflicts with current status
+            InitializeBackgroundWorker();
             BackgroundWorkerParams data = new BackgroundWorkerParams();
             data.RequestString = _requestUri.ToString();
             data.RecordingInfo = _recInfo[_currentRecording];
@@ -255,6 +261,16 @@ namespace Crazysoft.OTRRemote
         }
 
         #region Background Worker
+        private void InitializeBackgroundWorker()
+        {
+            bwWorker = new System.ComponentModel.BackgroundWorker();
+            bwWorker.WorkerReportsProgress = true;
+            bwWorker.WorkerSupportsCancellation = true;
+            bwWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(bwWorker_DoWork);
+            bwWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(bwWorker_RunWorkerCompleted);
+            bwWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(bwWorker_ProgressChanged);
+        }
+
         private void bwWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             // Initialize the variables provided with the start of the thread
@@ -375,12 +391,14 @@ namespace Crazysoft.OTRRemote
                     // Check for the various status messages in the returned page
                     if (webpage.Contains(errMsgs.AddTooLate_de) || webpage.Contains(errMsgs.AddTooLate_en))
                     {
+                        UpdateTaskbarProgressBar(Windows7.TaskbarButtonProgressState.Error);
                         MessageBox.Show(Lang.OTRRemote.FrmProgress_Error_Date,
                                         String.Concat("Crazysoft OTR Remote: ", Lang.OTRRemote.FrmProgress_ErrorMsg_Title),
                                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else if (webpage.Contains(errMsgs.AddWrongLogin_de) || webpage.Contains(errMsgs.AddWrongLogin_en))
                     {
+                        UpdateTaskbarProgressBar(Windows7.TaskbarButtonProgressState.Error);
                         MessageBox.Show(Lang.OTRRemote.FrmProgress_Error_WrongLogin,
                                         String.Concat("Crazysoft OTR Remote: ", Lang.OTRRemote.FrmProgress_ErrorMsg_Title),
                                         MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -497,35 +515,54 @@ namespace Crazysoft.OTRRemote
                         UpdateTaskbarProgressBar(Windows7.TaskbarButtonProgressState.Paused);
                         break;
                     case WorkerResult.Success:
-                        this.DialogResult = DialogResult.OK;
-                        if (_displayMode != FormDisplayMode.Hide)
+                        // If further recordings have to be processed and no error occured, restart with next recording
+                        _currentRecording++;
+                        if (_currentRecording < _recInfo.Length)
                         {
-                            lblStatus.Text = Lang.OTRRemote.FrmProgress_Status_Finished;
-                            pbProgress.Value = 3;
-                            UpdateTaskbarProgressBar(Windows7.TaskbarButtonProgressState.Normal);
+                            _requestUri = new Uri(Uri.EscapeUriString(_recInfo[_currentRecording].RequestString));
+                            this.Invoke(new StartRecordThreadDelegate(StartRecordThread), _displayMode);
                         }
                         else
                         {
-                            this.Close();
-                        }
-
-                        if (_displayMode == FormDisplayMode.ShowSystray)
-                        {
-                            int closeTimeout = 5000;
-                            if (!Program.Settings["Program"]["AutoClose"].IsNull &&
-                                Convert.ToInt32(Program.Settings["Program"]["AutoCloseTimeout"].Value) > 0)
+                            this.DialogResult = DialogResult.OK;
+                            if (_displayMode != FormDisplayMode.Hide)
                             {
-                                closeTimeout = Convert.ToInt32(Program.Settings["Program"]["AutoCloseTimeout"].Value) * 1000;
+                                lblStatus.Text = Lang.OTRRemote.FrmProgress_Status_Finished;
+                                pbProgress.Value = 3;
+                                UpdateTaskbarProgressBar(Windows7.TaskbarButtonProgressState.Normal);
                             }
-                            if (!IsWindowsSeven())
+                            else
                             {
-                                niSystray.ShowBalloonTip(closeTimeout, _recInfo[_currentRecording].Title, Lang.OTRRemote.FrmProgress_Status_Finished, ToolTipIcon.Info);
+                                this.Close();
+                            }
+
+                            if (_displayMode == FormDisplayMode.ShowSystray)
+                            {
+                                int closeTimeout = 5000;
+                                if (!Program.Settings["Program"]["AutoClose"].IsNull &&
+                                    Convert.ToInt32(Program.Settings["Program"]["AutoCloseTimeout"].Value) > 0)
+                                {
+                                    closeTimeout = Convert.ToInt32(Program.Settings["Program"]["AutoCloseTimeout"].Value) * 1000;
+                                }
+                                if (!IsWindowsSeven())
+                                {
+                                    niSystray.ShowBalloonTip(closeTimeout, _recInfo[_currentRecording].Title, Lang.OTRRemote.FrmProgress_Status_Finished, ToolTipIcon.Info);
+                                }
                             }
                         }
                         break;
                     case WorkerResult.Error:
                     default:
-                        this.DialogResult = DialogResult.Cancel;
+                        // Wenn ein Fehler nach der ersten Aufnahme aufgetreten ist, muss dem EPG-Programm für eine richtige
+                        // Anzeige trotzdem eine Erfolgsmeldung geliefert werden
+                        if (_currentRecording > 0)
+                        {
+                            this.DialogResult = DialogResult.OK;
+                        }
+                        else
+                        {
+                            this.DialogResult = DialogResult.Cancel;
+                        }
 
                         if (_displayMode != FormDisplayMode.Hide)
                         {
@@ -553,9 +590,11 @@ namespace Crazysoft.OTRRemote
                         break;
                 }
 
-                if ((WorkerResult)e.Result != WorkerResult.Deferred)
+                WorkerResult result = (WorkerResult)e.Result;
+                if ((result == WorkerResult.Success && _currentRecording == _recInfo.Length) ||
+                    (result != WorkerResult.Deferred && result != WorkerResult.Success))
                 {
-                    if (!Program.Settings["Program"]["AutoClose"].IsNull && _currentRecording == _recInfo.Length - 1)
+                    if (!Program.Settings["Program"]["AutoClose"].IsNull)
                     {
                         if (Convert.ToInt32(Program.Settings["Program"]["AutoCloseTimeout"].Value) > 0)
                         {
@@ -572,14 +611,6 @@ namespace Crazysoft.OTRRemote
                     {
                         this.Close();
                     }
-                }
-
-                // If further recordings have to be processed and no error occured, restart with next recording
-                if ((WorkerResult)e.Result == WorkerResult.Success && _currentRecording < _recInfo.Length - 1)
-                {
-                    _currentRecording++;
-                    _requestUri = new Uri(Uri.EscapeUriString(_recInfo[_currentRecording].RequestString));
-                    StartRecordThread(_displayMode);
                 }
             }
         }
@@ -791,6 +822,7 @@ namespace Crazysoft.OTRRemote
                 {
                     message = String.Concat(message, " (", excp.InnerException.Message, ")");
                 }
+                UpdateTaskbarProgressBar(Windows7.TaskbarButtonProgressState.Error);
                 MessageBox.Show(String.Format(Lang.OTRRemote.FrmProgress_ErrorMsg_ConnErr_Text, message),
                                 String.Concat("Crazysoft OTR Remote: ", Lang.OTRRemote.FrmProgress_ErrorMsg_ConnErr_Title),
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -844,7 +876,14 @@ namespace Crazysoft.OTRRemote
                 if (_recInfo.Length > 1)
                 {
                     taskbarProgressBar.MaxValue = _recInfo.Length;
-                    taskbarProgressBar.CurrentValue = _currentRecording + 1;
+                    if (_currentRecording + 1 > _recInfo.Length)
+                    {
+                        taskbarProgressBar.CurrentValue = taskbarProgressBar.MaxValue;
+                    }
+                    else
+                    {
+                        taskbarProgressBar.CurrentValue = _currentRecording + 1;
+                    }
                 }
                 else
                 {

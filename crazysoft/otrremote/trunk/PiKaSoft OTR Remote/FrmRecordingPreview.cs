@@ -130,7 +130,7 @@ namespace Crazysoft.OTRRemote
         {
             int first = title.IndexOf('{', startPos);
             int last = title.IndexOf('}', startPos);
-            if (last > first)
+            if (first >= 0 && last > first)
             {
                 try
                 {
@@ -142,9 +142,9 @@ namespace Crazysoft.OTRRemote
                 }
                 catch (FormatException) { }
 
-                if (last + 1 < title.Length)
+                if (last < title.Length)
                 {
-                    title = CountInTitle(title, last + 1, numToAdd);
+                    title = CountInTitle(title, last, numToAdd);
                 }
             }
 

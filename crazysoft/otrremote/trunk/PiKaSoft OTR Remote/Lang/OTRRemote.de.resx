@@ -520,7 +520,7 @@ Bitte löschen Sie die Aufnahme auf der OTR-Website.</value>
     <value>TVM2OTR:ERROR</value>
   </data>
   <data name="FrmProgress_Result_WrongLogin" xml:space="preserve">
-    <value>&lt;b&gt;Sie sind nicht eingeloggt.&lt;/b&gt;</value>
+    <value>Bitte loggen Sie sich ein, um auf alle Funktionen von</value>
   </data>
   <data name="FrmProgress_Status_Aborting" xml:space="preserve">
     <value>Bitte warten, breche ab...</value>
@@ -721,5 +721,8 @@ Soll OTR Remote das Löschen dieser Aufnahme automatisch in 10 Minuten wieder ve
   </data>
   <data name="FrmProgress_Status_Multiple" xml:space="preserve">
     <value>{0} von {1}: {2}</value>
+  </data>
+  <data name="FrmRecordingPreview_lblNumberHelp" xml:space="preserve">
+    <value>Von { } umschlossene Zahlen werden mit jeder Serienaufnahme erhöht.</value>
   </data>
 </root>

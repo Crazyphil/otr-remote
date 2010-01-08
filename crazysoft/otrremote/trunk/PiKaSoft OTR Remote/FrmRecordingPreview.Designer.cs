@@ -53,6 +53,7 @@
             this.cbSeriesRule = new System.Windows.Forms.ComboBox();
             this.lblSeriesRecording = new System.Windows.Forms.Label();
             this.lblRecordingCount = new System.Windows.Forms.Label();
+            this.lblNumberHelp = new System.Windows.Forms.Label();
             this.pnlHeader.SuspendLayout();
             this.gbSeries.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSeriesDays)).BeginInit();
@@ -106,7 +107,7 @@
             // 
             // tbStation
             // 
-            this.tbStation.Location = new System.Drawing.Point(90, 155);
+            this.tbStation.Location = new System.Drawing.Point(90, 184);
             this.tbStation.Name = "tbStation";
             this.tbStation.Size = new System.Drawing.Size(256, 20);
             this.tbStation.TabIndex = 7;
@@ -114,7 +115,7 @@
             // lblStation
             // 
             this.lblStation.AutoSize = true;
-            this.lblStation.Location = new System.Drawing.Point(12, 158);
+            this.lblStation.Location = new System.Drawing.Point(12, 187);
             this.lblStation.Name = "lblStation";
             this.lblStation.Size = new System.Drawing.Size(43, 13);
             this.lblStation.TabIndex = 6;
@@ -122,7 +123,7 @@
             // 
             // dtpStartDate
             // 
-            this.dtpStartDate.Location = new System.Drawing.Point(90, 181);
+            this.dtpStartDate.Location = new System.Drawing.Point(90, 210);
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.Size = new System.Drawing.Size(256, 20);
             this.dtpStartDate.TabIndex = 8;
@@ -131,7 +132,7 @@
             // lblStartDate
             // 
             this.lblStartDate.AutoSize = true;
-            this.lblStartDate.Location = new System.Drawing.Point(12, 187);
+            this.lblStartDate.Location = new System.Drawing.Point(12, 216);
             this.lblStartDate.Name = "lblStartDate";
             this.lblStartDate.Size = new System.Drawing.Size(58, 13);
             this.lblStartDate.TabIndex = 9;
@@ -140,7 +141,7 @@
             // lblStartTime
             // 
             this.lblStartTime.AutoSize = true;
-            this.lblStartTime.Location = new System.Drawing.Point(12, 213);
+            this.lblStartTime.Location = new System.Drawing.Point(12, 242);
             this.lblStartTime.Name = "lblStartTime";
             this.lblStartTime.Size = new System.Drawing.Size(58, 13);
             this.lblStartTime.TabIndex = 11;
@@ -150,7 +151,7 @@
             // 
             this.dtpStartTime.CustomFormat = "HH:mm";
             this.dtpStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpStartTime.Location = new System.Drawing.Point(90, 207);
+            this.dtpStartTime.Location = new System.Drawing.Point(90, 236);
             this.dtpStartTime.Name = "dtpStartTime";
             this.dtpStartTime.ShowUpDown = true;
             this.dtpStartTime.Size = new System.Drawing.Size(62, 20);
@@ -159,7 +160,7 @@
             // lblEndTime
             // 
             this.lblEndTime.AutoSize = true;
-            this.lblEndTime.Location = new System.Drawing.Point(206, 213);
+            this.lblEndTime.Location = new System.Drawing.Point(206, 242);
             this.lblEndTime.Name = "lblEndTime";
             this.lblEndTime.Size = new System.Drawing.Size(55, 13);
             this.lblEndTime.TabIndex = 13;
@@ -169,7 +170,7 @@
             // 
             this.dtpEndTime.CustomFormat = "HH:mm";
             this.dtpEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpEndTime.Location = new System.Drawing.Point(284, 207);
+            this.dtpEndTime.Location = new System.Drawing.Point(284, 236);
             this.dtpEndTime.Name = "dtpEndTime";
             this.dtpEndTime.ShowUpDown = true;
             this.dtpEndTime.Size = new System.Drawing.Size(62, 20);
@@ -177,7 +178,7 @@
             // 
             // tbGenre
             // 
-            this.tbGenre.Location = new System.Drawing.Point(90, 233);
+            this.tbGenre.Location = new System.Drawing.Point(90, 262);
             this.tbGenre.Name = "tbGenre";
             this.tbGenre.Size = new System.Drawing.Size(256, 20);
             this.tbGenre.TabIndex = 15;
@@ -185,7 +186,7 @@
             // lblGenre
             // 
             this.lblGenre.AutoSize = true;
-            this.lblGenre.Location = new System.Drawing.Point(12, 236);
+            this.lblGenre.Location = new System.Drawing.Point(12, 265);
             this.lblGenre.Name = "lblGenre";
             this.lblGenre.Size = new System.Drawing.Size(39, 13);
             this.lblGenre.TabIndex = 14;
@@ -193,7 +194,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(190, 365);
+            this.btnOK.Location = new System.Drawing.Point(190, 394);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 16;
@@ -204,7 +205,7 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(271, 365);
+            this.btnCancel.Location = new System.Drawing.Point(271, 394);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 17;
@@ -219,7 +220,7 @@
             this.gbSeries.Controls.Add(this.nudSeriesDays);
             this.gbSeries.Controls.Add(this.cbSeriesRule);
             this.gbSeries.Controls.Add(this.lblSeriesRecording);
-            this.gbSeries.Location = new System.Drawing.Point(12, 269);
+            this.gbSeries.Location = new System.Drawing.Point(12, 298);
             this.gbSeries.Name = "gbSeries";
             this.gbSeries.Size = new System.Drawing.Size(334, 76);
             this.gbSeries.TabIndex = 18;
@@ -279,11 +280,19 @@
             // lblRecordingCount
             // 
             this.lblRecordingCount.AutoSize = true;
-            this.lblRecordingCount.Location = new System.Drawing.Point(12, 370);
+            this.lblRecordingCount.Location = new System.Drawing.Point(12, 399);
             this.lblRecordingCount.Name = "lblRecordingCount";
             this.lblRecordingCount.Size = new System.Drawing.Size(149, 13);
             this.lblRecordingCount.TabIndex = 19;
             this.lblRecordingCount.Text = "2 recordings will be processed";
+            // 
+            // lblNumberHelp
+            // 
+            this.lblNumberHelp.Location = new System.Drawing.Point(87, 152);
+            this.lblNumberHelp.Name = "lblNumberHelp";
+            this.lblNumberHelp.Size = new System.Drawing.Size(259, 29);
+            this.lblNumberHelp.TabIndex = 20;
+            this.lblNumberHelp.Text = "Numbers enclosed with { } are incremented with each series recording.";
             // 
             // FrmRecordingPreview
             // 
@@ -291,7 +300,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(358, 402);
+            this.ClientSize = new System.Drawing.Size(358, 431);
+            this.Controls.Add(this.lblNumberHelp);
             this.Controls.Add(this.lblRecordingCount);
             this.Controls.Add(this.gbSeries);
             this.Controls.Add(this.btnCancel);
@@ -351,5 +361,6 @@
         private System.Windows.Forms.Label lblSeriesDays;
         private System.Windows.Forms.Label lblSeriesTime;
         private System.Windows.Forms.Label lblRecordingCount;
+        private System.Windows.Forms.Label lblNumberHelp;
     }
 }
