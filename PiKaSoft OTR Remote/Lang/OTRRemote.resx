@@ -732,4 +732,7 @@ Should OTR Remote retry to delete this recording automatically in 10 minutes?</v
   <data name="FrmProgress_Status_Multiple" xml:space="preserve">
     <value>{0} of {1}: {2}</value>
   </data>
+  <data name="FrmRecordingPreview_lblNumberHelp" xml:space="preserve">
+    <value>Numbers enclosed with { } are incremented with each series recording.</value>
+  </data>
 </root>

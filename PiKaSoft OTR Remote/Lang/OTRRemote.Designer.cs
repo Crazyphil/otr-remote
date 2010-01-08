@@ -1567,6 +1567,15 @@ namespace Crazysoft.OTRRemote.Lang {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Numbers enclosed with { } are incremented with each series recording. ähnelt.
+        /// </summary>
+        internal static string FrmRecordingPreview_lblNumberHelp {
+            get {
+                return ResourceManager.GetString("FrmRecordingPreview_lblNumberHelp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die 1 recording will be processed ähnelt.
         /// </summary>
         internal static string FrmRecordingPreview_lblRecordingCount {
