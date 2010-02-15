@@ -437,8 +437,11 @@ In such case, please read the application's manual.</value>
     <value>Us&amp;ername:</value>
   </data>
   <data name="FrmPreferences_lblThanks" xml:space="preserve">
-    <value>Thanks to the folks at OnlineTVRecorder.com for their great service.
-Thanks to the community at CodeProject.com for their coding help.</value>
+    <value>Thanks to the folks at OnlineTVRecorder.com for their great
+service.
+Thanks to the community at CodeProject.com for their coding
+help.
+OTR Remote contains parts of the WindowsAPICodePack.</value>
   </data>
   <data name="FrmPreferences_lblVersion" xml:space="preserve">
     <value>Version {0}</value>

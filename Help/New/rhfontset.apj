@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rhpml majorversion="2" minorversion="0">
+<rhpml majorversion="3" minorversion="0">
 	<fontsets>
 		<fontset>
 			<name>Marlett</name>
@@ -38,32 +38,16 @@
 			<fontlist>Batang</fontlist>
 		</fontset>
 		<fontset>
-			<name>@Batang</name>
-			<fontlist>@Batang</fontlist>
-		</fontset>
-		<fontset>
 			<name>BatangChe</name>
 			<fontlist>BatangChe</fontlist>
-		</fontset>
-		<fontset>
-			<name>@BatangChe</name>
-			<fontlist>@BatangChe</fontlist>
 		</fontset>
 		<fontset>
 			<name>Gungsuh</name>
 			<fontlist>Gungsuh</fontlist>
 		</fontset>
 		<fontset>
-			<name>@Gungsuh</name>
-			<fontlist>@Gungsuh</fontlist>
-		</fontset>
-		<fontset>
 			<name>GungsuhChe</name>
 			<fontlist>GungsuhChe</fontlist>
-		</fontset>
-		<fontset>
-			<name>@GungsuhChe</name>
-			<fontlist>@GungsuhChe</fontlist>
 		</fontset>
 		<fontset>
 			<name>Courier New</name>
@@ -114,32 +98,16 @@
 			<fontlist>Gulim</fontlist>
 		</fontset>
 		<fontset>
-			<name>@Gulim</name>
-			<fontlist>@Gulim</fontlist>
-		</fontset>
-		<fontset>
 			<name>GulimChe</name>
 			<fontlist>GulimChe</fontlist>
-		</fontset>
-		<fontset>
-			<name>@GulimChe</name>
-			<fontlist>@GulimChe</fontlist>
 		</fontset>
 		<fontset>
 			<name>Dotum</name>
 			<fontlist>Dotum</fontlist>
 		</fontset>
 		<fontset>
-			<name>@Dotum</name>
-			<fontlist>@Dotum</fontlist>
-		</fontset>
-		<fontset>
 			<name>DotumChe</name>
 			<fontlist>DotumChe</fontlist>
-		</fontset>
-		<fontset>
-			<name>@DotumChe</name>
-			<fontlist>@DotumChe</fontlist>
 		</fontset>
 		<fontset>
 			<name>Impact</name>
@@ -170,20 +138,12 @@
 			<fontlist>Malgun Gothic</fontlist>
 		</fontset>
 		<fontset>
-			<name>@Malgun Gothic</name>
-			<fontlist>@Malgun Gothic</fontlist>
-		</fontset>
-		<fontset>
 			<name>Mangal</name>
 			<fontlist>Mangal</fontlist>
 		</fontset>
 		<fontset>
 			<name>Meiryo</name>
 			<fontlist>Meiryo</fontlist>
-		</fontset>
-		<fontset>
-			<name>@Meiryo</name>
-			<fontlist>@Meiryo</fontlist>
 		</fontset>
 		<fontset>
 			<name>Microsoft Himalaya</name>
@@ -194,64 +154,32 @@
 			<fontlist>Microsoft JhengHei</fontlist>
 		</fontset>
 		<fontset>
-			<name>@Microsoft JhengHei</name>
-			<fontlist>@Microsoft JhengHei</fontlist>
-		</fontset>
-		<fontset>
 			<name>Microsoft YaHei</name>
 			<fontlist>Microsoft YaHei</fontlist>
-		</fontset>
-		<fontset>
-			<name>@Microsoft YaHei</name>
-			<fontlist>@Microsoft YaHei</fontlist>
 		</fontset>
 		<fontset>
 			<name>MingLiU</name>
 			<fontlist>MingLiU</fontlist>
 		</fontset>
 		<fontset>
-			<name>@MingLiU</name>
-			<fontlist>@MingLiU</fontlist>
-		</fontset>
-		<fontset>
 			<name>PMingLiU</name>
 			<fontlist>PMingLiU</fontlist>
-		</fontset>
-		<fontset>
-			<name>@PMingLiU</name>
-			<fontlist>@PMingLiU</fontlist>
 		</fontset>
 		<fontset>
 			<name>MingLiU_HKSCS</name>
 			<fontlist>MingLiU_HKSCS</fontlist>
 		</fontset>
 		<fontset>
-			<name>@MingLiU_HKSCS</name>
-			<fontlist>@MingLiU_HKSCS</fontlist>
-		</fontset>
-		<fontset>
 			<name>MingLiU-ExtB</name>
 			<fontlist>MingLiU-ExtB</fontlist>
-		</fontset>
-		<fontset>
-			<name>@MingLiU-ExtB</name>
-			<fontlist>@MingLiU-ExtB</fontlist>
 		</fontset>
 		<fontset>
 			<name>PMingLiU-ExtB</name>
 			<fontlist>PMingLiU-ExtB</fontlist>
 		</fontset>
 		<fontset>
-			<name>@PMingLiU-ExtB</name>
-			<fontlist>@PMingLiU-ExtB</fontlist>
-		</fontset>
-		<fontset>
 			<name>MingLiU_HKSCS-ExtB</name>
 			<fontlist>MingLiU_HKSCS-ExtB</fontlist>
-		</fontset>
-		<fontset>
-			<name>@MingLiU_HKSCS-ExtB</name>
-			<fontlist>@MingLiU_HKSCS-ExtB</fontlist>
 		</fontset>
 		<fontset>
 			<name>Mongolian Baiti</name>
@@ -262,40 +190,20 @@
 			<fontlist>MS Gothic</fontlist>
 		</fontset>
 		<fontset>
-			<name>@MS Gothic</name>
-			<fontlist>@MS Gothic</fontlist>
-		</fontset>
-		<fontset>
 			<name>MS PGothic</name>
 			<fontlist>MS PGothic</fontlist>
-		</fontset>
-		<fontset>
-			<name>@MS PGothic</name>
-			<fontlist>@MS PGothic</fontlist>
 		</fontset>
 		<fontset>
 			<name>MS UI Gothic</name>
 			<fontlist>MS UI Gothic</fontlist>
 		</fontset>
 		<fontset>
-			<name>@MS UI Gothic</name>
-			<fontlist>@MS UI Gothic</fontlist>
-		</fontset>
-		<fontset>
 			<name>MS Mincho</name>
 			<fontlist>MS Mincho</fontlist>
 		</fontset>
 		<fontset>
-			<name>@MS Mincho</name>
-			<fontlist>@MS Mincho</fontlist>
-		</fontset>
-		<fontset>
 			<name>MS PMincho</name>
 			<fontlist>MS PMincho</fontlist>
-		</fontset>
-		<fontset>
-			<name>@MS PMincho</name>
-			<fontlist>@MS PMincho</fontlist>
 		</fontset>
 		<fontset>
 			<name>MV Boli</name>
@@ -330,24 +238,12 @@
 			<fontlist>SimSun</fontlist>
 		</fontset>
 		<fontset>
-			<name>@SimSun</name>
-			<fontlist>@SimSun</fontlist>
-		</fontset>
-		<fontset>
 			<name>NSimSun</name>
 			<fontlist>NSimSun</fontlist>
 		</fontset>
 		<fontset>
-			<name>@NSimSun</name>
-			<fontlist>@NSimSun</fontlist>
-		</fontset>
-		<fontset>
 			<name>SimSun-ExtB</name>
 			<fontlist>SimSun-ExtB</fontlist>
-		</fontset>
-		<fontset>
-			<name>@SimSun-ExtB</name>
-			<fontlist>@SimSun-ExtB</fontlist>
 		</fontset>
 		<fontset>
 			<name>Sylfaen</name>
@@ -486,24 +382,12 @@
 			<fontlist>FangSong</fontlist>
 		</fontset>
 		<fontset>
-			<name>@FangSong</name>
-			<fontlist>@FangSong</fontlist>
-		</fontset>
-		<fontset>
 			<name>SimHei</name>
 			<fontlist>SimHei</fontlist>
 		</fontset>
 		<fontset>
-			<name>@SimHei</name>
-			<fontlist>@SimHei</fontlist>
-		</fontset>
-		<fontset>
 			<name>KaiTi</name>
 			<fontlist>KaiTi</fontlist>
-		</fontset>
-		<fontset>
-			<name>@KaiTi</name>
-			<fontlist>@KaiTi</fontlist>
 		</fontset>
 		<fontset>
 			<name>AngsanaUPC</name>
@@ -552,10 +436,6 @@
 		<fontset>
 			<name>DFKai-SB</name>
 			<fontlist>DFKai-SB</fontlist>
-		</fontset>
-		<fontset>
-			<name>@DFKai-SB</name>
-			<fontlist>@DFKai-SB</fontlist>
 		</fontset>
 		<fontset>
 			<name>Lucida Sans Unicode</name>
@@ -890,16 +770,8 @@
 			<fontlist>Arial Unicode MS</fontlist>
 		</fontset>
 		<fontset>
-			<name>@Arial Unicode MS</name>
-			<fontlist>@Arial Unicode MS</fontlist>
-		</fontset>
-		<fontset>
 			<name>YD2002</name>
 			<fontlist>YD2002</fontlist>
-		</fontset>
-		<fontset>
-			<name>@YD2002</name>
-			<fontlist>@YD2002</fontlist>
 		</fontset>
 		<fontset>
 			<name>ZWAdobeF</name>

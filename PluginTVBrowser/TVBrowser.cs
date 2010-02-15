@@ -10,7 +10,7 @@ namespace Crazysoft.OTRRemote
     public class TVBrowser : IPlugin
     {
         private PluginSettingsCollection settings;
-        private Version tvbrowserVersion;
+        private Version tvbrowserVersion = new Version(2, 7, 5);
 
         private string _Name = "TV-Browser";
         public string Name
@@ -32,6 +32,12 @@ namespace Crazysoft.OTRRemote
 
         public bool Enable()
         {
+            // If TV-Browser path was saved, first look if it is correct and add it, otherwise detect correct path
+            if (settings.Contains(Lang.TVBrowser.Plugin_Settings_Path) && IsTvBrowserPath(settings[Lang.TVBrowser.Plugin_Settings_Path].Value)) {
+                SetPathSetting(settings[Lang.TVBrowser.Plugin_Settings_Path].Value);
+                return true;
+            }
+
             // Only check registry if OTR Remote is running on Windows
             if (Environment.OSVersion.Platform != PlatformID.Unix)
             {
@@ -98,7 +104,6 @@ namespace Crazysoft.OTRRemote
                 if (!foundTvBrowser)
                 {
                     PluginInterop.WriteDebugLog("Enable()", String.Concat("Did not find any registry path starting with \"TV-Browser\" in \"", rk.Name, "\". Switching to Portable Mode."));
-                    tvbrowserVersion = new Version(2, 6, 2);
                     SetPathSetting(string.Empty);
                 }
 
@@ -107,9 +112,7 @@ namespace Crazysoft.OTRRemote
             }
             else
             {
-                tvbrowserVersion = new Version(2, 6, 2);
                 SetPathSetting(string.Empty);
-
                 return true;
             }
         }
@@ -148,8 +151,7 @@ namespace Crazysoft.OTRRemote
             // Check, if we should install the automatic or the manual plugin
             if (tvbrowserVersion.Major >= 2)
             {
-                // Check, if the entered TV-Browser installation path exists
-                if (!Directory.Exists(Path.Combine(settings[Lang.TVBrowser.Plugin_Settings_Path].Value, "plugins")))
+                if (!IsTvBrowserPath(settings[Lang.TVBrowser.Plugin_Settings_Path].Value))
                 {
                     return Lang.TVBrowser.Plugin_Error_Invalid_Path;
                 }
@@ -202,6 +204,12 @@ namespace Crazysoft.OTRRemote
             _Enabled = false;
         }
 
+        private bool IsTvBrowserPath(string path)
+        {
+            // Check, if the entered TV-Browser installation path exists
+            return Directory.Exists(Path.Combine(path, "plugins"));
+        }
+
         /// <summary>
         /// Creates a relative path from one file
         /// or folder to another.
@@ -220,7 +228,7 @@ namespace Crazysoft.OTRRemote
         /// </returns>
         /// <see cref="http://weblogs.asp.net/pwelter34/archive/2006/02/08/create-a-relative-path-code-snippet.aspx"/>
         /// <exception cref="ArgumentNullException"></exception>
-        public static string RelativePathTo(string fromDirectory, string toPath)
+        private static string RelativePathTo(string fromDirectory, string toPath)
         {
             if (fromDirectory == null)
                 throw new ArgumentNullException("fromDirectory");

@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPreferences));
             this.tcTabs = new System.Windows.Forms.TabControl();
             this.tcTabsProgram = new System.Windows.Forms.TabPage();
+            this.cbRecordingPreview = new System.Windows.Forms.CheckBox();
             this.cbRetryDelete = new System.Windows.Forms.CheckBox();
             this.cbProgressMethod = new System.Windows.Forms.ComboBox();
             this.lblProgressIndicator = new System.Windows.Forms.Label();
@@ -68,7 +69,6 @@
             this.llblUpdate = new System.Windows.Forms.LinkLabel();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.cbRecordingPreview = new System.Windows.Forms.CheckBox();
             this.tcTabs.SuspendLayout();
             this.tcTabsProgram.SuspendLayout();
             this.pnlAutoClose.SuspendLayout();
@@ -113,6 +113,18 @@
             this.tcTabsProgram.TabIndex = 0;
             this.tcTabsProgram.Text = "Program";
             this.tcTabsProgram.UseVisualStyleBackColor = true;
+            // 
+            // cbRecordingPreview
+            // 
+            this.cbRecordingPreview.AutoSize = true;
+            this.cbRecordingPreview.Checked = true;
+            this.cbRecordingPreview.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbRecordingPreview.Location = new System.Drawing.Point(6, 59);
+            this.cbRecordingPreview.Name = "cbRecordingPreview";
+            this.cbRecordingPreview.Size = new System.Drawing.Size(230, 17);
+            this.cbRecordingPreview.TabIndex = 12;
+            this.cbRecordingPreview.Text = "Show recording preview before sending job";
+            this.cbRecordingPreview.UseVisualStyleBackColor = true;
             // 
             // cbRetryDelete
             // 
@@ -442,7 +454,6 @@
             // 
             // lblThanks
             // 
-            this.lblThanks.AutoEllipsis = true;
             this.lblThanks.Location = new System.Drawing.Point(3, 128);
             this.lblThanks.Name = "lblThanks";
             this.lblThanks.Size = new System.Drawing.Size(293, 103);
@@ -511,18 +522,6 @@
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // cbRecordingPreview
-            // 
-            this.cbRecordingPreview.AutoSize = true;
-            this.cbRecordingPreview.Checked = true;
-            this.cbRecordingPreview.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbRecordingPreview.Location = new System.Drawing.Point(6, 59);
-            this.cbRecordingPreview.Name = "cbRecordingPreview";
-            this.cbRecordingPreview.Size = new System.Drawing.Size(230, 17);
-            this.cbRecordingPreview.TabIndex = 12;
-            this.cbRecordingPreview.Text = "Show recording preview before sending job";
-            this.cbRecordingPreview.UseVisualStyleBackColor = true;
             // 
             // FrmPreferences
             // 

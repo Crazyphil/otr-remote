@@ -1,63 +1,139 @@
-﻿<html>
-<!-- Sitemap 1.0 -->
-<object type="text/site properties">
-  <param name="SiteType" value="index">
-</object>
-<ul>
-  <li><object type="text/sitemap">
-    <param name="Name" value="Firewall">
-    <param name="Name" value="Aktionsfortschritt">
-    <param name="Local" value="How_To_Use\Aktionsfortschritt.htm">
-  </object>
-  <li><object type="text/sitemap">
-    <param name="Name" value="Aktionsfortschritt-Dialog">
-    <param name="Name" value="Aktionsfortschritt">
-    <param name="Local" value="How_To_Use\Aktionsfortschritt.htm">
-  </object>
-  <li><object type="text/sitemap">
-    <param name="Name" value="System-Tray">
-    <param name="Name" value="Programmoptionen">
-    <param name="Local" value="How_To_Use\Programmoptionen.htm">
-  </object>
-  <li><object type="text/sitemap">
-    <param name="Name" value="Programmoptionen">
-    <param name="Name" value="Programmoptionen">
-    <param name="Local" value="How_To_Use\Programmoptionen.htm">
-  </object>
-  <li><object type="text/sitemap">
-    <param name="Name" value="Aufnahmehilfe-Dialog">
-    <param name="Name" value="Aufnahmehilfe">
-    <param name="Local" value="How_To_Use\Aufnahmehilfe.htm">
-  </object>
-  <li><object type="text/sitemap">
-    <param name="Name" value="Kontrollzentrum">
-    <param name="Name" value="Kontrollzentrum">
-    <param name="Local" value="How_To_Use\Kontrollzentrum.htm">
-  </object>
-  <li><object type="text/sitemap">
-    <param name="Name" value="Plugins">
-    <param name="Name" value="Kontrollzentrum">
-    <param name="Local" value="How_To_Use\Kontrollzentrum.htm">
-  </object>
-  <li><object type="text/sitemap">
-    <param name="Name" value="Zeitzone">
-    <param name="Name" value="Kontrollzentrum">
-    <param name="Local" value="How_To_Use\Kontrollzentrum.htm">
-  </object>
-  <li><object type="text/sitemap">
-    <param name="Name" value="Plugineinstellungen">
-    <param name="Name" value="Kontrollzentrum">
-    <param name="Local" value="How_To_Use\Kontrollzentrum.htm">
-  </object>
-  <li><object type="text/sitemap">
-    <param name="Name" value="OnlineTVRecorder">
-    <param name="Name" value="Über dieses Programm">
-    <param name="Local" value="General\Über_dieses_Programm.htm">
-  </object>
-  <li><object type="text/sitemap">
-    <param name="Name" value="Senderkorrektur-Dialog">
-    <param name="Name" value="Senderkorrekturen">
-    <param name="Local" value="How_To_Use\Senderkorrekturen.htm">
-  </object>
-</ul>
-</html>
+<?xml version="1.0" encoding="utf-8"?>
+<index version="1.0">
+	<properties>
+	</properties>
+	<item name="Firewall">
+		<section name="Aktionsfortschritt" link="How_To_Use\Aktionsfortschritt.htm">
+		</section>
+	</item>
+	<item name="Aktionsfortschritt-Dialog">
+		<section name="Aktionsfortschritt" link="How_To_Use\Aktionsfortschritt.htm">
+		</section>
+	</item>
+	<item name="System-Tray">
+		<section name="Programmoptionen" link="How_To_Use\Programmoptionen.htm">
+		</section>
+	</item>
+	<item name="Programmoptionen">
+		<section name="Programmoptionen" link="How_To_Use\Programmoptionen.htm">
+		</section>
+	</item>
+	<item name="Aufnahmehilfe-Dialog">
+		<section name="Aufnahmehilfe" link="How_To_Use\Aufnahmehilfe.htm">
+		</section>
+	</item>
+	<item name="Kontrollzentrum">
+		<section name="Kontrollzentrum" link="How_To_Use\Kontrollzentrum.htm">
+		</section>
+	</item>
+	<item name="Plugins">
+		<section name="Kontrollzentrum" link="How_To_Use\Kontrollzentrum.htm">
+		</section>
+	</item>
+	<item name="Zeitzone">
+		<section name="Kontrollzentrum" link="How_To_Use\Kontrollzentrum.htm">
+		</section>
+		<section name="Anmeldedaten-Dialog" link="How_To_Use\Logindaten.htm">
+		</section>
+	</item>
+	<item name="Plugineinstellungen">
+		<section name="Kontrollzentrum" link="How_To_Use\Kontrollzentrum.htm">
+		</section>
+	</item>
+	<item name="OnlineTVRecorder">
+		<section name="Über dieses Programm" link="General\Ueber_dieses_Programm.htm">
+		</section>
+	</item>
+	<item name="Senderkorrektur-Dialog">
+		<section name="Senderkorrekturen" link="How_To_Use\Senderkorrekturen.htm">
+		</section>
+	</item>
+	<item name="Aufnahmevorschau-Dialog">
+		<section name="Aufnahmevorschau" link="How_To_Use\Aufnahmevorschau.htm">
+		</section>
+	</item>
+	<item name="Serienaufnahme">
+		<section name="Aufnahmevorschau" link="How_To_Use\Aufnahmevorschau.htm">
+		</section>
+	</item>
+	<item name="{ }">
+		<section name="Aufnahmevorschau" link="How_To_Use\Aufnahmevorschau.htm">
+		</section>
+	</item>
+	<item name="geschweifte Klammer">
+		<section name="Aufnahmevorschau" link="How_To_Use\Aufnahmevorschau.htm">
+		</section>
+	</item>
+	<item name="Aufnahme organisieren">
+		<section name="Aufnahmevorschau" link="How_To_Use\Aufnahmevorschau.htm">
+		</section>
+	</item>
+	<item name="Hilfe im Programm">
+		<section name="Hilfe im Programm" link="General\Hilfe_im_Programm.htm">
+		</section>
+	</item>
+	<item name="Kommandozeilen-Referenz">
+		<section name="Kommandozeilen-Referenz" link="Kommandozeilen-Referenz.htm">
+		</section>
+	</item>
+	<item name="Anmeldedaten-Dialog">
+		<section name="Anmeldedaten-Dialog" link="How_To_Use\Logindaten.htm">
+		</section>
+	</item>
+	<item name="Benutzer">
+		<section name="Anmeldedaten-Dialog" link="How_To_Use\Logindaten.htm">
+		</section>
+	</item>
+	<item name="Passwort">
+		<section name="Anmeldedaten-Dialog" link="How_To_Use\Logindaten.htm">
+		</section>
+	</item>
+	<item name="Fortschrittsanzeige">
+		<section name="Programmoptionen" link="How_To_Use\Programmoptionen.htm">
+		</section>
+	</item>
+	<item name="Aufnahmevorschau">
+		<section name="Programmoptionen" link="How_To_Use\Programmoptionen.htm">
+		</section>
+	</item>
+	<item name="Laufende Sendung aufnehmen">
+		<section name="Programmoptionen" link="How_To_Use\Programmoptionen.htm">
+		</section>
+	</item>
+	<item name="Folgende Sendung aufnehmen">
+		<section name="Programmoptionen" link="How_To_Use\Programmoptionen.htm">
+		</section>
+	</item>
+	<item name="Löschen erneut versuchen">
+		<section name="Programmoptionen" link="How_To_Use\Programmoptionen.htm">
+		</section>
+	</item>
+	<item name="Aktualisierung">
+		<section name="Programmoptionen" link="How_To_Use\Programmoptionen.htm">
+		</section>
+	</item>
+	<item name="Version">
+		<section name="Programmoptionen" link="How_To_Use\Programmoptionen.htm">
+		</section>
+	</item>
+	<item name="Whishlist">
+		<section name="Problembehandlung" link="Problembehandlung.htm">
+		</section>
+	</item>
+	<item name="Einstellungen speichern">
+		<section name="Problembehandlung" link="Problembehandlung.htm">
+		</section>
+	</item>
+	<item name="EPG-Programm nicht unterstützt">
+		<section name="Problembehandlung" link="Problembehandlung.htm">
+		</section>
+	</item>
+	<item name="Plugin nicht auswählbar">
+		<section name="Problembehandlung" link="Problembehandlung.htm">
+		</section>
+	</item>
+	<item name="Fehler beim Löschen">
+		<section name="Problembehandlung" link="Problembehandlung.htm">
+		</section>
+	</item>
+</index>

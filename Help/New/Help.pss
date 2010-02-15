@@ -1,12 +1,5 @@
 ﻿[MAS SUPPORT]
 SupportMas_Prj=1
-[Target:WebHelp]
-SupportMas_Prj=1
-ResultFileName=!SSL!\WebHelp\Help.htm
-SSLayoutType=2
-CreateProjectTime=
-CreateProjectUser=
-SupportMas_MPJ=1
 [Target:WebHelp Pro]
 SupportMas_Prj=1
 ResultFileName=!SSL!\WebHelp_Pro\Help.htm
@@ -15,6 +8,8 @@ ServerProjectName=Help
 CreateProjectTime=
 CreateProjectUser=
 SupportMas_MPJ=1
+ActionID For Generation=1003
+Remove Folder with prompt=1
 [Target:FlashHelp]
 ResultFileName=!SSL!\FlashHelp\Help.htm
 SSLayoutType=2
@@ -36,6 +31,8 @@ ServerProjectName=Help
 CreateProjectTime=
 CreateProjectUser=
 SupportMas_MPJ=1
+ActionID For Generation=1003
+Remove Folder with prompt=1
 [PreSingleSource]
 Html Help Project=F:\Programmierung\PiKaSoft OTR Remote\Help\New\Help.hhp
 Table Of Content=F:\Programmierung\PiKaSoft OTR Remote\Help\New\Help.hhc
@@ -54,38 +51,83 @@ Project TOC List=F:\Programmierung\PiKaSoft OTR Remote\Help\New\Help.trtocl
 Project Index List=F:\Programmierung\PiKaSoft OTR Remote\Help\New\Help.tridxl
 Project Glossary List=F:\Programmierung\PiKaSoft OTR Remote\Help\New\Help.trglol
 Default Topic=F:\Programmierung\PiKaSoft OTR Remote\Help\New\About.htm
-Build Tags0=2305;Drucken | Online
+Build Tags0=26621;Drucken | Online
 Build Tags=
 Build Expression=
-Language ID=1033
-Language Name=en_US
+Language ID=1031
+Language Name=de_DE
 Language=F:\Programmierung\PiKaSoft OTR Remote\Help\New\RoboHHRE.lng
 Stop List=F:\Programmierung\PiKaSoft OTR Remote\Help\New\Help.stp
+Glossary=F:\Programmierung\PiKaSoft OTR Remote\Help\New\Help.glo
+Project CSS List=F:\Programmierung\PiKaSoft OTR Remote\Help\New\Help.trcss
+Project Variable Set List=F:\Programmierung\PiKaSoft OTR Remote\Help\New\Help.trvset
 [Target:Microsoft HTML Help (EN)]
 ResultFileName=F:\Programmierung\PiKaSoft OTR Remote\Help\Help_en.chm
 SSLayoutType=1
-CreateProjectTime=16:35, Juli 29, 2008
+CreateProjectTime=21:25, Februar 14, 2010
 CreateProjectUser=Philipp
 SupportMas_MPJ=1
-ActionID For Generation=1001
+ActionID For Generation=1013
 Remove Folder with prompt=1
 ViewFileName=F:\Programmierung\PiKaSoft OTR Remote\Help\Help_en.chm
 Enable Result Dialog=1
 ResultStatus=0
-BuildTimeHi=29946248
-BuildTimeLow=1927547288
+BuildTimeHi=30059955
+BuildTimeLow=-439355226
 [Target:Microsoft HTML Help (DE)]
 ResultFileName=F:\Programmierung\PiKaSoft OTR Remote\Help\Help_de.chm
 SSLayoutType=1
-CreateProjectTime=14:06, Mai 26, 2008
+CreateProjectTime=21:25, Februar 14, 2010
 CreateProjectUser=Philipp
 SupportMas_MPJ=1
-ActionID For Generation=1001
+ActionID For Generation=1013
 Remove Folder with prompt=1
 ViewFileName=F:\Programmierung\PiKaSoft OTR Remote\Help\Help_de.chm
 Enable Result Dialog=1
 ResultStatus=0
-BuildTimeHi=29946248
-BuildTimeLow=1619637308
+BuildTimeHi=30059955
+BuildTimeLow=-513964601
 [Target:Microsoft HTML Help]
 SSLayoutType=1
+[Layout Settings]
+MRULayoutCount=2
+MRULayout0=WebHelp (DE)]02/14/10]5
+MRULayout1=WebHelp (EN)]02/14/10]5
+[Target:WebHelp (EN)]
+Remove Folder with prompt=1
+ViewFileName=!SSL!\WebHelp\English\index.htm
+SSLayoutType=2
+CreateProjectUser=Philipp
+CreateProjectTime=21:25, Februar 14, 2010
+ResultFileName=!SSL!\WebHelp\English\index.htm
+ActionID For Generation=1013
+SupportMas_MPJ=1
+SupportMas_Prj=1
+ResultStatus=0
+BuildTimeHi=30059955
+BuildTimeLow=-278476320
+PublishResultStatus=0
+LastPublishTimeHi=30059956
+LastPublishTimeLow=1644121337
+Enable Result Dialog=1
+[Target:WebHelp (DE)]
+Remove Folder with prompt=1
+ViewFileName=!SSL!\WebHelp\Deutsch\index.htm
+SSLayoutType=2
+CreateProjectUser=Philipp
+CreateProjectTime=21:25, Februar 14, 2010
+ResultFileName=!SSL!\WebHelp\Deutsch\index.htm
+ActionID For Generation=1013
+SupportMas_MPJ=1
+SupportMas_Prj=1
+ResultStatus=0
+BuildTimeHi=30059955
+BuildTimeLow=-366054445
+PublishResultStatus=0
+LastPublishTimeHi=30059956
+LastPublishTimeLow=255078368
+Enable Result Dialog=1
+[Server:Crazsyoft (DE)]
+Time Stamp=1266171340
+[Server:Crazsyoft (EN)]
+Time Stamp=1266171331

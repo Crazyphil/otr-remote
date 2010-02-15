@@ -7,7 +7,7 @@ namespace Crazysoft.OTRRemote
 {
     public partial class FrmMain : Form
     {
-        internal PluginAPI pluginApi = new PluginAPI(Program.Settings);
+        internal PluginAPI pluginApi;
         private DialogResult closeReason = DialogResult.None;
 
         public FrmMain()
@@ -34,6 +34,8 @@ namespace Crazysoft.OTRRemote
             {
                 this.Text = String.Concat(this.Text, " Portable");
             }
+
+            pluginApi = new PluginAPI(Program.Settings);
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -126,9 +128,10 @@ namespace Crazysoft.OTRRemote
                 {
                     if (plugin.Instance.Name == cbTVGuide.SelectedItem.ToString())
                     {
-                        for (int i = 0; i < plugin.Instance.GetSettings().Count; i++)
+                        PluginSettingsCollection settings = plugin.Instance.GetSettings();
+                        for (int i = 0; i < settings.Count; i++)
                         {
-                            PluginSetting setting = plugin.Instance.GetSettings()[i];
+                            PluginSetting setting = settings[i];
                             ListViewItem item = new ListViewItem();
                             item.Text = setting.Name;
 
@@ -284,6 +287,7 @@ namespace Crazysoft.OTRRemote
                             if (returnVar.GetType() == typeof(string))
                             {
                                 MessageBox.Show(String.Format(Lang.OTRRemote.FrmMain_Error_Plugin_Text, returnVar.ToString()), Lang.OTRRemote.FrmMain_Error_Plugin_Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
                             }
                             else
                             {
@@ -302,7 +306,7 @@ namespace Crazysoft.OTRRemote
             }
 
             this.closeReason = DialogResult.OK;
-            Application.Exit();
+            this.Close();
         }
 
         private void btnPreferences_Click(object sender, EventArgs e)
@@ -316,52 +320,24 @@ namespace Crazysoft.OTRRemote
             // Unload all plugins and save their settings
             pluginApi.UnloadPlugins(this.closeReason == DialogResult.OK);
 
-            // Only enable auto-update on Windows
-            if (Environment.OSVersion.Platform != PlatformID.Unix)
-            {
-                // Call AppUpdate if user enabled auto update and last update is at least 7 days old
-                if (Program.Settings["Program"]["EnableAutoUpdate"].IsNull ||
-                    Convert.ToBoolean(Program.Settings["Program"]["EnableAutoUpdate"].Value))
-                {
-                    DateTime lastUpdate = new DateTime(0);
-                    if (!Program.Settings["Program"]["LastAutoUpdate"].IsNull)
-                    {
-                        lastUpdate = new DateTime(Convert.ToInt64(Program.Settings["Program"]["LastAutoUpdate"].Value));
-                    }
-
-                    if (lastUpdate <= DateTime.Today.AddDays(-7))
-                    {
-                        // Check if AppUpdate is installed and start update
-                        RegistryKey rk = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Crazysoft\\AppUpdate");
-
-                        if (rk != null && rk.GetValue("InstallationPath", null) != null)
-                        {
-                            try
-                            {
-                                System.Diagnostics.ProcessStartInfo updateApp =
-                                    new System.Diagnostics.ProcessStartInfo(System.IO.Path.Combine(rk.GetValue("InstallationPath").ToString(), "AppUpdate.exe"));
-                                updateApp.Arguments = "Crazysoft.OTR_Remote";
-                                updateApp.ErrorDialog = false;
-                                updateApp.WorkingDirectory = rk.GetValue("InstallationPath").ToString();
-                                System.Diagnostics.Process.Start(updateApp);
-
-                                Program.Settings.Sections.Add("Program");
-                                Program.Settings["Program"].Keys.Add("LastAutoUpdate", DateTime.Now.Ticks);
-                                Program.Settings.Save();
-                                Application.Exit();
-                            }
-                            catch (Exception)
-                            {
-                            }
-                        }
-                    }
-                }
-            }
+            Program.StartAppUpdate();
         }
 
         private void btnHelp_Click(object sender, EventArgs e)
         {
-            Help.ShowHelp(this, Lang.OTRRemote.FrmMain_HelpFilename);
+            // Show offline help if installed or not using Mono
+            if (Type.GetType("Mono.Runtime") == null && System.IO.File.Exists(Lang.OTRRemote.FrmMain_HelpFilename))
+            {
+                Help.ShowHelp(this, Lang.OTRRemote.FrmMain_HelpFilename);
+            }
+            else
+            {
+                string lang = "en";
+                if (System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName == "de") {
+                    lang = "de";
+                }
+                System.Diagnostics.Process.Start(String.Concat("http://crazysoft.pytalhost.com/help/otrremote/", lang, "/"));
+            }
         }
 
         private void FrmMain_Resize(object sender, EventArgs e)

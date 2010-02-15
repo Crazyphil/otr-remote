@@ -8,25 +8,21 @@ namespace Crazysoft.OTRRemote
         public FrmStations()
         {
             // Set Form's font to Segoe UI if supported
-            Graphics.SetVistaProperties(this);
+            bool isSegoe = Graphics.SetVistaProperties(this);
 
             InitializeComponent();
 
+            // Set form height so TextBoxes don't overlap station ListBoxes when using Segoe UI
+            if (isSegoe)
+            {
+                lbOTRStation.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+                lbEPGStation.Anchor = lbOTRStation.Anchor;
+                this.Height = lbOTRStation.Top + lbOTRStation.Height + 205;
+            }
+
             // Translate form
             this.Text = Lang.OTRRemote.FrmStations_Title;
-            foreach (Control ctl in this.Controls)
-            {
-                TranslateControl(ctl);
-            }
-        }
-
-        private void TranslateControl(Control ctl)
-        {
-            ctl.Text = Lang.OTRRemote.ResourceManager.GetString(String.Concat("FrmStations_", ctl.Name));
-            foreach (Control subCtl in ctl.Controls)
-            {
-                TranslateControl(subCtl);
-            }
+            Program.TranslateControls(this);
         }
 
         private void FrmStations_Load(object sender, EventArgs e)

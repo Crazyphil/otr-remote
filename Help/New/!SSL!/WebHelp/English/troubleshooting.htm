@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-UK" />
+<meta name="generator" content="Adobe RoboHelp 8" />
+<title>Troubleshooting</title>
+<link rel="StyleSheet" href="chelp.css" type="text/css" />
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+        origWidth = innerWidth;
+        origHeight = innerHeight;
+        onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+/*<![CDATA[*/
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+/*]]>*/
+</style>
+
+<script type="text/javascript" language="javascript1.2" src="whmsg.js">
+</script>
+<script type="text/javascript" language="javascript" src="whver.js">
+</script>
+<script type="text/javascript" language="javascript1.2" src="whproxy.js">
+</script>
+<script type="text/javascript" language="javascript1.2" src="whutils.js">
+</script>
+<script type="text/javascript" language="javascript1.2" src="whlang.js">
+</script>
+<script type="text/javascript" language="javascript1.2" src="whtopic.js">
+</script>
+</head>
+<body>
+<script type="text/javascript" language="javascript1.2">
+//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+        var strUrl = document.location.href;
+        var bc = 0;
+        var n = strUrl.toLowerCase().indexOf("bc-");
+        if(n != -1)
+        {
+                document.location.href = strUrl.substring(0, n);
+                bc = strUrl.substring(n+3);
+        }
+
+        if (window.addTocInfo)
+        {
+        addTocInfo("Troubleshooting");
+addButton("show",BTN_TEXT,"Anzeigen","","","","",0,0,"","","");
+
+        }
+        if (window.writeBtnStyle)
+                writeBtnStyle();
+
+        if (window.writeIntopicBar)
+                writeIntopicBar(1);
+
+        
+        document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("index.htm", "", ">", "Home", "about.htm");
+document.write("Troubleshooting<\/p>");
+
+
+        if (window.setRelStartPage)
+        {
+        setRelStartPage("index.htm");
+
+                autoSync(1);
+                sendSyncInfo();
+                sendAveInfoOut();
+        }
+}
+else
+        if (window.gbIE4)
+                document.location.reload();
+
+//-->
+//]]>
+</script>
+<div style="width: 100%; position: relative;" id="header">
+<div style=" background-image:url('images/headerbg.png'); background-repeat:repeat-x;">
+<h1>Troubleshooting</h1>
+</div>
+</div>
+<div style="margin: 6px; margin-top: 0px;">
+<h2>For frustrating moments</h2>
+<p>We have compiled some commonly asked questions and answers to prevent frustration and help you having fun with our product.</p>
+<h2>Control Panel</h2>
+<h3>My EPG program is not supported!!!</h3>
+<p>This is not a question...</p>
+<h3>Why is my EPG program not supported?</h3>
+<p>Crazysoft has developed plugins for the (at least in German areas) mostly used EPG programs. If you have decent programming skills, feel free to develop your own plugin using the included sample plugin code. Otherwise, contact us on our <a href="http://www.crazysoft.net.ms/" target="_blank">homepage</a> or discuss your proposal on the <a href="http://www.otrforum.com/showthread.php?t=16919" target="_blank">OTR forums</a>.</p>
+<h3>Why is my EPG plugin not selectable?</h3>
+<p>While starting up, OTR Remote logs all plugin loading processes into a text file. You can open it by typing <span style="font-family: 'Courier New', monospace;">"%TMP%\OTR_Plugins.log"</span> into your Explorer's address bar. If your EPG program's plugin doesn't load, you'll get an explanation here.</p>
+<h3>Why are my EPG plugin's settings not saved?</h3>
+<p>Starting from Version 2.0, all settings are saved automatically. In earlier versions this caused confusions, because although the chosen settings were applied, they didn't show up after restarting OTR Remote.</p>
+<h2>Add/Remove Recordings</h2>
+<h3>Why is only one recording job added, although I checked "Also record following show" in the Preferences dialog?</h3>
+<p>OTR Remote adds 5 minutes to the end time of the show you want to record, forcing OTR to also record the following show. This effect gets visible after the show was recorded and it's available for download.</p>
+<h3>Why is only the first recording marked as "recorded" in my EPG program when I add Series Recordings?</h3>
+<p>Series Recordings are an internal function of OTR Remote, that means, all inputs you take for the series, aren't forwared outwards. Your EPG program sends a recording to OTR Remote and gets a message back, which indicates if it was successful or not. The fact, that multiple recordings were added, therefore isn't known to your EPG program, so it also can't set the recording status.</p>
+<h3>Why should I use Series Recordings, when I'm already using a Whishlist?</h3>
+<p>The Whishlist function of OTR and the Series Recording function of OTR Remote are partially overlapping. Which function you want to use depends on your intention.</p>
+<p>Use a <span style="font-weight: bold;"><b>Whishlist</b></span><span>, if broadcasting times of your series are often changing, it has different stations and titles, you don't mind every recording having the right season and episode number or the date has no recognisable repeat pattern.</span></p>
+<p>Use <span style="font-weight: bold;"><b>Series Recordings</b></span>, if your series is always broadcast at the same time on the same station, the broadcast has regular intervals (e.g. weekly) or you want to name your recordings with the right season and episode number.</p>
+<h3>Why do I get an error when trying to remove a recording I added recently?</h3>
+<p><span>OTR needs some time to assign manual recordings to its own EPG. You should wait a few minutes before trying to delete a recording.</span></p>
+<h2>Other</h2>
+<p>Do you have further questions not answered here? Contact us on our <a href="http://www.crazysoft.net.ms/" target="_blank">homepage</a> or use the <a href="http://www.otrforum.com/showthread.php?t=16919" target="_blank">OTR Remote Thread</a> in OTR's forums.</p>
+</div>
+<div style="width: 100%; position: relative;" id="footer">Copyright © <?rh-region_start id="footer" style="clear: both;" ?>
+ <a href="http://www.crazysoft.net.ms/" target="_blank">Crazysoft</a> 2006-2010. All rights reserved. <?rh-region_end ?>
+</div>
+<script type="text/javascript" language="javascript1.2">
+//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+        writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]>
+</script>
+</body>
+</html>

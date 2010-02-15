@@ -166,16 +166,17 @@ namespace Crazysoft.OTRRemote
                     return;
                 }
 
-                Rectangle rect1 = new Rectangle(panel.Left, panel.Top, panel.Width, panel.Height);
-                Rectangle rect2 = new Rectangle(panel.Left, panel.Top + panel.Height, panel.Width, 10);
+                // Use form's width because under Windows XP there will be an unpainted border on the right when using the panel's width
+                Rectangle rect1 = new Rectangle(panel.Left, panel.Top, form.Width, panel.Height);
+                Rectangle rect2 = new Rectangle(panel.Left, panel.Top + panel.Height, form.Width, 10);
 
                 Color headerColor1;
                 Color headerColor2;
                 Color borderColor1 = Color.FromArgb(255, 204, 51);
                 Color borderColor2 = Color.FromArgb(255, 102, 51);
 
-                // Only set form header colors according to Visual Style when running Windows XP or Vista
-                if (Environment.OSVersion.Platform != PlatformID.Unix && (Environment.OSVersion.Version.Major > 5 || (Environment.OSVersion.Version.Major == 5 && Environment.OSVersion.Version.Minor >= 1)))
+                // Only set form header colors according to Visual Style when running Windows XP or higher
+                if (!Program.Settings.RunningOnUnix() && (Environment.OSVersion.Version.Major > 5 || (Environment.OSVersion.Version.Major == 5 && Environment.OSVersion.Version.Minor >= 1)))
                 {
                     // Get current visual style scheme
                     StringBuilder sb1 = new StringBuilder(256);
@@ -389,7 +390,7 @@ namespace Crazysoft.OTRRemote
         {
             get
             {
-                if (Environment.OSVersion.Platform == PlatformID.Unix || Environment.OSVersion.Version.Major < 6)
+                if (Program.Settings.RunningOnUnix() || Environment.OSVersion.Version.Major < 6)
                     return false;
 
                 bool compositionEnabled = false;
@@ -453,21 +454,25 @@ namespace Crazysoft.OTRRemote
             graphics.ReleaseHdc(primaryHdc);
         }
 
-        public static void SetVistaProperties(Form form)
+        public static bool SetVistaProperties(Form form)
         {
-            // If the program runs under Vista, set the window font to be Segoe UI
-            if (Environment.OSVersion.Platform != PlatformID.Unix && Environment.OSVersion.Version.Major >= 6)
+            // If the program runs under Vista or higher, set the window font to be Segoe UI
+            if (!Program.Settings.RunningOnUnix() && Environment.OSVersion.Version.Major >= 6)
             {
 #if !DEBUG
                 try
                 {
 #endif
                     form.Font = new Font("Segoe UI", 9);
+                    return true;
 #if !DEBUG
                 }
                 catch (ArgumentException) { }
 #endif
+                
             }
+
+            return false;
         }
     }
 }

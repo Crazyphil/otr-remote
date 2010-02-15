@@ -213,7 +213,10 @@ namespace Crazysoft.OTRRemote
             }
             else
             {
-                Application.Exit();
+                if (_displayMode != FormDisplayMode.Hide)
+                {
+                    Program.StartAppUpdate();
+                }
             }
         }
 
@@ -628,7 +631,15 @@ namespace Crazysoft.OTRRemote
             }
             else if (Program.Settings["Network"]["ProxyType"].IsNull || Convert.ToInt32(Program.Settings["Network"]["ProxyType"].Value) == 1)
             {
-                bwWorker.ReportProgress(1, Lang.OTRRemote.FrmProgress_Status_Proxy);
+                if (Program.Settings.RunningOnUnix())
+                {
+                    // Replace "IE proxy" with "System proxy"
+                    bwWorker.ReportProgress(1, Lang.OTRRemote.FrmProgress_Status_Proxy.Replace("IE", "System"));
+                }
+                else
+                {
+                    bwWorker.ReportProgress(1, Lang.OTRRemote.FrmProgress_Status_Proxy);
+                }
                 request.Proxy = WebRequest.GetSystemWebProxy();
                 request.Proxy.Credentials = CredentialCache.DefaultNetworkCredentials;
 

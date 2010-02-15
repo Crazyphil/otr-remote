@@ -1,63 +1,155 @@
-﻿<html>
-<!-- Sitemap 1.0 -->
-<object type="text/site properties">
-  <param name="SiteType" value="index">
-</object>
-<ul>
-  <li><object type="text/sitemap">
-    <param name="Name" value="Firewall">
-    <param name="Name" value="Action Progress">
-    <param name="Local" value="How_To_Use\Progress.htm">
-  </object>
-  <li><object type="text/sitemap">
-    <param name="Name" value="Action Progress dialog">
-    <param name="Name" value="Action Progress">
-    <param name="Local" value="How_To_Use\Progress.htm">
-  </object>
-  <li><object type="text/sitemap">
-    <param name="Name" value="System Tray">
-    <param name="Name" value="Program Preferences">
-    <param name="Local" value="How_To_Use\Preferences.htm">
-  </object>
-  <li><object type="text/sitemap">
-    <param name="Name" value="Program Preferences">
-    <param name="Name" value="Program Preferences">
-    <param name="Local" value="How_To_Use\Preferences.htm">
-  </object>
-  <li><object type="text/sitemap">
-    <param name="Name" value="Recording Help dialog">
-    <param name="Name" value="Recording Help">
-    <param name="Local" value="How_To_Use\RecordingHelp.htm">
-  </object>
-  <li><object type="text/sitemap">
-    <param name="Name" value="Control Panel">
-    <param name="Name" value="Control Panel">
-    <param name="Local" value="How_To_Use\ControlPanel.htm">
-  </object>
-  <li><object type="text/sitemap">
-    <param name="Name" value="Plugins">
-    <param name="Name" value="Control Panel">
-    <param name="Local" value="How_To_Use\ControlPanel.htm">
-  </object>
-  <li><object type="text/sitemap">
-    <param name="Name" value="Timezone">
-    <param name="Name" value="Control Panel">
-    <param name="Local" value="How_To_Use\ControlPanel.htm">
-  </object>
-  <li><object type="text/sitemap">
-    <param name="Name" value="Plugin Settings">
-    <param name="Name" value="Control Panel">
-    <param name="Local" value="How_To_Use\ControlPanel.htm">
-  </object>
-  <li><object type="text/sitemap">
-    <param name="Name" value="OnlineTVRecorder">
-    <param name="Name" value="About This Program">
-    <param name="Local" value="General\About.htm">
-  </object>
-  <li><object type="text/sitemap">
-    <param name="Name" value="Station Corrections dialog">
-    <param name="Name" value="Station Corrections">
-    <param name="Local" value="How_To_Use\StationCorrections.htm">
-  </object>
-</ul>
-</html>
+<?xml version="1.0" encoding="utf-8"?>
+<index version="1.0">
+	<properties>
+	</properties>
+	<item name="Firewall">
+		<section name="Action Progress" link="How_To_Use\Progress.htm">
+		</section>
+	</item>
+	<item name="Action Progress dialog">
+		<section name="Action Progress" link="How_To_Use\Progress.htm">
+		</section>
+	</item>
+	<item name="System Tray">
+		<section name="Program Preferences" link="How_To_Use\Preferences.htm">
+		</section>
+	</item>
+	<item name="Program Preferences">
+		<section name="Program Preferences" link="How_To_Use\Preferences.htm">
+		</section>
+	</item>
+	<item name="Recording Help dialog">
+		<section name="Recording Help" link="How_To_Use\RecordingHelp.htm">
+		</section>
+	</item>
+	<item name="Control Panel">
+		<section name="Control Panel" link="How_To_Use\ControlPanel.htm">
+		</section>
+	</item>
+	<item name="Plugins">
+		<section name="Control Panel" link="How_To_Use\ControlPanel.htm">
+		</section>
+	</item>
+	<item name="Timezone">
+		<section name="Control Panel" link="How_To_Use\ControlPanel.htm">
+		</section>
+		<section name="Login Data dialog" link="How_To_Use\Logindata.htm">
+		</section>
+	</item>
+	<item name="Plugin Settings">
+		<section name="Control Panel" link="How_To_Use\ControlPanel.htm">
+		</section>
+	</item>
+	<item name="OnlineTVRecorder">
+		<section name="About This Program" link="General\About.htm">
+		</section>
+	</item>
+	<item name="Station Corrections dialog">
+		<section name="Station Corrections" link="How_To_Use\StationCorrections.htm">
+		</section>
+	</item>
+	<item name="Command-line Reference">
+		<section name="Command-Line Reference" link="CmdReference.htm">
+		</section>
+	</item>
+	<item name="arguments">
+		<section name="Command-Line Reference" link="CmdReference.htm">
+		</section>
+	</item>
+	<item name="In-Program-Help">
+		<section name="In-Program-Help" link="General\Help.htm">
+		</section>
+	</item>
+	<item name="Login Data dialog">
+		<section name="Login Data dialog" link="How_To_Use\Logindata.htm">
+		</section>
+	</item>
+	<item name="Authentication">
+		<section name="Login Data dialog" link="How_To_Use\Logindata.htm">
+		</section>
+	</item>
+	<item name="Username">
+		<section name="Login Data dialog" link="How_To_Use\Logindata.htm">
+		</section>
+	</item>
+	<item name="Password">
+		<section name="Login Data dialog" link="How_To_Use\Logindata.htm">
+		</section>
+	</item>
+	<item name="Login">
+		<section name="Login Data dialog" link="How_To_Use\Logindata.htm">
+		</section>
+	</item>
+	<item name="Proxy Server">
+		<section name="Program Preferences" link="How_To_Use\Preferences.htm">
+		</section>
+	</item>
+	<item name="Progress Indicator">
+		<section name="Program Preferences" link="How_To_Use\Preferences.htm">
+		</section>
+	</item>
+	<item name="Record running show">
+		<section name="Program Preferences" link="How_To_Use\Preferences.htm">
+		</section>
+	</item>
+	<item name="Record following show">
+		<section name="Program Preferences" link="How_To_Use\Preferences.htm">
+		</section>
+	</item>
+	<item name="Retry deletion">
+		<section name="Program Preferences" link="How_To_Use\Preferences.htm">
+		</section>
+	</item>
+	<item name="Update">
+		<section name="Program Preferences" link="How_To_Use\Preferences.htm">
+		</section>
+	</item>
+	<item name="Version">
+		<section name="Program Preferences" link="How_To_Use\Preferences.htm">
+		</section>
+	</item>
+	<item name="Series Recording">
+		<section name="Recording Preview" link="RecordingPreview.htm">
+		</section>
+	</item>
+	<item name="{ }">
+		<section name="Recording Preview" link="RecordingPreview.htm">
+		</section>
+	</item>
+	<item name="curly brace">
+		<section name="Recording Preview" link="RecordingPreview.htm">
+		</section>
+	</item>
+	<item name="Recording Preview dialog">
+		<section name="Recording Preview" link="RecordingPreview.htm">
+		</section>
+	</item>
+	<item name="organize recording">
+		<section name="Recording Preview" link="RecordingPreview.htm">
+		</section>
+	</item>
+	<item name="Troubleshooting">
+		<section name="Troubleshooting" link="Troubleshooting.htm">
+		</section>
+	</item>
+	<item name="Save settings">
+		<section name="Troubleshooting" link="Troubleshooting.htm">
+		</section>
+	</item>
+	<item name="EPG program not supported">
+		<section name="Troubleshooting" link="Troubleshooting.htm">
+		</section>
+	</item>
+	<item name="Error when removing">
+		<section name="Troubleshooting" link="Troubleshooting.htm">
+		</section>
+	</item>
+	<item name="Plugin not selectable">
+		<section name="Troubleshooting" link="Troubleshooting.htm">
+		</section>
+	</item>
+	<item name="Whishlist">
+		<section name="Troubleshooting" link="Troubleshooting.htm">
+		</section>
+	</item>
+</index>
