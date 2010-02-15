@@ -21,6 +21,11 @@ namespace Crazysoft.OTRRemote
         [STAThread]
         static int Main(string[] args)
         {
+            // Change culture to English for help screenshots
+            //System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
+            //System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.InvariantCulture;
+            //Lang.OTRRemote.Culture = System.Globalization.CultureInfo.InvariantCulture;
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
@@ -30,6 +35,9 @@ namespace Crazysoft.OTRRemote
             try
             {
 #endif
+                // Avoid a Linux commandline bug, where space always begins a new arg, even if under quotes
+                args = MergeLinuxCmdArgs(args);
+
                 if (args.Length == 0)
                 {
                     Application.Run(new FrmMain());
@@ -719,6 +727,41 @@ namespace Crazysoft.OTRRemote
             return false;
         }
 
+        private static string[] MergeLinuxCmdArgs(string[] args)
+        {
+            if (Settings.RunningOnUnix())
+            {
+                System.Collections.Generic.List<string> arglist = new System.Collections.Generic.List<string>();
+                bool unclosedString = false;
+                foreach (string arg in args)
+                {
+                    if ((!String.IsNullOrEmpty(arg) && arg[0].CompareTo('-') != 0) || unclosedString)
+                    {
+                        if (arglist.Count > 0)
+                        {
+                            arglist[arglist.Count - 1] = String.Concat(arglist[arglist.Count - 1], " ", arg);
+                        }
+                    }
+                    else
+                    {
+                        arglist.Add(arg);
+
+                        // If an uneven number of quotes is in the arg, force start or end of merging
+                        if ((arg.Length - arg.Replace("\"", "").Length) % 2 != 0)
+                        {
+                            unclosedString = !unclosedString;
+                        }
+                    }
+                }
+
+                return arglist.ToArray();
+            }
+            else
+            {
+                return args;
+            }
+        }
+
         public static void TranslateControls(Form frm)
         {
             foreach (Control ctl in frm.Controls)
@@ -738,6 +781,49 @@ namespace Crazysoft.OTRRemote
             foreach (Control subCtl in ctl.Controls)
             {
                 TranslateControl(frm, subCtl);
+            }
+        }
+
+        public static void StartAppUpdate()
+        {
+            // Only enable auto-update on Windows
+            if (!Program.Settings.RunningOnUnix())
+            {
+                // Call AppUpdate if user enabled auto update and last update is at least 7 days old
+                if (Settings["Program"]["EnableAutoUpdate"].IsNull || Convert.ToBoolean(Settings["Program"]["EnableAutoUpdate"].Value))
+                {
+                    DateTime lastUpdate = new DateTime(0);
+                    if (!Settings["Program"]["LastAutoUpdate"].IsNull)
+                    {
+                        lastUpdate = new DateTime(Convert.ToInt64(Settings["Program"]["LastAutoUpdate"].Value));
+                    }
+
+                    if (lastUpdate <= DateTime.Today.AddDays(-7))
+                    {
+                        // Check if AppUpdate is installed and start update
+                        Microsoft.Win32.RegistryKey rk = Microsoft.Win32.Registry.LocalMachine.OpenSubKey("SOFTWARE\\Crazysoft\\AppUpdate");
+
+                        if (rk != null && rk.GetValue("InstallationPath", null) != null)
+                        {
+                            try
+                            {
+                                System.Diagnostics.ProcessStartInfo updateApp =
+                                    new System.Diagnostics.ProcessStartInfo(System.IO.Path.Combine(rk.GetValue("InstallationPath").ToString(), "AppUpdate.exe"));
+                                updateApp.Arguments = "Crazysoft.OTR_Remote";
+                                updateApp.ErrorDialog = false;
+                                updateApp.WorkingDirectory = rk.GetValue("InstallationPath").ToString();
+                                System.Diagnostics.Process.Start(updateApp);
+
+                                Settings.Sections.Add("Program");
+                                Settings["Program"].Keys.Add("LastAutoUpdate", DateTime.Now.Ticks);
+                                Settings.Save();
+                            }
+                            catch (Exception)
+                            {
+                            }
+                        }
+                    }
+                }
             }
         }
     }

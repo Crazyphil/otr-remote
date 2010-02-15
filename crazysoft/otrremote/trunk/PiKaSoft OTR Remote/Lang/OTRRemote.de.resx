@@ -434,7 +434,9 @@ In diesem Fall lesen Sie bitte das Anwendungshandbuch.</value>
   </data>
   <data name="FrmPreferences_lblThanks" xml:space="preserve">
     <value>Danke den Leuten von OnlineTVRecorder.com für ihren Dienst.
-Danke der Community bei CodeProject.com für die Programmierhilfe.</value>
+Danke der Community bei CodeProject.com für die 
+Programmierhilfe.
+OTR Remote enthält Teile vom WindowsAPICodePack.</value>
   </data>
   <data name="FrmPreferences_lblVersion" xml:space="preserve">
     <value>Version {0}</value>

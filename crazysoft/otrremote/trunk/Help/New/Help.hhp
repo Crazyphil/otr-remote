@@ -20,28 +20,30 @@ Custom tab="&Glossar", HHActiveX.GlossaryPane
 Fenster="Crazysoft OTR Remote","Help.hhc","Help.hhk","","",,,,,0x40080520,0,0x3046,[15,15,765,565],0x0,0x0,,0,0,0,[Glossary,HHActiveX.GlossaryPane]
 
 [FILES]
-How_To_Use\StationCorrections.htm
-How_To_Use\Progress.htm
 About.htm
-How_To_Use\Login.htm
+CmdReference.htm
+How_To_Use\Progress.htm
+How_To_Use\StationCorrections.htm
+How_To_Use\Logindata.htm
 How_To_Use\RecordingHelp.htm
 How_To_Use\Preferences.htm
 How_To_Use\ControlPanel.htm
 General\Help.htm
 General\About.htm
-CmdReference.htm
+Troubleshooting.htm
+How_To_Use\Aufnahmevorschau.htm
 Problembehandlung.htm
 Kommandozeilen-Referenz.htm
-How_To_Use\Logindaten-Dialog.htm
+How_To_Use\Logindaten.htm
 How_To_Use\Aufnahmehilfe.htm
 How_To_Use\Senderkorrekturen.htm
+How_To_Use\Programmoptionen.htm
 How_To_Use\Kontrollzentrum.htm
 How_To_Use\Aktionsfortschritt.htm
 General\Hilfe_im_Programm.htm
-General\Über_dieses_Programm.htm
+RecordingPreview.htm
 Willkommen.htm
-Troubleshooting.htm
-How_To_Use\Programmoptionen.htm
+General\Ueber_dieses_Programm.htm
 RoboHHRE.lng
 
 Help.glo

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rhpml majorversion="2" minorversion="0">
+<rhpml majorversion="3" minorversion="0">
 	<folders>
 		<folder>
 			<name>!Language!</name>
@@ -13,7 +13,7 @@
 	</folders>
 	<topics>
 		<topic>
-			<name>CmdReference.htm</name>
+			<name>Willkommen.htm</name>
 			<comments></comments>
 			<frameset>0</frameset>
 		</topic>
@@ -28,7 +28,7 @@
 			<frameset>0</frameset>
 		</topic>
 		<topic>
-			<name>Willkommen.htm</name>
+			<name>Problembehandlung.htm</name>
 			<comments></comments>
 			<frameset>0</frameset>
 		</topic>
@@ -38,7 +38,12 @@
 			<frameset>0</frameset>
 		</topic>
 		<topic>
-			<name>Problembehandlung.htm</name>
+			<name>CmdReference.htm</name>
+			<comments></comments>
+			<frameset>0</frameset>
+		</topic>
+		<topic>
+			<name>RecordingPreview.htm</name>
 			<comments></comments>
 			<frameset>0</frameset>
 		</topic>

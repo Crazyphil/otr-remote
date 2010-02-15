@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rhpml majorversion="2" minorversion="0">
+<rhpml majorversion="3" minorversion="0">
 	<skins>
 		<skin>
 			<filename>!SkinSubFolder!\Default\Default.skn</filename>
@@ -9,6 +9,12 @@
 		</skin>
 		<skin>
 			<filename>!SkinSubFolder!\Crazysoft\Crazysoft.skn</filename>
+		</skin>
+		<skin>
+			<filename>!SkinSubFolder!\blue_impressions\blue_impressions.skn</filename>
+		</skin>
+		<skin>
+			<filename>!SkinSubFolder!\KnowledgeBase\KnowledgeBase.skn</filename>
 		</skin>
 	</skins>
 </rhpml>

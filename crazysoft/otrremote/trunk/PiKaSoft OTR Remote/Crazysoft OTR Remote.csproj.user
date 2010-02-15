@@ -1,6 +1,7 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <StartArguments>-r -s="ZDF" -sd=2010-01-08 -st=20:15 -et=22:20 -t="Harry Potter und der Gefangene von Askaban"</StartArguments>
+    <StartArguments>
+    </StartArguments>
     <RemoteDebugEnabled>false</RemoteDebugEnabled>
     <StartAction>Project</StartAction>
     <RemoteDebugMachine>

@@ -1,71 +1,35 @@
-﻿<html>
-<!-- Sitemap 1.0 -->
-<object type="text/site properties">
-  <param name="SiteType" value="toc">
-  <param name="Image Width" value="16">
-  <param name="Window Styles" value="0x800002">
-  <param name="ExWindow Styles" value="0x100">
-</object>
-<ul>
-  <li><object type="text/sitemap">
-    <param name="Name" value="Willkommen">
-    <param name="Local" value="Willkommen.htm">
-  </object>
-  <li><object type="text/sitemap">
-    <param name="Name" value="Allgemein">
-    <param name="Local" value="General\Über_dieses_Programm.htm">
-  </object>
-  <ul>
-    <li><object type="text/sitemap">
-      <param name="Name" value="Über dieses Programm">
-      <param name="Local" value="General\Über_dieses_Programm.htm">
-    </object>
-    <li><object type="text/sitemap">
-      <param name="Name" value="Hilfe im Programm">
-      <param name="Local" value="General\Hilfe_im_Programm.htm">
-    </object>
-    </ul>
-  <li><object type="text/sitemap">
-    <param name="Name" value="Verwenden">
-    <param name="Local" value="How_To_Use\Kontrollzentrum.htm">
-  </object>
-  <ul>
-    <li><object type="text/sitemap">
-      <param name="Name" value="Kontrollzentrum">
-      <param name="Local" value="How_To_Use\Kontrollzentrum.htm">
-    </object>
-    <li><object type="text/sitemap">
-      <param name="Name" value="Programmoptionen">
-      <param name="Local" value="How_To_Use\Programmoptionen.htm">
-    </object>
-    <li><object type="text/sitemap">
-      <param name="Name" value="Senderkorrekturen">
-      <param name="Local" value="How_To_Use\Senderkorrekturen.htm">
-    </object>
-    <li><object type="text/sitemap">
-      <param name="Name" value="Aufnahmehilfe">
-      <param name="Local" value="How_To_Use\Aufnahmehilfe.htm">
-    </object>
-    <li><object type="text/sitemap">
-      <param name="Name" value="Anmeldedaten-Dialog">
-      <param name="Local" value="How_To_Use\Logindaten-Dialog.htm">
-    </object>
-    <li><object type="text/sitemap">
-      <param name="Name" value="Aktionsfortschritt">
-      <param name="Local" value="How_To_Use\Aktionsfortschritt.htm">
-    </object>
-    </ul>
-  <li><object type="text/sitemap">
-    <param name="Name" value="Kommandozeilen-Referenz">
-    <param name="Local" value="Kommandozeilen-Referenz.htm">
-  </object>
-  <li><object type="text/sitemap">
-    <param name="Name" value="Problembehandlung">
-    <param name="Local" value="Problembehandlung.htm">
-  </object>
-  <li><object type="text/sitemap">
-    <param name="Name" value="Crazysoft-Homepage">
-    <param name="Local" value="http://www.crazysoft.net.ms/">
-  </object>
-</ul>
-</html>
+<?xml version="1.0" encoding="utf-8"?>
+<toc version="1.0">
+	<properties imagewidth="16" windowstyles="8388610" exwindowstyles="256">
+	</properties>
+	<item name="Willkommen" link="Willkommen.htm">
+	</item>
+	<item name="Allgemein" link="General\Ueber_dieses_Programm.htm">
+		<item name="Über dieses Programm" link="General\Ueber_dieses_Programm.htm">
+		</item>
+		<item name="Hilfe im Programm" link="General\Hilfe_im_Programm.htm">
+		</item>
+	</item>
+	<item name="Verwenden" link="How_To_Use\Kontrollzentrum.htm">
+		<item name="Kontrollzentrum" link="How_To_Use\Kontrollzentrum.htm">
+		</item>
+		<item name="Programmoptionen" link="How_To_Use\Programmoptionen.htm">
+		</item>
+		<item name="Senderkorrekturen" link="How_To_Use\Senderkorrekturen.htm">
+		</item>
+		<item name="Aufnahmehilfe" link="How_To_Use\Aufnahmehilfe.htm">
+		</item>
+		<item name="Anmeldedaten-Dialog" link="How_To_Use\Logindaten.htm">
+		</item>
+		<item name="Aufnahmevorschau" link="How_To_Use\Aufnahmevorschau.htm">
+		</item>
+		<item name="Aktionsfortschritt" link="How_To_Use\Aktionsfortschritt.htm">
+		</item>
+	</item>
+	<item name="Kommandozeilen-Referenz" link="Kommandozeilen-Referenz.htm">
+	</item>
+	<item name="Problembehandlung" link="Problembehandlung.htm">
+	</item>
+	<item name="Crazysoft-Homepage" link="http://www.crazysoft.net.ms/">
+	</item>
+</toc>

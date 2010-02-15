@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8' ?>
+<tocdata>
+<item name="Welcome" url="about.htm" />
+<book name="General" url="general/about.htm" >
+  <item name="About This Program" url="general/about.htm#bc-1" />
+  <item name="In-Program-Help" url="general/help.htm" />
+</book>
+<book name="How To Use" url="how_to_use/controlpanel.htm" >
+  <item name="Control Panel" url="how_to_use/controlpanel.htm#bc-1" />
+  <item name="Program Preferences" url="how_to_use/preferences.htm" />
+  <item name="Station Corrections" url="how_to_use/stationcorrections.htm" />
+  <item name="Recording Help" url="how_to_use/recordinghelp.htm" />
+  <item name="Login Data dialog" url="how_to_use/logindata.htm" />
+  <item name="Recording Preview" url="recordingpreview.htm" />
+  <item name="Action Progress" url="how_to_use/progress.htm" />
+</book>
+<item name="Command-Line Reference" url="cmdreference.htm" />
+<item name="Troubleshooting" url="troubleshooting.htm" />
+<remoteitem name="Crazysoft Homepage" url="http://www.crazysoft.net.ms/" />
+
+</tocdata>

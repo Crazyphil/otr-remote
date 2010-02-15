@@ -1028,8 +1028,11 @@ namespace Crazysoft.OTRRemote.Lang {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Thanks to the folks at OnlineTVRecorder.com for their great service.
-        ///Thanks to the community at CodeProject.com for their coding help. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Thanks to the folks at OnlineTVRecorder.com for their great
+        ///service.
+        ///Thanks to the community at CodeProject.com for their coding
+        ///help.
+        ///OTR Remote contains parts of the WindowsAPICodePack. ähnelt.
         /// </summary>
         internal static string FrmPreferences_lblThanks {
             get {

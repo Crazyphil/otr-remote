@@ -215,7 +215,7 @@
     <value>You don't have write access to the application path. Please run OTR Remote as an administrator.</value>
   </data>
   <data name="Plugin_Error_Invalid_Path" xml:space="preserve">
-    <value>The application path you have entered is invalid. Please check it.</value>
+    <value>The application path you have entered is invalid. Please make sure you entered the application's path, not the plugin folder.</value>
   </data>
   <data name="Plugin_Settings_Path" xml:space="preserve">
     <value>Application Path</value>
