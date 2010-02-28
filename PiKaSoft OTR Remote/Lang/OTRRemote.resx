@@ -738,4 +738,10 @@ Should OTR Remote retry to delete this recording automatically in 10 minutes?</v
   <data name="FrmRecordingPreview_lblNumberHelp" xml:space="preserve">
     <value>Numbers enclosed with { } are incremented with each series recording.</value>
   </data>
+  <data name="FrmProgress_Result_MaintenanceFileName" xml:space="preserve">
+    <value>/patience.php</value>
+  </data>
+  <data name="FrmProgress_Error_Maintenance" xml:space="preserve">
+    <value>The OTR website is currently down for maintenance. Please try again later.</value>
+  </data>
 </root>

@@ -317,6 +317,7 @@ namespace Crazysoft.OTRRemote
 
                 bwWorker.ReportProgress(2, Lang.OTRRemote.FrmProgress_Status_Sending);
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                Uri responseUrl = response.ResponseUri;
                 Stream s = response.GetResponseStream();
                 StreamReader sr = new StreamReader(s, System.Text.Encoding.UTF8);
                 string webpage = sr.ReadToEnd();
@@ -409,6 +410,13 @@ namespace Crazysoft.OTRRemote
                     else if (webpage.Contains(errMsgs.AddSuccess_de) || webpage.Contains(errMsgs.AddSuccess_en))
                     {
                         e.Result = WorkerResult.Success;
+                    }
+                    else if (responseUrl.AbsolutePath == Lang.OTRRemote.FrmProgress_Result_MaintenanceFileName)
+                    {
+                        UpdateTaskbarProgressBar(Windows7.TaskbarButtonProgressState.Error);
+                        MessageBox.Show(Lang.OTRRemote.FrmProgress_Error_Maintenance,
+                                        String.Concat("Crazysoft OTR Remote: ", Lang.OTRRemote.FrmProgress_ErrorMsg_Title),
+                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
