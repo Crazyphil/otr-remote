@@ -1158,6 +1158,15 @@ namespace Crazysoft.OTRRemote.Lang {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The OTR website is currently down for maintenance. Please try again later. ähnelt.
+        /// </summary>
+        internal static string FrmProgress_Error_Maintenance {
+            get {
+                return ResourceManager.GetString("FrmProgress_Error_Maintenance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die OTR Remote has stumbled over an unknown status message. The file {0} has been saved. Please check the recording status manually and send the file to the Crazysoft support to allow an error fix. ähnelt.
         /// </summary>
         internal static string FrmProgress_Error_ParseError {
@@ -1296,6 +1305,15 @@ namespace Crazysoft.OTRRemote.Lang {
         internal static string FrmProgress_lblHeader {
             get {
                 return ResourceManager.GetString("FrmProgress_lblHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die /patience.php ähnelt.
+        /// </summary>
+        internal static string FrmProgress_Result_MaintenanceFileName {
+            get {
+                return ResourceManager.GetString("FrmProgress_Result_MaintenanceFileName", resourceCulture);
             }
         }
         

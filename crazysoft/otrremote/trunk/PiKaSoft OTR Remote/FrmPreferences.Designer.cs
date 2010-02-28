@@ -219,14 +219,14 @@
             this.pnlAutoClose.Controls.Add(this.cbAutoClose);
             this.pnlAutoClose.Location = new System.Drawing.Point(20, 33);
             this.pnlAutoClose.Name = "pnlAutoClose";
-            this.pnlAutoClose.Size = new System.Drawing.Size(235, 20);
+            this.pnlAutoClose.Size = new System.Drawing.Size(276, 20);
             this.pnlAutoClose.TabIndex = 3;
             // 
             // lblSeconds
             // 
             this.lblSeconds.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSeconds.AutoSize = true;
-            this.lblSeconds.Location = new System.Drawing.Point(190, 3);
+            this.lblSeconds.Location = new System.Drawing.Point(190, 4);
             this.lblSeconds.Name = "lblSeconds";
             this.lblSeconds.Size = new System.Drawing.Size(47, 13);
             this.lblSeconds.TabIndex = 7;

@@ -1,13 +1,10 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <StartArguments>
-    </StartArguments>
-    <RemoteDebugEnabled>false</RemoteDebugEnabled>
-    <StartAction>Project</StartAction>
-    <RemoteDebugMachine>
-    </RemoteDebugMachine>
-    <StartProgram>
-    </StartProgram>
+    <StartArguments>-a -s="ARD" -t="heute" -sd=2010-02-17 -st=19:30 -et=19:40</StartArguments>
+    <RemoteDebugEnabled>true</RemoteDebugEnabled>
+    <StartAction>Program</StartAction>
+    <RemoteDebugMachine>Philipp@192.168.5.128</RemoteDebugMachine>
+    <StartProgram>Z:\Files (F)\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\OTRRemote.exe</StartProgram>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <StartArguments>-a -s="ARD" -t="Test" -sd="2009-07-24" -st="23:15" -et="23:15"</StartArguments>

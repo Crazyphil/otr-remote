@@ -727,4 +727,7 @@ Soll OTR Remote das Löschen dieser Aufnahme automatisch in 10 Minuten wieder ve
   <data name="FrmRecordingPreview_lblNumberHelp" xml:space="preserve">
     <value>Von { } umschlossene Zahlen werden mit jeder Serienaufnahme erhöht.</value>
   </data>
+  <data name="FrmProgress_Error_Maintenance" xml:space="preserve">
+    <value>Die OTR-Website ist derzeit wegen Wartungsarbeiten nicht erreichbar. Bitte versuchen Sie es später erneut.</value>
+  </data>
 </root>
