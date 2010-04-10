@@ -120,11 +120,7 @@ namespace Crazysoft.OTRRemote
             if (_displayMode != FormDisplayMode.Hide)
             {
                 lblHeader.Text = Lang.OTRRemote.FrmProgress_lblHeader;
-
-                foreach (Control ctl in this.Controls)
-                {
-                    ctl.Text = Lang.OTRRemote.ResourceManager.GetString(String.Concat("FrmProgress_", ctl.Name));
-                }
+                Program.TranslateControls(this);
             }
 
             this.ManualCall = true;
@@ -205,6 +201,13 @@ namespace Crazysoft.OTRRemote
 
         private void FrmProgress_FormClosing(object sender, FormClosingEventArgs e)
         {
+            // Pseudo-Bugfix for the form closing under Windows XP in Systray mode without any reason
+            if (e.CloseReason == CloseReason.None)
+            {
+                e.Cancel = true;
+                return;
+            }
+
             if (bwWorker.IsBusy)
             {
                 bwWorker.CancelAsync();
