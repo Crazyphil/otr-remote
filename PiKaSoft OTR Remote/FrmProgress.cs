@@ -706,9 +706,9 @@ namespace Crazysoft.OTRRemote
                 HttpWebRequest request;
                 if (_cookies.Count == 0)
                 {
-                    request = CreateNewRequest("http://www.onlinetvrecorder.com/index.php?go=home");
+                    request = CreateNewRequest("http://www.onlinetvrecorder.com/v2/index.php?go=login");
 
-                    string postString = String.Concat("email=", _recInfo[_currentRecording].User.Replace("@", "%40"), "&pass=", _recInfo[_currentRecording].Password, "&btn_login=Login");
+                    string postString = String.Concat("email=", _recInfo[_currentRecording].User.Replace("@", "%40"), "&password=", _recInfo[_currentRecording].Password, "&btn_login=Anmelden");
 
                     // POST user login data
                     ASCIIEncoding encoding = new ASCIIEncoding();

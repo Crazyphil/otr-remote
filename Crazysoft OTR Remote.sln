@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crazysoft OTR Remote", "PiKaSoft OTR Remote\Crazysoft OTR Remote.csproj", "{A6D9CAFB-103A-4619-8D6F-F71DC55561FC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OTRAPI", "OTRAPI\OTRAPI.csproj", "{1A72FFF1-1615-46CE-9944-40300E3F6D0C}"
