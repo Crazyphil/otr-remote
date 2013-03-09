@@ -1,8 +1,9 @@
-﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <StartArguments>-a -s="ARD" -t="heute" -sd=2010-04-16 -st=19:30 -et=19:40</StartArguments>
-    <RemoteDebugEnabled>true</RemoteDebugEnabled>
-    <StartAction>Program</StartAction>
+    <StartArguments>-a -s="PRO7" -t="Desperate Housewives" -sd=2012-08-15 -st=20:15 -et=21:15</StartArguments>
+    <RemoteDebugEnabled>false</RemoteDebugEnabled>
+    <StartAction>Project</StartAction>
     <RemoteDebugMachine>Philipp@192.168.5.128</RemoteDebugMachine>
     <StartProgram>Z:\Files (F)\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\OTRRemote.exe</StartProgram>
   </PropertyGroup>
@@ -24,5 +25,6 @@
     </BootstrapperUrlHistory>
     <FallbackCulture>de-DE</FallbackCulture>
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
+    <ErrorReportUrlHistory />
   </PropertyGroup>
 </Project>
