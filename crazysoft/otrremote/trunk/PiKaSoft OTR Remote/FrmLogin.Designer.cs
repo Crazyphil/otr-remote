@@ -40,6 +40,7 @@
             this.tbTimezone = new System.Windows.Forms.NumericUpDown();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.cbSaveLogin = new System.Windows.Forms.CheckBox();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbTimezone)).BeginInit();
             this.SuspendLayout();
@@ -136,10 +137,10 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(13, 231);
+            this.btnOK.Location = new System.Drawing.Point(15, 253);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 6;
+            this.btnOK.TabIndex = 7;
             this.btnOK.Text = "&OK";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -147,19 +148,30 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(102, 231);
+            this.btnCancel.Location = new System.Drawing.Point(104, 253);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 7;
+            this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // cbSaveLogin
+            // 
+            this.cbSaveLogin.AutoSize = true;
+            this.cbSaveLogin.Location = new System.Drawing.Point(16, 222);
+            this.cbSaveLogin.Name = "cbSaveLogin";
+            this.cbSaveLogin.Size = new System.Drawing.Size(168, 17);
+            this.cbSaveLogin.TabIndex = 6;
+            this.cbSaveLogin.Text = "&Remember login and timezone";
+            this.cbSaveLogin.UseVisualStyleBackColor = true;
             // 
             // FrmLogin
             // 
             this.AcceptButton = this.btnOK;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(191, 266);
+            this.ClientSize = new System.Drawing.Size(191, 288);
+            this.Controls.Add(this.cbSaveLogin);
             this.Controls.Add(this.lblLoginIntroduction);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.lblPassword);
@@ -179,10 +191,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Login to OTR";
             this.TopMost = true;
+            this.Activated += new System.EventHandler(this.FrmLogin_Activated);
             this.Deactivate += new System.EventHandler(this.FrmLogin_Deactivate);
             this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FrmLogin_Paint);
-            this.Activated += new System.EventHandler(this.FrmLogin_Activated);
             this.pnlHeader.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tbTimezone)).EndInit();
             this.ResumeLayout(false);
@@ -203,5 +215,6 @@
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lblHeader;
+        private System.Windows.Forms.CheckBox cbSaveLogin;
     }
 }

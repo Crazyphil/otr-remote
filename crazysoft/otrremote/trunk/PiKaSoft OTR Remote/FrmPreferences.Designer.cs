@@ -69,6 +69,7 @@
             this.llblUpdate = new System.Windows.Forms.LinkLabel();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.cbSilentDelete = new System.Windows.Forms.CheckBox();
             this.tcTabs.SuspendLayout();
             this.tcTabsProgram.SuspendLayout();
             this.pnlAutoClose.SuspendLayout();
@@ -82,20 +83,21 @@
             // 
             // tcTabs
             // 
-            this.tcTabs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tcTabs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tcTabs.Controls.Add(this.tcTabsProgram);
             this.tcTabs.Controls.Add(this.tcTabsNetwork);
             this.tcTabs.Controls.Add(this.tcTabsAbout);
             this.tcTabs.Location = new System.Drawing.Point(12, 12);
             this.tcTabs.Name = "tcTabs";
             this.tcTabs.SelectedIndex = 0;
-            this.tcTabs.Size = new System.Drawing.Size(310, 260);
+            this.tcTabs.Size = new System.Drawing.Size(310, 289);
             this.tcTabs.TabIndex = 0;
             // 
             // tcTabsProgram
             // 
+            this.tcTabsProgram.Controls.Add(this.cbSilentDelete);
             this.tcTabsProgram.Controls.Add(this.cbRecordingPreview);
             this.tcTabsProgram.Controls.Add(this.cbRetryDelete);
             this.tcTabsProgram.Controls.Add(this.cbProgressMethod);
@@ -109,7 +111,7 @@
             this.tcTabsProgram.Location = new System.Drawing.Point(4, 22);
             this.tcTabsProgram.Name = "tcTabsProgram";
             this.tcTabsProgram.Padding = new System.Windows.Forms.Padding(3);
-            this.tcTabsProgram.Size = new System.Drawing.Size(302, 234);
+            this.tcTabsProgram.Size = new System.Drawing.Size(302, 263);
             this.tcTabsProgram.TabIndex = 0;
             this.tcTabsProgram.Text = "Program";
             this.tcTabsProgram.UseVisualStyleBackColor = true;
@@ -122,17 +124,18 @@
             this.cbRecordingPreview.Location = new System.Drawing.Point(6, 59);
             this.cbRecordingPreview.Name = "cbRecordingPreview";
             this.cbRecordingPreview.Size = new System.Drawing.Size(230, 17);
-            this.cbRecordingPreview.TabIndex = 12;
+            this.cbRecordingPreview.TabIndex = 2;
             this.cbRecordingPreview.Text = "Show recording preview before sending job";
             this.cbRecordingPreview.UseVisualStyleBackColor = true;
+            this.cbRecordingPreview.CheckedChanged += new System.EventHandler(this.cbRecordingPreview_CheckedChanged);
             // 
             // cbRetryDelete
             // 
             this.cbRetryDelete.AutoSize = true;
-            this.cbRetryDelete.Location = new System.Drawing.Point(6, 128);
+            this.cbRetryDelete.Location = new System.Drawing.Point(6, 151);
             this.cbRetryDelete.Name = "cbRetryDelete";
             this.cbRetryDelete.Size = new System.Drawing.Size(198, 17);
-            this.cbRetryDelete.TabIndex = 11;
+            this.cbRetryDelete.TabIndex = 6;
             this.cbRetryDelete.Text = "Automatically retry recording deletion";
             this.cbRetryDelete.UseVisualStyleBackColor = true;
             // 
@@ -147,7 +150,7 @@
             this.cbProgressMethod.Location = new System.Drawing.Point(108, 6);
             this.cbProgressMethod.Name = "cbProgressMethod";
             this.cbProgressMethod.Size = new System.Drawing.Size(146, 21);
-            this.cbProgressMethod.TabIndex = 10;
+            this.cbProgressMethod.TabIndex = 1;
             this.cbProgressMethod.SelectedIndexChanged += new System.EventHandler(this.cbProgressMethod_SelectedIndexChanged);
             // 
             // lblProgressIndicator
@@ -156,13 +159,13 @@
             this.lblProgressIndicator.Location = new System.Drawing.Point(3, 9);
             this.lblProgressIndicator.Name = "lblProgressIndicator";
             this.lblProgressIndicator.Size = new System.Drawing.Size(95, 13);
-            this.lblProgressIndicator.TabIndex = 9;
+            this.lblProgressIndicator.TabIndex = 0;
             this.lblProgressIndicator.Text = "Progre&ss Indicator:";
             // 
             // lblLastUpdate
             // 
             this.lblLastUpdate.AutoSize = true;
-            this.lblLastUpdate.Location = new System.Drawing.Point(17, 176);
+            this.lblLastUpdate.Location = new System.Drawing.Point(17, 205);
             this.lblLastUpdate.Name = "lblLastUpdate";
             this.lblLastUpdate.Size = new System.Drawing.Size(99, 13);
             this.lblLastUpdate.TabIndex = 8;
@@ -173,7 +176,7 @@
             this.cbAutoUpdate.AutoSize = true;
             this.cbAutoUpdate.Checked = true;
             this.cbAutoUpdate.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbAutoUpdate.Location = new System.Drawing.Point(6, 156);
+            this.cbAutoUpdate.Location = new System.Drawing.Point(6, 185);
             this.cbAutoUpdate.Name = "cbAutoUpdate";
             this.cbAutoUpdate.Size = new System.Drawing.Size(213, 17);
             this.cbAutoUpdate.TabIndex = 7;
@@ -186,7 +189,7 @@
             this.cbRecordFollowing.Location = new System.Drawing.Point(6, 105);
             this.cbRecordFollowing.Name = "cbRecordFollowing";
             this.cbRecordFollowing.Size = new System.Drawing.Size(151, 17);
-            this.cbRecordFollowing.TabIndex = 6;
+            this.cbRecordFollowing.TabIndex = 4;
             this.cbRecordFollowing.Text = "Also record following show";
             this.cbRecordFollowing.UseVisualStyleBackColor = true;
             // 
@@ -198,16 +201,16 @@
             this.cbAdjustStartTime.Location = new System.Drawing.Point(6, 82);
             this.cbAdjustStartTime.Name = "cbAdjustStartTime";
             this.cbAdjustStartTime.Size = new System.Drawing.Size(198, 17);
-            this.cbAdjustStartTime.TabIndex = 5;
+            this.cbAdjustStartTime.TabIndex = 3;
             this.cbAdjustStartTime.Text = "Record shows, which already begun";
             this.cbAdjustStartTime.UseVisualStyleBackColor = true;
             // 
             // btnEditStations
             // 
-            this.btnEditStations.Location = new System.Drawing.Point(138, 205);
+            this.btnEditStations.Location = new System.Drawing.Point(138, 234);
             this.btnEditStations.Name = "btnEditStations";
             this.btnEditStations.Size = new System.Drawing.Size(158, 23);
-            this.btnEditStations.TabIndex = 4;
+            this.btnEditStations.TabIndex = 9;
             this.btnEditStations.Text = "E&dit Station Corrections...";
             this.btnEditStations.UseVisualStyleBackColor = true;
             this.btnEditStations.Click += new System.EventHandler(this.btnEditStations_Click);
@@ -229,7 +232,7 @@
             this.lblSeconds.Location = new System.Drawing.Point(190, 4);
             this.lblSeconds.Name = "lblSeconds";
             this.lblSeconds.Size = new System.Drawing.Size(47, 13);
-            this.lblSeconds.TabIndex = 7;
+            this.lblSeconds.TabIndex = 2;
             this.lblSeconds.Text = "seconds";
             this.lblSeconds.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
@@ -243,7 +246,7 @@
             0});
             this.tbCloseSeconds.Name = "tbCloseSeconds";
             this.tbCloseSeconds.Size = new System.Drawing.Size(40, 20);
-            this.tbCloseSeconds.TabIndex = 6;
+            this.tbCloseSeconds.TabIndex = 1;
             // 
             // cbAutoClose
             // 
@@ -253,7 +256,7 @@
             this.cbAutoClose.Location = new System.Drawing.Point(0, 3);
             this.cbAutoClose.Name = "cbAutoClose";
             this.cbAutoClose.Size = new System.Drawing.Size(118, 17);
-            this.cbAutoClose.TabIndex = 5;
+            this.cbAutoClose.TabIndex = 0;
             this.cbAutoClose.Text = "Hide &indicator after:";
             this.cbAutoClose.UseVisualStyleBackColor = true;
             // 
@@ -264,7 +267,7 @@
             this.tcTabsNetwork.Location = new System.Drawing.Point(4, 22);
             this.tcTabsNetwork.Name = "tcTabsNetwork";
             this.tcTabsNetwork.Padding = new System.Windows.Forms.Padding(3);
-            this.tcTabsNetwork.Size = new System.Drawing.Size(302, 234);
+            this.tcTabsNetwork.Size = new System.Drawing.Size(302, 263);
             this.tcTabsNetwork.TabIndex = 1;
             this.tcTabsNetwork.Text = "Network";
             this.tcTabsNetwork.UseVisualStyleBackColor = true;
@@ -295,22 +298,22 @@
             // 
             // tbProxyPassword
             // 
-            this.tbProxyPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbProxyPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbProxyPassword.Location = new System.Drawing.Point(67, 26);
             this.tbProxyPassword.Name = "tbProxyPassword";
             this.tbProxyPassword.Size = new System.Drawing.Size(194, 20);
-            this.tbProxyPassword.TabIndex = 32;
+            this.tbProxyPassword.TabIndex = 3;
             this.tbProxyPassword.UseSystemPasswordChar = true;
             // 
             // tbProxyUser
             // 
-            this.tbProxyUser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbProxyUser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbProxyUser.Location = new System.Drawing.Point(67, 0);
             this.tbProxyUser.Name = "tbProxyUser";
             this.tbProxyUser.Size = new System.Drawing.Size(194, 20);
-            this.tbProxyUser.TabIndex = 31;
+            this.tbProxyUser.TabIndex = 1;
             // 
             // lblProxyPassword
             // 
@@ -318,7 +321,7 @@
             this.lblProxyPassword.Location = new System.Drawing.Point(3, 29);
             this.lblProxyPassword.Name = "lblProxyPassword";
             this.lblProxyPassword.Size = new System.Drawing.Size(56, 13);
-            this.lblProxyPassword.TabIndex = 30;
+            this.lblProxyPassword.TabIndex = 2;
             this.lblProxyPassword.Text = "Passwor&d:";
             // 
             // lblProxyUser
@@ -327,7 +330,7 @@
             this.lblProxyUser.Location = new System.Drawing.Point(3, 3);
             this.lblProxyUser.Name = "lblProxyUser";
             this.lblProxyUser.Size = new System.Drawing.Size(58, 13);
-            this.lblProxyUser.TabIndex = 29;
+            this.lblProxyUser.TabIndex = 0;
             this.lblProxyUser.Text = "Us&ername:";
             // 
             // cbProxyAuthentication
@@ -336,7 +339,7 @@
             this.cbProxyAuthentication.Location = new System.Drawing.Point(0, 69);
             this.cbProxyAuthentication.Name = "cbProxyAuthentication";
             this.cbProxyAuthentication.Size = new System.Drawing.Size(148, 17);
-            this.cbProxyAuthentication.TabIndex = 31;
+            this.cbProxyAuthentication.TabIndex = 2;
             this.cbProxyAuthentication.Text = "Aut&hentication is required:";
             this.cbProxyAuthentication.UseVisualStyleBackColor = true;
             this.cbProxyAuthentication.CheckedChanged += new System.EventHandler(this.cbProxyAuthentication_CheckedChanged);
@@ -355,12 +358,12 @@
             // 
             // tbProxyAddress
             // 
-            this.tbProxyAddress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbProxyAddress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbProxyAddress.Location = new System.Drawing.Point(60, 0);
             this.tbProxyAddress.Name = "tbProxyAddress";
             this.tbProxyAddress.Size = new System.Drawing.Size(129, 20);
-            this.tbProxyAddress.TabIndex = 26;
+            this.tbProxyAddress.TabIndex = 1;
             // 
             // tbProxyPort
             // 
@@ -368,7 +371,7 @@
             this.tbProxyPort.Location = new System.Drawing.Point(230, 0);
             this.tbProxyPort.Name = "tbProxyPort";
             this.tbProxyPort.Size = new System.Drawing.Size(30, 20);
-            this.tbProxyPort.TabIndex = 25;
+            this.tbProxyPort.TabIndex = 3;
             this.tbProxyPort.Text = "8080";
             // 
             // lblProxyPort
@@ -378,7 +381,7 @@
             this.lblProxyPort.Location = new System.Drawing.Point(195, 3);
             this.lblProxyPort.Name = "lblProxyPort";
             this.lblProxyPort.Size = new System.Drawing.Size(29, 13);
-            this.lblProxyPort.TabIndex = 22;
+            this.lblProxyPort.TabIndex = 2;
             this.lblProxyPort.Text = "Po&rt:";
             // 
             // lblProxyAddress
@@ -387,7 +390,7 @@
             this.lblProxyAddress.Location = new System.Drawing.Point(3, 3);
             this.lblProxyAddress.Name = "lblProxyAddress";
             this.lblProxyAddress.Size = new System.Drawing.Size(48, 13);
-            this.lblProxyAddress.TabIndex = 21;
+            this.lblProxyAddress.TabIndex = 0;
             this.lblProxyAddress.Text = "&Address:";
             // 
             // rbCustomProxy
@@ -396,7 +399,7 @@
             this.rbCustomProxy.Location = new System.Drawing.Point(0, 23);
             this.rbCustomProxy.Name = "rbCustomProxy";
             this.rbCustomProxy.Size = new System.Drawing.Size(112, 17);
-            this.rbCustomProxy.TabIndex = 12;
+            this.rbCustomProxy.TabIndex = 1;
             this.rbCustomProxy.Text = "Use custom pro&xy:";
             this.rbCustomProxy.UseVisualStyleBackColor = true;
             this.rbCustomProxy.CheckedChanged += new System.EventHandler(this.rbCustomProxy_CheckedChanged);
@@ -408,7 +411,7 @@
             this.rbDefaultProxy.Location = new System.Drawing.Point(0, 0);
             this.rbDefaultProxy.Name = "rbDefaultProxy";
             this.rbDefaultProxy.Size = new System.Drawing.Size(159, 17);
-            this.rbDefaultProxy.TabIndex = 11;
+            this.rbDefaultProxy.TabIndex = 0;
             this.rbDefaultProxy.TabStop = true;
             this.rbDefaultProxy.Text = "Use IE &default proxy settings";
             this.rbDefaultProxy.UseVisualStyleBackColor = true;
@@ -436,7 +439,7 @@
             this.tcTabsAbout.Location = new System.Drawing.Point(4, 22);
             this.tcTabsAbout.Name = "tcTabsAbout";
             this.tcTabsAbout.Padding = new System.Windows.Forms.Padding(3);
-            this.tcTabsAbout.Size = new System.Drawing.Size(302, 234);
+            this.tcTabsAbout.Size = new System.Drawing.Size(302, 263);
             this.tcTabsAbout.TabIndex = 2;
             this.tcTabsAbout.Text = "About";
             this.tcTabsAbout.UseVisualStyleBackColor = true;
@@ -459,7 +462,7 @@
             this.lblThanks.Size = new System.Drawing.Size(293, 103);
             this.lblThanks.TabIndex = 4;
             this.lblThanks.Text = "Thanks to the folks at OnlineTVRecorder.com for their great service.\r\nThanks to t" +
-                "he community at CodeProject.com for their coding help.";
+    "he community at CodeProject.com for their coding help.";
             // 
             // lblCopyright
             // 
@@ -492,7 +495,7 @@
             // 
             this.llblUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.llblUpdate.AutoSize = true;
-            this.llblUpdate.Location = new System.Drawing.Point(12, 283);
+            this.llblUpdate.Location = new System.Drawing.Point(12, 312);
             this.llblUpdate.Name = "llblUpdate";
             this.llblUpdate.Size = new System.Drawing.Size(103, 13);
             this.llblUpdate.TabIndex = 1;
@@ -503,7 +506,7 @@
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOK.Location = new System.Drawing.Point(166, 278);
+            this.btnOK.Location = new System.Drawing.Point(166, 307);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 2;
@@ -515,7 +518,7 @@
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(247, 278);
+            this.btnCancel.Location = new System.Drawing.Point(247, 307);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 3;
@@ -523,13 +526,23 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // cbSilentDelete
+            // 
+            this.cbSilentDelete.AutoSize = true;
+            this.cbSilentDelete.Location = new System.Drawing.Point(6, 128);
+            this.cbSilentDelete.Name = "cbSilentDelete";
+            this.cbSilentDelete.Size = new System.Drawing.Size(200, 17);
+            this.cbSilentDelete.TabIndex = 5;
+            this.cbSilentDelete.Text = "Don\'t ask before deleting a recording";
+            this.cbSilentDelete.UseVisualStyleBackColor = true;
+            // 
             // FrmPreferences
             // 
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(334, 313);
+            this.ClientSize = new System.Drawing.Size(334, 342);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.llblUpdate);
@@ -606,5 +619,6 @@
         private System.Windows.Forms.Label lblSeconds;
         private System.Windows.Forms.CheckBox cbRetryDelete;
         private System.Windows.Forms.CheckBox cbRecordingPreview;
+        private System.Windows.Forms.CheckBox cbSilentDelete;
     }
 }

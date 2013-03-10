@@ -61,13 +61,13 @@ namespace Crazysoft.OTRRemote
                         string message = String.Empty;
 
                         // Parse Add/Remove argument
-                        if (Array.IndexOf(args, "-a") != -1)
+                        if (Array.IndexOf(args, "-r") != -1)
                         {
-                            addShow = true;
+                            addShow = false;
                         }
                         else
                         {
-                            addShow = false;
+                            addShow = true;
                         }
 
                         recInfo[0].RemoveMode = !addShow;
@@ -141,28 +141,32 @@ namespace Crazysoft.OTRRemote
                                         {
                                             argStartTime = argStartTime.AddHours(-1);
                                         }
-                                        DateTime argEndTime;
-                                        if (Convert.ToInt32(args[endtimepos].Substring(args[endtimepos].IndexOf('=') + 1).Split(':')[0]) < argStartTime.Hour)
+
+                                        DateTime argEndTime = DateTime.MinValue;
+                                        if (endtimepos >= 0)
                                         {
-                                            argEndTime =
-                                                DateTime.Parse(String.Concat(argStartTime.AddDays(1).ToShortDateString(), " ",
-                                                               args[endtimepos].Substring(
-                                                                   args[endtimepos].IndexOf('=') + 1)));
-                                        }
-                                        else
-                                        {
-                                            argEndTime =
-                                                DateTime.Parse(String.Concat(args[sdPos].Substring(args[sdPos].IndexOf('=') + 1), " ",
-                                                               args[endtimepos].Substring(
-                                                                   args[endtimepos].IndexOf('=') + 1)));
-                                        }
-                                        if (IsEuropeanDaylightSavingTime(argEndTime))
-                                        {
-                                            argEndTime = argEndTime.AddHours(-2);
-                                        }
-                                        else
-                                        {
-                                            argEndTime = argEndTime.AddHours(-1);
+                                            if (Convert.ToInt32(args[endtimepos].Substring(args[endtimepos].IndexOf('=') + 1).Split(':')[0]) < argStartTime.Hour)
+                                            {
+                                                argEndTime =
+                                                    DateTime.Parse(String.Concat(argStartTime.AddDays(1).ToShortDateString(), " ",
+                                                                   args[endtimepos].Substring(
+                                                                       args[endtimepos].IndexOf('=') + 1)));
+                                            }
+                                            else
+                                            {
+                                                argEndTime =
+                                                    DateTime.Parse(String.Concat(args[sdPos].Substring(args[sdPos].IndexOf('=') + 1), " ",
+                                                                   args[endtimepos].Substring(
+                                                                       args[endtimepos].IndexOf('=') + 1)));
+                                            }
+                                            if (IsEuropeanDaylightSavingTime(argEndTime))
+                                            {
+                                                argEndTime = argEndTime.AddHours(-2);
+                                            }
+                                            else
+                                            {
+                                                argEndTime = argEndTime.AddHours(-1);
+                                            }
                                         }
 
                                         // Declare local date and time as DateTime
@@ -185,7 +189,7 @@ namespace Crazysoft.OTRRemote
                                         if (argStartTime.Year == localTime.Year && argStartTime.Month == localTime.Month && argStartTime.Day == localTime.Day)
                                         {
                                             // Check, if show has already ended...
-                                            if ((localTime.Day == argEndTime.Day && (localTime.Hour < argEndTime.Hour || (localTime.Hour == argEndTime.Hour && localTime.Minute < argEndTime.Minute))) || localTime.Day < argEndTime.Day)
+                                            if (endtimepos >= 0 && ((localTime.Day == argEndTime.Day && (localTime.Hour < argEndTime.Hour || (localTime.Hour == argEndTime.Hour && localTime.Minute < argEndTime.Minute))) || localTime.Day < argEndTime.Day))
                                             {
                                                 // ... and adjust the start time, if the user wants us to
                                                 if (addShow && !Settings["Program"]["AdjustStartTime"].IsNull && Convert.ToBoolean(Settings["Program"]["AdjustStartTime"].Value))
@@ -386,40 +390,15 @@ namespace Crazysoft.OTRRemote
                         #endregion
                         #endregion
 
-                        // Find unset variables (= unspecified args) and throw an error
-                        if (Array.IndexOf(args, "-a") == -1 && Array.IndexOf(args, "-r") == -1)
-                        {
-                            message = String.Concat(message, "\u2022 ", Lang.OTRRemote.CmdLine_Error_Action, "\n");
-                        }
-                        if (String.IsNullOrEmpty(recInfo[0].Station))
-                        {
-                            message = String.Concat(message, "\u2022 ", Lang.OTRRemote.CmdLine_Error_Station, "\n");
-                        }
-                        if (recInfo[0].StartDate == null)
-                        {
-                            message = String.Concat(message, "\u2022 ", Lang.OTRRemote.CmdLine_Error_StartDate, "\n");
-                        }
-                        if (recInfo[0].StartTime == null)
-                        {
-                            message = String.Concat(message, "\u2022 ", Lang.OTRRemote.CmdLine_Error_StartTime, "\n");
-                        }
-                        if (recInfo[0].EndTime == null)
-                        {
-                            message = String.Concat(message, "\u2022 ", Lang.OTRRemote.CmdLine_Error_EndTime, "\n");
-                        }
-
-                        if (!String.IsNullOrEmpty(message))
-                        {
-                            if (MessageBox.Show(String.Format(Lang.OTRRemote.CmdLine_ErrorMsg_Text, message), String.Concat("Crazysoft OTR Remote: ", Lang.OTRRemote.CmdLine_ErrorMsg_Title), MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
-                            {
-                                Application.Run(new FrmHelp());
-                            }
-
-                            return 1;
-                        }
-
                         // Indicate, if the Recording Preview dialog should be shown according to the preferences
                         bool recordingPreview = Settings["Program"]["RecordingPreview"].IsNull || (!Settings["Program"]["RecordingPreview"].IsNull && Convert.ToBoolean(Settings["Program"]["RecordingPreview"].Value));
+                        bool silentDelete = !Settings["Program"]["SilentDelete"].IsNull && Convert.ToBoolean(Settings["Program"]["SilentDelete"].Value);
+
+                        // Find unset variables (= unspecified args) and force showing the recording preview
+                        if (String.IsNullOrEmpty(recInfo[0].Station) || recInfo[0].StartDate == null || recInfo[0].StartTime == null || recInfo[0].EndTime == null)
+                        {
+                            recordingPreview = true;
+                        }
 
                         // Initialize request URL and object
                         // Warn the user if he tries to remove a job
@@ -431,7 +410,7 @@ namespace Crazysoft.OTRRemote
                         else
                         {
                             // Ask the user if he knows what he does, before we really delete the recording
-                            if (recordingPreview || MessageBox.Show(String.Format(Lang.OTRRemote.CmdLine_DeleteMsg_Text, String.IsNullOrEmpty(recInfo[0].Title) ? Lang.OTRRemote.CmdLine_DeleteMsg_ThisShow : String.Concat("\"", recInfo[0].Title, "\""), recInfo[0].StartDate.ToShortDateString(), recInfo[0].StartTime.ToShortTimeString()), String.Concat("Crazysoft OTR Remote: ", Lang.OTRRemote.CmdLine_DeleteMsg_Title), MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                            if (recordingPreview || silentDelete || MessageBox.Show(String.Format(Lang.OTRRemote.CmdLine_DeleteMsg_Text, String.IsNullOrEmpty(recInfo[0].Title) ? Lang.OTRRemote.CmdLine_DeleteMsg_ThisShow : String.Concat("\"", recInfo[0].Title, "\""), recInfo[0].StartDate.ToShortDateString(), recInfo[0].StartTime.ToShortTimeString()), String.Concat("Crazysoft OTR Remote: ", Lang.OTRRemote.CmdLine_DeleteMsg_Title), MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                             {
                                 recInfo[0].RequestString = String.Concat(recInfo[0].RequestString, "deleteJob");
                             }

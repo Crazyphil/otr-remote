@@ -24,10 +24,42 @@ namespace Crazysoft.OTRRemote
             lblSeriesRecording.Text = String.Format(lblSeriesRecording.Text, mode);
 
             tbTitle.Text = recInfo.Title;
-            tbStation.Text = recInfo.Station;
-            dtpStartDate.Value = recInfo.StartDate;
-            dtpStartTime.Value = recInfo.StartTime;
-            dtpEndTime.Value = recInfo.EndTime;
+            if (recInfo.Station == null)
+            {
+                SetCommandLineError(tbStation);
+            }
+            else
+            {
+                tbStation.Text = recInfo.Station;
+            }
+
+            if (recInfo.StartDate <= DateTime.MinValue)
+            {
+                SetCommandLineError(dtpStartDate);
+            }
+            else
+            {
+                dtpStartDate.Value = recInfo.StartDate;
+            }
+
+            if (recInfo.StartTime <= DateTime.MinValue)
+            {
+                SetCommandLineError(dtpStartTime);
+            }
+            else
+            {
+                dtpStartTime.Value = recInfo.StartTime;
+            }
+
+            if (recInfo.EndTime <= DateTime.MinValue)
+            {
+                SetCommandLineError(dtpEndTime);
+            }
+            else
+            {
+                dtpEndTime.Value = recInfo.EndTime;
+            }
+            
             tbGenre.Text = recInfo.Genre;
 
             cbSeriesRule.Items.Clear();
@@ -61,6 +93,15 @@ namespace Crazysoft.OTRRemote
         {
             RecordingInfo recInfo = this.RecordingInfo[0];
             recInfo.Title = CountInTitle(tbTitle.Text, 0, 0);
+
+            if (String.IsNullOrEmpty(tbStation.Text)) {
+                SetRequiredError(tbStation);
+                return;
+            }
+            else {
+                epErrors.SetError(tbStation, null);
+            }
+
             recInfo.Station = tbStation.Text;
             recInfo.StartDate = dtpStartDate.Value;
             recInfo.StartTime = dtpStartTime.Value;
@@ -181,6 +222,16 @@ namespace Crazysoft.OTRRemote
             }
 
             return addDay;
+        }
+
+        private void SetCommandLineError(Control control)
+        {
+            epErrors.SetError(control, Lang.OTRRemote.FrmRecordingPreview_Error_NotGiven);
+        }
+
+        private void SetRequiredError(Control control)
+        {
+            epErrors.SetError(control, Lang.OTRRemote.FrmRecordingPreview_Error_Required);
         }
     }
 }

@@ -123,30 +123,6 @@
   <data name="CmdLine_DeleteMsg_Title" xml:space="preserve">
     <value>Löschen bestätigen</value>
   </data>
-  <data name="CmdLine_Error_Action" xml:space="preserve">
-    <value>Keine Aktion angegeben (-a zum Hinzufügen, -r zum Entfernen)</value>
-  </data>
-  <data name="CmdLine_Error_EndTime" xml:space="preserve">
-    <value>Keine Endzeit oder falsches Format (-et=ss:mm; zB: -et=22:05)</value>
-  </data>
-  <data name="CmdLine_Error_StartDate" xml:space="preserve">
-    <value>Kein Startdatum oder falsches Format (-sd=jjjj-mm-tt; zB: -sd=2006-04-13)</value>
-  </data>
-  <data name="CmdLine_Error_StartTime" xml:space="preserve">
-    <value>Keine Startzeit oder falsches Format (-st=ss:mm; zB: -st=20:15)</value>
-  </data>
-  <data name="CmdLine_Error_Station" xml:space="preserve">
-    <value>Kein Sender angegeben (-s="Sendername")</value>
-  </data>
-  <data name="CmdLine_ErrorMsg_Text" xml:space="preserve">
-    <value>Fehler während des Versuchs, eine Aufnahme hinzuzufügen:
-
-{0}
-Möchten Sie die Aufnahmehilfe lesen?</value>
-  </data>
-  <data name="CmdLine_ErrorMsg_Title" xml:space="preserve">
-    <value>Aufnahmefehler</value>
-  </data>
   <data name="FrmHelp_btnClose" xml:space="preserve">
     <value>&amp;Schließen</value>
   </data>
@@ -287,7 +263,7 @@ Möchten Sie das wirklich?</value>
     <value>Kontrollzentrum</value>
   </data>
   <data name="FrmMain_lblIntroduction" xml:space="preserve">
-    <value>Willkommen bei OTR Remote! Bitte konfigurieren Sie die grundlegenden Daten für die Software. Anmerkung: Das Hinzufügen und Entfernen von Sendungen wird über die Kommandozeile durchgeführt.</value>
+    <value>Willkommen bei OTR Remote! Bitte konfigurieren Sie die grundlegenden Daten für die Software. Anmerkung: Das Hinzufügen und Entfernen von Sendungen wird automatisch über Ihre TV-Guide-Anwendung oder manuell über die Kommandozeile durchgeführt.</value>
   </data>
   <data name="FrmMain_lblPassword" xml:space="preserve">
     <value>&amp;Passwort:</value>
@@ -729,5 +705,17 @@ Soll OTR Remote das Löschen dieser Aufnahme automatisch in 10 Minuten wieder ve
   </data>
   <data name="FrmProgress_Error_Maintenance" xml:space="preserve">
     <value>Die OTR-Website ist derzeit wegen Wartungsarbeiten nicht erreichbar. Bitte versuchen Sie es später erneut.</value>
+  </data>
+  <data name="FrmRecordingPreview_Error_NotGiven" xml:space="preserve">
+    <value>Diese Aufnahmeeigenschaft hat gefehlt oder war ungültig. Bitte korrigieren Sie sie.</value>
+  </data>
+  <data name="FrmRecordingPreview_Error_Required" xml:space="preserve">
+    <value>Diese Aufnahmeeigenschaft ist erforderlich.</value>
+  </data>
+  <data name="FrmLogin_cbSaveLogin" xml:space="preserve">
+    <value>Login und Zeitzone &amp;merken</value>
+  </data>
+  <data name="FrmPreferences_cbSilentDelete" xml:space="preserve">
+    <value>Vor dem Löschen einer Aufnahme nicht fragen</value>
   </data>
 </root>
