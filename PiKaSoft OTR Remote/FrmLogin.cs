@@ -61,6 +61,15 @@ namespace Crazysoft.OTRRemote
                 return;
             }
 
+            if (cbSaveLogin.Checked)
+            {
+                Program.Settings.Sections.Add("Program");
+                Program.Settings["Program"].Keys.Add("Username", tbUsername.Text);
+                Program.Settings["Program"].Keys.Add("Password", Encryption.Encryption.Encrypt(tbPassword.Text, tbUsername.Text));
+                Program.Settings["Program"].Keys.Add("Timezone", Convert.ToInt32(tbTimezone.Value));
+                Program.Settings.Save();
+            }
+
             this.Username = tbUsername.Text;
             this.Password = tbPassword.Text;
             this.Timezone = Convert.ToInt32(tbTimezone.Value);

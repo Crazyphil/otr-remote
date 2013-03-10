@@ -74,14 +74,14 @@ public class OTRRemote extends Plugin implements ActionListener {
 		if (settings == null) {
 			settings = new Properties();
 		}
-		if (settings.getProperty("programPath") == null && System.getProperty("os.name").toLowerCase().startsWith("win")) {
+		if (settings.getProperty("programPath") == null && util.misc.OperatingSystem.isWindows()) {
 			try {
 				Regor reg = new Regor();
 				Key key = reg.openKey(Regor.HKEY_LOCAL_MACHINE, "SOFTWARE\\Crazysoft\\AppUpdate\\InstalledProducts\\Crazysoft.OTR_Remote", Regor.KEY_QUERY_VALUE);
 				if (key != null) {
 					String path = reg.readValueAsString(key, "InstallationPath");
 					if (path != null) {
-						settings.setProperty("programPath", path);
+						settings.setProperty("programPath", String.format("%s%sOTRRemote.exe", path, File.separator));
 					}
 				}
 			} catch (RegistryErrorException e) {
@@ -308,7 +308,7 @@ public class OTRRemote extends Plugin implements ActionListener {
 				otrCheck = new File(path);
 			}
 			
-			if (otrCheck.getName().isEmpty() || !otrCheck.exists() || !otrCheck.isFile() || otrCheck.getParentFile().listFiles(new ApplicationFilenameFilter()).length == 0) {
+			if (otrCheck.getName().isEmpty() || !otrCheck.exists() || !otrCheck.isFile() || otrCheck.getAbsoluteFile().getParentFile().listFiles(new ApplicationFilenameFilter()).length == 0) {
 				String message = "The path to the OTR Remote application is not valid. Please correct it in the plugin configuration.";
 
 				if (this.lang.equals("de")) {
@@ -330,10 +330,13 @@ public class OTRRemote extends Plugin implements ActionListener {
 			} else {
 				arguments.append("-a ");
 			}
-			arguments.append(String.format("-s=\"%s\"", program.getChannel()));
-			arguments.append(String.format(" -sd=%F", startTime.makeLocalCalendar()));
-			arguments.append(String.format("-st=%T", startTime.makeLocalCalendar()));
-			arguments.append(String.format(" -t=\"%s\"", program.getTitle()));
+			arguments.append(String.format("-s=\"%s\" ", program.getChannel()));
+			arguments.append(String.format("-sd=%tF ", startTime.makeGMTCalendar()));
+			arguments.append(String.format("-st=%tR ", startTime.makeGMTCalendar()));
+			if (program.getLength() >= 0) {
+				arguments.append(String.format("-et=%tR ", endTime.makeGMTCalendar()));
+			}
+			arguments.append(String.format("-t=\"%s\" ", program.getTitle()));
 
 			String command;
 			if (path.startsWith("mono")) {

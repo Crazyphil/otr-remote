@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Sun Mar 10 11:56:35 CET 2013
+onejar.license.required=true
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=bin\\OTRRemote.jar
+manifest.mergeall=true
+manifest.mainclass=
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=<jar|tvbrowser.jar>
+includes=

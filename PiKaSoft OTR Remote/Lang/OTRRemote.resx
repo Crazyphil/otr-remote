@@ -123,30 +123,6 @@
   <data name="CmdLine_DeleteMsg_Title" xml:space="preserve">
     <value>Confirm deletion</value>
   </data>
-  <data name="CmdLine_Error_Action" xml:space="preserve">
-    <value>No action set (-a for Add, -r for Remove)</value>
-  </data>
-  <data name="CmdLine_Error_EndTime" xml:space="preserve">
-    <value>No end time set or wrong format (-et=hh:mm; e.g.: -et=22:05)</value>
-  </data>
-  <data name="CmdLine_Error_StartDate" xml:space="preserve">
-    <value>No start date set or wrong format (-sd=yyyy-mm-dd; e.g.: -sd=2006-04-13)</value>
-  </data>
-  <data name="CmdLine_Error_StartTime" xml:space="preserve">
-    <value>No start time set or wrong format (-st=hh:mm; e.g.: -st=20:15)</value>
-  </data>
-  <data name="CmdLine_Error_Station" xml:space="preserve">
-    <value>No station set (-s="Station Name")</value>
-  </data>
-  <data name="CmdLine_ErrorMsg_Text" xml:space="preserve">
-    <value>Errors while trying to add a recording:
-
-{0}
-Would you like to read the Recording Help?</value>
-  </data>
-  <data name="CmdLine_ErrorMsg_Title" xml:space="preserve">
-    <value>Recording Error</value>
-  </data>
   <data name="FrmHelp_btnClose" xml:space="preserve">
     <value>&amp;Close</value>
   </data>
@@ -288,7 +264,7 @@ Do you really want this?</value>
   </data>
   <data name="FrmMain_lblIntroduction" xml:space="preserve">
     <value>Welcome to OTR Remote! Please configure the basic data for running the software.
-Note: Adding and removing of TV shows is done via the commandline interface.</value>
+Note: Adding and removing of TV shows is done automatically via your TV Guide application or manually via the commandline interface.</value>
   </data>
   <data name="FrmMain_lblPassword" xml:space="preserve">
     <value>&amp;Password:</value>
@@ -715,7 +691,7 @@ Should OTR Remote retry to delete this recording automatically in 10 minutes?</v
     <value>to</value>
   </data>
   <data name="FrmRecordingPreview_lblSeriesTime" xml:space="preserve">
-    <value>to the same time</value>
+    <value>at the same time</value>
   </data>
   <data name="FrmProgress_lblCurRec_Full" xml:space="preserve">
     <value>{0} {1}, {2}: {3}</value>
@@ -743,5 +719,17 @@ Should OTR Remote retry to delete this recording automatically in 10 minutes?</v
   </data>
   <data name="FrmProgress_Error_Maintenance" xml:space="preserve">
     <value>The OTR website is currently down for maintenance. Please try again later.</value>
+  </data>
+  <data name="FrmRecordingPreview_Error_NotGiven" xml:space="preserve">
+    <value>This recording property was missing or invalid. Please correct it.</value>
+  </data>
+  <data name="FrmRecordingPreview_Error_Required" xml:space="preserve">
+    <value>This recording property is required.</value>
+  </data>
+  <data name="FrmLogin_cbSaveLogin" xml:space="preserve">
+    <value>&amp;Remember login and timezone</value>
+  </data>
+  <data name="FrmPreferences_cbSilentDelete" xml:space="preserve">
+    <value>Don't ask before deleting a recording</value>
   </data>
 </root>

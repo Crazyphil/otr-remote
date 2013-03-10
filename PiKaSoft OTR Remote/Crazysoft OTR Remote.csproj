@@ -201,7 +201,6 @@
     <Compile Include="Windows7\TaskbarCOMInterfaces.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Migrated rules for Crazysoft OTR Remote.ruleset" />
     <None Include="OTRRemote.pfx" />
     <None Include="Resources\DeviceCamera.png" />
     <Content Include="VideoCamera.ico" />
