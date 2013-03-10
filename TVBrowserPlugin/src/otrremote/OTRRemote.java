@@ -7,14 +7,13 @@ import devplugin.Plugin;
 import devplugin.PluginInfo;
 import devplugin.Program;
 import devplugin.ProgramReceiveTarget;
+import devplugin.SettingsTab;
 import devplugin.Version;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -90,6 +89,14 @@ public class OTRRemote extends Plugin implements ActionListener {
 			
 		}
 		this.properties = settings;
+	}
+	
+	public Properties storeSettings() {
+		return this.properties;
+	}
+	
+	public SettingsTab getSettingsTab() {
+		return new OTRRemoteSettingsTab();
 	}
 
 	public ActionMenu getContextMenuActions(Program program) {
@@ -279,42 +286,38 @@ public class OTRRemote extends Plugin implements ActionListener {
 			String path = properties.getProperty("programPath");
 
 			File otrExe;
-			try {
-				if (path == null) {
-					String message = "The path to the OTR Remote application is not set. Please configure the plugin before using it.";
-	
-					if (this.lang.equals("de")) {
-						message = "Der Pfad zur OTR-Remote-Anwendung ist nicht gesetzt. Bitte konfigurieren Sie das Plugin vor dem Benutzen.";
-					}
-	
-					throw new IOException(message);
+			if (path == null) {
+				String message = "The path to the OTR Remote application is not set. Please configure the plugin before using it.";
+
+				if (this.lang.equals("de")) {
+					message = "Der Pfad zur OTR-Remote-Anwendung ist nicht gesetzt. Bitte konfigurieren Sie das Plugin vor dem Benutzen.";
 				}
-				
-				File otrCheck;
-				if (path.startsWith("mono")) {
-					String[] pathParts = path.split(" ", 2);
-					if (pathParts.length > 1) {
-						otrCheck = new File(pathParts[1]);
-					} else {
-						otrCheck = new File("");
-					}
-				} else {
-					otrCheck = new File(path);
-				}
-				
-				if ((otrCheck.getName().isEmpty()) || (!otrCheck.exists()) || (!otrCheck.isFile())) {
-					String message = "The path to OTR Remote is not valid. Please reinstall the plugin.";
-	
-					if (this.lang.equals("de")) {
-						message = "Der Pfad zu OTR Remote ist ungültig. Bitte installieren Sie das Plugin neu.";
-					}
-	
-					throw new FileNotFoundException(message);
-				}
-				otrExe = new File(path);
-			} finally {
-				rdr.close();
+
+				throw new IOException(message);
 			}
+			
+			File otrCheck;
+			if (path.startsWith("mono")) {
+				String[] pathParts = path.split(" ", 2);
+				if (pathParts.length > 1) {
+					otrCheck = new File(pathParts[1]);
+				} else {
+					otrCheck = new File("");
+				}
+			} else {
+				otrCheck = new File(path);
+			}
+			
+			if (otrCheck.getName().isEmpty() || !otrCheck.exists() || !otrCheck.isFile() || otrCheck.getParentFile().listFiles(new ApplicationFilenameFilter()).length == 0) {
+				String message = "The path to the OTR Remote application is not valid. Please correct it in the plugin configuration.";
+
+				if (this.lang.equals("de")) {
+					message = "Der Pfad zur OTR-Remote-Anwendung ist ungültig. Bitte korrigieren Sie ihn in der Plugin-Konfiguration.";
+				}
+
+				throw new FileNotFoundException(message);
+			}
+			otrExe = new File(path);
 
 			DateTime startTime = new DateTime(program.getDate().getYear(), program.getDate().getMonth(),
 					program.getDate().getDayOfMonth(), program.getHours(), program.getMinutes(), 0);
@@ -385,5 +388,15 @@ public class OTRRemote extends Plugin implements ActionListener {
 			}
 		}
 		return this.tvBrowserVersion;
+	}
+	
+	protected static class ApplicationFilenameFilter implements java.io.FilenameFilter {
+		@Override
+		public boolean accept(File dir, String name) {
+			if (name.equals("TVBrowser.dll")) {
+				return true;
+			}
+			return false;
+		}
 	}
 }

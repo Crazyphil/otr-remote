@@ -45,7 +45,7 @@ public class OTRRemoteSettingsPanel extends JPanel {
 		txtPath.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				File file = new File(txtPath.getText());
-				if (file.getName().isEmpty() || !file.exists() || !file.isFile() || file.getParentFile().listFiles(new OTRRemoteSettingsPanel.ApplicationFilenameFilter()).length == 0) {
+				if (file.getName().isEmpty() || !file.exists() || !file.isFile() || file.getParentFile().listFiles(new OTRRemote.ApplicationFilenameFilter()).length == 0) {
 					OTRRemoteSettingsPanel.this.lblError.setVisible(true);
 					OTRRemoteSettingsPanel.this.lblOk.setVisible(false);
 				} else {
@@ -110,16 +110,6 @@ public class OTRRemoteSettingsPanel extends JPanel {
 		@Override
 		public boolean accept(File pathname) {
 			if (pathname.getName().equals("OTRRemote.exe") || pathname.getName().equals("OTRRemote.sh")) {
-				return true;
-			}
-			return false;
-		}
-	}
-	
-	private class ApplicationFilenameFilter implements java.io.FilenameFilter {
-		@Override
-		public boolean accept(File dir, String name) {
-			if (name.equals("TVBrowser.dll")) {
 				return true;
 			}
 			return false;
