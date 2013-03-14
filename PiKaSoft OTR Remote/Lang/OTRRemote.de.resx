@@ -491,12 +491,6 @@ Bitte löschen Sie die Aufnahme auf der OTR-Website.</value>
   <data name="FrmProgress_lblHeader" xml:space="preserve">
     <value>Aktionsfortschritt</value>
   </data>
-  <data name="FrmProgress_Result_Success" xml:space="preserve">
-    <value>TVM2OTR:OK</value>
-  </data>
-  <data name="FrmProgress_Result_TooLate" xml:space="preserve">
-    <value>TVM2OTR:ERROR</value>
-  </data>
   <data name="FrmProgress_Result_WrongLogin" xml:space="preserve">
     <value>Bitte loggen Sie sich ein, um auf alle Funktionen von</value>
   </data>
@@ -717,5 +711,11 @@ Soll OTR Remote das Löschen dieser Aufnahme automatisch in 10 Minuten wieder ve
   </data>
   <data name="FrmPreferences_cbSilentDelete" xml:space="preserve">
     <value>Vor dem Löschen einer Aufnahme nicht fragen</value>
+  </data>
+  <data name="FrmProgress_Error_AlreadyRecorded" xml:space="preserve">
+    <value>Diese Sendung ist bereits für die Aufnahme vorgemerkt.</value>
+  </data>
+  <data name="FrmProgress_NoticeMsg_Title" xml:space="preserve">
+    <value>Aufnahmehinweis</value>
   </data>
 </root>

@@ -212,12 +212,12 @@
     <value>TV-Browser Plugin Installation Wizard</value>
   </data>
   <data name="Plugin_Error_AccessDenied" xml:space="preserve">
-    <value>You don't have write access to the application path. Please run OTR Remote as an administrator.</value>
+    <value>You don't have write access to the installation path. Please run OTR Remote as an administrator or use the settings folder TV-Browser creates for your user account.</value>
   </data>
   <data name="Plugin_Error_Invalid_Path" xml:space="preserve">
-    <value>The application path you have entered is invalid. Please make sure you entered the application's path, not the plugin folder.</value>
+    <value>The installation path you have entered is invalid. Please make sure you entered the application or settings path, not the plugin folder.</value>
   </data>
   <data name="Plugin_Settings_Path" xml:space="preserve">
-    <value>Application Path</value>
+    <value>Plugin Installation Path</value>
   </data>
 </root>

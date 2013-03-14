@@ -497,10 +497,10 @@ Please delete the recording on the OTR website.</value>
     <value>Action Progress</value>
   </data>
   <data name="FrmProgress_Result_Success" xml:space="preserve">
-    <value>TVM2OTR:OK</value>
+    <value>OK</value>
   </data>
   <data name="FrmProgress_Result_TooLate" xml:space="preserve">
-    <value>TVM2OTR:ERROR</value>
+    <value>SHOW_ALREADY_STARTED</value>
   </data>
   <data name="FrmProgress_Result_WrongLogin" xml:space="preserve">
     <value>&lt;b&gt;Sie sind nicht eingeloggt.&lt;/b&gt;</value>
@@ -731,5 +731,14 @@ Should OTR Remote retry to delete this recording automatically in 10 minutes?</v
   </data>
   <data name="FrmPreferences_cbSilentDelete" xml:space="preserve">
     <value>Don't ask before deleting a recording</value>
+  </data>
+  <data name="FrmProgress_Error_AlreadyRecorded" xml:space="preserve">
+    <value>This show is already scheduled for recording.</value>
+  </data>
+  <data name="FrmProgress_NoticeMsg_Title" xml:space="preserve">
+    <value>Recording Notice</value>
+  </data>
+  <data name="FrmProgress_Result_AlreadyRecorded" xml:space="preserve">
+    <value>DOUBLE</value>
   </data>
 </root>
