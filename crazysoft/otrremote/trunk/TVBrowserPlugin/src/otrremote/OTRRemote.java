@@ -5,8 +5,11 @@ import devplugin.ContextMenuAction;
 import devplugin.Date;
 import devplugin.Plugin;
 import devplugin.PluginInfo;
+import devplugin.PluginTreeNode;
 import devplugin.Program;
+import devplugin.ProgramFieldType;
 import devplugin.ProgramReceiveTarget;
+import devplugin.ProgressMonitor;
 import devplugin.SettingsTab;
 import devplugin.Version;
 import java.awt.event.ActionEvent;
@@ -22,11 +25,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.Properties;
-import java.util.TimeZone;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.Icon;
 import javax.swing.JOptionPane;
+
+import org.joda.time.DateTime;
+
+import tvbrowser.ui.mainframe.MainFrame;
 
 import at.jta.Key;
 import at.jta.RegistryErrorException;
@@ -69,6 +75,10 @@ public class OTRRemote extends Plugin implements ActionListener {
 	public Icon getIcon() {
 		return createImageIcon("otrremote/video.png");
 	}
+
+	protected String getMarkIconName() {
+		return "otrremote/video.png";
+	}
 	
 	public void loadSettings(Properties settings) {
 		if (settings == null) {
@@ -94,44 +104,57 @@ public class OTRRemote extends Plugin implements ActionListener {
 	public Properties storeSettings() {
 		return this.properties;
 	}
+
+	public void readData(ObjectInputStream in) throws IOException, ClassNotFoundException {
+		int size = in.readInt();
+
+		for (int i = 0; i < size; i++) {
+			Date programDate;
+			if (this.getTVBrowserVersion().getMajor() >= 3) {
+				programDate = Date.readData(in);
+			} else {
+				programDate = new Date(in);
+			}
+			
+			String progId = (String)in.readObject();
+			Program program = getPluginManager().getProgram(programDate, progId);
+
+			if (program != null) {
+				this.markedPrograms.add(program);
+			}
+		}
+	}
+
+	public void writeData(ObjectOutputStream out) throws IOException {
+		out.writeInt(this.markedPrograms.size());
+
+		for (int i = 0; i < this.markedPrograms.size(); i++) {
+			Program p = (Program)this.markedPrograms.get(i);
+			
+			if (this.getTVBrowserVersion().getMajor() >= 3) {
+				p.getDate().writeData(new DataOutputStream(out));
+			} else {
+				p.getDate().writeData(out);
+			}
+			out.writeObject(p.getID());
+		}
+	}
 	
 	public SettingsTab getSettingsTab() {
 		return new OTRRemoteSettingsTab();
 	}
 
 	public ActionMenu getContextMenuActions(Program program) {
-		Date progDate = program.getDate();
-		DateTime startDate = new DateTime(progDate.getYear(), progDate.getMonth(), progDate.getDayOfMonth());
-		DateTime now = new DateTime();
-
-		TimeZone thisZone = TimeZone.getDefault();
-		int offset = thisZone.getRawOffset();
-		if (thisZone.useDaylightTime()) {
-			offset += thisZone.getDSTSavings();
-		}
-		offset /= 1000;
-
-		startDate.advanceSecs(offset);
-		now.advanceSecs(offset);
-
-		if (now.daysBetween(startDate) > 0) {
-			return null;
-		}
+		boolean isEnabled = true;
 		
-		if (now.daysBetween(startDate) == 0) {
-			DateTime endTime = (DateTime)startDate.clone();
-			endTime.advanceMins(program.getStartTime());
-			endTime.advanceMins(program.getLength());
-			endTime.advanceSecs(-offset);
+		DateTime now = DateTime.now();
+		DateTime endTime = getProgramDateTime(program);
+		if (program.getLength() > 0) {
+			endTime = endTime.plusMinutes(program.getLength());
+		}
 
-			if ((now.getDay() == endTime.getDay()) && (now.getHour() >= endTime.getHour())) {
-				if ((now.getHour() == endTime.getHour()) && (now.getMin() > endTime.getMin())) {
-					return null;
-				}
-				if ((program != Plugin.getPluginManager().getExampleProgram()) && (now.getHour() > endTime.getHour())) {
-					return null;
-				}
-			}
+		if (!program.equals(Plugin.getPluginManager().getExampleProgram()) && now.isAfter(endTime)) {
+			isEnabled = false;
 		}
 
 		this.curProgram = program;
@@ -154,20 +177,22 @@ public class OTRRemote extends Plugin implements ActionListener {
 				private static final long serialVersionUID = 8579287847683162753L;
 
 				public void actionPerformed(ActionEvent e) {
-					OTRRemote.this.modifyRecording(OTRRemote.this.curProgram, Boolean.FALSE);
+					OTRRemote.this.modifyRecording(OTRRemote.this.curProgram, false);
 				}
 			};
 			recordItem.putValue("Name", recordItemText);
+			recordItem.setEnabled(isEnabled);
 			submenu[0] = recordItem;
 
 			AbstractAction deleteItem = new AbstractAction() {
 				private static final long serialVersionUID = -308102096298513374L;
 
 				public void actionPerformed(ActionEvent e) {
-					OTRRemote.this.modifyRecording(OTRRemote.this.curProgram, Boolean.TRUE);
+					OTRRemote.this.modifyRecording(OTRRemote.this.curProgram, true);
 				}
 			};
 			deleteItem.putValue("Name", deleteItemText);
+			deleteItem.setEnabled(isEnabled);
 			submenu[1] = deleteItem;
 
 			AbstractAction unmarkItem = new AbstractAction() {
@@ -179,7 +204,7 @@ public class OTRRemote extends Plugin implements ActionListener {
 			};
 			unmarkItem.putValue("Name", unmarkItemText);
 			submenu[2] = unmarkItem;
-
+			
 			if (this.getTVBrowserVersion().getMajor() >= 3) {
 				return new ActionMenu(menuTitle, menuIcon, submenu);
 			}
@@ -195,50 +220,8 @@ public class OTRRemote extends Plugin implements ActionListener {
 		}
 		action.setActionListener(this);
 		action.setSmallIcon(menuIcon);
+		action.setEnabled(isEnabled);
 		return new ActionMenu(action);
-	}
-
-	public void actionPerformed(ActionEvent e) {
-		modifyRecording(this.curProgram, Boolean.FALSE);
-	}
-
-	protected String getMarkIconName() {
-		return "otrremote/video.png";
-	}
-
-	public void writeData(ObjectOutputStream out) throws IOException {
-		out.writeInt(this.markedPrograms.size());
-
-		for (int i = 0; i < this.markedPrograms.size(); i++) {
-			Program p = (Program)this.markedPrograms.get(i);
-			
-			if (this.getTVBrowserVersion().getMajor() >= 3) {
-				p.getDate().writeData(new DataOutputStream(out));
-			} else {
-				p.getDate().writeData(out);
-			}
-			out.writeObject(p.getID());
-		}
-	}
-
-	public void readData(ObjectInputStream in) throws IOException, ClassNotFoundException {
-		int size = in.readInt();
-
-		for (int i = 0; i < size; i++) {
-			Date programDate;
-			if (this.getTVBrowserVersion().getMajor() >= 3) {
-				programDate = Date.readData(in);
-			} else {
-				programDate = new Date(in);
-			}
-			
-			String progId = (String)in.readObject();
-			Program program = getPluginManager().getProgram(programDate, progId);
-
-			if (program != null) {
-				this.markedPrograms.add(program);
-			}
-		}
 	}
 	
 	public void handleTvBrowserStartFinished() {
@@ -249,19 +232,35 @@ public class OTRRemote extends Plugin implements ActionListener {
 			program.validateMarking();
 		}
 	}
+	
+	public void handleTvDataUpdateFinished() {
+		Program[] programs = markedPrograms.toArray(new Program[0]);
+		for (Program program : programs) {
+			if (program.getProgramState() == Program.WAS_DELETED_STATE) {
+				markedPrograms.remove(program);
+			} else if (program.getProgramState() == Program.WAS_UPDATED_STATE) {
+				markedPrograms.remove(program);
+				markedPrograms.add(getPluginManager().getProgram(program.getDate(), program.getID()));
+			}
+		}
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		modifyRecording(this.curProgram, false);
+	}
 
 	public boolean canReceiveProgramsWithTarget() {
 		return true;
 	}
 
 	public boolean receivePrograms(Program[] programs, ProgramReceiveTarget target) {
-		if ((target == null) || (target.getTargetId() == null)) {
+		if (target == null || target.getTargetId() == null) {
 			return false;
 		}
 
-		if (target.getTargetId() == "OTRRemote") {
+		if (target.getTargetId().equals("OTRRemote")) {
 			for (Program program : programs) {
-				modifyRecording(program, Boolean.valueOf(false));
+				modifyRecording(program, false);
 			}
 			return true;
 		}
@@ -280,12 +279,40 @@ public class OTRRemote extends Plugin implements ActionListener {
 
 		return targets.toArray(new ProgramReceiveTarget[0]);
 	}
+	
+	public boolean canUseProgramTree() {
+		return true;
+	}
 
-	private void modifyRecording(Program program, Boolean delete) {
+	public void createMyTree() {
+		PluginTreeNode rootNode = getRootNode();
+		rootNode.removeAllActions();
+		rootNode.removeAllChildren();
+
+		for (Program program : markedPrograms) {
+			PluginTreeNode programNode = rootNode.addProgram(program);
+			programNode.addActionMenu(getContextMenuActions(program));
+		}
+
+		rootNode.update();
+	}
+	
+	public Version getTVBrowserVersion() {
+		if (this.tvBrowserVersion == null) {
+	        try {
+				Method m = getPluginManager().getClass().getMethod("getTVBrowserVersion", new Class[0]);
+				this.tvBrowserVersion = (Version)m.invoke(getPluginManager(), new Object[0]);
+			} catch (Exception e) {
+				this.tvBrowserVersion = new Version(2, 7, 6);
+			}
+		}
+		return this.tvBrowserVersion;
+	}
+
+	private void modifyRecording(Program program, boolean delete) {
 		try {
 			String path = properties.getProperty("programPath");
 
-			File otrExe;
 			if (path == null) {
 				String message = "The path to the OTR Remote application is not set. Please configure the plugin before using it.";
 
@@ -296,19 +323,26 @@ public class OTRRemote extends Plugin implements ActionListener {
 				throw new IOException(message);
 			}
 			
-			File otrCheck;
+			File otrExe;
 			if (path.startsWith("mono")) {
 				String[] pathParts = path.split(" ", 2);
 				if (pathParts.length > 1) {
-					otrCheck = new File(pathParts[1]);
+					if (pathParts[1].startsWith("\"") && pathParts[1].endsWith("\"")) {
+						pathParts[1] = pathParts[1].substring(1, pathParts[1].length() - 1);
+						path = String.format("%s %s", pathParts[0], pathParts[1]);
+					}
+					otrExe = new File(pathParts[1]);
 				} else {
-					otrCheck = new File("");
+					otrExe = new File("");
 				}
 			} else {
-				otrCheck = new File(path);
+				if (path.startsWith("\"") && path.endsWith("\"")) {
+					path = path.substring(1, path.length() - 1);
+				}
+				otrExe = new File(path);
 			}
 			
-			if (otrCheck.getName().isEmpty() || !otrCheck.exists() || !otrCheck.isFile() || otrCheck.getAbsoluteFile().getParentFile().listFiles(new ApplicationFilenameFilter()).length == 0) {
+			if (otrExe.getName().isEmpty() || !otrExe.exists() || !otrExe.isFile() || otrExe.getAbsoluteFile().getParentFile().listFiles(new ApplicationFilenameFilter()).length == 0) {
 				String message = "The path to the OTR Remote application is not valid. Please correct it in the plugin configuration.";
 
 				if (this.lang.equals("de")) {
@@ -317,12 +351,12 @@ public class OTRRemote extends Plugin implements ActionListener {
 
 				throw new FileNotFoundException(message);
 			}
-			otrExe = new File(path);
 
-			DateTime startTime = new DateTime(program.getDate().getYear(), program.getDate().getMonth(),
-					program.getDate().getDayOfMonth(), program.getHours(), program.getMinutes(), 0);
-			DateTime endTime = (DateTime)startTime.clone();
-			endTime.advanceMins(program.getLength());
+			DateTime startTime = getProgramDateTime(program);
+			DateTime endTime = startTime;
+			if (program.getLength() > 0) {
+				endTime = endTime.plusMinutes(program.getLength());
+			}
 			
 			StringBuffer arguments = new StringBuffer();
 			if (delete) {
@@ -331,25 +365,25 @@ public class OTRRemote extends Plugin implements ActionListener {
 				arguments.append("-a ");
 			}
 			arguments.append(String.format("-s=\"%s\" ", program.getChannel()));
-			arguments.append(String.format("-sd=%tF ", startTime.makeGMTCalendar()));
-			arguments.append(String.format("-st=%tR ", startTime.makeGMTCalendar()));
+			arguments.append(String.format("-sd=%tF ", startTime.toGregorianCalendar()));
+			arguments.append(String.format("-st=%tR ", startTime.toGregorianCalendar()));
 			if (program.getLength() >= 0) {
-				arguments.append(String.format("-et=%tR ", endTime.makeGMTCalendar()));
+				arguments.append(String.format("-et=%tR ", endTime.toGregorianCalendar()));
 			}
 			arguments.append(String.format("-t=\"%s\" ", program.getTitle()));
+			if (program.getTextField(ProgramFieldType.GENRE_TYPE) != null) {
+				arguments.append(String.format("-g=\"%s\" ", program.getTextField(ProgramFieldType.GENRE_TYPE)));
+			}
 
 			String command;
 			if (path.startsWith("mono")) {
-				if (path.split(" ", 2)[1].contains(" ")) {
-					command = String.format("mono \"%s\" %s", path.split(" ", 2)[1], arguments.toString());
-				} else {
-					command = String.format("%s %s", path, arguments.toString());
-				}
+				command = String.format("mono \"%s\" %s", path.split(" ", 2)[1], arguments.toString());
 			} else {
-				command = String.format("\"%s\" %s", otrExe.getAbsolutePath(), arguments.toString());
+				command = String.format("\"%s\" %s", path, arguments.toString());
 			}
 
-			waitForMarking(program, Runtime.getRuntime().exec(command), delete);
+			Thread thread = new Thread(new OTRRemoteRunner(program, Runtime.getRuntime().exec(command), delete));
+			thread.start();
 		} catch (Exception excp) {
 			String message = "Error while processing the recording job: ";
 			String title = "Recording error";
@@ -359,20 +393,14 @@ public class OTRRemote extends Plugin implements ActionListener {
 				title = "Aufnahmefehler";
 			}
 
-			JOptionPane.showMessageDialog(getParentFrame(), message + excp.getLocalizedMessage(), title, 0);
+			JOptionPane.showMessageDialog(getParentFrame(), message + excp.getLocalizedMessage(), title, JOptionPane.ERROR_MESSAGE);
 		}
 	}
-
-	private void waitForMarking(Program program, Process process, Boolean unmark) throws InterruptedException {
-		if (process.waitFor() == 0) {
-			if (!unmark) {
-				this.markedPrograms.add(program);
-				program.mark(this);
-				program.validateMarking();
-			} else {
-				unmarkProgram(program);
-			}
-		}
+	
+	private void markProgram(Program program) {
+		this.markedPrograms.add(program);
+		program.mark(this);
+		program.validateMarking();
 	}
 
 	private void unmarkProgram(Program program) {
@@ -381,16 +409,9 @@ public class OTRRemote extends Plugin implements ActionListener {
 		program.validateMarking();
 	}
 	
-	private Version getTVBrowserVersion() {
-		if (this.tvBrowserVersion == null) {
-	        try {
-				Method m = getPluginManager().getClass().getMethod("getTVBrowserVersion", new Class[0]);
-				this.tvBrowserVersion = (Version)m.invoke(getPluginManager(), new Object[0]);
-			} catch (Exception e) {
-				this.tvBrowserVersion = new Version(2, 7, 6);
-			}
-		}
-		return this.tvBrowserVersion;
+	private DateTime getProgramDateTime(Program program) {
+		Date progDate = program.getDate();
+		return new DateTime(progDate.getYear(), progDate.getMonth(), progDate.getDayOfMonth(), program.getHours(), program.getMinutes());
 	}
 	
 	protected static class ApplicationFilenameFilter implements java.io.FilenameFilter {
@@ -402,4 +423,68 @@ public class OTRRemote extends Plugin implements ActionListener {
 			return false;
 		}
 	}
+	
+	private class OTRRemoteRunner implements Runnable {
+		Program program;
+		Process process;
+		boolean unmark;
+		
+		public OTRRemoteRunner(Program program, Process process, boolean unmark) {
+			this.program = program;
+			this.process = process;
+			this.unmark = unmark;
+		}
+		
+		@Override
+		public void run() {
+			ProgressMonitor monitor = MainFrame.getInstance().getStatusBar().createProgressMonitor();
+			monitor.setMaximum(2);
+			monitor.setValue(1);
+			MainFrame.getInstance().getStatusBar().getProgressBar().setVisible(true);
+			if (lang.equals("de")) {
+				monitor.setMessage("Gewählte Aktion wird an OTR Remote gesendet...");
+			} else {
+				monitor.setMessage("Sending action to OTR Remote...");
+			}
+			
+			try {
+				if (process.waitFor() == 0) {
+					if (!unmark) {
+						markProgram(program);
+					} else {
+						unmarkProgram(program);
+					}
+					
+					monitor.setValue(2);
+					if (lang.equals("de")) {
+						monitor.setMessage("OTR Remote hat die Aktion erfolgreich durchgeführt.");
+					} else {
+						monitor.setMessage("OTR Remote has executed the action successfully.");
+					}
+				} else {
+					monitor.setValue(2);
+					if (lang.equals("de")) {
+						monitor.setMessage("OTR Remote hat die Aktion nicht durchgeführt.");
+					} else {
+						monitor.setMessage("OTR Remote did not execute the action.");
+					}
+				}
+			} catch (InterruptedException e) {
+				monitor.setValue(2);
+				if (lang.equals("de")) {
+					monitor.setMessage("OTR Remote konnte nicht erfolgreich ausgeführt werden!");
+				} else {
+					monitor.setMessage("OTR Remote could not be executed successfully!");
+				}
+			}
+			
+			try {
+				Thread.sleep(5000);
+				MainFrame.getInstance().getStatusBar().getProgressBar().setVisible(false);
+				monitor.setMessage("");
+			} catch (InterruptedException e) {
+			}
+		}
+	}
+
 }

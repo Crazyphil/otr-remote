@@ -68,6 +68,8 @@ namespace Crazysoft.OTRRemote
             public string AddTooLate_en;
             public string AddWrongLogin_de;
             public string AddWrongLogin_en;
+            public string AddAlreadyRecorded_de;
+            public string AddAlreadyRecorded_en;
             public string AddSuccess_de;
             public string AddSuccess_en;
         }
@@ -335,6 +337,7 @@ namespace Crazysoft.OTRRemote
                 errMsgs.DeleteNotRecorded_de = Lang.OTRRemote.FrmProgress_Result_NotRecorded;
                 errMsgs.AddTooLate_de = Lang.OTRRemote.FrmProgress_Result_TooLate;
                 errMsgs.AddWrongLogin_de = Lang.OTRRemote.FrmProgress_Result_WrongLogin;
+                errMsgs.AddAlreadyRecorded_de = Lang.OTRRemote.FrmProgress_Result_AlreadyRecorded;
                 errMsgs.AddSuccess_de = Lang.OTRRemote.FrmProgress_Result_Success;
 
                 // Then, cache English messages
@@ -342,6 +345,7 @@ namespace Crazysoft.OTRRemote
                 errMsgs.DeleteNotRecorded_en = Lang.OTRRemote.FrmProgress_Result_NotRecorded;
                 errMsgs.AddTooLate_en = Lang.OTRRemote.FrmProgress_Result_TooLate;
                 errMsgs.AddWrongLogin_en = Lang.OTRRemote.FrmProgress_Result_WrongLogin;
+                errMsgs.AddAlreadyRecorded_de = Lang.OTRRemote.FrmProgress_Result_AlreadyRecorded;
                 errMsgs.AddSuccess_en = Lang.OTRRemote.FrmProgress_Result_Success;
 
                 // Set the language back to the UI language
@@ -409,6 +413,17 @@ namespace Crazysoft.OTRRemote
                         MessageBox.Show(Lang.OTRRemote.FrmProgress_Error_WrongLogin,
                                         String.Concat("Crazysoft OTR Remote: ", Lang.OTRRemote.FrmProgress_ErrorMsg_Title),
                                         MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (webpage.Contains(errMsgs.AddAlreadyRecorded_de) || webpage.Contains(errMsgs.AddAlreadyRecorded_en))
+                    {
+                        UpdateTaskbarProgressBar(Windows7.TaskbarButtonProgressState.Paused);
+                        if (this.DisplayMode == FormDisplayMode.ShowWindow)
+                        {
+                            MessageBox.Show(Lang.OTRRemote.FrmProgress_Error_AlreadyRecorded,
+                                            String.Concat("Crazysoft OTR Remote: ", Lang.OTRRemote.FrmProgress_NoticeMsg_Title),
+                                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        e.Result = WorkerResult.Success;
                     }
                     else if (webpage.Contains(errMsgs.AddSuccess_de) || webpage.Contains(errMsgs.AddSuccess_en))
                     {
@@ -688,7 +703,7 @@ namespace Crazysoft.OTRRemote
             // Set User Agent
             request.UserAgent = String.Concat("Crazysoft.OTRRemote/", System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
             request.Timeout = 30000;
-            request.ProtocolVersion = HttpVersion.Version10;
+            //request.ProtocolVersion = HttpVersion.Version10;
 
             // Add OTR language cookie
             if (_cookies.Count == 0)

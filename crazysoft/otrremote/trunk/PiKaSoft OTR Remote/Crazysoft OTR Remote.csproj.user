@@ -1,14 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <StartArguments>-r -s="ORF 2" -t="Zurück zur Natur" -sd=2013-03-10 -st=18:05 -et=18:10</StartArguments>
+    <StartArguments>
+    </StartArguments>
     <RemoteDebugEnabled>false</RemoteDebugEnabled>
     <StartAction>Project</StartAction>
     <RemoteDebugMachine>Philipp@192.168.5.128</RemoteDebugMachine>
     <StartProgram>Z:\Files (F)\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\OTRRemote.exe</StartProgram>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <StartArguments>-a -s="ARD" -t="Test" -sd="2009-07-24" -st="23:15" -et="23:15"</StartArguments>
+    <StartArguments>-a -s="arte" -sd=2013-03-16 -st=15:50 -et=16:37 -t="Fukushima - Chronik eines Desasters" -g="Dokumentation"</StartArguments>
     <RemoteDebugEnabled>false</RemoteDebugEnabled>
     <StartAction>Project</StartAction>
     <StartProgram>Z:\OTRRemote.exe</StartProgram>

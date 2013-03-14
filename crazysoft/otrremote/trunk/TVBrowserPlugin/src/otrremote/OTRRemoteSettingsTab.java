@@ -14,6 +14,7 @@ public class OTRRemoteSettingsTab implements SettingsTab {
 	@Override
 	public JPanel createSettingsPanel() {
 		settingsPanel = new OTRRemoteSettingsPanel();
+		
 		Properties props = OTRRemote.getInstance().storeSettings();
 		if (props != null && props.getProperty("programPath") != null) {
 			settingsPanel.setProgramPath(props.getProperty("programPath"));

@@ -497,7 +497,7 @@ namespace Crazysoft.OTRRemote
 
                             // With adding following parameter, OTR returns the result as "TVM2OTR:OK" or "TVM2OTR:ERROR",
                             // except when not logged in (wrong username/password), where a complete webpage is returned
-                            recInfo[i].RequestString = String.Concat(recInfo[i].RequestString, "&tvm2otr=true");
+                            recInfo[i].RequestString = String.Concat(recInfo[i].RequestString, "&api=true");
 
                             i++;
                         }

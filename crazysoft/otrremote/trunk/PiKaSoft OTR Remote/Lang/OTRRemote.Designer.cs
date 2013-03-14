@@ -1101,6 +1101,15 @@ namespace Crazysoft.OTRRemote.Lang {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This show is already scheduled for recording..
+        /// </summary>
+        internal static string FrmProgress_Error_AlreadyRecorded {
+            get {
+                return ResourceManager.GetString("FrmProgress_Error_AlreadyRecorded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The start date respectively the start time have to be in future. Please check them..
         /// </summary>
         internal static string FrmProgress_Error_Date {
@@ -1261,6 +1270,24 @@ namespace Crazysoft.OTRRemote.Lang {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Recording Notice.
+        /// </summary>
+        internal static string FrmProgress_NoticeMsg_Title {
+            get {
+                return ResourceManager.GetString("FrmProgress_NoticeMsg_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DOUBLE.
+        /// </summary>
+        internal static string FrmProgress_Result_AlreadyRecorded {
+            get {
+                return ResourceManager.GetString("FrmProgress_Result_AlreadyRecorded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to /patience.php.
         /// </summary>
         internal static string FrmProgress_Result_MaintenanceFileName {
@@ -1279,7 +1306,7 @@ namespace Crazysoft.OTRRemote.Lang {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TVM2OTR:OK.
+        ///   Looks up a localized string similar to OK.
         /// </summary>
         internal static string FrmProgress_Result_Success {
             get {
@@ -1288,7 +1315,7 @@ namespace Crazysoft.OTRRemote.Lang {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TVM2OTR:ERROR.
+        ///   Looks up a localized string similar to SHOW_ALREADY_STARTED.
         /// </summary>
         internal static string FrmProgress_Result_TooLate {
             get {

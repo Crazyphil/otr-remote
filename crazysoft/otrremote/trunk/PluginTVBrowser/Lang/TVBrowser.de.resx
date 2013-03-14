@@ -206,12 +206,12 @@
     <value>TV-Browser Plugin-Installationsasistent</value>
   </data>
   <data name="Plugin_Error_AccessDenied" xml:space="preserve">
-    <value>Sie haben keinen Schreibzugriff zum Anwendungspfad. Bitte starten Sie OTR Remote als Administrator.</value>
+    <value>Sie haben keinen Schreibzugriff zum Installationspfad. Bitte starten Sie OTR Remote als Administrator oder geben Sie den Pfad des Einstellungsordners an, den TV-Browser für Ihren Benutzer erzeugt.</value>
   </data>
   <data name="Plugin_Error_Invalid_Path" xml:space="preserve">
-    <value>Der von Ihnen eingegebene Anwendungspfad ist ungültig. Bitte stellen Sie sicher, dass Sie den Anwendungspfad und nicht den Pluginordner eingegeben haben.</value>
+    <value>Der von Ihnen eingegebene Installationspfad ist ungültig. Bitte stellen Sie sicher, dass Sie den Anwendungs- oder Einstellungspfad und nicht den Pluginordner eingegeben haben.</value>
   </data>
   <data name="Plugin_Settings_Path" xml:space="preserve">
-    <value>Anwendungspfad</value>
+    <value>Plugin-Installationspfad</value>
   </data>
 </root>
