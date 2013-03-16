@@ -345,7 +345,7 @@ namespace Crazysoft.OTRRemote
                 errMsgs.DeleteNotRecorded_en = Lang.OTRRemote.FrmProgress_Result_NotRecorded;
                 errMsgs.AddTooLate_en = Lang.OTRRemote.FrmProgress_Result_TooLate;
                 errMsgs.AddWrongLogin_en = Lang.OTRRemote.FrmProgress_Result_WrongLogin;
-                errMsgs.AddAlreadyRecorded_de = Lang.OTRRemote.FrmProgress_Result_AlreadyRecorded;
+                errMsgs.AddAlreadyRecorded_en = Lang.OTRRemote.FrmProgress_Result_AlreadyRecorded;
                 errMsgs.AddSuccess_en = Lang.OTRRemote.FrmProgress_Result_Success;
 
                 // Set the language back to the UI language
@@ -773,14 +773,17 @@ namespace Crazysoft.OTRRemote
                 request.Method = "POST";
                 request.ContentType = "application/x-www-form-urlencoded";
                 request.ContentLength = postData.Length;
-                Stream requestWriter = request.GetRequestStream();
-                requestWriter.Write(postData, 0, postData.Length);
+                using (Stream requestWriter = request.GetRequestStream())
+                {
+                    requestWriter.Write(postData, 0, postData.Length);
+                }
 
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 CookieCollection cookies = response.Cookies;
                 StreamReader sr = new StreamReader(response.GetResponseStream());
                 string answer = sr.ReadToEnd();
                 sr.Close();
+                response.Close();
 
                 // Check, if the login was successful
                 if (answer.Contains("Invalid user/password combination"))
@@ -799,6 +802,7 @@ namespace Crazysoft.OTRRemote
                 sr = new StreamReader(response.GetResponseStream());
                 answer = sr.ReadToEnd();
                 sr.Close();
+                response.Close();
 
                 if (answer.Contains("No broadcasts found!"))
                 {
