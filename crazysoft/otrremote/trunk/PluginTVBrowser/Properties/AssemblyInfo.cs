@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Crazysoft")]
 [assembly: AssemblyProduct("TV-Browser Plugin")]
-[assembly: AssemblyCopyright("Copyright © Crazysoft 2007-2010")]
+[assembly: AssemblyCopyright("Copyright © Crazysoft 2007-2013")]
 [assembly: AssemblyTrademark("OTR Remote is a trademark of Crazysoft.")]
 [assembly: AssemblyCulture("")]
 
@@ -31,5 +31,5 @@ using System.Runtime.InteropServices;
 //
 // Sie können alle Werte angeben oder die standardmäßigen Revisions- und Buildnummern 
 // übernehmen, indem Sie "*" eingeben:
-[assembly: AssemblyVersion("1.0.3.0")]
-[assembly: AssemblyFileVersion("1.0.3.0")]
+[assembly: AssemblyVersion("1.0.3.1")]
+[assembly: AssemblyFileVersion("1.0.3.1")]

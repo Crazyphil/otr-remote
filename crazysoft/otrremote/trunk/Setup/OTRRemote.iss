@@ -1,12 +1,12 @@
 [Setup]
-VersionInfoVersion=2.1.0.2
+VersionInfoVersion=2.1.1.0
 VersionInfoCompany=Crazysoft
 VersionInfoDescription=Recording interface for OnlineTVRecorder.com
-VersionInfoTextVersion=2.1.0.2
-VersionInfoCopyright=Copyright © Crazysoft 2006-2012
-AppCopyright=Copyright © Crazysoft 2006-2012
+VersionInfoTextVersion=2.1.1.0
+VersionInfoCopyright=Copyright © Crazysoft 2006-2013
+AppCopyright=Copyright © Crazysoft 2006-2013
 AppName=Crazysoft OTR Remote
-AppVerName=OTR Remote 2.1.0.2
+AppVerName=OTR Remote 2.1.1.0
 LicenseFile=F:\Programmierung\PiKaSoft OTR Remote\Setup\License.rtf
 DefaultDirName={pf}\Crazysoft\OTR Remote\
 AllowNoIcons=true
@@ -15,7 +15,7 @@ AppPublisher=Crazysoft
 AppPublisherURL=http://www.crazysoft.net.ms/
 AppSupportURL=http://www.crazysoft.net.ms/support.php
 AppUpdatesURL=http://www.crazysoft.net.ms/products/otrremote.php
-AppVersion=2.1.0.2
+AppVersion=2.1.1.0
 UninstallDisplayName=Crazysoft OTR Remote
 WizardSmallImageFile=F:\Programmierung\PiKaSoft OTR Remote\Setup\logo.bmp
 UninstallDisplayIcon={app}\OTRRemote.exe
@@ -32,34 +32,36 @@ SetupIconFile=F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\VideoCam
 OutputDir=F:\Programmierung\PiKaSoft OTR Remote\Setup\Output
 SolidCompression=true
 VersionInfoProductName=OTR Remote
-VersionInfoProductVersion=2.1.0.2
+VersionInfoProductVersion=2.1.1.0
+
 [Files]
-Source: F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\OTRRemote.exe; DestDir: {app}; Flags: promptifolder; Components: Main_Program
-Source: F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\de\OTRRemote.resources.dll; DestDir: {app}\de; Flags: promptifolder; Components: Main_Program; Languages: de
-Source: F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\Stations.xml; DestDir: {app}; Flags: promptifolder onlyifdoesntexist; Components: Main_Program
-Source: F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\Crazysoft.AppSettings.dll; DestDir: {app}; Flags: promptifolder; Components: Main_Program
-Source: F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\Crazysoft.CrashHandler.dll; DestDir: {app}; Flags: promptifolder; Components: Main_Program
-Source: F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\Crazysoft.Encryption.dll; DestDir: {app}; Flags: promptifolder; Components: Main_Program
-Source: F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\OTRAPI.dll; DestDir: {app}; Flags: promptifolder; Components: Main_Program
-Source: F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\TVgenial.dll; DestDir: {app}; Flags: promptifolder; Components: Main_Program
-Source: F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\de\TVgenial.resources.dll; DestDir: {app}\de; Flags: promptifolder; Components: Main_Program; Languages: de
-Source: F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\Clickfinder.dll; DestDir: {app}; Flags: promptifolder; Components: Main_Program
-Source: F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\ClickfinderHelper.exe; DestDir: {app}; Flags: promptifolder; Components: Main_Program
-Source: F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\de\Clickfinder.resources.dll; DestDir: {app}\de; Flags: promptifolder; Components: Main_Program; Languages: de
-Source: F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\TVBrowser.dll; DestDir: {app}; Flags: promptifolder; Components: Main_Program
-Source: F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\OTRRemote.jar; DestDir: {app}; Flags: promptifolder; Components: Main_Program
-Source: F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\de\TVBrowser.resources.dll; DestDir: {app}\de; Flags: promptifolder; Components: Main_Program; Languages: de
-Source: F:\Programmierung\PiKaSoft OTR Remote\Help\Help_en.chm; DestDir: {app}; Flags: promptifolder; Components: Main_Program\Help; Languages: en
-Source: F:\Programmierung\PiKaSoft OTR Remote\Help\Help_de.chm; DestDir: {app}; Flags: promptifolder; Components: Main_Program\Help; Languages: de
-Source: F:\Programmierung\PiKaSoft OTR Remote\Help\English\Developer Documentation\PluginDev.chm; DestDir: {app}; Flags: promptifolder; Components: Developer_Package\Help
-Source: F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\SamplePlugin.cs; DestDir: {app}; Flags: promptifolder; Components: Developer_Package\Sample_Plugin
-Source: F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\PluginSample.dll; DestDir: {app}; Flags: promptifolder; Components: Developer_Package\Sample_Plugin
-Source: F:\Programmierung\AppUpdate\Crazysoft AppUpdate\bin\Release\AppUpdate.exe; DestDir: {cf}\Crazysoft\AppUpdate; Flags: sharedfile promptifolder uninsnosharedfileprompt; Components: Updater
-Source: F:\Programmierung\AppUpdate\Crazysoft AppUpdate\bin\Release\Lang\AppUpdate.resources; DestDir: {cf}\Crazysoft\AppUpdate\Lang; Flags: sharedfile promptifolder uninsnosharedfileprompt; Components: Updater
-Source: F:\Programmierung\AppUpdate\Crazysoft AppUpdate\bin\Release\Lang\AppUpdate.de.resources; DestDir: {cf}\Crazysoft\AppUpdate\Lang; Flags: sharedfile promptifolder uninsnosharedfileprompt; Components: Updater
-Source: F:\Programmierung\AppUpdate\Crazysoft AppUpdate\bin\Release\Crazysoft.Encryption.dll; DestDir: {cf}\Crazysoft\AppUpdate; Flags: promptifolder sharedfile uninsnosharedfileprompt; Components: Updater
-Source: F:\Programmierung\AppUpdate\Crazysoft AppUpdate\bin\Release\Crazysoft.CrashHandler.dll; DestDir: {cf}\Crazysoft\AppUpdate; Components: Updater; Flags: promptifolder sharedfile uninsnosharedfileprompt
-Source: F:\Programmierung\AppUpdate\Selfupdate\bin\Release\SelfUpdate.exe; DestDir: {cf}\Crazysoft\AppUpdate; Flags: promptifolder sharedfile uninsnosharedfileprompt; Components: Updater
+Source: "F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\OTRRemote.exe"; DestDir: "{app}"; Flags: promptifolder; Components: Main_Program
+Source: "F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\de\OTRRemote.resources.dll"; DestDir: "{app}\de"; Flags: promptifolder; Components: Main_Program; Languages: de
+Source: "F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\Stations.xml"; DestDir: "{app}"; Flags: promptifolder onlyifdoesntexist; Components: Main_Program
+Source: "F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\Crazysoft.AppSettings.dll"; DestDir: "{app}"; Flags: promptifolder; Components: Main_Program
+Source: "F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\Crazysoft.CrashHandler.dll"; DestDir: "{app}"; Flags: promptifolder; Components: Main_Program
+Source: "F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\Crazysoft.Encryption.dll"; DestDir: "{app}"; Flags: promptifolder; Components: Main_Program
+Source: "F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\OTRAPI.dll"; DestDir: "{app}"; Flags: promptifolder; Components: Main_Program
+Source: "F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\TVgenial.dll"; DestDir: "{app}"; Flags: promptifolder; Components: Main_Program
+Source: "F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\de\TVgenial.resources.dll"; DestDir: "{app}\de"; Flags: promptifolder; Components: Main_Program; Languages: de
+Source: "F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\Clickfinder.dll"; DestDir: "{app}"; Flags: promptifolder; Components: Main_Program
+Source: "F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\ClickfinderHelper.exe"; DestDir: "{app}"; Flags: promptifolder; Components: Main_Program
+Source: "F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\de\Clickfinder.resources.dll"; DestDir: "{app}\de"; Flags: promptifolder; Components: Main_Program; Languages: de
+Source: "F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\TVBrowser.dll"; DestDir: "{app}"; Flags: promptifolder; Components: Main_Program
+Source: "F:\Programmierung\PiKaSoft OTR Remote\TVBrowserPlugin\bin\OTRRemote.jar"; DestDir: "{app}"; Flags: promptifolder; Components: Main_Program
+Source: "F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\de\TVBrowser.resources.dll"; DestDir: "{app}\de"; Flags: promptifolder; Components: Main_Program; Languages: de
+Source: "F:\Programmierung\PiKaSoft OTR Remote\Help\Help_en.chm"; DestDir: "{app}"; Flags: promptifolder; Components: Main_Program\Help; Languages: en
+Source: "F:\Programmierung\PiKaSoft OTR Remote\Help\Help_de.chm"; DestDir: "{app}"; Flags: promptifolder; Components: Main_Program\Help; Languages: de
+Source: "F:\Programmierung\PiKaSoft OTR Remote\Help\English\Developer Documentation\PluginDev.chm"; DestDir: "{app}"; Flags: promptifolder; Components: Developer_Package\Help
+Source: "F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\SamplePlugin.cs"; DestDir: "{app}"; Flags: promptifolder; Components: Developer_Package\Sample_Plugin
+Source: "F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\PluginSample.dll"; DestDir: "{app}"; Flags: promptifolder; Components: Developer_Package\Sample_Plugin
+Source: "F:\Programmierung\AppUpdate\Crazysoft AppUpdate\bin\Release\AppUpdate.exe"; DestDir: "{cf}\Crazysoft\AppUpdate"; Flags: sharedfile promptifolder uninsnosharedfileprompt; Components: Updater
+Source: "F:\Programmierung\AppUpdate\Crazysoft AppUpdate\bin\Release\Lang\AppUpdate.resources"; DestDir: "{cf}\Crazysoft\AppUpdate\Lang"; Flags: sharedfile promptifolder uninsnosharedfileprompt; Components: Updater
+Source: "F:\Programmierung\AppUpdate\Crazysoft AppUpdate\bin\Release\Lang\AppUpdate.de.resources"; DestDir: "{cf}\Crazysoft\AppUpdate\Lang"; Flags: sharedfile promptifolder uninsnosharedfileprompt; Components: Updater
+Source: "F:\Programmierung\AppUpdate\Crazysoft AppUpdate\bin\Release\Crazysoft.Encryption.dll"; DestDir: "{cf}\Crazysoft\AppUpdate"; Flags: promptifolder sharedfile uninsnosharedfileprompt; Components: Updater
+Source: "F:\Programmierung\AppUpdate\Crazysoft AppUpdate\bin\Release\Crazysoft.CrashHandler.dll"; DestDir: "{cf}\Crazysoft\AppUpdate"; Flags: promptifolder sharedfile uninsnosharedfileprompt; Components: Updater
+Source: "F:\Programmierung\AppUpdate\Selfupdate\bin\Release\SelfUpdate.exe"; DestDir: "{cf}\Crazysoft\AppUpdate"; Flags: promptifolder sharedfile uninsnosharedfileprompt; Components: Updater
+
 [Icons]
 Name: {group}\OTR Remote; Filename: {app}\OTRRemote.exe; WorkingDir: {app}; IconFilename: {app}\OTRRemote.exe; IconIndex: 0; Components: Main_Program
 Name: {group}\{cm:Help}; Filename: {app}\Help_en.chm; WorkingDir: {app}; Languages: en
@@ -75,14 +77,16 @@ Name: Updater; Description: {cm:UpdateProgram}; Types: CustomInstallation FullIn
 Name: Developer_Package; Description: {cm:DeveloperPackage}; Types: CustomInstallation OnlyDeveloper FullInstallation
 Name: Developer_Package\Help; Description: {cm:DeveloperHelp}; Types: CustomInstallation OnlyDeveloper FullInstallation
 Name: Developer_Package\Sample_Plugin; Description: {cm:SamplePlugin}; Types: CustomInstallation OnlyDeveloper FullInstallation
+
 [Registry]
-Root: HKLM; Subkey: SOFTWARE\Crazysoft; Flags: uninsdeletekeyifempty; Components: Main_Program
-Root: HKLM; Subkey: SOFTWARE\Crazysoft\AppUpdate; Flags: uninsdeletekeyifempty; Components: Main_Program
-Root: HKLM; Subkey: SOFTWARE\Crazysoft\AppUpdate; ValueType: string; ValueName: InstallationPath; ValueData: {cf}\Crazysoft\AppUpdate; Components: Updater; Flags: uninsdeletekeyifempty uninsdeletevalue
-Root: HKLM; Subkey: SOFTWARE\Crazysoft\AppUpdate\InstalledProducts; Flags: uninsdeletekeyifempty; Components: Main_Program
-Root: HKLM; Subkey: SOFTWARE\Crazysoft\AppUpdate\InstalledProducts\Crazysoft.OTR_Remote; ValueType: string; ValueName: ProductName; ValueData: Crazysoft OTR Remote; Flags: uninsdeletekey; Components: Main_Program
-Root: HKLM; Subkey: SOFTWARE\Crazysoft\AppUpdate\InstalledProducts\Crazysoft.OTR_Remote; ValueType: string; ValueName: Version; ValueData: 2.1.0.2; Flags: uninsdeletekey; Components: Main_Program
-Root: HKLM; Subkey: SOFTWARE\Crazysoft\AppUpdate\InstalledProducts\Crazysoft.OTR_Remote; ValueType: string; ValueName: InstallationPath; ValueData: {app}; Flags: uninsdeletekey; Components: Main_Program
+Root: "HKLM"; Subkey: "SOFTWARE\Crazysoft"; Flags: uninsdeletekeyifempty; Components: Main_Program
+Root: "HKLM"; Subkey: "SOFTWARE\Crazysoft\AppUpdate"; Flags: uninsdeletekeyifempty; Components: Main_Program
+Root: "HKLM"; Subkey: "SOFTWARE\Crazysoft\AppUpdate"; ValueType: string; ValueName: "InstallationPath"; ValueData: "{cf}\Crazysoft\AppUpdate"; Flags: uninsdeletekeyifempty uninsdeletevalue; Components: Updater
+Root: "HKLM"; Subkey: "SOFTWARE\Crazysoft\AppUpdate\InstalledProducts"; Flags: uninsdeletekeyifempty; Components: Main_Program
+Root: "HKLM"; Subkey: "SOFTWARE\Crazysoft\AppUpdate\InstalledProducts\Crazysoft.OTR_Remote"; ValueType: string; ValueName: "ProductName"; ValueData: "Crazysoft OTR Remote"; Flags: uninsdeletekey; Components: Main_Program
+Root: "HKLM"; Subkey: "SOFTWARE\Crazysoft\AppUpdate\InstalledProducts\Crazysoft.OTR_Remote"; ValueType: string; ValueName: "Version"; ValueData: "2.1.1.0"; Flags: uninsdeletekey; Components: Main_Program
+Root: "HKLM"; Subkey: "SOFTWARE\Crazysoft\AppUpdate\InstalledProducts\Crazysoft.OTR_Remote"; ValueType: string; ValueName: "InstallationPath"; ValueData: "{app}"; Flags: uninsdeletekey; Components: Main_Program
+
 [UninstallDelete]
 Name: {cf}\Crazysoft\AppUpdate\update.log; Type: files; Components: Updater
 Name: {cf}\Crazysoft\AppUpdate\AppUpdate.exe; Type: files; Components: Updater
@@ -144,13 +148,19 @@ Name: OnlyMainProgram; Description: {cm:OnlyMainProgram}
 Name: OnlyDeveloper; Description: {cm:OnlyDeveloper}
 Name: FullInstallation; Description: {cm:FullInstallation}
 Name: CustomInstallation; Description: {cm:CustomInstallation}; Flags: iscustom
+
 [Tasks]
-Name: CreateDesktopIcon; Description: {cm:CreateDesktopIcon}; GroupDescription: {cm:Shortcuts}; Components: Main_Program
-Name: RunOTRRemote; Description: {cm:RunOTRRemote}; GroupDescription: {cm:Tasks}; Flags: exclusive; Components: Main_Program
-Name: RunAppUpdate; Description: {cm:RunAppUpdate}; GroupDescription: {cm:Tasks}; Flags: unchecked exclusive; Components: Updater
+Name: "CreateDesktopIcon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:Shortcuts}"; Components: Main_Program
+Name: "RunOTRRemote"; Description: "{cm:RunOTRRemote}"; GroupDescription: "{cm:Tasks}"; Components: Main_Program
+Name: "RunAppUpdate"; Description: "{cm:RunAppUpdate}"; GroupDescription: "{cm:Tasks}"; Flags: unchecked; Components: Updater
+
 [Run]
 Filename: {app}\OTRRemote.exe; WorkingDir: {app}; Flags: nowait postinstall; Components: Main_Program; Tasks: RunOTRRemote
 Filename: {cf}\Crazysoft\AppUpdate\AppUpdate.exe; WorkingDir: {cf}\Crazysoft\AppUpdate; Flags: nowait postinstall; Tasks: RunAppUpdate; Components: Updater
+
+[PostCompile]
+Name: F:\Programmierung\PiKaSoft OTR Remote\Setup\CreateArchive.bat; Parameters:
+
 [Code]
 FUNCTION CheckDotNet(CONST MinVersion: Integer): Boolean;
 VAR
@@ -159,7 +169,7 @@ VAR
 	NetFramework3Installed: Boolean;
 	NetFramework35Installed: Boolean;
 BEGIN
-    NetFramework35Installed := RegKeyExists(HKLM, 'SOFTWARE\Microsoft\NET Framework Setup\NDP\v3.5');
+  NetFramework35Installed := RegKeyExists(HKLM, 'SOFTWARE\Microsoft\NET Framework Setup\NDP\v3.5');
 	NetFramework3Installed := RegKeyExists(HKLM, 'SOFTWARE\Microsoft\NET Framework Setup\NDP\v3.0');
 	NetFramework2Installed := RegKeyExists(HKLM, 'SOFTWARE\Microsoft\.NETFramework\Policy\v2.0');
 	NetFramework1Installed := RegKeyExists(HKLM, 'SOFTWARE\Microsoft\.NETFramework\Policy\v1.1');
@@ -204,8 +214,6 @@ BEGIN
 		result := true
 	END;
 END.
-
-
 
 [_ISToolPostCompile]
 Name: F:\Programmierung\PiKaSoft OTR Remote\Setup\CreateArchive.bat; Parameters: 

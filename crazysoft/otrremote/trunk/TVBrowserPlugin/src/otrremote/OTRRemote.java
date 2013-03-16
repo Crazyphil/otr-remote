@@ -358,31 +358,33 @@ public class OTRRemote extends Plugin implements ActionListener {
 				endTime = endTime.plusMinutes(program.getLength());
 			}
 			
-			StringBuffer arguments = new StringBuffer();
-			if (delete) {
-				arguments.append("-r ");
-			} else {
-				arguments.append("-a ");
-			}
-			arguments.append(String.format("-s=\"%s\" ", program.getChannel()));
-			arguments.append(String.format("-sd=%tF ", startTime.toGregorianCalendar()));
-			arguments.append(String.format("-st=%tR ", startTime.toGregorianCalendar()));
-			if (program.getLength() >= 0) {
-				arguments.append(String.format("-et=%tR ", endTime.toGregorianCalendar()));
-			}
-			arguments.append(String.format("-t=\"%s\" ", program.getTitle()));
-			if (program.getTextField(ProgramFieldType.GENRE_TYPE) != null) {
-				arguments.append(String.format("-g=\"%s\" ", program.getTextField(ProgramFieldType.GENRE_TYPE)));
-			}
-
-			String command;
+			ArrayList<String> arguments = new ArrayList<String>();
 			if (path.startsWith("mono")) {
-				command = String.format("mono \"%s\" %s", path.split(" ", 2)[1], arguments.toString());
+				arguments.add("mono");
+				arguments.add(path.split(" ", 2)[1]);
 			} else {
-				command = String.format("\"%s\" %s", path, arguments.toString());
+				arguments.add(path);
+			}
+			
+			if (delete) {
+				arguments.add("-r");
+			} else {
+				arguments.add("-a");
+			}
+			arguments.add(String.format("-s=%s", program.getChannel()));
+			arguments.add(String.format("-sd=%tF", startTime.toGregorianCalendar()));
+			arguments.add(String.format("-st=%tR", startTime.toGregorianCalendar()));
+			if (program.getLength() >= 0) {
+				arguments.add(String.format("-et=%tR", endTime.toGregorianCalendar()));
+			}
+			arguments.add(String.format("-t=%s", program.getTitle()));
+			if (program.getTextField(ProgramFieldType.GENRE_TYPE) != null) {
+				arguments.add(String.format("-g=%s", program.getTextField(ProgramFieldType.GENRE_TYPE)));
 			}
 
-			Thread thread = new Thread(new OTRRemoteRunner(program, Runtime.getRuntime().exec(command), delete));
+			ProcessBuilder pb = new ProcessBuilder(arguments);
+			pb.directory(otrExe.getAbsoluteFile().getParentFile());
+			Thread thread = new Thread(new OTRRemoteRunner(program, pb.start(), delete));
 			thread.start();
 		} catch (Exception excp) {
 			String message = "Error while processing the recording job: ";
