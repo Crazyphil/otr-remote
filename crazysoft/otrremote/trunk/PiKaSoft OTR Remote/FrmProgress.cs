@@ -50,6 +50,9 @@ namespace Crazysoft.OTRRemote
 
         bool _justLoaded;
 
+        // Holds the German and English error messages found in the responses
+        WebpageErrors _errMsgs;
+
         // Background Worker
         private System.ComponentModel.BackgroundWorker bwWorker;
 
@@ -228,6 +231,28 @@ namespace Crazysoft.OTRRemote
         public delegate void StartRecordThreadDelegate(FormDisplayMode displayMode);
         public void StartRecordThread(FormDisplayMode displayMode)
         {
+            // Cache object for German and English error messages
+            _errMsgs = new WebpageErrors();
+
+            // First, cache German messages
+            Lang.OTRRemote.Culture = System.Globalization.CultureInfo.GetCultureInfo("de");
+            _errMsgs.DeleteNotRecorded_de = Lang.OTRRemote.FrmProgress_Result_NotRecorded;
+            _errMsgs.AddTooLate_de = Lang.OTRRemote.FrmProgress_Result_TooLate;
+            _errMsgs.AddWrongLogin_de = Lang.OTRRemote.FrmProgress_Result_WrongLogin;
+            _errMsgs.AddAlreadyRecorded_de = Lang.OTRRemote.FrmProgress_Result_AlreadyRecorded;
+            _errMsgs.AddSuccess_de = Lang.OTRRemote.FrmProgress_Result_Success;
+
+            // Then, cache English messages
+            Lang.OTRRemote.Culture = System.Globalization.CultureInfo.GetCultureInfo("en");
+            _errMsgs.DeleteNotRecorded_en = Lang.OTRRemote.FrmProgress_Result_NotRecorded;
+            _errMsgs.AddTooLate_en = Lang.OTRRemote.FrmProgress_Result_TooLate;
+            _errMsgs.AddWrongLogin_en = Lang.OTRRemote.FrmProgress_Result_WrongLogin;
+            _errMsgs.AddAlreadyRecorded_en = Lang.OTRRemote.FrmProgress_Result_AlreadyRecorded;
+            _errMsgs.AddSuccess_en = Lang.OTRRemote.FrmProgress_Result_Success;
+
+            // Set the language back to the UI language
+            Lang.OTRRemote.Culture = System.Globalization.CultureInfo.CurrentUICulture;
+
             this.IsWorking = true;
 
             // Create new Background Worker for each recording to avoid conflicts with current status
@@ -298,6 +323,16 @@ namespace Crazysoft.OTRRemote
                     return;
                 }
 
+                // Check for login errors early
+                if (request == null)
+                {
+                    UpdateTaskbarProgressBar(Windows7.TaskbarButtonProgressState.Error);
+                    MessageBox.Show(Lang.OTRRemote.FrmProgress_Error_WrongLogin,
+                                    String.Concat("Crazysoft OTR Remote: ", Lang.OTRRemote.FrmProgress_ErrorMsg_Title),
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 string epgid = String.Empty;
                 // If we should delete the recording, look for the EPG ID
                 if (data.RequestString.Contains("?aktion=deleteJob"))
@@ -309,7 +344,7 @@ namespace Crazysoft.OTRRemote
                         return;
                     }
                     request =
-                        CreateNewRequest(String.Concat("http://www.onlinetvrecorder.com/index.php?aktion=deleteJob&quickexit=true&epgid=",
+                        CreateNewRequest(String.Concat("https://www.onlinetvrecorder.com/index.php?aktion=deleteJob&quickexit=true&epgid=",
                                          Convert.ToBase64String(Encoding.Default.GetBytes(epgid))), true);
                 }
 
@@ -329,35 +364,13 @@ namespace Crazysoft.OTRRemote
                 sr.Close();
                 response.Close();
 
-                // Cache object for German and English error messages
-                WebpageErrors errMsgs = new WebpageErrors();
-
-                // First, cache German messages
-                Lang.OTRRemote.Culture = System.Globalization.CultureInfo.GetCultureInfo("de");
-                errMsgs.DeleteNotRecorded_de = Lang.OTRRemote.FrmProgress_Result_NotRecorded;
-                errMsgs.AddTooLate_de = Lang.OTRRemote.FrmProgress_Result_TooLate;
-                errMsgs.AddWrongLogin_de = Lang.OTRRemote.FrmProgress_Result_WrongLogin;
-                errMsgs.AddAlreadyRecorded_de = Lang.OTRRemote.FrmProgress_Result_AlreadyRecorded;
-                errMsgs.AddSuccess_de = Lang.OTRRemote.FrmProgress_Result_Success;
-
-                // Then, cache English messages
-                Lang.OTRRemote.Culture = System.Globalization.CultureInfo.GetCultureInfo("en");
-                errMsgs.DeleteNotRecorded_en = Lang.OTRRemote.FrmProgress_Result_NotRecorded;
-                errMsgs.AddTooLate_en = Lang.OTRRemote.FrmProgress_Result_TooLate;
-                errMsgs.AddWrongLogin_en = Lang.OTRRemote.FrmProgress_Result_WrongLogin;
-                errMsgs.AddAlreadyRecorded_en = Lang.OTRRemote.FrmProgress_Result_AlreadyRecorded;
-                errMsgs.AddSuccess_en = Lang.OTRRemote.FrmProgress_Result_Success;
-
-                // Set the language back to the UI language
-                Lang.OTRRemote.Culture = System.Globalization.CultureInfo.CurrentUICulture;
-
                 // Choose the error message set, depending on if we want to record or delete
                 if (data.RequestString.Contains("?aktion=deleteJob"))
                 { // Check for deletion errors
                     // Variable for holding the user's answer when asked if he wants to retry deleting
                     DialogResult retryAnswer;
 
-                    if (webpage.Contains(errMsgs.DeleteNotRecorded_de) || webpage.Contains(errMsgs.DeleteNotRecorded_en))
+                    if (webpage.Contains(_errMsgs.DeleteNotRecorded_de) || webpage.Contains(_errMsgs.DeleteNotRecorded_en))
                     { // Check if the user tries to delete the recording too early
                         // Ask the user to automatically retry deletion
                         if (this.ManualCall)
@@ -400,21 +413,14 @@ namespace Crazysoft.OTRRemote
                 else
                 { // Check for recording errors
                     // Check for the various status messages in the returned page
-                    if (webpage.Contains(errMsgs.AddTooLate_de) || webpage.Contains(errMsgs.AddTooLate_en))
+                    if (webpage.Contains(_errMsgs.AddTooLate_de) || webpage.Contains(_errMsgs.AddTooLate_en))
                     {
                         UpdateTaskbarProgressBar(Windows7.TaskbarButtonProgressState.Error);
                         MessageBox.Show(Lang.OTRRemote.FrmProgress_Error_Date,
                                         String.Concat("Crazysoft OTR Remote: ", Lang.OTRRemote.FrmProgress_ErrorMsg_Title),
                                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    else if (webpage.Contains(errMsgs.AddWrongLogin_de) || webpage.Contains(errMsgs.AddWrongLogin_en))
-                    {
-                        UpdateTaskbarProgressBar(Windows7.TaskbarButtonProgressState.Error);
-                        MessageBox.Show(Lang.OTRRemote.FrmProgress_Error_WrongLogin,
-                                        String.Concat("Crazysoft OTR Remote: ", Lang.OTRRemote.FrmProgress_ErrorMsg_Title),
-                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else if (webpage.Contains(errMsgs.AddAlreadyRecorded_de) || webpage.Contains(errMsgs.AddAlreadyRecorded_en))
+                    else if (webpage.Contains(_errMsgs.AddAlreadyRecorded_de) || webpage.Contains(_errMsgs.AddAlreadyRecorded_en))
                     {
                         UpdateTaskbarProgressBar(Windows7.TaskbarButtonProgressState.Paused);
                         if (this.DisplayMode == FormDisplayMode.ShowWindow)
@@ -425,7 +431,7 @@ namespace Crazysoft.OTRRemote
                         }
                         e.Result = WorkerResult.Success;
                     }
-                    else if (webpage.Contains(errMsgs.AddSuccess_de) || webpage.Contains(errMsgs.AddSuccess_en))
+                    else if (webpage.Contains(_errMsgs.AddSuccess_de) || webpage.Contains(_errMsgs.AddSuccess_en))
                     {
                         e.Result = WorkerResult.Success;
                     }
@@ -721,9 +727,9 @@ namespace Crazysoft.OTRRemote
                 HttpWebRequest request;
                 if (_cookies.Count == 0)
                 {
-                    request = CreateNewRequest("http://www.onlinetvrecorder.com/v2/index.php?go=login");
+                    request = CreateNewRequest("https://www.onlinetvrecorder.com/v2/index.php?go=login");
 
-                    string postString = String.Concat("email=", _recInfo[_currentRecording].User.Replace("@", "%40"), "&password=", _recInfo[_currentRecording].Password, "&btn_login=Anmelden");
+                    string postString = String.Concat("email=", _recInfo[_currentRecording].User.Replace("@", "%40"), "&password=", _recInfo[_currentRecording].Password, "&btn_login=+Anmelden+");
 
                     // POST user login data
                     ASCIIEncoding encoding = new ASCIIEncoding();
@@ -737,7 +743,15 @@ namespace Crazysoft.OTRRemote
 
                     HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                     _cookies.Add(response.Cookies);
+                    StreamReader sr = new StreamReader(response.GetResponseStream());
+                    string answer = sr.ReadToEnd();
+                    sr.Close();
                     response.Close();
+
+                    if (answer.Contains(_errMsgs.AddWrongLogin_de) || answer.Contains(_errMsgs.AddWrongLogin_en))
+                    {
+                        return null;
+                    }
                 }
 
                 request = CreateNewRequest(url);
@@ -757,7 +771,7 @@ namespace Crazysoft.OTRRemote
             TimeSpan ts = new DateTime(recInfo.StartDate.Year, recInfo.StartDate.Month, recInfo.StartDate.Day, 0, 0, 0).ToUniversalTime() - new DateTime(1970, 1, 1, 0, 0, 0).ToUniversalTime();
 
             // Create search URL string
-            string searchUrl = String.Concat("http://epg.onlinetvrecorder.com/broadcasts/search?searchterm=", recInfo.Title, "&beginn=",
+            string searchUrl = String.Concat("https://epg.onlinetvrecorder.com/broadcasts/search?searchterm=", recInfo.Title, "&beginn=",
                                ts.TotalSeconds + "&sender=" + recInfo.Station.ToLower(),
                                "&typ=&wish=&search=suche&otr_stations=1");
             string postString = String.Concat("user[email]=", recInfo.User.Replace("@", "%40"), "&user[password]=", recInfo.Password, "&commit=einloggen");
@@ -768,7 +782,7 @@ namespace Crazysoft.OTRRemote
             try
             {
                 // First, log in at the EPG service
-                HttpWebRequest request = CreateNewRequest("http://epg.onlinetvrecorder.com/login/login");
+                HttpWebRequest request = CreateNewRequest("https://epg.onlinetvrecorder.com/login/login");
                 request.CookieContainer = new CookieContainer();
                 request.Method = "POST";
                 request.ContentType = "application/x-www-form-urlencoded";

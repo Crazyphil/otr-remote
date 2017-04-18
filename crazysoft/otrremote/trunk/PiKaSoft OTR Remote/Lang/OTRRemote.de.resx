@@ -492,7 +492,7 @@ Bitte löschen Sie die Aufnahme auf der OTR-Website.</value>
     <value>Aktionsfortschritt</value>
   </data>
   <data name="FrmProgress_Result_WrongLogin" xml:space="preserve">
-    <value>Bitte loggen Sie sich ein, um auf alle Funktionen von</value>
+    <value>Das Passwort ist nicht korrekt!</value>
   </data>
   <data name="FrmProgress_Status_Aborting" xml:space="preserve">
     <value>Bitte warten, breche ab...</value>

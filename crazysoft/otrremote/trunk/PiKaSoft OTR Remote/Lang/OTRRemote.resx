@@ -700,7 +700,7 @@ Should OTR Remote retry to delete this recording automatically in 10 minutes?</v
     <value>{0} {1}: {3}</value>
   </data>
   <data name="FrmProgress_lblCurRec_NoTitle" xml:space="preserve">
-    <value>{0 {1}, {2}</value>
+    <value>{0} {1}, {2}</value>
   </data>
   <data name="FrmRecordingPreview_lblRecordingCount" xml:space="preserve">
     <value>1 recording will be processed</value>

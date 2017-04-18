@@ -402,7 +402,7 @@ namespace Crazysoft.OTRRemote
 
                         // Initialize request URL and object
                         // Warn the user if he tries to remove a job
-                        recInfo[0].RequestString = "http://www.onlinetvrecorder.com/?aktion=";
+                        recInfo[0].RequestString = "https://www.onlinetvrecorder.com/?aktion=";
                         if (addShow)
                         {
                             recInfo[0].RequestString = String.Concat(recInfo[0].RequestString, "createJob");
