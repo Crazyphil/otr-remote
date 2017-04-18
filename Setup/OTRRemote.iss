@@ -1,21 +1,21 @@
 [Setup]
-VersionInfoVersion=2.1.1.0
+VersionInfoVersion=2.1.3.0
 VersionInfoCompany=Crazysoft
 VersionInfoDescription=Recording interface for OnlineTVRecorder.com
-VersionInfoTextVersion=2.1.1.0
-VersionInfoCopyright=Copyright © Crazysoft 2006-2013
-AppCopyright=Copyright © Crazysoft 2006-2013
+VersionInfoTextVersion=2.1.3.0
+VersionInfoCopyright=Copyright © Crazysoft 2006-2017
+AppCopyright=Copyright © Crazysoft 2006-2017
 AppName=Crazysoft OTR Remote
-AppVerName=OTR Remote 2.1.1.0
+AppVerName=OTR Remote 2.1.3.0
 LicenseFile=F:\Programmierung\PiKaSoft OTR Remote\Setup\License.rtf
 DefaultDirName={pf}\Crazysoft\OTR Remote\
 AllowNoIcons=true
 DefaultGroupName=Crazysoft\OTR Remote
 AppPublisher=Crazysoft
-AppPublisherURL=http://www.crazysoft.net.ms/
-AppSupportURL=http://www.crazysoft.net.ms/support.php
-AppUpdatesURL=http://www.crazysoft.net.ms/products/otrremote.php
-AppVersion=2.1.1.0
+AppPublisherURL=http://www.crazysoft-software.tk/
+AppSupportURL=http://www.crazysoft-software.tk/support.php
+AppUpdatesURL=http://www.crazysoft-software.tk/products/otrremote.php
+AppVersion=2.1.3.0
 UninstallDisplayName=Crazysoft OTR Remote
 WizardSmallImageFile=F:\Programmierung\PiKaSoft OTR Remote\Setup\logo.bmp
 UninstallDisplayIcon={app}\OTRRemote.exe
@@ -32,7 +32,7 @@ SetupIconFile=F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\VideoCam
 OutputDir=F:\Programmierung\PiKaSoft OTR Remote\Setup\Output
 SolidCompression=true
 VersionInfoProductName=OTR Remote
-VersionInfoProductVersion=2.1.1.0
+VersionInfoProductVersion=2.1.3.0
 
 [Files]
 Source: "F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\OTRRemote.exe"; DestDir: "{app}"; Flags: promptifolder; Components: Main_Program
@@ -84,7 +84,7 @@ Root: "HKLM"; Subkey: "SOFTWARE\Crazysoft\AppUpdate"; Flags: uninsdeletekeyifemp
 Root: "HKLM"; Subkey: "SOFTWARE\Crazysoft\AppUpdate"; ValueType: string; ValueName: "InstallationPath"; ValueData: "{cf}\Crazysoft\AppUpdate"; Flags: uninsdeletekeyifempty uninsdeletevalue; Components: Updater
 Root: "HKLM"; Subkey: "SOFTWARE\Crazysoft\AppUpdate\InstalledProducts"; Flags: uninsdeletekeyifempty; Components: Main_Program
 Root: "HKLM"; Subkey: "SOFTWARE\Crazysoft\AppUpdate\InstalledProducts\Crazysoft.OTR_Remote"; ValueType: string; ValueName: "ProductName"; ValueData: "Crazysoft OTR Remote"; Flags: uninsdeletekey; Components: Main_Program
-Root: "HKLM"; Subkey: "SOFTWARE\Crazysoft\AppUpdate\InstalledProducts\Crazysoft.OTR_Remote"; ValueType: string; ValueName: "Version"; ValueData: "2.1.1.0"; Flags: uninsdeletekey; Components: Main_Program
+Root: "HKLM"; Subkey: "SOFTWARE\Crazysoft\AppUpdate\InstalledProducts\Crazysoft.OTR_Remote"; ValueType: string; ValueName: "Version"; ValueData: "2.1.3.0"; Flags: uninsdeletekey; Components: Main_Program
 Root: "HKLM"; Subkey: "SOFTWARE\Crazysoft\AppUpdate\InstalledProducts\Crazysoft.OTR_Remote"; ValueType: string; ValueName: "InstallationPath"; ValueData: "{app}"; Flags: uninsdeletekey; Components: Main_Program
 
 [UninstallDelete]

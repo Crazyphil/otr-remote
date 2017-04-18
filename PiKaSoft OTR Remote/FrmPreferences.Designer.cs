@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPreferences));
             this.tcTabs = new System.Windows.Forms.TabControl();
             this.tcTabsProgram = new System.Windows.Forms.TabPage();
+            this.cbSilentDelete = new System.Windows.Forms.CheckBox();
             this.cbRecordingPreview = new System.Windows.Forms.CheckBox();
             this.cbRetryDelete = new System.Windows.Forms.CheckBox();
             this.cbProgressMethod = new System.Windows.Forms.ComboBox();
@@ -69,7 +70,6 @@
             this.llblUpdate = new System.Windows.Forms.LinkLabel();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.cbSilentDelete = new System.Windows.Forms.CheckBox();
             this.tcTabs.SuspendLayout();
             this.tcTabsProgram.SuspendLayout();
             this.pnlAutoClose.SuspendLayout();
@@ -115,6 +115,16 @@
             this.tcTabsProgram.TabIndex = 0;
             this.tcTabsProgram.Text = "Program";
             this.tcTabsProgram.UseVisualStyleBackColor = true;
+            // 
+            // cbSilentDelete
+            // 
+            this.cbSilentDelete.AutoSize = true;
+            this.cbSilentDelete.Location = new System.Drawing.Point(6, 128);
+            this.cbSilentDelete.Name = "cbSilentDelete";
+            this.cbSilentDelete.Size = new System.Drawing.Size(200, 17);
+            this.cbSilentDelete.TabIndex = 5;
+            this.cbSilentDelete.Text = "Don\'t ask before deleting a recording";
+            this.cbSilentDelete.UseVisualStyleBackColor = true;
             // 
             // cbRecordingPreview
             // 
@@ -449,10 +459,10 @@
             this.llblHomepage.AutoSize = true;
             this.llblHomepage.Location = new System.Drawing.Point(6, 98);
             this.llblHomepage.Name = "llblHomepage";
-            this.llblHomepage.Size = new System.Drawing.Size(146, 13);
+            this.llblHomepage.Size = new System.Drawing.Size(167, 13);
             this.llblHomepage.TabIndex = 5;
             this.llblHomepage.TabStop = true;
-            this.llblHomepage.Text = "http://www.crazysoft.net.ms/";
+            this.llblHomepage.Text = "http://www.crazysoft-software.tk/";
             this.llblHomepage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblHomepage_LinkClicked);
             // 
             // lblThanks
@@ -525,16 +535,6 @@
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // cbSilentDelete
-            // 
-            this.cbSilentDelete.AutoSize = true;
-            this.cbSilentDelete.Location = new System.Drawing.Point(6, 128);
-            this.cbSilentDelete.Name = "cbSilentDelete";
-            this.cbSilentDelete.Size = new System.Drawing.Size(200, 17);
-            this.cbSilentDelete.TabIndex = 5;
-            this.cbSilentDelete.Text = "Don\'t ask before deleting a recording";
-            this.cbSilentDelete.UseVisualStyleBackColor = true;
             // 
             // FrmPreferences
             // 

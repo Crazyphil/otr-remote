@@ -59,7 +59,7 @@ public class OTRRemote extends Plugin implements ActionListener {
 	public PluginInfo getInfo() {
 		String name = "Crazysoft OTR Remote";
 		String desc = "Adds a recording job to OnlineTvRecorder.com";
-		String author = "Crazysoft, www.crazysoft.net.ms";
+		String author = "Crazysoft, www.crazysoft-software.tk";
 
 		if (this.lang.equals("de")) {
 			desc = "Fügt einen Aufnahmeauftrag zu OnlineTvRecorder.com hinzu";

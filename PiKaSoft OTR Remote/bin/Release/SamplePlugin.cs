@@ -10,7 +10,7 @@
  * 
  * If you have developed a useful plugin and want it to
  * be listed on our homepage, please contact us on our
- * homepage http://www.crazysoft.net.ms/.
+ * homepage http://www.crazysoft-software.tk/.
  * We are pleased to see some interesting work from you.
  * 
  * 

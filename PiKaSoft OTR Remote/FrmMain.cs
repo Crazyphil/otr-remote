@@ -336,7 +336,7 @@ namespace Crazysoft.OTRRemote
                 if (System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName == "de") {
                     lang = "de";
                 }
-                System.Diagnostics.Process.Start(String.Concat("http://crazysoft.pytalhost.com/help/otrremote/", lang, "/"));
+                System.Diagnostics.Process.Start(String.Concat("http://www.crazysoft-software.tk/help/otrremote/", lang, "/"));
             }
         }
 
