@@ -124,7 +124,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="OTRRemote.pfx" />
-    <None Include="PluginClickfinder.pfx" />
     <None Include="Preview.jpg" />
   </ItemGroup>
   <ItemGroup>
