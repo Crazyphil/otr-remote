@@ -82,7 +82,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="OTRRemote.pfx" />
-    <None Include="PluginClickfinderHelper.pfx" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

@@ -146,7 +146,6 @@
   <ItemGroup>
     <None Include="Images\de\SettingsTab.jpg" />
     <None Include="OTRRemote.pfx" />
-    <None Include="PluginTVBrowser.pfx" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

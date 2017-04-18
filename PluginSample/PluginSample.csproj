@@ -80,7 +80,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="OTRRemote.pfx" />
-    <None Include="PluginSample.snk" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

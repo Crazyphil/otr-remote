@@ -105,7 +105,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="OTRRemote.pfx" />
-    <None Include="PluginTVgenial.pfx" />
     <None Include="Resources\Logo.png" />
   </ItemGroup>
   <ItemGroup>
