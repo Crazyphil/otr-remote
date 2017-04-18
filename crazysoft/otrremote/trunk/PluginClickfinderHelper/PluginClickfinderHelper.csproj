@@ -17,8 +17,8 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>3.5</OldToolsVersion>
-    <SignAssembly>false</SignAssembly>
-    <AssemblyOriginatorKeyFile>PluginClickfinderHelper.pfx</AssemblyOriginatorKeyFile>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>OTRRemote.pfx</AssemblyOriginatorKeyFile>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <SignManifests>false</SignManifests>
     <SccProjectName>
@@ -81,6 +81,7 @@
     <Content Include="video.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="OTRRemote.pfx" />
     <None Include="PluginClickfinderHelper.pfx" />
   </ItemGroup>
   <ItemGroup>
