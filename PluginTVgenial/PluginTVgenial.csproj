@@ -10,14 +10,14 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Crazysoft.OTRRemote</RootNamespace>
     <AssemblyName>TVgenial</AssemblyName>
-    <SignAssembly>false</SignAssembly>
+    <SignAssembly>true</SignAssembly>
     <DelaySign>false</DelaySign>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>3.5</OldToolsVersion>
-    <AssemblyOriginatorKeyFile>PluginTVgenial.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>OTRRemote.pfx</AssemblyOriginatorKeyFile>
     <SccProjectName>
     </SccProjectName>
     <SccLocalPath>
@@ -104,6 +104,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="OTRRemote.pfx" />
     <None Include="PluginTVgenial.pfx" />
     <None Include="Resources\Logo.png" />
   </ItemGroup>
