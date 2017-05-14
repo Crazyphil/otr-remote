@@ -7,6 +7,7 @@ using System.Drawing.Drawing2D;
 using System.IO;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
 using Crazysoft.Encryption;
@@ -741,17 +742,22 @@ namespace Crazysoft.OTRRemote
                     Stream requestWriter = request.GetRequestStream();
                     requestWriter.Write(postData, 0, postData.Length);
 
-                    HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-                    _cookies.Add(response.Cookies);
-                    StreamReader sr = new StreamReader(response.GetResponseStream());
-                    string answer = sr.ReadToEnd();
-                    sr.Close();
-                    response.Close();
-
+                    String answer = GetResponse(request);
                     if (answer.Contains(_errMsgs.AddWrongLogin_de) || answer.Contains(_errMsgs.AddWrongLogin_en))
                     {
                         return null;
                     }
+
+                    // Now we have to query the homepage, from which we can fetch the OTR user id we need for proceeding
+                    request = CreateNewRequest("https://www.onlinetvrecorder.com/v2/index.php?go=");
+                    request.CookieContainer = _cookies;
+                    answer = GetResponse(request);
+                    Match idMatch = Regex.Match(answer, "createCookie\\(\\s*\"OTRi\"\\s*,\\s*\"(?<uid>\\d+)\"\\s*,");
+                    if (!idMatch.Success)
+                    {
+                        return null;
+                    }
+                    _cookies.Add(new Cookie("OTRi", idMatch.Groups["uid"].Value, "/", "www.onlinetvrecorder.com"));
                 }
 
                 request = CreateNewRequest(url);
@@ -762,6 +768,17 @@ namespace Crazysoft.OTRRemote
             {
                 return CreateNewRequest(url);
             }
+        }
+
+        private String GetResponse(HttpWebRequest request)
+        {
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            _cookies.Add(response.Cookies);
+            StreamReader sr = new StreamReader(response.GetResponseStream());
+            string answer = sr.ReadToEnd();
+            sr.Close();
+            response.Close();
+            return answer;
         }
         #endregion
 
