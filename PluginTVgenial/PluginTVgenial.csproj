@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Crazysoft.OTRRemote</RootNamespace>
     <AssemblyName>TVgenial</AssemblyName>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
     <DelaySign>false</DelaySign>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
