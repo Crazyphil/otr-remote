@@ -1,7 +1,13 @@
 F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\OTRAPI.dll
 F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\OTRAPI.pdb
-F:\Programmierung\PiKaSoft OTR Remote\OTRAPI\obj\Debug\ResolveAssemblyReference.cache
-F:\Programmierung\PiKaSoft OTR Remote\OTRAPI\obj\Debug\OTRAPI.csproj.GenerateResource.Cache
+F:\Programmierung\PiKaSoft OTR Remote\OTRAPI\obj\Debug\Crazysoft.OTRRemote.FrmPluginError.resources
 F:\Programmierung\PiKaSoft OTR Remote\OTRAPI\obj\Debug\OTRAPI.dll
 F:\Programmierung\PiKaSoft OTR Remote\OTRAPI\obj\Debug\OTRAPI.pdb
-F:\Programmierung\PiKaSoft OTR Remote\OTRAPI\obj\Debug\Crazysoft.OTRRemote.FrmPluginError.resources
+F:\Programmierung\PiKaSoft OTR Remote\OTRAPI\obj\Debug\OTRAPI.csprojResolveAssemblyReference.cache
+F:\Programmierung\PiKaSoft OTR Remote\OTRAPI\obj\Debug\OTRAPI.csproj.GenerateResource.Cache
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\OTRAPI.dll
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\OTRAPI.pdb
+F:\Programmierung\Crazysoft OTR Remote\OTRAPI\obj\Debug\Crazysoft.OTRRemote.FrmPluginError.resources
+F:\Programmierung\Crazysoft OTR Remote\OTRAPI\obj\Debug\OTRAPI.csproj.GenerateResource.Cache
+F:\Programmierung\Crazysoft OTR Remote\OTRAPI\obj\Debug\OTRAPI.dll
+F:\Programmierung\Crazysoft OTR Remote\OTRAPI\obj\Debug\OTRAPI.pdb

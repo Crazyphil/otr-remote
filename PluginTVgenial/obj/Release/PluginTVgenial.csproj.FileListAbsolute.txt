@@ -1,10 +1,20 @@
 F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\TVgenial.dll
 F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\TVgenial.pdb
 F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\de\TVgenial.resources.dll
-F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Release\ResolveAssemblyReference.cache
-F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Release\PluginTVgenial.csproj.GenerateResource.Cache
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Release\Crazysoft.OTRRemote.Lang.TVgenial.resources
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Release\Crazysoft.OTRRemote.Lang.TVgenial.de.resources
 F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Release\de\TVgenial.resources.dll
 F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Release\TVgenial.dll
 F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Release\TVgenial.pdb
-F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Release\Crazysoft.OTRRemote.Lang.TVgenial.resources
-F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Release\Crazysoft.OTRRemote.Lang.TVgenial.de.resources
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Release\PluginTVgenial.csprojResolveAssemblyReference.cache
+F:\Programmierung\PiKaSoft OTR Remote\PluginTVgenial\obj\Release\PluginTVgenial.csproj.GenerateResource.Cache
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\bin\Release\TVgenial.dll
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\bin\Release\TVgenial.pdb
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\bin\Release\de\TVgenial.resources.dll
+F:\Programmierung\Crazysoft OTR Remote\PluginTVgenial\obj\Release\PluginTVgenial.csprojResolveAssemblyReference.cache
+F:\Programmierung\Crazysoft OTR Remote\PluginTVgenial\obj\Release\Crazysoft.OTRRemote.Lang.TVgenial.resources
+F:\Programmierung\Crazysoft OTR Remote\PluginTVgenial\obj\Release\Crazysoft.OTRRemote.Lang.TVgenial.de.resources
+F:\Programmierung\Crazysoft OTR Remote\PluginTVgenial\obj\Release\PluginTVgenial.csproj.GenerateResource.Cache
+F:\Programmierung\Crazysoft OTR Remote\PluginTVgenial\obj\Release\de\TVgenial.resources.dll
+F:\Programmierung\Crazysoft OTR Remote\PluginTVgenial\obj\Release\TVgenial.dll
+F:\Programmierung\Crazysoft OTR Remote\PluginTVgenial\obj\Release\TVgenial.pdb

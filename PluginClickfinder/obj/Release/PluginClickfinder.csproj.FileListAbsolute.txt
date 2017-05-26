@@ -1,12 +1,24 @@
 F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\Clickfinder.dll
 F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\Clickfinder.pdb
 F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Release\de\Clickfinder.resources.dll
-F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinder\obj\Release\ResolveAssemblyReference.cache
-F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinder\obj\Release\PluginClickfinder.csproj.GenerateResource.Cache
-F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinder\obj\Release\de\Clickfinder.resources.dll
-F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinder\obj\Release\Clickfinder.dll
-F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinder\obj\Release\Clickfinder.pdb
 F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinder\obj\Release\Crazysoft.OTRRemote.FrmHowTo.resources
 F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinder\obj\Release\Crazysoft.OTRRemote.Lang.Clickfinder.resources
 F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinder\obj\Release\Crazysoft.OTRRemote.Properties.Resources.resources
 F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinder\obj\Release\Crazysoft.OTRRemote.Lang.Clickfinder.de.resources
+F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinder\obj\Release\de\Clickfinder.resources.dll
+F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinder\obj\Release\Clickfinder.dll
+F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinder\obj\Release\Clickfinder.pdb
+F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinder\obj\Release\PluginClickfinder.csprojResolveAssemblyReference.cache
+F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinder\obj\Release\PluginClickfinder.csproj.GenerateResource.Cache
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\bin\Release\Clickfinder.dll
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\bin\Release\Clickfinder.pdb
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\bin\Release\de\Clickfinder.resources.dll
+F:\Programmierung\Crazysoft OTR Remote\PluginClickfinder\obj\Release\PluginClickfinder.csprojResolveAssemblyReference.cache
+F:\Programmierung\Crazysoft OTR Remote\PluginClickfinder\obj\Release\Crazysoft.OTRRemote.FrmHowTo.resources
+F:\Programmierung\Crazysoft OTR Remote\PluginClickfinder\obj\Release\Crazysoft.OTRRemote.Lang.Clickfinder.resources
+F:\Programmierung\Crazysoft OTR Remote\PluginClickfinder\obj\Release\Crazysoft.OTRRemote.Properties.Resources.resources
+F:\Programmierung\Crazysoft OTR Remote\PluginClickfinder\obj\Release\Crazysoft.OTRRemote.Lang.Clickfinder.de.resources
+F:\Programmierung\Crazysoft OTR Remote\PluginClickfinder\obj\Release\PluginClickfinder.csproj.GenerateResource.Cache
+F:\Programmierung\Crazysoft OTR Remote\PluginClickfinder\obj\Release\de\Clickfinder.resources.dll
+F:\Programmierung\Crazysoft OTR Remote\PluginClickfinder\obj\Release\Clickfinder.dll
+F:\Programmierung\Crazysoft OTR Remote\PluginClickfinder\obj\Release\Clickfinder.pdb

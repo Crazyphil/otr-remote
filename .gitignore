@@ -1,0 +1,9 @@
+**/*.csproj.user
+**/*.pfx
+obj/
+.metadata/
+.settings/
+_ReSharper.Crazysoft OTR Remote/
+**/*.suo
+.vs/
+Help/

@@ -70,18 +70,20 @@ namespace Crazysoft.OTRRemote
         {
             Assembly pluginAssembly = Assembly.LoadFrom(filename);
 
-            foreach (Type pluginType in pluginAssembly.GetTypes())
+            try
             {
-                if (pluginType.IsPublic)
+                foreach (Type pluginType in pluginAssembly.GetTypes())
                 {
-                    if (!pluginType.IsAbstract)
+                    if (pluginType.IsPublic)
                     {
-                        Type typeInterface = pluginType.GetInterface("Crazysoft.OTRRemote.IPlugin", true);
-
-                        if (typeInterface != null)
+                        if (!pluginType.IsAbstract)
                         {
-                            Plugin plugin = new Plugin();
-                            plugin.Instance = (IPlugin)Activator.CreateInstance(pluginAssembly.GetType(pluginType.ToString()));
+                            Type typeInterface = pluginType.GetInterface("Crazysoft.OTRRemote.IPlugin", true);
+
+                            if (typeInterface != null)
+                            {
+                                Plugin plugin = new Plugin();
+                                plugin.Instance = (IPlugin) Activator.CreateInstance(pluginAssembly.GetType(pluginType.ToString()));
 
 #if !DEBUG
                             try
@@ -97,10 +99,15 @@ namespace Crazysoft.OTRRemote
                                 ShowPluginError(plugin.PluginPath, excp);
                             }
 #endif
-                            return plugin;
+                                return plugin;
+                            }
                         }
                     }
                 }
+            }
+            catch (TypeLoadException e)
+            {
+                throw new InvalidOperationException("Error getting types from assembly", e);
             }
 
             PluginInterop.WriteDebugLog("AddPlugin()", "Assembly is no valid OTR Remote plugin file");

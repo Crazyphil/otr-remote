@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRecordingPreview));
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblHeader = new System.Windows.Forms.Label();
@@ -54,9 +55,11 @@
             this.lblSeriesRecording = new System.Windows.Forms.Label();
             this.lblRecordingCount = new System.Windows.Forms.Label();
             this.lblNumberHelp = new System.Windows.Forms.Label();
+            this.epErrors = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlHeader.SuspendLayout();
             this.gbSeries.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSeriesDays)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epErrors)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -67,7 +70,7 @@
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(358, 68);
-            this.pnlHeader.TabIndex = 2;
+            this.pnlHeader.TabIndex = 0;
             // 
             // lblHeader
             // 
@@ -86,7 +89,7 @@
             this.lblIntroduction.Location = new System.Drawing.Point(12, 91);
             this.lblIntroduction.Name = "lblIntroduction";
             this.lblIntroduction.Size = new System.Drawing.Size(334, 28);
-            this.lblIntroduction.TabIndex = 3;
+            this.lblIntroduction.TabIndex = 1;
             this.lblIntroduction.Text = "Add/Remove recording to/from OTR using following data:";
             // 
             // lblTitle
@@ -95,7 +98,7 @@
             this.lblTitle.Location = new System.Drawing.Point(12, 132);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(30, 13);
-            this.lblTitle.TabIndex = 4;
+            this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "Title:";
             // 
             // tbTitle
@@ -103,14 +106,14 @@
             this.tbTitle.Location = new System.Drawing.Point(90, 129);
             this.tbTitle.Name = "tbTitle";
             this.tbTitle.Size = new System.Drawing.Size(256, 20);
-            this.tbTitle.TabIndex = 5;
+            this.tbTitle.TabIndex = 3;
             // 
             // tbStation
             // 
             this.tbStation.Location = new System.Drawing.Point(90, 184);
             this.tbStation.Name = "tbStation";
             this.tbStation.Size = new System.Drawing.Size(256, 20);
-            this.tbStation.TabIndex = 7;
+            this.tbStation.TabIndex = 6;
             // 
             // lblStation
             // 
@@ -118,7 +121,7 @@
             this.lblStation.Location = new System.Drawing.Point(12, 187);
             this.lblStation.Name = "lblStation";
             this.lblStation.Size = new System.Drawing.Size(43, 13);
-            this.lblStation.TabIndex = 6;
+            this.lblStation.TabIndex = 5;
             this.lblStation.Text = "Station:";
             // 
             // dtpStartDate
@@ -135,7 +138,7 @@
             this.lblStartDate.Location = new System.Drawing.Point(12, 216);
             this.lblStartDate.Name = "lblStartDate";
             this.lblStartDate.Size = new System.Drawing.Size(58, 13);
-            this.lblStartDate.TabIndex = 9;
+            this.lblStartDate.TabIndex = 7;
             this.lblStartDate.Text = "Start Date:";
             // 
             // lblStartTime
@@ -144,7 +147,7 @@
             this.lblStartTime.Location = new System.Drawing.Point(12, 242);
             this.lblStartTime.Name = "lblStartTime";
             this.lblStartTime.Size = new System.Drawing.Size(58, 13);
-            this.lblStartTime.TabIndex = 11;
+            this.lblStartTime.TabIndex = 9;
             this.lblStartTime.Text = "Start Time:";
             // 
             // dtpStartTime
@@ -163,7 +166,7 @@
             this.lblEndTime.Location = new System.Drawing.Point(206, 242);
             this.lblEndTime.Name = "lblEndTime";
             this.lblEndTime.Size = new System.Drawing.Size(55, 13);
-            this.lblEndTime.TabIndex = 13;
+            this.lblEndTime.TabIndex = 11;
             this.lblEndTime.Text = "End Time:";
             // 
             // dtpEndTime
@@ -181,7 +184,7 @@
             this.tbGenre.Location = new System.Drawing.Point(90, 262);
             this.tbGenre.Name = "tbGenre";
             this.tbGenre.Size = new System.Drawing.Size(256, 20);
-            this.tbGenre.TabIndex = 15;
+            this.tbGenre.TabIndex = 14;
             // 
             // lblGenre
             // 
@@ -189,7 +192,7 @@
             this.lblGenre.Location = new System.Drawing.Point(12, 265);
             this.lblGenre.Name = "lblGenre";
             this.lblGenre.Size = new System.Drawing.Size(39, 13);
-            this.lblGenre.TabIndex = 14;
+            this.lblGenre.TabIndex = 13;
             this.lblGenre.Text = "Genre:";
             // 
             // btnOK
@@ -223,7 +226,7 @@
             this.gbSeries.Location = new System.Drawing.Point(12, 298);
             this.gbSeries.Name = "gbSeries";
             this.gbSeries.Size = new System.Drawing.Size(334, 76);
-            this.gbSeries.TabIndex = 18;
+            this.gbSeries.TabIndex = 15;
             this.gbSeries.TabStop = false;
             this.gbSeries.Text = "Series Recording";
             // 
@@ -233,7 +236,7 @@
             this.lblSeriesTime.Location = new System.Drawing.Point(6, 48);
             this.lblSeriesTime.Name = "lblSeriesTime";
             this.lblSeriesTime.Size = new System.Drawing.Size(84, 13);
-            this.lblSeriesTime.TabIndex = 4;
+            this.lblSeriesTime.TabIndex = 3;
             this.lblSeriesTime.Text = "to the same time";
             // 
             // lblSeriesDays
@@ -242,7 +245,7 @@
             this.lblSeriesDays.Location = new System.Drawing.Point(238, 22);
             this.lblSeriesDays.Name = "lblSeriesDays";
             this.lblSeriesDays.Size = new System.Drawing.Size(29, 13);
-            this.lblSeriesDays.TabIndex = 3;
+            this.lblSeriesDays.TabIndex = 2;
             this.lblSeriesDays.Text = "days";
             // 
             // nudSeriesDays
@@ -255,7 +258,7 @@
             0});
             this.nudSeriesDays.Name = "nudSeriesDays";
             this.nudSeriesDays.Size = new System.Drawing.Size(45, 20);
-            this.nudSeriesDays.TabIndex = 2;
+            this.nudSeriesDays.TabIndex = 1;
             this.nudSeriesDays.ValueChanged += new System.EventHandler(this.cbSeriesRule_SelectedIndexChanged);
             // 
             // cbSeriesRule
@@ -265,7 +268,7 @@
             this.cbSeriesRule.Location = new System.Drawing.Point(96, 45);
             this.cbSeriesRule.Name = "cbSeriesRule";
             this.cbSeriesRule.Size = new System.Drawing.Size(171, 21);
-            this.cbSeriesRule.TabIndex = 1;
+            this.cbSeriesRule.TabIndex = 4;
             this.cbSeriesRule.SelectedIndexChanged += new System.EventHandler(this.cbSeriesRule_SelectedIndexChanged);
             // 
             // lblSeriesRecording
@@ -283,7 +286,7 @@
             this.lblRecordingCount.Location = new System.Drawing.Point(12, 399);
             this.lblRecordingCount.Name = "lblRecordingCount";
             this.lblRecordingCount.Size = new System.Drawing.Size(149, 13);
-            this.lblRecordingCount.TabIndex = 19;
+            this.lblRecordingCount.TabIndex = 18;
             this.lblRecordingCount.Text = "2 recordings will be processed";
             // 
             // lblNumberHelp
@@ -291,8 +294,12 @@
             this.lblNumberHelp.Location = new System.Drawing.Point(87, 152);
             this.lblNumberHelp.Name = "lblNumberHelp";
             this.lblNumberHelp.Size = new System.Drawing.Size(259, 29);
-            this.lblNumberHelp.TabIndex = 20;
+            this.lblNumberHelp.TabIndex = 4;
             this.lblNumberHelp.Text = "Numbers enclosed with { } are incremented with each series recording.";
+            // 
+            // epErrors
+            // 
+            this.epErrors.ContainerControl = this;
             // 
             // FrmRecordingPreview
             // 
@@ -330,6 +337,7 @@
             this.gbSeries.ResumeLayout(false);
             this.gbSeries.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSeriesDays)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epErrors)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -362,5 +370,6 @@
         private System.Windows.Forms.Label lblSeriesTime;
         private System.Windows.Forms.Label lblRecordingCount;
         private System.Windows.Forms.Label lblNumberHelp;
+        private System.Windows.Forms.ErrorProvider epErrors;
     }
 }

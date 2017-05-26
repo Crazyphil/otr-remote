@@ -30,7 +30,7 @@ namespace Crazysoft.OTRRemote
             // About
             lblProductName.Text = Application.CompanyName + " " + Application.ProductName;
             lblVersion.Text = String.Format(Lang.OTRRemote.FrmPreferences_lblVersion, Application.ProductVersion);
-            lblCopyright.Text = String.Format(Lang.OTRRemote.FrmPreferences_lblCopyright, "© Crazysoft 2006-2008");
+            lblCopyright.Text = String.Format(Lang.OTRRemote.FrmPreferences_lblCopyright, "© Crazysoft 2006-2013");
 
             // Update Link
             llblUpdate.LinkArea = new LinkArea(0, llblUpdate.Text.Length);
@@ -112,9 +112,14 @@ namespace Crazysoft.OTRRemote
                 {
                     cbRecordingPreview.Checked = Convert.ToBoolean(Program.Settings["Program"]["RecordingPreview"].Value);
                 }
-                if (!Program.Settings["Program"]["Recordi"].IsNull)
+                cbSilentDelete.Enabled = !cbRecordingPreview.Checked;
+                if (!Program.Settings["Program"]["RecordFollowing"].IsNull)
                 {
                     cbRecordFollowing.Checked = Convert.ToBoolean(Program.Settings["Program"]["RecordFollowing"].Value);
+                }
+                if (!Program.Settings["Program"]["SilentDelete"].IsNull)
+                {
+                    cbSilentDelete.Checked = Convert.ToBoolean(Program.Settings["Program"]["SilentDelete"].Value);
                 }
                 if (!Program.Settings["Program"]["RetryDelete"].IsNull)
                 {
@@ -250,6 +255,7 @@ namespace Crazysoft.OTRRemote
             Program.Settings["Program"].Keys.Add("AdjustStartTime", cbAdjustStartTime.Checked);
             Program.Settings["Program"].Keys.Add("RecordingPreview", cbRecordingPreview.Checked);
             Program.Settings["Program"].Keys.Add("RecordFollowing", cbRecordFollowing.Checked);
+            Program.Settings["Program"].Keys.Add("SilentDelete", cbSilentDelete.Checked);
             Program.Settings["Program"].Keys.Add("RetryDelete", cbRetryDelete.Checked);
             Program.Settings["Program"].Keys.Add("EnableAutoUpdate", cbAutoUpdate.Checked);
             Program.Settings["Program"].Keys.Add("LastAutoUpdate", lblLastUpdate.Tag);
@@ -289,6 +295,15 @@ namespace Crazysoft.OTRRemote
             Program.Settings.Save();
 
             this.Close();
+        }
+
+        private void cbRecordingPreview_CheckedChanged(object sender, EventArgs e)
+        {
+            cbSilentDelete.Enabled = !cbRecordingPreview.Checked;
+            if (!cbSilentDelete.Enabled)
+            {
+                cbSilentDelete.Checked = false;
+            }
         }
 
         private void rbCustomProxy_CheckedChanged(object sender, EventArgs e)
@@ -355,7 +370,7 @@ namespace Crazysoft.OTRRemote
         {
             try
             {
-                ProcessStartInfo homepage = new ProcessStartInfo("http://www.crazysoft.net.ms/");
+                ProcessStartInfo homepage = new ProcessStartInfo("http://www.crazysoft-software.tk/");
                 homepage.ErrorDialog = true;
                 Process.Start(homepage);
             }

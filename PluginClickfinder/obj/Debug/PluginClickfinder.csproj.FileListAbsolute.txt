@@ -1,12 +1,24 @@
 F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\Clickfinder.dll
 F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\Clickfinder.pdb
 F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\de\Clickfinder.resources.dll
-F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinder\obj\Debug\ResolveAssemblyReference.cache
-F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinder\obj\Debug\PluginClickfinder.csproj.GenerateResource.Cache
-F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinder\obj\Debug\de\Clickfinder.resources.dll
-F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinder\obj\Debug\Clickfinder.dll
-F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinder\obj\Debug\Clickfinder.pdb
 F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinder\obj\Debug\Crazysoft.OTRRemote.FrmHowTo.resources
 F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinder\obj\Debug\Crazysoft.OTRRemote.Lang.Clickfinder.resources
 F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinder\obj\Debug\Crazysoft.OTRRemote.Properties.Resources.resources
 F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinder\obj\Debug\Crazysoft.OTRRemote.Lang.Clickfinder.de.resources
+F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinder\obj\Debug\de\Clickfinder.resources.dll
+F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinder\obj\Debug\Clickfinder.dll
+F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinder\obj\Debug\Clickfinder.pdb
+F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinder\obj\Debug\PluginClickfinder.csprojResolveAssemblyReference.cache
+F:\Programmierung\PiKaSoft OTR Remote\PluginClickfinder\obj\Debug\PluginClickfinder.csproj.GenerateResource.Cache
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\Clickfinder.dll
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\Clickfinder.pdb
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\de\Clickfinder.resources.dll
+F:\Programmierung\Crazysoft OTR Remote\PluginClickfinder\obj\Debug\PluginClickfinder.csprojResolveAssemblyReference.cache
+F:\Programmierung\Crazysoft OTR Remote\PluginClickfinder\obj\Debug\Crazysoft.OTRRemote.FrmHowTo.resources
+F:\Programmierung\Crazysoft OTR Remote\PluginClickfinder\obj\Debug\Crazysoft.OTRRemote.Lang.Clickfinder.resources
+F:\Programmierung\Crazysoft OTR Remote\PluginClickfinder\obj\Debug\Crazysoft.OTRRemote.Properties.Resources.resources
+F:\Programmierung\Crazysoft OTR Remote\PluginClickfinder\obj\Debug\Crazysoft.OTRRemote.Lang.Clickfinder.de.resources
+F:\Programmierung\Crazysoft OTR Remote\PluginClickfinder\obj\Debug\PluginClickfinder.csproj.GenerateResource.Cache
+F:\Programmierung\Crazysoft OTR Remote\PluginClickfinder\obj\Debug\de\Clickfinder.resources.dll
+F:\Programmierung\Crazysoft OTR Remote\PluginClickfinder\obj\Debug\Clickfinder.dll
+F:\Programmierung\Crazysoft OTR Remote\PluginClickfinder\obj\Debug\Clickfinder.pdb

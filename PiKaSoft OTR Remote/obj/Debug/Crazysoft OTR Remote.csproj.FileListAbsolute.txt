@@ -1,22 +1,41 @@
-F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\OTRRemote.exe
-F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\OTRRemote.pdb
 F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\OTRRemote.exe
 F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\OTRRemote.pdb
-F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\Crazysoft.AppSettings.pdb
-F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\ResolveAssemblyReference.cache
-F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft OTR Remote.csproj.GenerateResource.Cache
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\de\OTRRemote.resources.dll
 F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\Crazysoft.AppSettings.dll
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\Crazysoft.AppSettings.pdb
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\OTRAPI.pdb
 F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft.OTRRemote.FrmHelp.resources
 F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft.OTRRemote.FrmLogin.resources
 F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft.OTRRemote.FrmMain.resources
 F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft.OTRRemote.FrmPreferences.resources
 F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft.OTRRemote.FrmProgress.resources
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft.OTRRemote.FrmRecordingPreview.resources
 F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft.OTRRemote.FrmStations.resources
 F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft.OTRRemote.Lang.OTRRemote.resources
 F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft.OTRRemote.ListViewEx.SubItemEventArgs.resources
 F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft.OTRRemote.Resources.resources
-F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\de\OTRRemote.resources.dll
 F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft.OTRRemote.Lang.OTRRemote.de.resources
 F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\de\OTRRemote.resources.dll
-F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\OTRAPI.pdb
-F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft.OTRRemote.FrmRecordingPreview.resources
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\OTRRemote.exe
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\OTRRemote.pdb
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft OTR Remote.csprojResolveAssemblyReference.cache
+F:\Programmierung\PiKaSoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft OTR Remote.csproj.GenerateResource.Cache
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\OTRRemote.exe
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\OTRRemote.pdb
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\bin\Debug\de\OTRRemote.resources.dll
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft OTR Remote.csprojResolveAssemblyReference.cache
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft.OTRRemote.FrmHelp.resources
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft.OTRRemote.FrmLogin.resources
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft.OTRRemote.FrmMain.resources
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft.OTRRemote.FrmPreferences.resources
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft.OTRRemote.FrmProgress.resources
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft.OTRRemote.FrmRecordingPreview.resources
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft.OTRRemote.FrmStations.resources
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft.OTRRemote.Lang.OTRRemote.resources
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft.OTRRemote.ListViewEx.SubItemEventArgs.resources
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft.OTRRemote.Resources.resources
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft.OTRRemote.Lang.OTRRemote.de.resources
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\Crazysoft OTR Remote.csproj.GenerateResource.Cache
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\de\OTRRemote.resources.dll
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\OTRRemote.exe
+F:\Programmierung\Crazysoft OTR Remote\PiKaSoft OTR Remote\obj\Debug\OTRRemote.pdb
